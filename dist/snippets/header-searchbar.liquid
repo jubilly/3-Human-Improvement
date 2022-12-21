@@ -2,29 +2,54 @@
 <div class="{% if mobile %}mobile{% else %}no-mobile{% endif %} header__search__form__wrapper">
   <form id="search-form" action="/search" method="get" class="header__search__form">
     <input type="hidden" name="type" value="product,{{ settings.enable_products_pages_article }}">
-    <input class="header__search__input" aria-label="search-text" type="text" class="search-text" name="q" id="Search-{{ search_id }}" value="{{ search.terms | escape }}" placeholder="{{ section.settings.header_searchbar_placeholder }}" required>
-    
-    <button id="SearchButton" type="submit" class="button">{{ 'general.search.submit' | t }}</button>
-    
+    <input
+      class="header__search__input"
+      aria-label="search-text"
+      type="text"
+      class="search-text"
+      name="q"
+      id="Search-{{ search_id }}"
+      value="{{ search.terms | escape }}"
+      placeholder="{{ section.settings.header_searchbar_placeholder }}"
+      required
+    >
+
+    <button id="SearchButton" type="submit" class="button">
+      <svg
+        class="search-button__icon"
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.7153 8.10444C3.64333 8.10444 2.80684 7.70334 2.24245 7.13566C1.65332 6.5431 1.19238 5.70718 1.19238 4.82541C1.19238 4.09675 1.22177 3.81546 1.51771 3.1454L1.8231 2.6378C1.88191 2.55919 1.93576 2.4778 1.99873 2.40694C2.19187 2.18961 2.40373 1.99866 2.63608 1.82482C3.10233 1.47596 3.83943 1.19409 4.4443 1.19409C5.11791 1.19409 5.54106 1.22509 6.14258 1.52827C8.38159 2.65677 8.71523 5.47325 7.09338 7.0951C6.59013 7.59835 5.71144 8.10444 4.7153 8.10444ZM0 4.63572C0 4.95988 0.0552694 5.34021 0.12373 5.65016C0.30836 6.48604 0.752342 7.30042 1.33464 7.88088C2.64234 9.18445 4.51964 9.62511 6.2641 8.97576C6.57518 8.85996 6.91581 8.6884 7.18135 8.51094L7.47944 8.32123L11.1717 12L11.9986 11.1873L8.31281 7.48785C8.34315 7.39262 8.34948 7.41547 8.40011 7.34495L8.66346 6.93082C9.39399 5.6208 9.49721 3.98235 8.8257 2.63907C8.55473 2.09703 8.39493 1.88325 8.02787 1.48574C7.7382 1.17204 7.64152 1.09083 7.2783 0.826132C7.02299 0.640081 6.81881 0.546213 6.54902 0.417252C4.80259 -0.417587 2.67278 0.052395 1.36172 1.36344C0.977859 1.74732 0.769013 2.07115 0.520479 2.52755C0.209868 3.09791 0 3.95527 0 4.63572Z" fill="black"/>
+      </svg>
+      {{ 'general.search.submit' | t }}
+    </button>
+
     <!-- start search-suggestions -->
-    <div class="search-results-wrapper{% if settings.enable_page_post_suggestion %} w-80 {% endif %}" style="display: none;">
-      <div class="close-suggestions"><span class="search__terms"></span> {% render 'icon-close' %} </div>
+    <div
+      class="search-results-wrapper{% if settings.enable_page_post_suggestion %} w-80 {% endif %}"
+      style="display: none;"
+    >
+      <div class="close-suggestions"><span class="search__terms"></span> {% render 'icon-close' %}</div>
 
       <div class="suggestion-half-to-half-flex">
         <div class="search-results {% if settings.enable_page_post_suggestion == false %} w-100 {% endif %}"></div>
         {% if settings.enable_page_post_suggestion %}
-        <div class="search-content-container">
-          <div class="search-results-pages-wrapper">
-            <p class="search-section-title">Pages & Posts</p>
-            <div class="search-results-pages"></div>
+          <div class="search-content-container">
+            <div class="search-results-pages-wrapper">
+              <p class="search-section-title">Pages & Posts</p>
+              <div class="search-results-pages"></div>
+            </div>
           </div>
-        </div>
         {% endif %}
       </div>
-      
+
       <div class="search-link-wrapper"></div>
     </div>
   </form>
 </div>
 
-{%- render "search-suggestions" -%}
+{%- render 'search-suggestions' -%}

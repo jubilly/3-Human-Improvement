@@ -911,11 +911,30 @@
               */
               updateBtnAdd(item_count) {
                   jQuery('#cart-count .header__cart__count').html(item_count);
+                  if (item_count > 0) {
+                    if (!jQuery('#cart-count .custom-svg').hasClass('hasItems')) {
+                      jQuery('#cart-count .custom-svg').addClass('hasItems')
+                    }
+                    if (jQuery('#cart-count .custom-svg').hasClass('noItems')) {
+                      console.log('tem itens, tem classe noItems')
+                      jQuery('#cart-count .custom-svg').removeClass('noItems');
+                    }
+                  }else {
+                    if (!jQuery('#cart-count .custom-svg').hasClass('noItems')) {
+                      jQuery('#cart-count .custom-svg').addClass('noItems')
+                    }
+                    if (jQuery('#cart-count .custom-svg').hasClass('hasItems')) {
+                      jQuery('#cart-count .custom-svg').removeClass('hasItems')
+                    }
+                  }
 
-                  if (item_count > 1)
-                      jQuery('.jq_qtd_bt_proceed').html(item_count + ' Items');
-                  else
-                      jQuery('.jq_qtd_bt_proceed').html(item_count + ' Item');
+                  
+                  if (item_count > 1) {
+                    jQuery('.jq_qtd_bt_proceed').html(item_count + ' Items');
+                  }
+                  else {
+                    jQuery('.jq_qtd_bt_proceed').html(item_count + ' Item');
+                  }
               },
 
               /**

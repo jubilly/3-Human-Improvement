@@ -6,9 +6,9 @@
     "cross_sell_quantity_products": "4",
     "show_price": true,
     "disable_shippingbar_text_email": false,
-    "text_email": "support@store.com",
+    "text_email": "Info@Buyhi.Co",
     "disable_shippingbar_phone": false,
-    "text_tel": "(000)000-0000",
+    "text_tel": "+1(310)888-8888",
     "link-facebook": "https:\/\/facebook.com",
     "link-instagram": "https:\/\/instagram.com",
     "link-twitter": "https:\/\/twitter.com",
@@ -23,9 +23,10 @@
     "breadcrumb_position": "above",
     "bredcrumb_font_size": 13,
     "enable_out_of_stock_button": false,
-    "enable_custom_style": false,
-    "enable_custom_scripts": false,
+    "enable_custom_style": true,
+    "enable_custom_scripts": true,
     "favicon": "shopify:\/\/shop_images\/vasta_logo_58ebbcf3-e461-41a6-ae18-1a992556c87d.png",
+    "vasta_wrapper_width": 1200,
     "recently_viewed_section_title_text_transform": "uppercase",
     "enable_button_to_the_top": true,
     "general_font": "mono",
@@ -185,41 +186,24 @@
             "type": "discount-style",
             "settings": {
               "shipping_bar_type_freeshipping": "shipping_bar_free_price",
-              "free_shipping_background_color": "#26b522",
-              "free_shipping_text_color": "#ffffff",
+              "free_shipping_background_color": "rgba(0,0,0,0)",
+              "free_shipping_text_color": "#000000",
               "shipping_bar_free_shipping_before": "WE PAY SHIPPING ON ORDERS OVER",
               "shipping_bar_free_shipping_after": "",
               "shipping_bar_freeshipping_text": "Congratulations! We'll Pay Your Shipping",
-              "shipping_bar_value_discount": 100,
+              "shipping_bar_value_discount": 65,
               "shipping_bar_free_qtd_range": 6
-            }
-          },
-          "e39df0af-04ca-4051-b2b1-680d89698615": {
-            "type": "info-style",
-            "settings": {
-              "shipping_bar_info_text": "WE PAY SHIPPING ON ORDERS OVER X USD"
-            }
-          },
-          "77726d5f-dd3d-4a65-990e-b5e03f6ee531": {
-            "type": "sections-style",
-            "settings": {
-              "line_color": "#ededed",
-              "shipping-bar_text-left-section": "Help",
-              "shipping-bar_text-middle-section": "Track",
-              "shipping-bar_text-right-section": "Safe"
             }
           }
         },
         "block_order": [
-          "c257f64c-7f66-4038-9574-29a883d9184b",
-          "e39df0af-04ca-4051-b2b1-680d89698615",
-          "77726d5f-dd3d-4a65-990e-b5e03f6ee531"
+          "c257f64c-7f66-4038-9574-29a883d9184b"
         ],
         "settings": {
           "enable_link_shippingbar_text_email": true,
           "enable_link_shippingbar_text_phone": true,
-          "background_color": "#383838",
-          "text_color": "#ffffff",
+          "background_color": "#f8f8f8",
+          "text_color": "#000000",
           "shipping_bar_style": "dicount_style",
           "position": false,
           "enable_discount_in_cart": true,
@@ -231,26 +215,25 @@
       "header": {
         "type": "header",
         "settings": {
-          "shop_logo": "shopify:\/\/shop_images\/vasta_logo.png",
           "enable_svg_logo": true,
-          "logo_svg_html": "<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 2847.8 811.1\" style=\"enable-background:new 0 0 2847.8 811.1; \" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<style type=\"text\/css\">\n\t.st0{fill:#211915;}\n<\/style>\n<path class=\"st0\" d=\"M1887.8,71.5V143h-193.4c-127.1,0-196.9,0.4-203.7,1c-70.6,7.2-130.9,48.8-162.6,112.5\n\tc-18.9,37.9-24.9,85.7-16.2,129c6.4,31.6,22.1,63.8,43.8,89.6c26.7,32,66.3,56.3,106.8,65.8c21,4.9,24.7,5.1,108.8,5.1\n\tc43.5,0,82.7,0.4,87.2,1c27.5,3.1,49.4,21.9,55.9,48c1.2,4.8,1.5,9.3,1.2,17.5s-1,12.2-3.6,19c-7.6,19.1-23.9,33.4-43.8,38.5\n\tc-3.9,1.1-7.9,1.7-12,2c-4.1,0-4.3,0.2-4.7,3.2l-0.4,3.3v-3.3l-0.2-3.2h-378.1V143h-152v66.1l-10.7-7.4\n\tc-115.8-79.6-271-77.7-384.5,4.6c-7,5-16.1,12-20.3,15.5s-7.3,5.7-6.6,4s8.6-20.2,18-42.1s17.1-40.1,17.1-40.3s-39.3-0.4-87.4-0.4\n\tH559l-18,45.2c-9.8,24.9-53.2,134.3-96.2,243.1s-78.7,197.4-79.1,197S322.6,519,270.8,386.4s-94.5-241.6-94.9-242.3\n\ts-23.7-1-88.3-0.9L0,143.5L141.3,477l141.4,333.5h165.2l69.2-161.2l69.2-161.2l1.2,14.8c14.3,177.8,165.2,313.3,342.8,307.8\n\tc64.2-2,122.8-20.5,175.3-55.3l15.2-10.1V811l277.3-0.3c306.2-0.3,280.1,0.3,306.2-6.3c72-18.3,129.8-78,145.9-150.5\n\tc4-18.3,4.9-29,4.3-50.7c-0.7-25.7-3.8-42.1-12.3-64.9c-22.5-60.2-74.9-107.7-136.6-123.7c-23.7-6.2-19.6-5.9-116.3-6.6\n\tc-78-0.5-89.7-0.8-94.5-2.2c-28.2-8.4-46.3-30.1-47.8-57.4c-1.6-30.6,18-56.7,48.5-64.5c7.4-1.8,12.7-1.9,199.9-1.9h192.3l0.3,169.2\n\tl0.3,169.3l2.7,13.5c8.8,43.7,27.8,80.5,57.8,111.3c32.9,34,70,53.7,118,62.9c11.3,2.1,13.3,2.2,120.3,2.5l108.7,0.4V745l10.8,7.4\n\tc46,31.4,96.8,50.2,153.7,56.8c16.2,1.9,59.7,1.6,76-0.6c54.6-7.1,104.2-25.8,148.8-56.2l10.7-7.4v53h152V156h-152l-0.2,26.4\n\tl-0.3,26.3l-14.5-9.6c-46-30.5-93.1-47.4-150.5-54.3c-13.4-1.6-55.2-1.5-69.5,0.1c-78.3,8.8-146.5,41.5-201.6,96.5\n\tc-21.2,21.3-35.7,39.8-50.9,65.1c-51.5,85.5-61.2,191.7-26.3,286.5c8.6,23.4,26.2,56.8,40.4,76.8l1.6,2.2h-63.9\n\tc-54.4,0-64.8-0.2-69.8-1.5c-22-5.8-38-21.8-46.8-46.8l-3.2-9.2l-0.3-166.2l-0.2-166.3l73.7-0.2l73.8-0.3v-138l-73.7-0.3l-73.8-0.2\n\tV0h-152V71.5z M949.9,283.5c36.2,4.7,70.5,19.3,98.9,42.2c8.8,7.1,24.6,23.3,31.1,31.8c35.6,46.5,48.7,105.1,36.3,161.4\n\tc-8.2,37.4-27.3,71.6-55,98.1c-25.5,24.6-54.5,40.8-89,49.4c-66.8,16.9-139.6-4.2-187.5-54.1c-22.3-23.3-37.3-48.9-46.5-79.1\n\tc-6.2-20.4-7.7-31.7-7.7-56.2s1.5-35.8,7.7-56.2C758.7,353.2,814,302,882.9,286.6c6.3-1.4,15-2.9,19.4-3.4\n\tC914.8,281.8,938.2,281.9,949.9,283.5z M2521.6,283.1c101.7,11,178.4,100.1,173.9,201.9c-5.5,121.1-117,207.4-236.2,182.9\n\tc-28.5-5.9-60-21-83-39.9c-9.3-7.7-25.7-24.7-32.6-34c-59-78.6-50.1-188.8,20.7-257c26.1-25.2,56.4-41.7,91.9-50.1\n\tC2477.7,282.2,2499.8,280.9,2521.6,283.1L2521.6,283.1z\"><\/path>\n<\/svg>",
+          "logo_svg_html": "<svg width=\"166\" height=\"34\" viewbox=\"0 0 166 34\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\">\n<rect width=\"166\" height=\"34\" fill=\"url(#pattern0)\"><\/rect>\n<defs>\n<pattern id=\"pattern0\" patterncontentunits=\"objectBoundingBox\" width=\"1\" height=\"1\">\n<use xlink:href=\"#image0_745_54\" transform=\"translate(-0.0063902) scale(0.0011316 0.00552486)\"><\/use>\n<\/pattern>\n<image id=\"image0_745_54\" width=\"895\" height=\"181\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAA38AAAC1CAYAAADvLEbAAAABN2lDQ1BBZG9iZSBSR0IgKDE5OTgpAAAokZWPv0rDUBSHvxtFxaFWCOLgcCdRUGzVwYxJW4ogWKtDkq1JQ5ViEm6uf\/oQjm4dXNx9AidHwUHxCXwDxamDQ4QMBYvf9J3fORzOAaNi152GUYbzWKt205Gu58vZF2aYAoBOmKV2q3UAECdxxBjf7wiA10277jTG+38yH6ZKAyNguxtlIYgK0L\/SqQYxBMygn2oQD4CpTto1EE9AqZf7G1AKcv8ASsr1fBBfgNlzPR+MOcAMcl8BTB1da4Bakg7UWe9Uy6plWdLuJkEkjweZjs4zuR+HiUoT1dFRF8jvA2AxH2w3HblWtay99X\/+PRHX82Vun0cIQCw9F1lBeKEuf1UYO5PrYsdwGQ7vYXpUZLs3cLcBC7dFtlqF8hY8Dn8AwMZP\/fNTP8gAAAAJcEhZcwAACxMAAAsTAQCanBgAAATtaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI\/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjYtYzE0OCA3OS4xNjQwMzYsIDIwMTkvMDgvMTMtMDE6MDY6NTcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMS4wIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjItMTEtMTZUMTg6MTE6MDctMDM6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIyLTEyLTAxVDIxOjEwOjQ3LTAzOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIyLTEyLTAxVDIxOjEwOjQ3LTAzOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpjZThlZjgzNS1kMDgwLTcxNGMtYjQ3Yi0zYThjNDllM2I5NTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6Y2U4ZWY4MzUtZDA4MC03MTRjLWI0N2ItM2E4YzQ5ZTNiOTU1IiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6Y2U4ZWY4MzUtZDA4MC03MTRjLWI0N2ItM2E4YzQ5ZTNiOTU1Ij4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpjZThlZjgzNS1kMDgwLTcxNGMtYjQ3Yi0zYThjNDllM2I5NTUiIHN0RXZ0OndoZW49IjIwMjItMTEtMTZUMTg6MTE6MDctMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMS4wIChXaW5kb3dzKSIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw\/eHBhY2tldCBlbmQ9InIiPz6\/SI2rAAAuH0lEQVR4nO3d7XXbuLq38T\/Omu\/WqcCaCqxdgTUVRLsCKxVEU0GUCoapIHIFW6kgdAVbruDIFTxyBXg+EHIYRy8ECBCkdP3W0ppJQgC3SIrkTYCgkTSV9EN5PVlrp5ljuGrGmJGkUtJd4qZeJU2ttZtYFRpjbKy6Av1lrS0zx+DNGFNKuvcoMsjvCQAAgMr\/5A4AvVEofeInSTeSSpdsAgAAAOgIyR9kjFlIeuiwyRtJ6w7bAwAAAK4eyd+Vcz1wywxN37ukEwAAAEAHSP5QqOqJy2HJ8E8AAACgGyR\/V8wlXl0O93zvRtI8Y\/sAAADA1SD5u27z3AFIWuQOAAAAALgGJH\/XbZ47AEm3xphJ7iAAAACAS0fyd6XckM8uXu3QxDR3AAAAAMClI\/m7XpPcAdRMcwcAAAAAXDqSv+s1yR1AzSh3AAAAAMClI\/m7XqPcAdRMcgcAAAAAXDqSP\/RBrvcMAgAAAFeD5A8AAAAArgDJH\/rgOXcAAAAAwKUj+btem9wB1OxyBwAAAABcOpK\/67XJHUBNmTsAAAAA4NL9kTsA5GGt3RpjXiTd5o5F\/UpEEYExZqzq\/Y1TSWNVM7oemtjnSVXP70ZSaa0tkwcHL8aYkX5uy4mq7XnouPEsaauE29IYM3MxTFXNWHx3YLGXehwull3sWNqq\/Ub2\/5WO\/072ntx\/t+5TStr08fs1UVsHk9rn0Pd\/VnWcKMVxAgBaMaoOvD8yx\/FkrZ1mjuHqGGNWkh4yh\/FqrR21qcAYYyPFEuqvIV6MGGNKSfceRU5+T5ckzCQtdPiivIlXSWtJS2vtNrCOXxhjJpIKz2ILa+0mRvvvufXuY2OtXTSod6Lm3\/Ps93P1LRR+jHiVtJJUtNmWLkFYqtq3QmcG\/u7iKEPjiMElrzNV592YN96eVSVGq9j7rTFmLmneZNmm5\/FanT7Hn7r9cWKVe5sCwNDQ83fdCuVP\/taZ20cExpiFqgv0tq\/tuFG1Tz4YYx5VJSm7lnWO5H+ROWrZ5imhF7znjDzqHh37B5fEF2p\/bLiR9EnSJ2PMV1UJ\/a5p4YhxSNIHSR+MMU8ujjJCnY247zFXlUinGmlx5z6f3IiOpbV2FanusRruV8aY8alE3yW\/hdqvh\/px4kkJb9YAwKXhmb8r5k6WT+eWS2yZuX20YIwZG2M2kv5R\/Pc1PkjaugtGxDU99JduXW8V\/6bQJ0kb15t4VsI47iX9MMYsI9d7kLspslX1++hqiP2tpG\/GmK0xZtpRm3vjQ39pjBkZY9aS\/qP46+Fe0n+72qYAMHQkf1hmbPsx1tA+dM9dWG4UPsSziRtJ\/3HDxJCQW8f\/Ufwkfu9WUnkuAXQX8SnjkKTPbth7EsaYScKbIk3dqkp0iw7bHL3\/Czdst1TV+5pS0m0KAJeC5O\/KueFPXzM0\/apqGBQGyCUKP9Tdhe03EsCopvU\/uHX7rYN2b3QiAXSJ3+cO4pCqIYOr2JW6dVkq7U0RH5+MMRs3\/DS1Sf0PLvHbqLt18eB6GAEAR5D8Qap6\/7p+0fp8qDPUXTt34d5FovDeN4aAxufWaZfb80bS6n0y4pKmrhK\/vYeYwwVrSXSu3r5j7tTx89Vu+67V\/br4QA8gABxH8ge5JGyuqjeuC39ba9cdtYWI3AVdmTGE35IGBJlIb9tzlaH9O9V6\/l0PUZEhDqkaLjhpW0mHvaeh7jsYAjqp\/f9K+Xo\/H7hRBACHkfxB0tvkL1OlTwC\/WmuLxG0gnbXy9mrcKF+ScEn227BQvu352SV9UpUo5NyvijaF3fOvfU789j7FSHRPGElvvcmpn\/E7hxtFAHAAyR\/e1BLAVENAPzZ5Xxl6a650rynw8VBLGhDI9VTlftXLwiVOufer+9CeotrwxpieDnxi3ZgrItVzyKj2io7cbsRz5QDwG5I\/\/KKWAMacBOZZ0r8ivncKeYQkCi\/Ro6gsE9V7TZaey6cYFTBX2LZMEcsisNxS7XotX1Udb\/8t6X+ttcZaOz3wGVlrjaS\/JH1R+G\/rPmHv3344b8jrHFIcKxb0\/gHAr0j+8Btr7c710P1L7d4D+KKqt2\/CC3ivwndJHyX96S5gjbV2vP9\/VRetfyvORd4sQh3X7twF+qN+TUhGtW35p6pt3fY9oTc63+v3pN\/3q30i9L8uxseWcUhVUjT2KeCW\/xTY3quq4+PIWruw1q6bTIJlrS2ttUtr7VjVeglJhOcBZWLV\/arf961Dx4o2Ce7eTYN4AOCqkPzhKGvtxlo7VXWh91XNhoO+ndjdyXyVLkL0xJOqC\/OZtXZ17N2N7qK1aHnRunfDhA7J7Lfn\/FhCYq3dum09VXWhnqLX5lnSX67X6+B+5W5Ura21c1XHqe8t25x5Lr8MbOdZUuvjoys\/lv\/6n7Vp94xTNxW+qPreR\/ctKVqCuzdvURYALg7JH85yF3oL14O3vyu7vzP7RdXJ+S9VF4yj\/Yk9X8To0N\/u4nzrU6h20drm+dJZi7I47NF3e7p3hU4U91nhR0lTV3fTOLbW2pmq3uVQs6YLuuGEIUOhn1V9t11A2d\/UZmv2cdvxc7Mvqob+L32\/tztWTBW+f93xjDAA\/PRH7gAwPLULsvLEYrh8H9v0XFhrd26yj43CnhGahLaNgx5dD5q32rbcqv2snc+SFqHJkbW2cM+0hSRmPhPPzAPqf5U0i\/2OU2ttaYx5lt+rFSaqtldqrZNda+3GTVBUKmz\/mirPK00AoHfo+QMQ4kuMIb2BvRZ7ud4hdomeQxO\/PbctFxFiiZEcLRQ4FNVjMpRpQPWFby+5h7Xn8pMEMbz3KmkeI9l1z40vA4tP27YPAJeC5A+Ar2dr7TJWZa4nOWjCDtfbhPYWMSpxNwTaPP\/3GCM5csnGMrD4qOFyIe+xWwWUaWqXsO5Qy5iTfbl3xIbsX+NYMQDA0JH8AfC1SFDnKkGdaObJ59m6BooWZZeRYtgnoiEThUzPLRD4qoTnhL1+UvOkdW+cIIa6F5esxRZSZ+73SAJAb5D8AfDxHDlRkPTW+xdyR38aN5KrtIpc3zqwXIrkaB25vr1xQJkycgzvjRMv76tIVO86Ub0AcBVI\/gD4WCWsu0xYN45bx6zMJXAhiXwZM46EdUphz8ttI8fwpsUENymtUlQaun8lfLE9AAwKs30C8LFOWPdG\/buAvXRPsWeedLbyn8G1jB9GsoSrDCizjhyDpLekZpWi7hZS7Vd7W\/nvX6P4YQDA8JD8AWjqJfEzS5uEdeOwTaJ6S\/k\/Z7WLHYR7BYJvsWmTepW5p9q9u26pft4wKTuon+f4ACAAyR+ApjaJ698lrh+\/2+YOYC\/Fs6SXxCV7E1XJ6VT9ftXJJncAAIDDSP4ANLVJWbl7kXPKJvC7Te4A8Cv3+pKRqkRv7D4Thb3cPJdd7gAAAIeR\/DnuuYmR++NIvz\/QX9b+fxfz3UXAQOxyBwAEeFIPhwi6JG\/sPvv\/932OrZc66MUtJX1O3AYAXKSrS\/7cCXein3dVm14U\/HKicT0Ur6runO8\/ZeJnooCcNrkDAIbIDdmcus9E\/R6yCQC4YBef\/LmT7sx9Yt\/9vXF1vtVrjHlRdVdyba1dR24PADAA7tyzUHXuuYgePQDA8F1k8ldL+Obq\/g7rrarZ1x6MMa+qpuAu+tojaIwpM4ewYAgtgEvhRpcs1cOhpgAAXFTy5066c\/Vn6usbSZ8kfTLGPEla9nBGu9wXKKPM7QNAa8aYkaRCec4\/+xuNnzK0DQAYkP\/JHUAMxpip68H6of4kfu\/dS\/phjCldzyQA4AIYY+aqXpvR9fnnWdLfqp5fX3fcNgBggAbd8+eSqELSh7yReLmX9H\/GmC+qhoPuMscDAAhkjCnUXY\/bq6pnyktVz5Vva3F0FAIAYMgGm\/wZYxaqnqsY0ruP6j5Lmhlj5jzzBgDDkzjxe1LVm7hVlext+\/rsOABgOAaX\/LnevpXyP6sWw52k0hizsNaucgcDIC33XBgugBvqGSvxe9bPHr1NYJI3jhQLAOCCDSr5M8bMVCV+Q+3tO+RG0jdjzMRau8gdDICkJrkDQHu1yV3aeFJ1PltHGv4\/iVAHAODCDSb5c8M8\/8kdR0KfjDEja+08dyAAks1CO05UL7pVKPwm5LOqV9yU0aKpTCPXBwC4QIOY7dMYs9JlJ357D+67AshrkqjeaaJ60RH36EHorJ6P1tpJ7MTPxdT1O20BAAPU++TPJUN9fX1DCg\/GmGXuIIArN05U7zRRvejOLLDcY8KRHanqBQBcmF4nf1eY+O19dpMJAMhjGrtCY8xE0m3setG5WUCZF0mLuGFU3POHSeoGAFye3iZ\/7hm\/a0z89gp3sQignW1AmVs3lC6mReT6kEfITNOxJnU5ZKHLmgQNAJBQL5M\/N6vnNTzjd8qNqpngALTQ4t1o81gxtHxODD3R4oZcGTGMNy6ezynqBgBcpt4lf7X3+EG64\/k\/IIqXgDKLiO\/lW0WqB3mNAsvtIsYg6W245yp2vQCAy9a75E\/SWgxhqfucYPgZcG02AWVuJC3bNuyGsIcMFcTlGCeocyVm+AQAeOpV8ud6uTiZ\/a7IHQAwcJvAcp\/aTL7kyl77EHZEnEDIGDMyxqwlfYhVJwDgevQm+XO9W4vMYfTVB2PMNHcQwICtW5T95jv82l2gryR9a9EuLscsxhBi94xfKRI\/AECg3iR\/qnq3GO553DJ3AMBQWWs3Cnvub++zMWZrjJmfuog3xoxdorgVE7xcol1gudYTeLn9qhSjYwAALfyROwBnIhK\/c+6NMRN3EQvA31rSpxblb1X15H0zxrzo91dIjNX8PX6v4pg3ONbajTEmtPgHN1xz0XQGWnejYa5qVMy5fWu\/T\/J8KQDgqL4kf1wENbNQxOnngStTqF3yV3er8Be2P6pKFLlIH6YnhW+7D6qSwEdVvXhba225\/8fa8P6p+\/i0Mw8oAwC4Mn0a9onzHiJOPQ9cFdfb8pg5jFcxhHvo1hHqeFDVi\/zDGGP3H0k\/3Oez\/JK4r\/UkEgCAY0j+hmeWOwBgwJaqErBs7bskdJMxBrSzyh3AO8\/W2oX7\/zJjHACAASD5G5557gCAoXKJ1zJT80\/W2sL9\/y5TDGjJWruT9CV3HM6zIr5GAgBw+Uj+hueeoZ9AOJeAdT3881m\/9tpvO24fcRVqN3tsDM+Spi4ZlSQx9BMAcE5fJnyJ7UnVnfXNkX8fqZphdKRhTps9U\/+GHgGDYa2du3emdfH7f5E0r1+ki+Rv0Ky1O2PMTNUwyxwTlj2qmjV0l6FtAMCAXUry913VSbj0fRWC60Wbus9M4TP4dWkqkj+gFWvtxL2IPeX7+H7rnXHe\/xkD4177MFW3CeCrqudGixPLtJmNFABw4YY87PNF1XMXf1prZ9baIuQdeNbanbV2ba1dWGvHkv6t6uTZZ7PcAQCXwFo7V\/WbTzEJzBdr7eRQ7wzv67wMbjtO1M0541HS+EziBwDASUNM\/l4l\/W2tHVtr9zPnReMSwamkj8o7K+ApN8aYce4ggEtgrV2reu\/eF7X\/zb+qukj\/01q7bFkXBsBau62dM2I\/B1jfn94PHT5mEzkGAMAFMaqGEP7IHEdT3\/X7szPJuARrrX4+F\/jRWrtqW4l7t1ROf7WdpOASvkMO7pm3kUeRTerfXu0l101tY98Acs9yzVT16DT57b+ouuBeS1o3XUce63\/XpKfQDWGfNGm7Jsk2dcfOsU+ZVL+hgP280fo+095c4Y8RvKgaSrp2NyZ82x+r2bpvul81re9N6uNhn\/Z1ABiaISV\/UZIdX+4kU6p\/CeDX2rudgl1C4nQJ3wH9dSZ54IISR9WSlIl+7kP7vytri+5U3UBgfwIAJDWECV9eJc1yXVy7Wd2mqk7MfZoMZpI7AOAa8HweQrlErhQvXwcA9MQQnvmb5u5VcSfwWc4YDpjkDgAAAADAcPQ9+fvYl7vuLo4vueOoyfFuKQAAAAAD1efk72uOZ\/zOKNSjGUADJscAAAAAcKX6mvy9SFrmDuI9N\/yzyBwGAAAAAHjra\/LX2escAqxyB1AzyR0AAAAAgGHoY\/L3lHuCl1PcO8W+547DGeUOAAAAAMAw9DH5W+YOoIEydwAAAAAA4KNvyd9Ln3v9asrcATjj3AEAAAAAGIa+JX9F7gCacK996MOsn+PcAQAAAAAYhr4lf+vcAXjY5A4AAAAAAJrqU\/L34iZTGYpN7gAAAAAAoKk\/cgdQU+YOwNMudwBATMaYiaSZquHE49o\/bSRtJa0HdoMGAAAANSR\/4ba5AwBiMMZMVb2\/8vbIIvfuv\/8YYx4lLXr8Hk4AAAAc0adhn9vcAXja5g4AaMsYM5P0Q8cTv\/ceJJXGmFGqmAAAAJBGn5K\/Te4AgGviErhVQNE7DeN9nAAAAKjpTfLHMDKgczNJN4FlP9H7BwAAMCx9Sf5ecgcAXKFZy\/KTCDEAAACgI31J\/ra5AwCu0Lhl+WmEGAAAANCRPs32CaBbd7kDAAAAuBTGmLEa3ly31pYpYzmG5A8AAAAA2ptL+txwWZMwjqP6MuwTAAAAAIZsnDuAc0j+gOv1nDsAAACACzLOHcA5JH\/A9dq1LF9GiAEAAAAdIfkDrte6RdnXXA8qAwAAIAzJH3C91i3KFpFiAAAAQEdI\/oArZa3dSvoYUPTZWruMGw0AAABSI\/kDrpi1dqUqAXxtWOSreLk7AADAIPGeP+DKuQRwZYyZSZqomqlqXFuklLSVtLbW7joMDQAAYEgmuQM4h+QPgCTJWrtWu+cAAQAArtlN7gDOYdgnAAAAALRgjJnkjqEJkj8AAAAAaGeaO4AmSP4AAAAAoJ157gCa4Jk\/AINijBmrurs2VTUxzf2RRV9UTVRTSipjv5TeGDOSNGsQx6ukjfvsY9nFjCW12ned1D6HnmvYf9etfn7XbeLwOmGMmR75p22K7+jam+jnJEwTnX6W5Mn9t5Tb14a2nw2dG\/JV\/4wk3Z0osj9GbfYfa+0mUXjJuWPzTD+\/\/7HvnvrYPFazc8Rgjs0Bx4NnSTtd0PHA\/b5m+rkOju1f9e8eff86xhizOhFTrxhVP44fmeN4stZOM8fgxf0QB7\/ejDE2Uiyh\/mr7w7yE75CLO5gWnsVWbobQc3XP1fAuWJP9uFbfsRP5Oa+SVpKKNhfr7re\/kPQhtA5J310cZYs6fmGMKdRslrGNtXbRsM6p2n\/XZ1XrfRX74sPjOy+brut3Sf1E50\/mX2K999Lt4zO1W991+3W\/brnPz1TtBz4a72cx5IrR\/UbmqvaX2zZ1OS+qLlqLVIlgT4\/NhapjxDawjv0+MFfPjs0hasehmXp2PDgl9nnIrYeFqu0a+vt6VTWZ3TL0e5+4+Td2n7nC4ns6v8hBi1PHB\/ebHKs6Lm1U3Wz55Rw8lWQzf0prrYb0uZT11oPvMOU7DG4\/XjasexljHao6kZSRt1mj79BBHKWkSaRt2TS2XcP9IvZ33bl9YhRx\/20a49ntrepEuepiXzrQbuHWT8z1\/f6zVuCxSlUPVkib0bZ1xH2h\/lm0aG+u6oIq5TbbSJonWFdLjxgmZ44Tm4jfd6ewY\/M0cPuf+pSSxl3tvxmOBysluHbx2A67hvtp7PWwCtmuibdFyOfgtnP7z34blG4drt163Mr9nqULSWIy\/EAvYr314Du0PvhcwncY2H68bFj3su069KzD97NRw5NA4jisWlyE1mIsm7Z3pp4i8XfdxvrNeHzn1Yk6Ri2\/c6Pfw5F2U+9Xhz6lwi5+VgFtzTs6jo0D18UooK250id9yX4zAcezg+0m3nc3TbdN4ji63IdHSn\/sPfRZKWKSqwjnIVU3WjcJv\/NO0szze3W9Xc59jv0uN+4z08+hzyNVx8iN++4jJnwB0AeT93\/hxs9\/TtjmnaTNuamZO4hDkv5x7XTi0Hc2xoyMMRtJnxI3fyvphzFmmbiduvGhv3TrYaP03\/l9u1PXbur96pB7Sf8XsP7XAW0tAsqEmAeUebQew5CNMWNjTCnpm+IM7\/Sx\/80Ubhhcl8bv\/6KjY\/P21LHZHa9SxyFJ31Ifm91w1a06Pg45D6rOg\/OuGz60L7s4SqV9du5G0n\/cENWLYYxZqFpvC1XXVD\/c5\/+purEwdYsWJH8A+mBU\/4M72T500O6NpPLYBVWHcUjSQ4cJ4Kj+B\/f9S3X7sPrnDr\/v+P1fuAvLUh1fyLsLjh9dt3vAZ2PMpmkyYa1dq3oezcedm3wjtXlAmaLpgu7ifKPwZ9pi+aTqeDXusM1f2ur42Lw+sX92FYdUHZuLFBW7ev+jvC8Gv1EHSe4Bk\/ofXOL3Td2ti08ZvnNKU1VzgZTuz0\/WWiPpL1XPjY7khvuS\/AHog\/H+f1yPRFcndcldZLz\/S3dS7jIOqbrImHfQzmT\/P5kSv72uEt5fEq3ad+7sgqvWU5Hj7v4xZ3tY3lkFtDELKNOY60X1TaSfbcPJVNzvMffFeV2jEQsRjfb\/k+HYfKvDx+aV4k2C0tQndxMgCnc8KNWv40GXNyB\/ETj5XAxdnXO7MFF1k2pv7H6zhaQXW012s5F0S\/IHoA\/G0tsJIMtQuPoJwJ3kc52Uiw7u7I\/q7Snv9NQPXQwBfbdO1+r+Yr5U9zcTmtj3fk8aLLsKqH8RUMbHPKBM0WShWk9E3\/hss7Ym0luS3Zdjc67f0SrGsNvazafcPcmHdJkATqW39bFWvhss3zq8mZLSTu9G9ejnM39T9+eRxEveAfTDyP13lTGGwt2NHSnPHci9G1WTGKQ0lrJfSNV9PjGVdixj6e07d3rRNYD3P50c\/rzn7hx\/96z7NtWFVW06fB\/7ad\/P1T1XPxO\/vRtFSkYaWnXUziFL6W1754zjRnHODSv1+3jQdQ9gofzD4IvM7cew0c8kT6qeI52rur6aub+bSHom+QPQB3fuYivnCfFG1QFyofwnoofEvX\/7uouEbfhKfSE7dv8tErbxmwxD5ULdqOqNOGcVUPc8oEwTM\/n3FqzOTfTibkT0OfHbu1P6ZGjf85bzmHjrYlgo\/\/DbVsdm9zhB10NWQ3QxHHLsfmt9OD7ed\/B9U1vp529F0tsNu6Wkpfv7B0lrkj8AfbH0WPZF1ctRnyPHsJDfMLVXF0foi1pPWSaoc2\/sZgbzuaB7OvB5jRjTrdIOERy7Xr\/OLmITDJXb7\/fvP7HcnZvYInDil3lgPCnqLU79Y20IWhuvkh4lfZT0L2utef+R9Kekf0v6qna\/ow\/ut5zS0mNZjs1HRHqc4EXVPvOXpP89sm\/9S9W+59tL\/17qRxDG8l+X9e0a8\/yjgFh6xU308l3VjaudtXbq\/r5QdawsVD3vvPwjS4RAXH9lbn+Tuf1Lceqi\/FXVXa11bSarN+4ENVV1cdCm97BJ2UcXx\/pAHCMXx0zt72bOWpY\/pUmidXKd77l1P1OcHtOFMabwmYLfw1hHXvmQ0CpCHU\/6uR12xxZyieZM1Um+Te\/IJ2PM6syEKGv5XcTeGGNmh34zodx+5zt898ndCT+lUPj6e1H13sfVuQVdHFtV63Lh7sqHtr1022wXULaJIRyb98N5e3lsjjBk9UnVvlWeW9D9djf6OZpiqbCkcz\/MdRZQtomxzp8zXlwMm2PfvXbsmzWo75RbY8y0yTruK2vtzI02+ccY84+qmzD7385X1RLcqfK\/rLDs4iWakV\/IeRHrrQff4eCLKvn0ej9eNqx7GWkfKeTxMmZVJ4Bdgn11LY+X4ao6sZUt25x5tNe2rV+2sc86r8Uwj7DuG+1fAd+5TLRfHIxX7ff\/UgHHR8V5eXzZYN\/2rXMV+dgV8h3nCY6H+0+hgN\/MgW23Dmy\/8fqNsH8EfWelPTb7xDFWh8fmlut859vWkfYnqm42hMTQ+DgUYb3uP1ud+b0m2rcP\/o7084Xp5z4r33Ub+Dm5v+vnJC+LQ8vvv1DsH6Lvp2y7Y3f9uZT11oPv0Pigwqc3+\/GyYd3LCPvHPPB7TRT3ImPVYh2vWrRbeLRTRvieO0mTlvvUSNVd5+AYOv7Ohz4bV\/eywWd6ZB3sWrS\/iPDbnrSMYZZg3Y8iHru2sferFvtT0HEqwTFj3LD+ZYv9otV3jrBfvv8UGdazV7sKu1li3T4+ibhfjRR2bC492igjbNO1WhwrWu5j25breOnTXszjhs+HYZ8A+uqjbTB86hBr7cYNBSnVfoKAR2vtPLSwtXbuht58CCg+DW03wLOqRGbXphJr7a627u8CqrgxxsxDt32gk0PGAiwUvt8F7\/d17jcwVvh2WOj0s28r+Q+7nCnCUNjAZzeLM3VOFTYLbJTtVdfimDFXN88txTg2\/zdCHI\/W2kVoYbeexwrb7hOPZRcB9b+qOh5vA8oe5I7NM1UJoM\/x6d4YM7EN343ZUqvzrfS2j81VvZ\/T122H3zUbJnwB0Eff215QuYN30TKOF8WZhGSusIfTQy7aQ7yq6unZxajM1TNV+KQPsxhxNPRVVY\/JPFLiJ4VPcPJ3zETCbYe5wva9+1OvaHBx+tY7D4jjkFlAmdWZf58H1Pk14U2KufzX7yJ+GL+JdWz+0jKO3MfmRgmjS+LnAfXPYiZ+e67OeUDRRdRADnuO1Y47lj8GFp\/EiKHPSP4A9M2r4p1oCrWbEWwZIyFydRQhZTt6+ew89oVGLfEIMY0WyHGvqnowFrGSXim4V0qqJiMpYsWx5y6054HFz5VbedZ333b2QHcx\/eBZ7Pup\/Tuwzpc2vU7nuH1y6Vnsxu1\/qbwqXgJfqB\/H5q0Ce6Mb7ssz+Y8C+GoTTjriEiPfWVBn8SP5zTzmsVjhveCTiDH0EskfgL5Zx0pE3IlkFVj8NfJd\/dC6RhFjOOR7xB6vX7jEI+Tu600HL31fJOq1mQWWm0eM4ReBF3vS+e9SJKgzRflVgjqXAWW8uJsBvgnSLH4kb1aRRwesA4vHPjYXgeXGDZaZedb5qm6G7haey6e+sfAYe6ilu44Ied3FJGYcfUTyB6Bvisj1lYHl1hFj2J+IQoZBjmLGccAicf3LwHLTiDG895hwuN40oMxjiiFe7ywDytyeGfq5lX9SOQ+Io27hufxLg5sbs4A6V55lQvm2M00Qw14Rub51x+UOanFsbsL3uc1oCfYpNux9ndP4kbwpEtW7TlTvoJH8AeiTlwR3\/9aBRcuIYbSpcxI5hrqTw+FicPWH9P5N4kbyi2WKSt0wsJAhn8u4kfzODSML6f2bnvn3lWd9d6FDmd369X0OtmiwzDRBnbGsPZe\/TfRi7ucEx4oysNw6Ygx7ZUCZ6al\/DBy9UASUCbX2XH6aIAap2rc2ieouA8qETAA0KCR\/APqkTFRvyF3dTewglO77hVp11M46oMwkcgx7KRPeaUCZFBfVx6wCykzP\/Pta3U38sggoszr1jy4R9X0max0QR5DAZ78mkcOQEhy7XA+Xb++TlObYnKLOqefyXR4LJP9tmmoCsnWievc3H9s8W3qRSP4A9MkmUb073wKJ7kTuEtQZLNWzfgeUAWVCetCaWCeqV2r2DNB768gxnFIGlJmc+sfAZ7dmAXGElHtsMIRu4lnnS8cX6JJ\/j+0kQQybBHVK1bvsvCRa\/ynqnHouXyaI4ZSNb4FEE5CVCeqs2ySuf3BI\/gD0ySZRvbtE9fra5A6gJmQIYBB3Ae7d3gAvNKYBZcrIMRzlLpp9e1qaJOGFb52+k0cEzqK6arDM2LPOjefyMew8l58kiGGboM4QIT2FTewS1Dn2XH6TIIajApPoUeQwpH6dF68CyR+APtkmqnfjuXySxKiLB\/k9lB23twkoM4ocQ6pegzY2fW\/vXBLuesl9h1bPEi\/\/0nDI5MSz3g\/GGNvlR\/6Thow8l29ik6DOkHq3CWJINdLD92bFtwz7lq9pQJmTOjgvbhPXPzgkfwB6o4cX5pdsd+HtHZK6t9N7ooAMNwQ2AWVGDZYpPOucuffrnRX4Hr5lw+UaxXDtEu6nqerNqum+jU5GoGw7aGNQSP5wNYwxI2PMzBhTGGNK99nfAdu4PxfGmHmi2dKAPtkMoL1J5Bj6prOhtx1Yy29ihRs1781rutzeq657iveLn61wACa5AwCO+SN3AEBqbrrlhU4PndnPYvV20jTGPKl6584qUWjANdkFlBlFjqGMXN8QlZI+x67UWrszxqzl10M3U7Pn8hae4aw9eqpIlABcFXr+cLGMMRNjTCnph\/yfmZCqi4Jvxpht4Pt6AOCarDyX\/3BulEXCd\/sBwFUi+cNFMsYsJP1Xce7q3kr6YYwpItQFABfJTbDiOxvj7My\/Lzzre0r4wmgAGDySP1wcY8xK0j8Jqv7kng0cJagbAC5B4bn8\/My\/zzzrW3kuDwBXheQPF8Ulfr6zwvm4k1SSAALAQSvP5e+ODf0MeLffK89oA8BpJH+4GB0kfnt3YuIIAMM0TVm5m2jl0bPY4sjfzzzrWXkuL6V7aTgA9BKzfeIiGGPm6ibx27szxhTW2kWHbQIxTdXtTYxpQJkycgx9c6kzTa7kP+vnov4Xge\/2KzyXl6p3gPn0Lr6I94bhvF1AmefAcl3a5g4A7ZH8YfDcRUKRoelPxpi1m+QAGJpxx+2NOm4vh2d5zkxpjBlba7dpwjloElBm57OwtbY0xryoeVJ1a4yZvjuWznzalPS9o\/W45qYfzrHWbowxvsUWXE9cF2PMJMcEVQz7xCUoVL0wOIdlpnaBtiYDaG8XOYbUdgFlJpFjiN5e4MXJynP5+bs\/LxK3t7f1XH4S2A5wziR3AOjcKEejJH8YNDdRQJfDPd+75x2AGKijE23E5nrnvYc4DnDK\/k1AmWnkGI5y29tniKMU\/kzcynP52f5\/At7t92KtXXu2t7f1XP5Sh+oivmfP5acpggDeI\/nD0M1zByD\/O9RAX8w6amcaUGaIE3FsA8rMIscQu61NSENuCOZ3jyI37tltqbtePyng+7lZSIFztp7LTxPEAPyG5A9DN88dgKQPvPoBA7XoqJ15QJlN5Bi6sAkoc9vh6IFFQJlNi\/ZWnsvP3v03VTt1m4Aysxbt4XpsPJe\/4cbC1ZnkaJTkD4MVOIQplWnuAIAAt6kvNtzv9ENA0U3cSNJrMVnDMmIYB7kEM+R4uQ5t0w3F9OnB\/eB6\/3zifGwz0Ysr++pZ7KGrIdMYtDKgzCJyDOi3SY5GSf4wZJPcAdRMcgcABCoS91yvAsutI8bQJZ+hjnv3HdzxXwWUeY3w3KVvu0Xi+g9ZB5RZRmj3JGPM3BhjAz7j1LHhPHczyPfGQifzCBhjyoD9qkwd1wUoPZefJojhLJI\/DNkkdwA109wBAIFulehC1vXihEyQESPpyKUMLLdKlYQbYwp13OtXs\/Jc3mfm5pdIU+OH1PGQ8iLd7QvLgKLPHb86BKetA8okOxZIb6MAQo7L66iBQOp22P8bkj8AwKfaZBtRGGMmCn\/\/5jpaIN1bBZa7kVTGvuhz2\/VTYPGibfsuEXlqW88RRYxKrLUr+ffQSNI64UX6UmEJ+ypuGGhpHVDmVoneXez211Vg8XW0QC7XNqBM0mT\/EJI\/DNkkdwDABflmjFnEqMjdySwV\/v7NIkYcOVhrd5IeA4vfKWIC6Lbnt8DiTxF7X1eR6ql7jVzvOqBM3xL22OsELQU897r3YIxZxY1GUnVsDbmp8J0e5fMC19GtpG3sG7CnkPxhyHa5AwAuzD\/GmODeDGPMyBizlPRD4Ynf84CHfO6tWpS9U8sLAWPM2D2f80+LOIoWZX\/RomftlLVLtGNZBpbbb69pjCBaJuyx1wniWAWWe3DP5o3aBuCOzWuFvxe5aBvDFfF9v6NUnS+\/7Z+tNMasjDHLE59xmwBJ\/jBk29wBABfog6qL2aLpCcYlG0tVM3R+btl+0bJ8du45tDZDHfcXAls36ceoSSFjzMz1Fvyf2r2M\/KnFS9OPWUWur4hZmbtjH9pjeyPph7tgG4dUECFhfxUzRfZVofCbH\/eqjsfLFjfl5qqOzSGzLkvV8aAMLHuNNi3L36tK0j+f+IzbNPBHu\/gAONvcAQAR3agadvbJGPOsagjnTj8nxhipGnY9UjXZ0V2kdp9dL9ElmKtKwtq4VdUL9M1th40OH2umqrZHaG\/re4tI9dQVCn\/28L1UvcNLVe\/wC12PD6p6a55UDSMtT8XpEsWpqn2lTbIuSQW9fv1krd25m2Ohif2Nqgv+heu9K1XtW9tjBVxP9FTVvtX2lVjzluWvTanwHtZOkPxhyEq172WIZZs7AMDTi5pdFNzpZ3KX+ve2SFx\/Z6y1W2PMF8VbZ\/XtkNKXFImVWx9Pap\/kSIl6h12MS7UbLitV3\/FekowxUvVb29b+faS42\/LZWruMWB8is9YW7nUubfb\/G7kbDNLbvvV+hMFYcd9\/\/IVn\/bytFT50uxMM+8SQbXIHULPOHQDgaaWwiQhS+XppQ4vcBXmqmS5TeEqcRKwi1PGqhMdba22h+NvsVj8TwnvFTfxeVfVWov\/miv\/s6\/27T8zEL\/Xx4CK1nPSrEyR\/GCz3Awt5oXJsQ34nGa7bPHcAzrO1dpE7iERmCpsAoGvPSp9ErNX+4nfVwfDGmYaxzSRpRs\/MMLjtNMscRlNdHA8u2Sp3AKeQ\/GHo1rkDUM9\/5MAxrqftS+YwnlU9m3KRXKIyV\/w7\/jE9S5qmTqpc\/euW1RStAznDxTlTv7eZJH28tN7yS+e218fccZzRyfHgkrnt3NveP5I\/DJqbHCL30LUic\/tAMDesJ9dJ6iouMtzIgLH62ZvU9TYoWpR96qqXy7UzVj+32aukf1\/Q5EhXxW23j+rnzYWrOCZ3ZKF+Hj9I\/nARlhnbfmTIDYbOWjtX9wngVV1kuO85VT+Gqu99tdZOutwGLhEOvSBaxYvkvJ5us\/3vZp07EIRzCeBU+W9e1z3qio7JqdWOH71LAEn+MHjuIJrjx8V7lXAxXAL4d0fNfek66egDa+3OWjuT9G\/lvev\/IumvjM9ZFgFlXnL0dPVom0nVEO0pz5hfBrcdJ5K+5o1EL6p6kufXdkxOrZYA5t7GvyD5w6WYq\/sTMwdKXBQ30+G\/lG6GyidJ\/7r2GeRcr81Y1cV8l8etF1XPiY0zPyu2lv\/3XsUPo7mM20yqemT+tNYuOedcFndzYSHpT3U\/+uJV1f48oSc5nQPbOPdNJJI\/XAZ3B23RYZNfOVjiEllrN9baqaS\/FC8JfFTV00SvheMuCJaqEoqPSjt64bt+Jn2rhO00Ejjxyyp6IJ463mYvqnoL\/nQ9MtuEbSEza+3Wjb74U9V2Tzkc9FnV\/jvmhkJ39tvYWjtSNZLgi6pzbOdDf42qg9i864bf2fbhhOTDGDPWBaw390LbnFYxT2ruJaqTWPUdsXM9JINnjBnJf31tm2wz9xsZ+1ScqjciIJZdqiTFGDP1LNJ0fZfye4HwlyY9cG7dzVQNXZmo2XuknlW9h3MtqUx1cWGMmah6YXZTjdZlLm5dT1Wt74nC39n1Iql0n3UfL+48f5PJfo9tBf4+DnlV9ZspVW2zTcvQjuLYfDSWqWeRpMcTd3yb6ee+dRNY1Yt+PR5vW4Z2VMAxOflvu0\/7+zkesW7aHNeNtTa0LACgJ1Ilf0famh75p14nV0Pk1vVI52\/SbFRdSJUp48FptRtq+\/+est1\/+N3gnFpisP+cshHHAxxB8gcAF6DL5A8AAAwTz\/wBAAAAwBUg+QMAAACAK0DyBwAAAABXgOQPAAAAAK4AyR8AAAAAXAGSPwAAAAC4AiR\/AAAAAHAFSP4AAAAA4AqQ\/AEAAADAFSD5AwAAAIArQPIHAAAAAFeA5A8AAAAArgDJHwAAAABcAZI\/AAAAALgCJH8AAAAAcAX+yB0AACCKjefy2wQxAACAHvv\/IbHzxS6RvBoAAAAASUVORK5CYII=\"><\/image>\n<\/defs>\n<\/svg>",
           "shop_logo_alt": "Vasta",
           "choose_custom_dimensions": "width",
-          "logo_max_width": 140,
+          "logo_max_width": 166,
           "logo_max_height": 180,
           "mobile_logo_max_width": 140,
           "mobile_logo_max_height": 40,
           "enabled_search_bar": true,
           "enabled_search_bar_mobile": true,
           "enable_menu_into_header": false,
-          "header_searchbar_placeholder": "Search...",
-          "vasta_search_border_color": "#c1c1c1",
-          "vasta_search_button_color": "#3b3a3a",
-          "vasta_search_text_button_color": "#ffffff",
-          "vasta_search_button_hover_color": "#6c6c6c",
+          "header_searchbar_placeholder": "Search for: chocolate, vanilla...",
+          "vasta_search_border_color": "#c9c9c9",
+          "vasta_search_button_color": "#ffffff",
+          "vasta_search_text_button_color": "#000000",
+          "vasta_search_button_hover_color": "#ffffff",
           "vasta_search_text_button_hover_color": "#000000",
           "vasta_border_color_on_mobile": "#000000",
-          "menu": "main-menu",
+          "menu": "shop",
           "min_width_dropdown_menu": 100,
           "header_menu_caps": "uppercase",
           "nav_back_color": "#ffffff",
@@ -266,8 +249,8 @@
           "cart_title_font_size": 14,
           "vasta_menu_color": "#000000",
           "vasta_menu_title_color": "#3b3b3b",
-          "enable_custom_icon_cart_svg": false,
-          "custom_icon_cart_svg_html": "",
+          "enable_custom_icon_cart_svg": true,
+          "custom_icon_cart_svg_html": "<svg width=\"17\" height=\"18\" viewbox=\"0 0 17 18\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M6.42855 16.9805H6.25C5.82344 16.9805 5.32142 16.5576 5.32142 15.9609C5.32142 14.6767 7.35713 14.6241 7.35713 15.9961C7.35713 16.2679 7.21863 16.527 7.08122 16.6737C6.96712 16.7956 6.65383 16.9805 6.42855 16.9805ZM14.5141 18H14.3408C13.9826 17.9857 13.6219 17.8809 13.2994 17.6701C13.1999 17.605 13.1822 17.5937 13.0972 17.5176L12.654 17.0046C12.2813 16.3296 12.2795 15.6525 12.6428 14.9766H8.14284C8.17584 15.116 8.25627 15.2357 8.30704 15.4126C8.51768 16.1462 8.32099 16.8717 7.83125 17.3769C7.38204 17.8402 6.88617 18 6.21427 18C4.98929 18 3.69606 16.5699 4.57142 14.9414C4.45041 14.9387 4.25762 14.8969 4.15672 14.8574C4.06802 14.8228 3.91538 14.7604 3.83577 14.7164C3.75059 14.6693 3.63204 14.5875 3.56316 14.5277C3.49992 14.4728 3.49305 14.4628 3.42832 14.4143C3.21676 14.2558 3.06915 13.9972 2.95175 13.7584C2.8384 13.5279 2.79509 13.3074 2.75927 13.0338C2.7107 12.663 2.74999 2.18551 2.74999 1.96875C2.5956 1.93334 2.50185 1.87993 2.36223 1.82313L0.479322 1.03988C0.172398 0.914719 0 0.834254 0 0.457036C0 0.273878 0.185444 0 0.500005 0C0.750291 0 2.77962 0.877659 3.15502 1.04272C3.40907 1.15443 3.78571 1.24108 3.78571 1.58204V3.41015L5.4937 3.62729C6.04427 3.70474 6.64798 3.77956 7.18928 3.85664C10.0147 4.25901 12.8646 4.60106 15.6631 5.00741C16.1472 5.07771 17 5.04204 17 5.58985V9.91407C17 10.9028 16.0279 11.8477 15.1071 11.8477H4.71428C4.50893 11.8477 4.36561 11.8103 4.20002 11.7562C4.04331 11.7051 3.91162 11.6304 3.78571 11.6016C3.78571 11.9744 3.74921 12.5851 3.79461 12.9287C3.92708 13.9313 4.54917 13.957 5.39286 13.957C6.22999 13.957 14.3134 13.9247 14.6339 13.9658C16.1124 14.1552 16.966 15.6373 16.1903 17.0272C15.8651 17.6101 15.2067 17.9716 14.5141 18ZM14.5 16.9805C13.8689 16.9805 13.4285 16.5404 13.4285 16.1016V15.8555C13.4285 15.1782 14.4697 14.5997 15.1581 15.2779C15.3227 15.4401 15.4498 15.682 15.4583 15.9636C15.4743 16.4967 14.9883 16.9805 14.5 16.9805ZM3.78571 9.63281V4.42969C3.97774 4.42969 4.36668 4.49862 4.54665 4.52437L9.88213 5.24882C10.8746 5.39016 11.9124 5.52382 12.9266 5.66211L15.185 5.97026C15.4517 6.00183 15.7294 6.02816 15.9643 6.08202L15.9643 9.59771C15.9651 9.90528 15.9746 9.9834 15.879 10.2169C15.7633 10.4999 15.4086 10.8281 15.0357 10.8281H4.74999C4.1872 10.8281 3.78571 10.3044 3.78571 9.63281Z\" fill=\"white\"><\/path>\n<\/svg>",
           "enable_img_custom_icon_cart": false,
           "enable_cart_title": true,
           "cart_title_text": "Cart",
@@ -275,7 +258,7 @@
           "vasta_cart_color": "#3c3c3c",
           "vasta_icon_color_text": "#ffffff",
           "vasta_icon_color_text_hover": "#ffffff",
-          "vasta_icon_color": "#26b522",
+          "vasta_icon_color": "#ff8835",
           "vasta_icon_color_hover": "#204a80"
         }
       },
@@ -290,8 +273,7 @@
               "title_trust_badges": "",
               "enable_custom_trust_badge_svg": false,
               "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge_cart": true,
-              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-natural-product.png"
+              "enable_img_trust_badge_cart": true
             }
           },
           "22f96216-cc1f-48ed-bf27-d7cc2c69ecaa": {
@@ -302,8 +284,7 @@
               "title_trust_badges": "",
               "enable_custom_trust_badge_svg": false,
               "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge_cart": true,
-              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-made-usa.png"
+              "enable_img_trust_badge_cart": true
             }
           },
           "8934bd74-6ea5-424e-8c53-68079c88bb26": {
@@ -314,14 +295,12 @@
               "title_trust_badges": "",
               "enable_custom_trust_badge_svg": false,
               "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge_cart": true,
-              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-money-back.png"
+              "enable_img_trust_badge_cart": true
             }
           },
           "87fe1909-c46d-4214-8465-acc6db46385b": {
             "type": "review",
             "settings": {
-              "product_image_cart": "shopify:\/\/shop_images\/download.jpg",
               "author_review_cart": "John W.",
               "content_review_cart": "<p>Amazing Product!<\/p>"
             }
@@ -420,32 +399,28 @@
             "type": "popular_collection",
             "settings": {
               "text_editable": "Example",
-              "link_popular_collection": "",
-              "url_popular_collection": "shopify:\/\/shop_images\/icon-free-shipping_200x_d0097988-cdbf-462d-a43f-41d5c070c45b.png"
+              "link_popular_collection": ""
             }
           },
           "879550b6-7008-4958-9306-e9f038eadde2": {
             "type": "popular_collection",
             "settings": {
               "text_editable": "Example",
-              "link_popular_collection": "",
-              "url_popular_collection": "shopify:\/\/shop_images\/icon-money-back_83e66519-aaec-4c58-b134-4d6e2b7814ef.png"
+              "link_popular_collection": ""
             }
           },
           "938d2b3e-efcf-43e9-9eec-7f5ee000306a": {
             "type": "popular_collection",
             "settings": {
               "text_editable": "Example",
-              "link_popular_collection": "",
-              "url_popular_collection": "shopify:\/\/shop_images\/icon-natural-product_e0f80c97-9c03-465c-a85a-0045dc1d4f01.png"
+              "link_popular_collection": ""
             }
           },
           "bb9773c8-ca16-42ad-a795-ac1c2401d302": {
             "type": "popular_collection",
             "settings": {
               "text_editable": "Example",
-              "link_popular_collection": "",
-              "url_popular_collection": "shopify:\/\/shop_images\/icon-made-usa.png"
+              "link_popular_collection": ""
             }
           },
           "1178d51e-62a3-4d0d-86b6-bec20aa9db9d": {
@@ -477,7 +452,6 @@
           "1ef505c2-2868-4cf3-9aaf-70c586ab23c1": {
             "type": "logo_footer",
             "settings": {
-              "logo_url": "shopify:\/\/shop_images\/new_logo_bgs_white.png",
               "enable_svg_logo": false,
               "logo_svg_html": "",
               "shop_logo_alt": "",

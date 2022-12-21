@@ -1,6 +1,6 @@
 <!-- start header.liquid (SECTION) -->
 
-<link rel="stylesheet" data-href="{{ 'section-header.css' | asset_url }}"/>
+<link rel="stylesheet" data-href="{{ 'section-header.css' | asset_url }}">
 
 <style>
   :root {
@@ -139,7 +139,7 @@
     {%- endif -%}
   }
 </style>
-  
+
 <style scoped type="lazyload2">
   .header__sitewide__wrapper {
     display: flex;
@@ -174,7 +174,7 @@
   .header__search__form {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     max-width: 700px;
   }
 
@@ -208,7 +208,7 @@
   }
 
   .header__icon__wrap {
-    position: relative; 
+    position: relative;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -229,7 +229,7 @@
     width: 30px;
     height: auto;
   }
-  
+
   .header__icon__wrap.icon--menu {
     display: flex;
   }
@@ -242,17 +242,17 @@
     content: ")";
   }
 
-  .header__icon__wrap.icon--menu svg path { 
-    fill: var(--vasta_menu_color, black) 
+  .header__icon__wrap.icon--menu svg path {
+    fill: var(--vasta_menu_color, black)
   }
 
   .header__icon__wrap.icon--menu { color: var(--vasta_menu_title_color, black) }
 
-  .header__icon__wrap.icon--cart svg path{ 
-    fill: var(--vasta-cart-color, #fff); 
+  .header__icon__wrap.icon--cart svg path{
+    fill: var(--vasta-cart-color, #fff);
   }
 
-  .header__cart__text { 
+  .header__cart__text {
     color: var(--cart_title_color, black);
     font-size: var(--cart_title_font_size);
   }
@@ -297,7 +297,7 @@
     z-index: 2;
     min-width: {{ section.settings.min_width_dropdown_menu }}px;
   }
-  
+
   .header__list.list--grandchild {
     background: var(--vasta-dropdown-menu-color,#fff);
     left: 100%;
@@ -375,7 +375,7 @@
     width: 20px;
     height: auto;
   }
-  
+
   @media(min-width: 768px){
     .header__wrapper {
       max-width: var(--wrapperWidth);
@@ -435,25 +435,25 @@
       font-size: 14px;
       min-width: 20px;
       min-height: 20px;
-      
+
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
+
     .header__cart__count:hover {
       color: var(--vasta-icon-color-text-hover, #1A7117);
       background-color: var(--vasta-icon-color-hover, #1A7117);
     }
 
-    
+
     .header__cart__count::before {
       content: unset;
     }
 
     .header__cart__count:after {
       content: unset;
-    } 
+    }
 
     .header__icon__count__wrap {
       right: 2px;
@@ -477,7 +477,7 @@
     .header__search__form .button {
       font-size: .8rem;
     }
-    
+
     .header__icon__wrap.icon--cart svg {
       width: 25px;
       height: auto;
@@ -491,10 +491,9 @@
   }
 </style>
 
-
 <h3 class="hide">Header</h3>
 
-{%- unless template contains "cart" and settings.only_shipping_bar == false -%}
+{%- unless template contains 'cart' and settings.only_shipping_bar == false -%}
   {%- render 'header-sitewide' -%}
 
   {%- unless section.settings.enabled_search_bar == false and section.settings.enable_menu_into_header -%}
@@ -504,7 +503,6 @@
   {%- render 'header-cart' -%}
 {%- endunless -%}
 
- 
 {% schema %}
 {
   "name": "Header (Sitewide)",
@@ -560,7 +558,7 @@
       "id": "logo_max_width",
       "min": 50,
       "max": 250,
-      "step": 10,
+      "step": 2,
       "unit": "px",
       "label": "Custom Logo Max-Width",
       "default": 180

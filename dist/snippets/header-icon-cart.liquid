@@ -3,7 +3,7 @@
 {%- if section.settings.enable_custom_icon_cart_svg == false and  section.settings.enable_img_custom_icon_cart == false %}
   {%- render 'icon-cart' -%}
 {%- elsif section.settings.enable_custom_icon_cart_svg -%}
-    <div class="custom-svg">
+    <div class="custom-svg {% if cart.item_count == 0 %}noItems{% else %}hasItems{% endif %}">
         {%- assign icon_cart_svg = section.settings.custom_icon_cart_svg_html -%}
         {{ icon_cart_svg }}
     </div>

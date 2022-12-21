@@ -2,11 +2,11 @@
 {% render 'shipping-bar-email' %}
 
 {%- if message != blank -%}
-    <div class="shipping-bar__item">
-        <div class="shipping-bar__message">
-            {{- message -}}
-        </div>
+  <div class="shipping-bar__item">
+    <div class="shipping-bar__message custom-headline-4">
+      {{- message -}}
     </div>
+  </div>
 {%- endif -%}
 
 {% render 'shipping-bar-phone' %}

@@ -233,7 +233,6 @@
 
         formatMoney: function(price, amount) {
             amount = amount || money_format;
-
             return $($.parseHTML(Shopify.formatMoney(price, amount))).text();
         }
     };
@@ -806,9 +805,11 @@ function update_shipping_bar(cart) {
             typeDiscountClass = 'shipping-bar__discount-value--quantity';
             remainValue = quantityValue - cart.item_count;
         }
+        console.log('remainValue', remainValue)
 
         if (shippingbarMessage && shippingbarMessage.length > 0) {
             shippingbarMessage.forEach(function(shippingBar){
+                console.log('remainValue forEach', remainValue)
                 if (cart.item_count > 0) {
                     if (remainValue > 0) {
                       if(shipping_bar.price_enable == 'shipping_bar_free_price' ){
