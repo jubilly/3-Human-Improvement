@@ -1,0 +1,93 @@
+<!-- start recently-viewed-products.liquid (SNIPPET) -->
+{%- assign enabled = false -%}
+
+{%- if template contains 'index' -%}
+    {%- assign enabled = true -%}
+{%- elsif template contains 'collection' -%}
+    {%- assign enabled = true -%}
+{%- elsif template contains 'product' -%}
+    {%- assign enabled = true -%}
+{%- endif -%}
+
+{%- if enabled -%}
+    <div class="shopify-section recently-viewed-products hide" data-section-type="recently-viewed-products">
+        <section class="wrapper" data-section-type="product-recently-viewed">
+            <header class="section-header">
+                <h2 id="recently-viewed-products-title" class="title-recently section-title {{ settings.recently_viewed_section_title_text_transform }}">{{ settings.recently_viewed_section_title | default: 'Recently Viewed Products' }}</h2>
+            </header>
+            <ul id="recently-viewed-products" class="grid-uniform grid-uniform--s4" data-price="true" data-compare-price="true"></ul>
+        </section>
+    </div>
+    <script type="lazyload2">
+        var recently_tags = {
+            product_badge_tag:"{{ settings.product_badge_tag }}",
+            product_badge_text_tag:"{{ settings.product_badge_text_tag }}",
+            position_product_tag_badge:"{{ settings.position_product_tag_badge }}",
+            out_of_stock_label:"{{ settings.enable_outofstock_label }}"
+        }
+    </script>
+
+    {% raw %}
+    <script id="recently-viewed-product-template"  type="text/x-jquery-tmpl">
+        <li class="grid__item" data-handle="${handle}">
+            {{if tags}}
+                {{each(i) tags}}
+                    {{if tags[i].toString() === recently_tags.product_badge_tag && recently_tags.product_badge_text_tag !== ''}}
+                    <label class="product_tag_badge ribbon ${recently_tags.position_product_tag_badge} ">
+                        <span>${recently_tags.product_badge_text_tag}</span>
+                    </label>
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+            <div class="grid-product-link">
+                <div class="grid__item-image-wrapper">
+                    <a href="${url}" class="grid__item-link">
+                    {{if media[1]}}
+                    <img
+                        width="300"
+                        height="300"
+                        class="grid__item-image one lazy2"
+                        data-srcset="https:${Shopify.Products.resizeImage(media[1].src,"800x")} 800w,https:${Shopify.Products.resizeImage(media[1].src,"700x")} 700w,https:${Shopify.Products.resizeImage(media[1].src,"600x")} 600w,https:${Shopify.Products.resizeImage(media[1].src,"500x")} 500w,https:${Shopify.Products.resizeImage(media[1].src,"400x")} 400w,https:${Shopify.Products.resizeImage(media[1].src,"300x")} 300w"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                        alt="${title}"
+                        />
+                    {{/if}}
+                    <img
+                        width="300"
+                        height="300"
+                        class="grid__item-image lazy2"
+                        data-srcset="https:${Shopify.Products.resizeImage(media[0].src,"800x")} 800w,https:${Shopify.Products.resizeImage(media[0].src,"700x")} 700w,https:${Shopify.Products.resizeImage(media[0].src,"600x")} 600w,https:${Shopify.Products.resizeImage(media[0].src,"500x")} 500w,https:${Shopify.Products.resizeImage(media[0].src,"400x")} 400w,https:${Shopify.Products.resizeImage(media[0].src,"300x")} 300w"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                        alt="${title}"
+                        {{if !media[1]}}
+                        {{/if}}
+                        />
+                    </a>
+                    </div>
+                <h3>
+                    <a href="${url}" class="grid__item-title">
+                    {{html title}}
+                    </a>
+                </h3>
+
+                <div class="grid__item-price-wrapper">
+                    <div>
+                        {{if compare_at_price > price}}
+                    <span class="grid__item-compare-at-price">{{html (compare_at_price) ? VastaShop.formatMoney(compare_at_price) : ''}}</span>
+                    {{/if}}
+
+                    <span class="grid__item-price">{{html VastaShop.formatMoney(price)}}</span>
+                    </div>
+                    {{if !available && recently_tags.out_of_stock_label == 'true'}}
+                        <span class="grid__item-sold-out">
+                            {% endraw %}
+                            {{ settings.unavailable_product_label | default: '(Out Of Stock)' }}
+                            {% raw %}
+                        </span>
+                    {{/if}}
+                </div>
+            </div>
+        </li>
+    </script>
+    {% endraw %}
+{%- endif -%}

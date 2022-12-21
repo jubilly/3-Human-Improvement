@@ -1,0 +1,347 @@
+<!-- start collection-list.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-collection-list.css' | asset_url }}"/>
+
+<div id="shopify-section-{{ section.id }}-content" class="collection-list {{ section.settings.custom_class | handleize }}">
+  <div class="wrapper">
+    <div class="collection-list__wrapper">
+      {%- if section.settings.title != blank -%}
+        <h2 class="collection-list__title section-title">{{- section.settings.title -}}</h2>
+      {%- endif -%}
+
+      <div class="collection-list__list collection-list__list--centered">
+        {%- assign limit = 4 -%}
+
+        {%- if section.settings. products_per_rows_desktop_collection_list  == "49" -%}
+          {%- assign limit = 2 -%}
+        {%- elsif section.settings. products_per_rows_desktop_collection_list  == "32" -%}
+          {%- assign limit = 3 -%}
+        {%- endif -%}
+        {% for block in section.blocks limit: limit %}
+          <div class="collection-list__item">
+            {%- case block.type -%}
+              {%- when 'collection' -%}
+                {%- assign item = collections[block.settings.collection]-%}
+              {%- else -%}
+                {%- assign item = all_products[block.settings.id_product]-%}
+            {%- endcase -%}
+
+            {%- assign title = block.settings.collection_title | default: block.settings.product_title -%}
+
+            <div id="FeatColl-{{ forloop.index }}" >
+              <span class="collection-list__image-wrapper">
+                {%- assign image = block.settings.collection_image | default: block.settings.product_image -%}
+                {%- assign image = image | default: item -%}
+                <a href="{{- item.url -}}" class="collection-list__link" title="{{- title | default: item.title | escape -}}">
+                {%- render 'responsive-image' with
+                  image: image,
+                  max_width: 300,
+                  image_class: 'collection-list__image',
+                  active_lazy: true,
+                  id_prefix: index,
+                  size_large: 300,
+                  size_mobile: 40,
+                  size_desk: 32
+                -%}
+                </a>
+              </span>
+
+              {%- if title != blank or item.title != blank -%}
+                <h3 class="collection-list__item-title"><a href="{{- item.url -}}" class="collection-list__item-title_link">{{- title | default: item.title -}}</a></h3>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style scoped>
+
+  #shopify-section-{{ section.id }} .collection-list__item {
+    border-color: {{ section.settings.border_color_collection_list }};
+    width: {{section.settings.products_per_rows_desktop_collection_list}}%;
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__item-title {
+    background-color: {{ section.settings.text_bg_color_collection_list }};
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__item-title_link {
+    color: {{ section.settings.text_color_collection_list }};
+    text-transform: {{ section.settings.collection_product_title_text_transform }};
+  } 
+
+  #shopify-section-{{ section.id }} .collection-list__title {
+    text-transform: {{ section.settings.text_transform_title }};
+  }
+
+  @media (min-width: 768px) {
+    .shopify-section.banner + #shopify-section-{{ section.id }} {
+      top: {{ section.settings.top_margin_featured | times: -1 }}px;
+      margin-bottom: {{ section.settings.top_margin_featured | times: -1 }}px;
+    }
+  }
+  @media (max-width: 767px){
+    #shopify-section-{{ section.id }}  .collection-list__item {
+      width: {{section.settings.products_per_rows_collection_list}}%;
+    }
+  }
+</style>
+
+<style scoped type="lazyload2">
+  .section-collection-list {
+    position: relative;
+  }
+
+  .collection-list__image-wrapper,
+  .collection-list__item-title {
+    display: block;
+  }
+
+  .collection-list__wrapper {
+    background-color: #fff;
+    padding-bottom: 25px;
+  }
+
+  .collection-list__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vw 2%;
+    padding: 10px;
+    padding-bottom: 0;
+  }
+
+  .collection-list__list--centered {
+    justify-content: center;
+  }
+
+  .collection-list__item {
+    width: 23.5%;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .collection-list__image-wrapper {
+    position: relative;
+    height: 0;
+    padding-top: 100%;
+    overflow: hidden;
+  }
+
+  .collection-list__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .collection-list__item-title {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  @media (max-width: 767px) {
+    .collection-list__item {
+      width: 49%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured Collections",
+  "max_blocks": 4,
+  "class": "section-collection-list",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Featured Collections"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "color",
+      "id": "border_color_collection_list",
+      "label": "Collections Border Color",
+      "default": "#444"
+    },
+    {
+      "type": "color",
+      "id": "text_bg_color_collection_list",
+      "label": "Collections Background Text Color",
+      "default": "#444"
+    },
+    {
+      "type": "color",
+      "id": "text_color_collection_list",
+      "label": "Collections Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Headline Text",
+      "default": "Featured Collections"
+    },
+    {
+      "type": "range",
+      "id": "top_margin_featured",
+      "info": "Only works if section above is the banner",
+      "min": 0,
+      "max": 500,
+      "step": 5,
+      "unit": "px",
+      "label": "Position On/Off Banner",
+      "default": 0
+    },
+    {
+      "id": "products_per_rows_desktop_collection_list",
+      "label": "Products Per Row Desktop",
+      "type": "select",
+      "options": [
+        {
+          "label": "2 product",
+          "value": "49"
+        },
+        {
+          "label": "3 products",
+          "value": "32"
+        },
+        {
+          "label": "4 products",
+          "value": "23.5"
+        }
+      ],
+      "default": "23.5"
+    },
+    {
+      "id": "products_per_rows_collection_list",
+      "label": "Products Per Row Mobile",
+      "type": "select",
+      "options": [
+        {
+          "label": "1 product",
+          "value": "94"
+        },
+        {
+          "label": "2 products",
+          "value": "49"
+        }
+      ],
+      "default": "49"
+    },
+    {
+      "type": "select",
+      "id": "text_transform_title",
+      "label": "Headline Text Transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "Same as Input"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "select",
+      "id": "collection_product_title_text_transform",
+      "label": "Collection/Product Title Text Transform ",
+      "default": "uppercase",
+      "options": [
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "limit": 4,
+      "settings": [
+        {
+          "label": "Collection",
+          "id": "collection",
+          "type": "collection"
+        },
+        {
+          "label": "Collection Image",
+          "id": "collection_image",
+          "type": "image_picker",
+          "info": "Size: 400x400"
+        },
+        {
+          "label": "Text Title",
+          "id": "collection_title",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "label": "Product",
+          "id": "id_product",
+          "type": "product"
+        },
+        {
+          "label": "Product Image",
+          "id": "product_image",
+          "type": "image_picker",
+          "info": "Size: 400x400"
+        },
+        {
+          "label": "Text Title",
+          "id": "product_title",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collections",
+      "category": "Collection",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,51 @@
+<!-- START product-video.liquid ( SNIPPET ) -->
+{% if section.settings.enabled_videos %}
+  <div class="dynamic-video-wrapper {{ section.settings.custom_class }} dynamic-video__slider">
+    {%- for block in section.blocks -%}
+      {%- if "product_videos" == block.type -%}
+        {%- assign show_videos = false -%}
+        {%- if block.settings.enable_video_by_tag -%}
+            {%- if product.tags contains block.settings.tag_name -%}
+                {%- assign show_videos = true -%}
+            {%- endif -%}
+        {%- else -%}
+            {%- assign show_videos = true -%}
+        {%- endif -%}
+        {%- if show_videos == true -%}
+          {%- assign url = block.settings.url -%}
+          <div class="dynamic-video">
+            {%- assign platform = '' -%}
+            {%- if url contains 'youtube' or url contains 'youtu.be' -%}
+              {%- assign platform = 'youtube' -%}
+              {%- if url contains 'youtu.be' -%}
+                  {%- assign videoID = url | split: '/' | last -%}
+              {%- elsif url contains '&' -%}
+                {%- assign videoID = url | split: '?v=' | last | split: '&' | first -%}
+              {%- elsif url contains 'embed' -%}
+                {%- assign videoID = url | split: 'embed/' | last -%}
+              {%- else -%}
+                  {%- assign videoID = url | split: '?v=' | last -%}
+              {%- endif -%}
+            {%- elsif url contains 'vimeo' -%}
+                {%- assign platform = 'vimeo' -%}
+            {%- endif -%}
+            <div class="video {{ videoID }}" data-video="{{ platform }}">
+              {%- if block.settings.title != blank -%}
+                <h2 class="section-title">{{ block.settings.title }}</h2>
+              {%- endif -%}
+              <iframe  class="{{ platform }}{% if slideshow %}hide-player{% endif %}"
+					data-video-url="{{ url }}"
+                    width="560"
+                    height="315"
+                    src="{% if platform == 'youtube' %}https://www.youtube.com/embed/{{ videoID }}{% else %}{{ url }}{% endif %}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+              <div></div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{% endif %}

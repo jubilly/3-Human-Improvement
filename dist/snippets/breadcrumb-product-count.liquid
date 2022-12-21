@@ -1,0 +1,16 @@
+<!-- start breadcrumb-product-count (SNIPPET) -->
+<div class="{%- if settings.enable_breadcrumbs -%}products-amount{%- else-%}products-amount-no-breadcrumbs{%- endif -%}">
+    <span class="{%- if settings.enable_breadcrumbs -%}products-amount-span{%- else-%} products-amount-span-no-breadcrumb {%- endif -%}">
+        {{ 'collections.general.showing_products' | t }}
+
+        {%- if paginate.next.is_link -%}
+            {{ paginate.current_offset | plus: 1 }} -
+            {{ paginate.current_offset | plus: paginate.page_size }}
+        {%- else -%}
+            {{ paginate.current_offset | plus: 1 }} -
+            {{ paginate.items }}
+        {%- endif -%}
+
+        {{ 'collections.general.showing_of' | t }}{{ paginate.items }}
+    </span>
+</div>

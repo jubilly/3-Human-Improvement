@@ -1,0 +1,155 @@
+<!-- start product-sliders (SNIPPET) -->
+
+{%- assign lazyload = enable_lazy | default: true -%}
+
+{%- for tagBadge in product.tags -%}
+    {%- if tagBadge == settings.product_badge_tag and settings.product_badge_text_tag != blank -%}
+        <label class="product_tag_badge ribbon {{ settings.position_product_tag_badge }}">
+            <span>{{ settings.product_badge_text_tag }}</span>
+        </label>
+    {%- endif -%}
+{%- endfor -%}
+
+{%- assign featured_image = product.selected_or_first_available_variant.image | default: product.featured_image -%}
+
+{%- for img in product.images -%}
+    {%- if featured_image == img -%}
+        {%- break -%}
+    {%- endif -%}
+{%- endfor -%}
+
+{%- assign qtySlides = settings.thumbnails_options | default: 5 | plus: 0-%}
+{%- assign qtyImages = product.images | size | plus: 0 -%}
+
+{%- if qtyImages <= qtySlides -%}
+    {%- assign resetTransform = 'center-slick-track' -%}
+{%- else -%}
+    {%- assign resetTransform = '' -%}
+{%- endif -%}
+
+{%- assign image_product_default = settings.recently_viewed_product_without_image -%}
+<div class="product-slider-widget">
+    <div class="product-slider product-slider-featured jq-featured-slider invisible">
+        {% for image in product.media %}
+            {%- if image.media_type == 'external_video' -%}
+                {%- capture iframe_src -%}
+                    {%- if image.host contains 'youtube' -%}
+                        https://www.youtube.com/embed/{{ image.external_id }}?color=white&amp;controls=1&amp;enablejsapi=1&amp;modestbranding=1&amp;playsinline=1&amp;rel=0
+                    {%- elsif image.host contains 'vimeo' -%}
+                        https://player.vimeo.com/video/{{ image.external_id }}?byline=0&controls=1&playsinline=1&title=0
+                    {%- endif -%}
+                {%- endcapture -%}
+
+                <div class="prouct-slider__video-wrapper">
+                    <iframe 
+                        loading="lazy"
+                        class="lazyFrame"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen="allowfullscreen" 
+                        data-src="{{- iframe_src -}}" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            {%- elsif image.media_type == 'video' -%}
+                <div class="prouct-slider__video-wrapper">
+                    <video 
+                        loading="lazy"
+                        playsinline="playsinline"
+                        controls="controls">
+                        
+                    {% for item in image.sources %}
+                        {%- if item.mime_type contains 'video' -%}
+                            <source src="{{ item.url }}" type="{{ item.mime_type }}"/>
+                        {%- endif -%}
+                    {% endfor %}
+                    </video>
+                </div>
+            {%- elsif image.media_type == 'image' -%}
+                <div class="product-slider-image-wrapper magnify-zoom {% if image.src == featured_image %}variant__image{% endif %}">
+                    {%- capture img_attr -%}
+                        {%- if image.media_type == 'image' -%}
+                            data-magnify-src="{{ image.src | image_url: width: 1000 }}"
+                            data-magnify-magnifiedwidth="1000"
+                            data-magnify-magnifiedheight="1000"
+                        {%- endif -%}
+                    {%- endcapture -%}
+
+                    {%- if image.src != featured_image -%}
+                        <img width="600" height="600" data-src="{{ image | image_url: width: 600 }}" alt="{{- image.alt | escape -}}" class="slick-img lazy2" {{ img_attr }} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9Ta0UqDkYQcchQnSyIijhqFYpQIdQKrTqYXPohNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHrwXE/3t173L0DhFqJ6XbHGKAbjpVKxKVMdkUKvyKETojoh6gw25yV5STajq97BPh6F+NZ7c/9OXq0nM2AgEQ8w0zLIV4nntp0TM77xCIrKhrxOfGoRRckfuS66vMb54LHAs8UrXRqjlgklgotrLYwK1o68SRxVNMNyhcyPmuctzjrpQpr3JO/MJIzlpe4TnMICSxgETIkqKhgAyU4iNFqkGIjRfvxNv5Bzy+TSyXXBhg55lGGDsXzg//B727t/MS4nxSJA6EX1/0YBsK7QL3qut/Hrls/AYLPwJXR9JdrwPQn6dWmFj0CereBi+umpu4BlzvAwJOpWIonBWkK+TzwfkbflAX6boHuVb+3xj5OH4A0dZW8AQ4OgZECZa+1eXdXa2//nmn09wMjG3KHDOS4EQAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+YFBhQWEhVMTaAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAADElEQVQI12O4f/8+AAU+Ap5GJPuHAAAAAElFTkSuQmCC"/>
+                    {%- else -%}
+                        <img width="600" height="600" src="{{ image | image_url: width: 600 }}" alt="{{- image.alt | escape -}}" class="slick-img" {{ img_attr }}/>
+                    {%- endif -%}
+                </div>
+            {%- endif -%}
+        {% endfor %}
+    </div>
+
+    <div class="product-slider product-slider-thumbnails invisible {{ resetTransform }}">
+        {% for image in product.media %}
+            <div class="product-slide" data-forloop-index="{{forloop.index}}">
+                {%- if forloop.index > 5 -%}
+                    <img width="120" height="120" data-src="{{ image | image_url: width: 120 }}" alt="{{- image.alt | escape -}}" class="slick-img lazy2"/>
+                {%- else -%}
+                    <img width="120" height="120" src="{{ image | image_url: width: 120 }}" alt="{{- image.alt | escape -}}" class="slick-img"/>
+                {%- endif -%}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<style scoped type="lazyload2">
+    {%- if settings.enable_zoom_feature_for_mobile -%}
+    .product-page .slick-slider {
+        -ms-touch-action: pan-y pinch-zoom;
+        touch-action: pan-y pinch-zoom;
+    }
+    {%- endif -%}
+    
+    {%- if settings.select_position_thumbnails != 'below' -%} 
+        .product-page .product-slider-widget .product-slider .slick-list {
+            width: 100%;
+            max-width: 100%; 
+        }
+        .product-slider-widget{
+            width:100%;
+            display:flex;
+            justify-content: center;
+        }   
+        .product-page .product-slider-widget .product-slider.product-slider-thumbnails {
+        flex-direction: column;
+        justify-content: center;
+        }
+        .product-page .product-slider-widget .product-slider.product-slider-thumbnails .slick-list{
+        flex-grow: 0;
+        }
+        .product-half.half-img{
+            display: flex;
+        }
+        .product-page .product-slider-widget .product-slider .slick-list .slick-track {
+            display: block;
+        }
+        .product-slider.product-slider-featured{
+        width: 89%;
+        }
+        .product-slider.product-slider-thumbnails{
+        width:10%;
+        }
+        .product-page .product-slider-widget .product-slider.product-slider-thumbnails .slick-prev.slick-arrow,.product-page .product-slider-widget .product-slider.product-slider-thumbnails .slick-next.slick-arrow{
+        transform: rotateZ(90deg)
+        }
+        .product-page .product-slider-widget .product-slider-thumbnails .slick-prev {
+        margin-right: 0px;
+        margin-left: 4px;
+        }
+        {%- if settings.select_position_thumbnails == 'left' -%} 
+            .product-slider-widget {
+                flex-direction: row-reverse;
+            }
+            .product-page .ribbon-top-left {
+                left: 12%;
+            }
+        {%- endif -%}
+
+    {%- endif -%}
+</style>

@@ -1,0 +1,506 @@
+<!-- start vasta-scripts.liquid (SNIPPET) -->
+<script>const money_format = "{{ shop.money_format | escape }}";</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ 'option_selection.js' | shopify_asset_url }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+{%- if template contains 'product' -%}
+    <script src="{{ 'VastaShop.js' | asset_url }}"></script>
+
+    <script>
+        (function(){
+            VastaShop.Cart.current = {{ cart | json }};
+            VastaShop.Cart.total_price = {{ cart.total_price }};
+            VastaShop.Cart.total_quantity = {{ cart.item_count }};
+        })();
+    </script>
+{%- else -%}
+    <script type="lazyload2" data-src="{{ 'VastaShop.js' | asset_url }}" onload="alert(1)"></script>
+
+    <script type="lazyload2">
+        (function(){
+            VastaShop.Cart.current = {{ cart | json }};
+            VastaShop.Cart.total_price = {{ cart.total_price }};
+            VastaShop.Cart.total_quantity = {{ cart.item_count }};
+        })();
+    </script>
+{%- endif -%}
+
+{%- unless template contains 'collection' -%}
+    <script src="{{ 'slick.min.js' | asset_url }}"></script>
+
+
+    <script type="lazyload2" data-src="{{ 'jquery.tmpl.min.js' | asset_url }}"></script>
+    <script type="lazyload2" data-src="{{ 'jquery.products.min.js' | asset_url }}"></script>
+
+{%- endunless -%}
+
+<script type="lazyload2">
+    {%- if settings.recently_viewed_product_without_image != blank -%}
+        const product_without_image = '{{ settings.recently_viewed_product_without_image | image_url }}';
+    {%- else -%}
+        const product_without_image = 'https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c.gif';
+    {%- endif -%}
+
+    var cart_page = cart_page || {},
+
+    cart_page = {
+        discount_in_cart_page:"{{ settings.enabled_discount_cart_page | escape }}",
+        text_cart_above_button_sucess:"{{ settings.cart_discount_text | escape }}",
+        cart_discount_value: {{ settings.cart_discount_value_range | times: 100 }},
+        cart_freeshipping_text: "{{ settings.freeshipping_msg }}",
+        text_cart_above_button: "{{ settings.text_cart_above_button }}",
+        enable_day_on_message: {{ settings.enable_day_on_message }}
+    };
+
+    VastaShop.config = {};
+    VastaShop.config.enable_freeshipping_msg = {{ settings.enable_freeshipping_msg | default: false }};
+    VastaShop.config.freeshipping_msg = '{{ settings.freeshipping_msg }}';
+
+    if (shipping_bar && shipping_bar.enable_discount || shipping_bar.style_shipping == "dicount_style") {
+        update_shipping_bar({{ cart | json }});
+    }
+
+    update_discount_cart({{ cart.total_price }}, {{ cart.item_count }});
+</script>
+
+<script type="lazyload2">
+    setTimeout(function () {
+        var is_IE =  /*@cc_on!@*/false || !!document.documentMode;
+
+        if (is_IE) {
+            (function ($) {
+                $.getScript('//unpkg.com/css-vars-ponyfill@1/dist/css-vars-ponyfill.min.js', function () {
+                    cssVars({
+                        onlyLegacy: false
+                    });
+
+                    setTimeout(function () {
+                        jQuery('.loaderIE').removeClass('active');
+                    }, 1000);
+                });
+
+                var script = document.createElement('script');
+                script.src = "https://cdnjs.cloudflare.com/ajax/libs/stickyfill/2.1.0/stickyfill.js";
+
+                script.onload = function () {
+                    var elements = $('.template-blog .main-content .blog-sidebar');
+                    var elements_2 = $('.template-article .main-content .blog-sidebar');
+                    Stickyfill.add(elements);
+                    Stickyfill.add(elements_2);
+                    window.addEventListener('mousemove', Stickyfill.refreshAll);
+                };
+
+                document.body.appendChild(script)
+            })(jQuery);
+        } else {
+            jQuery('.loaderIE').removeClass('active');
+        }
+
+        if (typeof window.CustomEvent === "function") {
+            return false;
+        }
+
+        function CustomEvent(event, params) {
+            params = params || { bubbles: false, cancelable: false, detail: undefined };
+            var evt = document.createEvent("CustomEvent");
+            evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+            return evt;
+        }
+
+        CustomEvent.prototype = window.Event.prototype;
+        window.CustomEvent = CustomEvent;
+    });
+</script>
+{%- if template contains 'product' -%}
+    {%- if settings.enable_zoom_feature_for_desktop -%}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/js/jquery.magnify.min.js" integrity="sha512-YKxHqn7D0M5knQJO2xKHZpCfZ+/Ta7qpEHgADN+AkY2U2Y4JJtlCEHzKWV5ZE87vZR3ipdzNJ4U/sfjIaoHMfw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {%- endif -%}
+
+    <script>
+        VastaShop.Product.current = {{ product | json }};
+        VastaShop.Product.current.url = "{{ product.url }}";
+        VastaShop.Product.totalPrice = {{ product.price }};
+        VastaShop.Product.options = {{ product.selected_or_first_available_variant.options | json }};
+
+        VastaShop.Product.structureVariants();
+
+        var slideCounter = 0;
+    </script>
+
+    <script type="lazyload2" data-src="{{ 'swatch.js' | asset_url }}"></script>
+
+    {%- render 'product-js' -%}
+
+    {%- if settings.product_enabled_revenue_bump -%}
+        {%- render 'addon_app' -%}
+    {%- endif -%}
+{%- elsif template contains 'collection'  -%}
+    {%- render 'collection-js' -%}
+{%- elsif template contains 'cart'  -%}
+    {%- render 'cart-js' -%}
+{%- elsif template contains 'login' -%}
+    {%- render 'customer-login-js' -%}
+{%- elsif template contains 'customers' -%}
+    <script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script>
+{%- endif -%}
+
+<script>
+  async function loadPage(p) {
+      var htmldoc = await $.get('https://testvasta.myshopify.com/');
+      var parser = new DOMParser();
+      console.log('parser',parser);
+      htmlDoc = parser.parseFromString(htmldoc,"text/html");
+      console.log('htmlDoc',htmlDoc);
+      const itemList = htmlDoc.querySelectorAll('#update_variant');
+      console.log('ItemList',itemList);
+      itemList.forEach(function(e){
+      console.log(e)
+      $('#update_variant').html(e);
+    });
+    }
+</script>
+
+
+<script type="lazyload2">
+    /**
+     * Swatch Item
+     */
+    const items = document.querySelectorAll('.template-collection .grid__item, .template-index .grid__item');
+
+    items.forEach(function(item) {
+        const swatchItems = item.querySelectorAll('.swatch-value-color');
+        const imageWrapper = item.querySelector('.grid__item-image-wrapper');
+
+        swatchItems.forEach(function(swatchItem){
+            const image = swatchItem.dataset.img;
+
+            Shopify.Image.loadImage(Shopify.Image.getSizedImageUrl(image, '300x'));
+
+            swatchItem.addEventListener('mouseover', function(){
+                imageWrapper.classList.add('grid__item--hidden-image');
+                imageWrapper.style.backgroundImage = 'url("' + image + '")';
+            });
+
+            swatchItem.addEventListener('mouseleave', function(){
+                imageWrapper.classList.remove('grid__item--hidden-image');
+                imageWrapper.style.backgroundImage = 'unset';
+            });
+        });
+    });
+</script>
+
+{%- if settings.enable_klaviyo_id -%}
+    <script type="lazyload2" data-src="https://www.klaviyo.com/media/js/public/klaviyo_subscribe.js"></script>
+    <script type="lazyload2">
+        setTimeout(function(){
+            /** Begin Klaviyo Script */
+            KlaviyoSubscribe.attachToForms('.klaviyo_condensed_styling', {
+                hide_form_on_success: true,
+                custom_success_message: true,
+                success: function () {
+                    $('.klaviyo_inputs_wrapper').hide();
+                    $('.success_message').show();
+                }
+            });
+
+            /** End Klaviyo Script */
+        });
+    </script>
+{%- endif -%}
+
+<script type="lazyload2">
+    setTimeout(function(){
+        Shopify.Products.recordRecentlyViewed();
+
+        Shopify.Products.showRecentlyViewed({
+            {%- assign  recentlyViewedProductsAmount = settings.recently_viewed_amount | default: 1 -%}
+
+            howManyToShow: {{ recentlyViewedProductsAmount | plus: 1 }},
+
+            onComplete: function(){
+                var total = document.querySelectorAll('#recently-viewed-products .grid__item').length;
+
+                {%- if template contains 'product' -%}
+                    if ($('.recently-viewed-products [data-handle="{{ product.handle }}"]').length > 0) {
+                        total--;
+                    }
+                    $('.recently-viewed-products [data-handle="{{ product.handle }}"]').remove();
+                {%- endif -%}
+
+                if (total > 0) {
+                    $(document).find('.recently-viewed-products').removeClass('hide');
+                }
+            }
+        });
+    }, 2000);
+</script>
+
+<script type="layload2">
+setTimeout(function() {
+  const methods = {
+    cart: {
+      /**
+           * Get all cart items.
+           */
+      getCart() {
+        return fetch('/cart.js', {
+          cache: 'default'
+        }).then(function(res) {
+          return res.json();
+        });
+      },
+      /**
+           * Add some item into cart.
+           *
+           * @param {Object} data JSON object with data for to insert in cart.
+           */
+      addItem(data) {
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          body: data
+        }).then(function(res) {
+          return res.json();
+        });
+      }
+    }
+  }
+  
+  $('.cross-sell__product-form').submit(function (e) {
+      e.preventDefault();
+      const form = this;
+      const data = new FormData(this);
+  
+      methods.cart.addItem(data).then(async function(item) {
+        try {
+          const cart = await methods.cart.getCart();
+  
+          const btn = form.querySelector('button');
+          
+          btn.disabled = 'disabled';
+  
+          location.reload()
+        } catch (e) {
+          console.error('[CART ERROR]', e)
+        }
+      }).catch(function(e) {
+        console.error('[ADD ITEM ERROR]', e)
+      });
+    });
+  
+  });
+
+</script>
+
+<!-- CHECKBOX UPSELL JAVASCRIPT 02/22/2021 (START) -->
+<script>
+  Vue.component("upsell-checkbox", {
+    template: '<input type="checkbox" @change="handleChange">',
+    data: {
+      status,
+      id: 0,
+    },
+    methods: {
+      handleChange: function (e) {
+        this.status = e.target.checked;
+        this.id = e.target.value;
+        this.updateCart(this.status, this.id, this);
+      },
+      updateCart: async (status, productId, context) => {
+        if (status) {
+          try {
+            const response = await axios.post("/cart/add.js", {
+              quantity: 1,
+              id: productId,
+              properties: {
+                Special: "Add-On",
+              },
+            });
+            context.updateAfterAdd(response.data);
+            context.updateATC();
+          } catch (err) {
+            console.log(err);
+          }
+        } else if (!status) {
+          try {
+            const response = await axios.post(
+              "/cart/update.js",
+              "updates[" + productId + "]=0"
+            );
+            context.updateAfterRmv(response.data);
+            context.updateATC();
+          } catch {
+            console.log(error);
+          }
+        }
+      },
+      updateATC: () => {
+        if (!document.querySelector("#ProductQuantity")) return;
+        
+        var qtd = document.querySelector("#ProductQuantity").value,
+          productPrice = document
+            .querySelector("#product-price").innerText.replace(/[^0-9]/gi, ''),
+          matches = document.querySelectorAll(
+            ".upsell-checkbox_checkbox-input"
+          ),
+          dataPrice = 0;
+        newPrice = 0;
+        firstChecked = false;
+        var matchesRemovedDuplicateds = [];
+        matches.forEach((e) => matchesRemovedDuplicateds.push(e.value));
+        matchesRemovedDuplicateds = matchesRemovedDuplicateds.filter(
+          (este, i) => matchesRemovedDuplicateds.indexOf(este) === i
+        );
+
+        matches.forEach(function (e) {
+          if (e.checked == false) {
+            document
+              .querySelectorAll('[value="' + e.value + '"]')
+              .forEach(function (element) {
+                element.checked = false;
+              });
+          }
+        });
+
+        matchesRemovedDuplicateds.forEach(function (key) {
+          if (document.querySelector('[value="' + key + '"]').checked) {
+            dataPrice =
+              parseInt(dataPrice) +
+              parseInt(
+                document
+                  .querySelector('[value="' + key + '"]')
+                  .getAttribute("data-price")
+              );
+          }
+        });
+
+        newPrice = qtd * productPrice + dataPrice;
+
+        
+      },
+      updateAfterAdd: (productAdded) => {
+        document
+          .querySelectorAll('[value="' + productAdded.id + '"]')
+          .forEach(function (element) {
+            element.checked = true;
+          });
+        VastaShop.Cart.getAllItems()
+          .then(function (cart, status) {
+            var width = 0;
+            var interval = setInterval(animatedProgress, 10);
+            var progressBar = document.querySelector(".btn-progress");
+          
+            if (progressBar) {
+              progressBar.style.display = "block";
+            }
+            function animatedProgress(callback) {
+              width++;
+              if (progressBar) {
+              	progressBar.style.width = `${width.toString()}%`;
+              }
+              if (width == 100) {
+                clearInterval(interval);
+                if (progressBar) {
+                	progressBar.style.display = "none";
+                }
+                if (typeof callback === "function") {
+                  callback();
+                }
+              }
+            }
+          	Drawer.buildCart(cart);
+          })
+          .catch(function (err) {
+            console.log(err);
+          });
+      },
+      updateAfterRmv: (cart) => {
+        Drawer.buildCart(cart);
+        if (cart.item_count > 0) {
+          document.querySelector(".cart-container").classList.remove("empty");
+        } else {
+          document.querySelector(".cart-container").classList.add("empty");
+        }
+      },
+    },
+
+    mounted() {
+      this.$nextTick(() => {
+        window.addEventListener("load", () => {
+          setTimeout(() => {
+            this.updateATC();
+          }, 100);
+        });
+
+        document.querySelectorAll(".swatch-variant-value").forEach((e) => {
+          e.addEventListener("change", () => {
+            setTimeout(() => {
+              this.updateATC();
+            }, 100);
+          });
+        });
+
+        const callbackUpdateATC = (element, event) => {
+          element.addEventListener(event, () => {
+            setTimeout(() => {
+              this.updateATC();
+            }, 100);
+          });
+        };
+        callbackUpdateATC(document.querySelector("#ProductQuantity"), "change");
+        callbackUpdateATC(document.querySelector("#ButtonMinus"), "click");
+        callbackUpdateATC(document.querySelector("#ButtonPlus"), "click");
+      });
+    },
+  });
+
+  var upsellCheckbox = new Vue({
+    el: "#upsell-checkbox-product-page",
+    data: {},
+    methods: {
+      isActive: function (event) {
+        if (event.target.tagName.toLowerCase() === "a" || event.target.tagName.toLowerCase() === "img") {
+          document
+            .querySelectorAll(
+              '[data-active="' +
+                event.target.closest("div").getAttribute("data-id") +
+                '"]'
+            )
+            .forEach(function (key) {
+              key.classList.remove("modal-active");
+            });
+        }
+      },
+    },
+    mounted() {
+      this.$nextTick(() => {
+        document
+          .querySelectorAll(".checkbox-upsell-modal")
+          .forEach((element) => {
+            element.addEventListener("click", (e) => {
+              const el = e.target;
+              
+              if (el.classList.contains('checkbox-upsell-modal') || el.classList.contains('checkbox-upsell-modal_close')) {
+                document
+                .querySelectorAll(".checkbox-upsell-modal")
+                .forEach((e) => {
+                  e.classList.add("modal-active");
+                });
+              }
+            });
+          });
+      });
+    },
+  });
+  new Vue({ el: "#upsell-checkbox-cart-page" });
+  new Vue({ el: "#cart-drawer-upsell-checkbox-cart-page" });
+</script>
+<!-- CHECKBOX UPSELL JAVASCRIPT 02/22/2021 (END) -->
+
+
+{%- if settings.enable_custom_scripts -%}
+    {%- render 'custom_scripts' -%}
+{%- endif -%}
+

@@ -1,0 +1,34 @@
+<!-- start newsletter-form-klaviyo.liquid (SNIPPET) -->
+
+{% comment %}
+ >> The variable "settings" is a render argument;
+{% endcomment %}
+{% if settings.enable_klaviyo_id %}
+<div class="newsletter-klaviyo full">
+  <h4 class="news_letter_title">{{ settings.newsletter_title }}</h4>
+  <form id="email_signup-{{ section_id }}" class="email-signup-form klaviyo_condensed_styling klaviyo_condensed_float klaviyo_condensed_embed_{{ settings.klaviyo_id }}" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+    <input type="hidden" name="g" value="{{ settings.klaviyo_id }}">
+    <div class="klaviyo_inputs_wrapper">
+      <div class="klaviyo_field_group">
+        <input type="email" value="" aria-label="email klavyio" name="email" id="k_id_email-{{ section_id }}" placeholder="{{ settings.newsletter_placeholder }}" />
+      </div>
+      <div class="klaviyo_form_actions">
+        <button id="klaviyo-button-{{ section_id }}" type="submit" class="klaviyo_submit_button" >{{ settings.newsletter_submit }}</button>
+      </div>
+    </div>
+
+    <div class="klaviyo_messages">
+      <div class="success_message" style=" display:none;">
+        <p class="thank_you">
+          {{ settings.thank_you_newsletter }}
+           </p>
+           <span class="coupon_text">
+            <strong>{{ settings.cupom_code_newsletter }}</strong> 
+          </span>
+       
+      </div>
+      <div class="error_message" style="display:none;"></div>
+    </div>
+  </form>
+</div>
+{% endif %}

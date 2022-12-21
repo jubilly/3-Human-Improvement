@@ -1,0 +1,282 @@
+<!-- start blog-template.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-article-blog.css' | asset_url }}"/>
+<link rel="stylesheet" data-href="{{ 'component-newsletter.css' | asset_url }}"/>
+
+<div class="wrapper">
+  {% if settings.enable_breadcrumbs_blog %}
+    {% render 'breadcrumb' %}
+  {% endif %}
+  {% paginate blog.articles by settings.blog_num_posts %}
+    <div class="grid blog-grid">
+      <div class="grid__item large--three-quarters article-section">
+        <section>
+          {% if settings.blog_enabled_blog_title %}
+              <h1>{{ blog.title }}</h1>
+          {% endif %}
+
+          {% for article in blog.articles %}
+            <article class="article">
+              {% if settings.show_featured_image %}
+                <div class="article_img">
+                  {% assign article_image =  article.image | image_url: width: 300, height: 300 %}
+                  {% if article.image  == blank and settings.blog_rewrite_image == "placeholder" %}
+                    {% render 'responsive-image',
+                      id_prefix: article.title,
+                      image: settings.blog_article_placeholder,
+                      active_lazy: false,
+                      max_width: 300,
+                      no_wrap: true,
+                      alt_text: article.title
+                    %}
+                  {% else %}
+                    <a title="{{ article.title | strip_html | escape }}" id="article-featured-image-{{ forloop.index }}" class="article__featured-image" href="{{ article.url }}">
+                      {% if forloop.index == 1 %}
+                        {% render 'responsive-image',
+                          id_prefix: article.title,
+                          image: article.image,
+                          active_lazy: false,
+                          max_width: 300,
+                          no_wrap: true,
+                          alt_text: article.title
+                        %}
+                      {% else %}
+                        {% render 'responsive-image',
+                          id_prefix: article.title,
+                          image: article.image,
+                          active_lazy: true,
+                          max_width: 300,
+                          no_wrap: true,
+                          alt_text: article.title
+                        %}
+                      {% endif %}
+                    </a>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div id="article-info-{{ forloop.index }}" class="article_info">
+                <h2 class="entry-title">
+                  <a  href="{{ article.url }}" >
+                    {{ article.title }}
+                  </a>
+                </h2>
+
+                <div class="article-contents">
+                  {{ article.content | strip_html | split: '<!--split-->' | last | truncatewords: 50 }}
+                </div>
+                <div class="blog-button">
+                <a title="{{ article.title | strip_html | escape }}" href="{{ article.url }}" rel="bookmark" id="blog-button-{{ forloop.index }}" class="btn button blogbutton {{ settings.blog_buttons_text_transform }}">{{ 'blogs.article.read_more' | t }}</a>
+                </div>
+                {% if settings.enable_blogs_comments and blog.comments_enabled? and article.comments_count > 0 %}
+                  <div class="clearfix"></div>
+
+                  <a href="{{ article.url }}#comments" class="count-comments">
+                    {{ 'blogs.comments.comments_with_count' | t: count: article.comments_count }}
+                  </a>
+                {% endif %}
+              </div>
+            </article>
+          {% endfor %}
+        </section>
+
+        {%- if paginate.pages > 1 -%}
+          <div class="paginate">{{ paginate | default_pagination: next: '→', previous: '←' }}</div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.enable_sidebar -%}
+        <aside class="grid__item large--one-quarter sidebar">
+          {%- render 'blog-sidebars' -%}
+        </aside>
+      {%- endif -%}
+    </div>
+  {% endpaginate %}
+</div>
+{%- style -%}
+
+.template-blog .main-content .article_info .article-contents, .entry-title {
+  text-align:{{ section.settings.blog_text_align }};
+  
+}
+.template-blog .main-content .article_info .blog-button {
+  display: flex;
+  justify-content:{{ section.settings.blog_button_align }};
+}
+
+{% unless settings.show_featured_image %}
+.template-blog .main-content .article_info {
+  width: 100%;
+}
+{% endunless %}
+
+{%- unless section.settings.enable_sidebar -%}
+  .blog-grid .article-section{
+    width: 100%;
+  }
+{% endunless %}
+
+{%- endstyle -%}
+{% schema %}
+{
+  "name": "Blog Template",
+  "class": "blog-template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Enable Sidebar",
+      "id": "enable_sidebar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "label": "Sidebar Left",
+      "id": "sidebar_left"
+    },
+    {
+      "type": "checkbox",
+      "label": "Fixed Sidebar",
+      "id": "fixed_sidebar"
+    },
+    {
+      "type": "select",
+      "id": "blog_text_align",
+      "label": "Text Blog Position",
+      "options": [
+        {
+          "value": "justify",
+          "label": "Justify"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "blog_button_align",
+      "label": "Button Blog Alignment",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "flex-end",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "select",
+      "id": "sidebar_text_align",
+      "label": "Sidebar Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "recent_posts",
+      "name": "Recent Posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Recent Posts"
+        }
+      ]
+    },
+    {
+      "type": "categories",
+      "name": "Categories",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Categories"
+        },
+        {
+          "type": "textarea",
+          "id": "filter_by_tags",
+          "label": "Filter Categories By Tag",
+          "placeholder": "Type the tags",
+          "info": "Separate tags handle with ( ; )."
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter Widget ",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Newsletter Widget "
+        },
+        {
+          "type": "text",
+          "id": "sidebar_title",
+          "label": "Newsletter Widget Title",
+          "placeholder": "Newsletter Widget Title"
+        },
+        {
+          "type": "textarea",
+          "id": "sidebar_text",
+          "label": "Newsletter Widget Text",
+          "default": "Ready to find out more about our new, and upcoming products? Sign up below. "
+        },
+        {
+          "type": "select",
+          "id": "select_newsletter",
+          "label": "Newsletter Manager",
+          "info": "Klaviyo only will work if enabled, check it on Newsletter",
+          "options": [
+            {
+              "label": "Klaviyo",
+              "value": "klaviyo"
+            },
+            {
+              "label": "Default Shopify Form",
+              "value": "newsletter-default"
+            },
+            {
+              "label": "Custom Newsletter",
+              "value": "newsletter-custom"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,91 @@
+<!-- start text-column.liquid (SECTION) -->
+<div class="wrapper text-column-wrapper {{ section.settings.custom_class }}">
+    {%- for block in section.blocks -%}
+      {%- if "text_column" == block.type -%}
+        {% if block.settings.title_column != blank or block.settings.title_column != blank or block.settings.image != blank %}
+          <div class="half-content shipwholetext1">
+            {%- if block.settings.title_column != blank -%}
+                <h5 class="text-1"><strong>{{ block.settings.title_column }}</strong></h5>
+            {%- endif -%}
+      
+            {%- assign image_url = block.settings.image | image_url -%}
+            
+            {%- unless image_url contains 'no-image' or block.settings.enabled_image == false -%}
+              {%- if block.settings.image.alt != blank -%}
+                {%- assign image_alt = block.settings.image.alt | strip_html | escape -%}
+              {%- elsif  block.settings.title_column != blank -%}
+                {%- assign image_alt =  block.settings.title_column | strip_html | escape -%}
+              {%- else -%}
+                {%- assign image_alt = "Image without description." -%}
+              {%- endif -%}
+
+              {%- assign styleTextColumn = 'max-width: 100px; float: left; margin: 0 15px 15px 0;' -%}
+              <div class="text-collumn-image-wrapper">
+                {%- render 'responsive-image',
+                  id_prefix: 'text-column',
+                  image: block.settings.image,
+                  image_class: 'lazy',
+                  max_width: 600,
+                  active_lazy: true,
+                  no_wrap: true,
+                  alt_text: image_alt
+                -%}
+              </div>
+            {%- endunless -%}
+            <p>{{ block.settings.content_column }}</p>
+          </div>
+        {% endif %}
+      {%- endif -%}
+    {%- endfor -%}
+</div>
+   
+  {% schema %}
+{
+  "name": "Text Columns",
+  "class": "text-columns",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Column",
+      "type": "text_column",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled_image",
+          "label": "Enable Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "label": "Title",
+          "id": "title_column",
+          "default": "Column Title"
+        },
+        {
+          "type": "html",
+          "label": "Content",
+          "id": "content_column",
+          "default": "Column Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text Columns",
+      "category": "Text Columns"
+    }
+  ]
+}
+{% endschema %}

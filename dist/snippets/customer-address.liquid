@@ -1,0 +1,37 @@
+<div class="default-address">
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.full_name' | t }}:</span>
+      
+      <span class="">{{ address.first_name }} {{ address.last_name | default: '--' }}</span>
+    </p>
+    
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.company' | t }}:</span>
+      
+      <span class="">{{ address.company | default: '--' }}</span>
+    </p>
+    
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.phone' | t }}:</span>
+      
+      <span class="">{{ address.phone | default: '--' }}</span>
+    </p>
+    
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.address1' | t }}:</span>
+      
+      <span class="">{{ address.address1 | default: '--' }}</span>
+    </p>
+    
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.address2' | t }}:</span>
+      
+      <span class="">{{ address.address2 | default: '--' }}</span> 
+    </p>
+    
+    <p class="default-address-data">
+      <span class="default-address-label">{{ 'customer.addresses.city' | t }}:</span>
+      
+      <span class="">{{ address.city }} {{ address.zip }}, {{ address.province }}, {{ address.country }}</span>
+    </p>
+  </div>

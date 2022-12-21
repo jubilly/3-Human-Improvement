@@ -1,0 +1,923 @@
+<!-- start banner-style1.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-banner-1.css' | asset_url }}"/>
+
+{%- assign enable_lazy = section.settings.enable_lazy_load | default: false -%}
+{% capture banner_content %}
+<section class="shopify-section banner homepage-style-1 {{ section.settings.custom_class }}">
+  {%- assign imageDesktop = section.settings.homepage_banner_style_1 -%}
+  {%- assign paddingTopDesktop = imageDesktop.height | plus: 0.0 | divided_by: imageDesktop.width | times: 100.0 -%}
+  {%- assign imageMobile = section.settings.mobile_banner_style_1 -%}
+  {%- assign paddingTopMobile = imageMobile.height | plus: 0.0 | divided_by: imageMobile.width | times: 100.0 -%}
+
+  {%- if section.settings.homepage_banner_style_1 == blank -%}
+    {%- assign paddingTopDesktop = 40 -%}
+  {%- endif -%}
+
+  {%- if section.settings.mobile_banner_style_1 == blank -%}
+    {%- assign paddingTopMobile = 55 -%}
+  {%- endif -%}
+
+  {%- assign image_desktop_width = 1800 -%}
+  {%- assign image_desktop_height = 1000 -%}
+  {%- if imageDesktop == blank -%}
+    {%- assign image_desktop_height = image_desktop_width -%}
+  {%- endif -%}
+  <div class="banner-img {% if section.settings.enable_custom_banner_height == false %}banner-padding-top-desktop{% endif %}{% if section.settings.enable_custom_banner_height == false %} banner-padding-top-mobile{% endif %}">
+
+    {%- if section.settings.homepage_banner_style_1.alt != blank -%}
+      {%- assign image_alt = section.settings.homepage_banner_style_1.alt | strip_html | escape -%}
+    {%- elsif section.settings.main_banner_title != blank -%}
+      {%- assign image_alt = section.settings.main_banner_title | strip_html | escape -%}
+    {%- else -%}
+      {%- assign image_alt = "Image without description." -%}
+    {%- endif -%}
+      <picture>
+        {%- assign default_image = section.settings.homepage_banner_style_1 -%}
+        {%- assign desktop_widths = '1500,1400,1300,1200,1100,1000,900,800' | split: ',' -%}
+        {%- assign mobile_widths = '700,600,500,400' | split: ',' -%}
+
+        <source class="{% if enable_lazy %}lazy2 lazy3{% endif %} banner-image-desktop" media="(min-width: 768px)" {% if enable_lazy %}data-{% endif %}srcset="
+          {%- for desktop_width in desktop_widths -%}
+            https:{{- default_image | image_url: width: desktop_width }} {{ desktop_width }}w,
+          {%- endfor -%}
+        "/>
+ 
+        {%- if section.settings.mobile_banner_style_1 != blank -%}
+          {%- assign default_image = section.settings.mobile_banner_style_1 -%}
+        {%- endif -%}
+ 
+        <source class="{% if enable_lazy %}lazy2 lazy3{% endif %} banner-image-mobile" media="(max-width: 767px)" {% if enable_lazy %}data-{% endif %}srcset="
+          {%- for mobile_width in mobile_widths -%}
+            https:{{- default_image | image_url: width: mobile_width }} {{ mobile_width }}w,
+          {%- endfor -%}
+        "/>
+        <img width="{{ image_desktop_width }}" height="{{ image_desktop_height }}"  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Banner"/>
+      </picture>
+    {%- if section.settings.main_banner_title != "" -%}
+      <div class="banner-titles">
+        {%- if section.settings.enable_h1 -%}
+            <h1 class="banner-title">{{ section.settings.main_banner_title }}</h1>
+        {%- else -%}
+            <h2 class="banner-title">{{ section.settings.main_banner_title }}</h2>
+        {%- endif -%}
+        <div class="banner-sub-title">{{ section.settings.main_banner_sub_title }}</div>
+      </div>
+    {%- else -%}
+        <h2 class="hide" style="top:{{ section.settings.vasta_title_vertical_position }}%; left:{{ section.settings.vasta_title_horizontal_position }}%">{{ shop.name }}</h2>
+        <div class="banner-titles">
+          <div class="banner-sub-title" >{{ section.settings.main_banner_sub_title }}</div>
+        </div>
+    {%- endif -%}
+
+    {%- assign count = 0 -%}
+    <div class="slider-buttons" id="CallToAction-{{ section.id }}">
+        {%- for block in section.blocks -%}
+            {%- assign count = count | plus: 1 -%}
+            <a id="Banner1Btn-{{ forloop.index }}-{{ section.id }}" class="{% if block.settings.show_mobile_buttons == false %} no-mobile {% endif %} btn btn-v {{ section.settings.vasta_buttons_hover_effect }}" title="{{ block.settings.linktext | strip_html | escape }}" href="{{ block.settings.link }}">{{ block.settings.linktext }}</a>
+        {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% endcapture %}
+
+{% if section.settings.full_with_banne1 %}
+  {{ banner_content }}
+{% else %}
+  <div class="wrapper">
+  {{ banner_content }}
+  </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Banner(Three Buttons)",
+  "class": "banner",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General Settings"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "image_picker",
+      "id": "homepage_banner_style_1",
+      "label": "Banner Image Desktop and Tablet",
+      "info": "1440x500"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner_style_1",
+      "label": "Banner Mobile Image",
+      "info": "750x300"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_banner_height",
+      "label": "Enable Custom Banner Height",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "banner_max_height",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Banner Height",
+      "default": 500
+    },
+    {
+      "type": "range",
+      "id": "banner_max_height_tablet",
+      "min": 200,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Tablet Banner Height",
+      "default": 430
+    },
+    {
+      "type": "range",
+      "id": "banner_max_height_mobile",
+      "min": 50,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile Banner Height",
+      "default": 210
+    },
+    {
+      "type": "checkbox",
+      "id": "full_with_banne1",
+      "label": "Full Width"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_lazy_load",
+      "label": "Enable Lazy Load",
+      "info": "If this is the first section of the homepage, you have to keep this field unchecked for Google Pagespeed score improvements.",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Headline"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_h1",
+      "label": "Enable H1 tag",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "main_banner_title",
+      "label": "Headline Text",
+      "default": "Headline Example",
+      "placeholder": "Headline text"
+    },
+    {
+      "type": "textarea",
+      "id": "main_banner_sub_title",
+      "label": "Sub Headline Text",
+      "default": "Sub Headline Example",
+      "placeholder": "Sub Headline text"
+    },
+    {
+      "type": "select",
+      "id": "vasta_headline_align",
+      "label": "Headline Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "color",
+      "id": "banner_titcolor",
+      "label": "Headline Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "banner_sub_titcolor",
+      "label": "Sub Headline Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "banner_titles_background_color",
+      "label": "Headline Background Color",
+      "default": "none",
+      "info": "Example: #000, black, rgb(0,0,0,0), linear-gradient(#0203, #EFEFEF)..."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_max_width",
+      "label": "Enable Headline Background Max Width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "banner_headline_width",
+      "label": "Headline Background Max Width",
+      "unit": "px",
+      "min": 370,
+      "max": 1280,
+      "step": 10,
+      "default": 1000
+    },
+    {
+      "type": "header",
+      "content": "Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "main_banner_headline_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Headline Font Size on Desktop",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "main_banner_sub_headline_size",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Headline Font Size on Desktop",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "main_banner_headline_size_tablet",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Headline Font Size on Tablet",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "main_banner_sub_headline_size_tablet",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Headline Font Size on Tablet",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "main_banner_headline_size_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Headline Font Size on Mobile",
+      "default": 26
+    },
+    {
+      "type": "range",
+      "id": "main_banner_sub_headline_size_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Sub Headline Font Size on Mobile",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Headline Position"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_horizontal_position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Desktop Horizontal Headline Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_vertical_position",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Desktop Vertical Headline Position",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_horizontal_position_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Tablet Horizontal Headline Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_vertical_position_tablet",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Tablet Vertical Headline Position",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_horizontal_position_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile Horizontal Headline Position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "vasta_title_vertical_position_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "Mobile Vertical Headline Position",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Text Box Size"
+    },
+    {
+      "type": "range",
+      "id": "banner_desktop_width",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Banner Text Content Width For Desktop",
+      "info": "Only works on desktop resolution",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "banner_mobile_width",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Banner Text Content Width For Mobile",
+      "info": "Only works on mobile resolution",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "banner_mobile_height",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Banner Text Content Height",
+      "info": "Only works on mobile resolution",
+      "default": 200
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "range",
+      "id": "banner_font_size_button",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size",
+      "default": 46
+    },
+    {
+      "type": "range",
+      "id": "banner_font_size_button_tablet",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size Tablet",
+      "default": 10
+    }, 
+    {
+      "type": "range",
+      "id": "banner_font_size_button_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Button Font Size Mobile",
+      "default": 10
+    },
+    {
+      "type": "select",
+      "id": "vasta_buttons_hover_effect",
+      "label": "Button Hover Effect",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "effect_1",
+          "label": "Curtain"
+        },
+        {
+          "value": "effect_2",
+          "label": "Fade"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "vasta_buttons_color_1",
+      "label": "Button Background Color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "vasta_buttons_text_color_1",
+      "label": "Button Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "vasta_border_color_1",
+      "label": "Button Border Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "vasta_border_color_1_hover",
+      "label": "Button Hover Border Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "vasta_buttons_hover_color_1",
+      "label": "Button Hover Background Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "vasta_buttons_hover_text_color_1",
+      "label": "Button Hover Text Color",
+      "default": "#000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "header",
+          "content": "General Settings"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Button Text",
+          "default": "Click Here"
+        },
+        {
+          "type": "select",
+          "id": "button_text_transform",
+          "label": "Button Text Transform",
+          "default": "capitalize",
+          "options": [
+            {
+              "value": "none",
+              "label": "Same as imput"
+            },
+            {
+              "value": "uppercase",
+              "label": "Uppercase"
+            },
+            {
+              "value": "capitalize",
+              "label": "Capitalize"
+            },
+            {
+              "value": "lowercase",
+              "label": "Lowercase"
+            }
+          ]
+        },
+        {
+          "id": "link",
+          "type": "url",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "Position"
+        },
+        {
+          "type": "header",
+          "content": "Desktop"
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_horizontal_position",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Horizontal Position on Desktop",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_vertical_position",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Vertical Position on Desktop",
+          "default": 15
+        },
+        {
+          "type": "header",
+          "content": "Tablet"
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_horizontal_position_tablet",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Horizontal Position on Tablet",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_vertical_position_tablet",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Vertical Position on Tablet",
+          "default": 15
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_mobile_buttons",
+          "label": "Show Button On Mobile",
+          "default": false,
+          "info": "This option enable this button on mobile banner."
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_horizontal_position_mobile",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Horizontal Position on Mobile",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_vertical_position_mobile",
+          "min": 10,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Button Vertical Position on Mobile",
+          "default": 15
+        },
+        {
+          "type": "header",
+          "content": "Dimension"
+        },
+        {
+          "type": "header",
+          "content": "Desktop"
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_height",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Height on Desktop",
+          "default": 70
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_max_width_desktop",
+          "min": 10,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Max Width on Desktop",
+          "default": 250
+        },
+        {
+          "type": "header",
+          "content": "Tablet"
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_height_tablet",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Height on Tablet",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_max_width_tablet",
+          "min": 10,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Max Width on Tablet",
+          "default": 250
+        },
+        {
+          "type": "header",
+          "content": "Mobile"
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_height_mobile",
+          "min": 20,
+          "max": 100,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Height on Mobile",
+          "default": 50
+        },
+        {
+          "type": "range",
+          "id": "vasta_button_max_width",
+          "min": 10,
+          "max": 400,
+          "step": 10,
+          "unit": "px",
+          "label": "Button Max Width on Mobile",
+          "default": 250
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner (Three Buttons)",
+      "category": "Banner"
+    }
+  ]
+}
+{% endschema %}
+<!-- end banner-style1.liquid -->
+<style scoped>
+/**section banner-style1**/
+{% for block in section.blocks %}
+#shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
+  left:{{ block.settings.vasta_button_horizontal_position }}%;
+  top:{{ block.settings.vasta_button_vertical_position }}%;
+  height:{{ block.settings.vasta_button_height }}px;
+  text-transform: {{ block.settings.button_text_transform }};
+  max-width: {{ block.settings.vasta_button_max_width_desktop }}px;
+  line-height:1.5;
+}
+{% endfor %}
+#shopify-section-{{ section.id }} .homepage-style-1 {
+  display: block;
+}
+#shopify-section-{{ section.id }} .btn-v {
+  background-color: {{ section.settings.vasta_buttons_color_1 }};
+  color: {{ section.settings.vasta_buttons_text_color_1 }};
+  border: 3px solid {{ section.settings.vasta_border_color_1 }};
+
+  {% if section.settings.vasta_buttons_hover_effect == 'none' %}
+  transition: unset;
+  {% endif %}
+}
+#shopify-section-{{ section.id }} .btn-v:hover,
+#shopify-section-{{ section.id }} .btn-v:active {
+  border: 3px solid {{ section.settings.vasta_border_color_1_hover }};
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v.{{ section.settings.vasta_buttons_hover_effect }}:hover,
+#shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v.{{ section.settings.vasta_buttons_hover_effect }}:active {
+  background-color: {{ section.settings.vasta_buttons_hover_color_1 }};
+  color: {{ section.settings.vasta_buttons_hover_text_color_1 }};
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v.effect_1:before{
+  background-color: {{ section.settings.vasta_buttons_hover_color_1 }};
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
+  top:{{ section.settings.vasta_title_vertical_position }}%;
+  left:{{ section.settings.vasta_title_horizontal_position }}%;
+  padding: 8px 24px;
+  background: {{ section.settings.banner_titles_background_color }};
+
+  {%- if section.settings.enable_max_width -%}
+  max-width: {{ section.settings.banner_headline_width }}px;
+  {%- endif -%}
+}
+
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
+  color:{{ section.settings.banner_titcolor }};
+  font-size: {{ section.settings.main_banner_headline_size | divided_by: 16.0 }}rem;
+  text-align: {{ section.settings.vasta_headline_align }};
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
+  font-size: {{ section.settings.main_banner_sub_headline_size | divided_by: 16.0 }}rem;
+  color:{{ section.settings.banner_sub_titcolor }};
+  text-align: {{ section.settings.vasta_headline_align }};
+}
+#shopify-section-{{ section.id }} .btn-v {
+  font-size:{{ section.settings.banner_font_size_button }}px;
+  }
+#shopify-section-{{ section.id }} .homepage-style-1 .banner-img.banner-padding-top-desktop{
+  padding-top: {{ paddingTopDesktop }}%;
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
+  width: {{ section.settings.banner_desktop_width }}%;
+  height: auto;
+}
+
+/**@media queries**/
+@media (max-width: 1019px) {
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
+    top:{{ section.settings.vasta_title_vertical_position_tablet }}%;
+    left:{{ section.settings.vasta_title_horizontal_position_tablet }}%;
+    }
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
+      font-size: {{ section.settings.main_banner_headline_size_tablet | divided_by: 16.0 }}rem;
+    }
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
+      font-size: {{ section.settings.main_banner_sub_headline_size_tablet | divided_by: 16.0 }}rem;
+    }
+    #shopify-section-{{ section.id }} .btn-v {
+      font-size:{{ section.settings.banner_font_size_button_tablet }}px;
+    }
+    {% for block in section.blocks %}
+      #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
+        left:{{ block.settings.vasta_button_horizontal_position_tablet }}%;
+        top:{{ block.settings.vasta_button_vertical_position_tablet }}%
+      }
+      #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }}.btn-v {
+        max-width: {{ block.settings.vasta_button_max_width_tablet }}px;
+      }
+      #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
+        height:{{ block.settings.vasta_button_height_tablet }}px;
+      }
+    {% endfor %}
+  }
+
+@media(max-width: 767px) {
+  {% for block in section.blocks %}
+  #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
+    left:{{ block.settings.vasta_button_horizontal_position_mobile }}%;
+    top:{{ block.settings.vasta_button_vertical_position_mobile }}%
+  }
+  #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }}.btn-v {
+    max-width: {{ block.settings.vasta_button_max_width }}px;
+  }
+  #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
+    height:{{ block.settings.vasta_button_height_mobile }}px;
+  }
+  {% endfor %}
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
+    top:{{ section.settings.vasta_title_vertical_position_mobile }}%;
+    left:{{ section.settings.vasta_title_horizontal_position_mobile }}%;
+    width: {{ section.settings.banner_mobile_width }}%;
+    height: {{ section.settings.banner_mobile_height }}px;
+  }
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
+    font-size: {{ section.settings.main_banner_headline_size_mobile | divided_by: 16.0 }}rem;
+  }
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
+    font-size: {{ section.settings.main_banner_sub_headline_size_mobile | divided_by: 16.0 }}rem;
+  }
+  {%- if section.settings.mobile_banner_style_1 != blank -%}
+  #shopify-section-{{ section.id }} .homepage-style-1 .banner-img.banner-padding-top-mobile{
+    padding-top: {{ paddingTopMobile }}%;
+  }
+  {% endif %}
+  #shopify-section-{{ section.id }} .btn-v {
+    font-size:{{ section.settings.banner_font_size_button_mobile }}px;
+  }
+}
+
+{% if section.settings.enable_custom_banner_height %}
+   #shopify-section-{{ section.id }} .homepage-style-1 .banner-img {
+     overflow: hidden;
+     display: flex;
+     height: 0;
+     padding-top: {{ section.settings.banner_max_height }}px;
+     top: 0;
+     left: 0;
+     width: 100%;
+     position: relative;
+   }
+   #shopify-section-{{ section.id }} .homepage-style-1 .banner-img img {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     max-width: 100%;
+     width: 100%;
+     object-fit: cover;
+     height: 100%;
+   }
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #shopify-section-{{ section.id }} .homepage-style-1 .banner-img img {
+    height: auto;
+  }
+}
+@media (max-width: 1019px) {
+  #shopify-section-{{ section.id }} .homepage-style-1 .banner-img {
+    padding-top: {{ section.settings.banner_max_height_tablet }}px;
+  }
+}
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .homepage-style-1 .banner-img {
+    padding-top: {{ section.settings.banner_max_height_mobile }}px;
+  }
+}
+{% endif %}
+
+:root {
+  --banner-title-color:{{ section.settings.banner_titcolor }};
+  --banner-sub-title-color:{{ section.settings.banner_sub_titcolor }};
+}
+</style>

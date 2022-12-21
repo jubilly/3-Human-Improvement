@@ -1,0 +1,41 @@
+<!-- start cart-drawer-continue-shopping.liquid (SNIPPET) -->
+{%- assign show_viewcart = false -%}
+{%- assign alignment = 'center' -%}
+{%- assign dimension = '100%' -%}
+
+{%- if section.settings.text_view_cart != blank -%}
+  {%- assign show_viewcart = true -%}
+  {%- assign alignment = 'space-between' -%}
+{%- endif -%}
+
+{% if continue_bellow_review %}
+    {%- assign alignment = 'center' -%}
+{% endif %}
+
+{% if section.settings.action_link_continue_shopping contains "close" %}
+    {% assign continue_link = "#" %}
+{% else %}
+    {% assign continue_link = section.settings.href_continue_shopping %}
+{% endif %}
+
+<div class="continue-shopping-div {{ position }} {% if continue_bellow_review %} continue-bellow-review {% endif %}" style="justify-content:{{ alignment }}">
+  <a title="Continue Shopping" aria-label="cart-continue-shopping" id="cart-continue-shopping" href="{{ continue_link }}" class="continue-shopping continue-shopping-margin-bottom cart-continue-shopping-class" {%- if show_viewcart == false -%}style="width:{{ dimension }};"{%- endif -%} >
+    <span class="{% if section.settings.continue_shopping_button_style %}cont-button-style {% else %} underline-link {% endif %}">{{ section.settings.text_continue_shopping }}</span>
+  </a>
+  {%- if show_viewcart and show_view_cart == true -%}
+    <a title="View Cart" aria-label="view-cart-shopping" id="cart-view-cart" href="/cart" class="continue-shopping continue-shopping-margin-bottom" >
+        <span class="{% if section.settings.view_cart_button_style %}cont-button-style {% else %} underline-link {% endif %}">{{ section.settings.text_view_cart }}</span>
+    </a>
+  {%- endif -%}
+</div>
+
+{% if section.settings.action_link_continue_shopping contains "close" %}
+    <script type="lazyload2">
+        setTimeout(function(){
+          document.querySelector("#cart-continue-shopping").addEventListener("click", function() {
+            document.querySelector("body").classList.remove('cart-drawer-open', 'cart-open');
+          })
+        })
+    </script>
+{% endif %}
+

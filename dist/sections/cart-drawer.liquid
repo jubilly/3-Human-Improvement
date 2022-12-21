@@ -1,0 +1,1272 @@
+<!-- start cart-drawer.liquid (SECTION) -->
+<link rel="stylesheet" data-href="{{ 'section-cart.css' | asset_url }}"/>
+<div id="CartDrawer" class="cart-drawer drawer--right" tabindex="-1" data-section-type="cart-drawer">
+  {%- render 'cart-drawer-header' with section_settings: section.settings, cart: cart -%}
+
+  <div class="cart-container {% if cart.item_count < 1 %}empty{% endif %}">
+    <div class="cart-top">
+      {%- if section.settings.enable_dynamic_free_shipping -%}
+        {%- render 'cart-drawer-shipping-bar' with shipping_bar_template: 'counter' -%}
+      {%- endif -%}
+      
+      {%- unless section.settings.disable_proceed -%}
+        {%- render 'cart-drawer-btn-checkout' with position: 'Top', cart: cart -%}
+      {%- endunless -%}
+      
+      <div class="product-content cart-products-wrapper">
+        <form method="post" action="/checkout" class="cart-products-wrapper">
+          <ul class="list-products">
+            <li class="cart__empty text-center" data-cart-view="data-cart-view">
+              <p class="empty-cart"></p>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+
+    <div class="total-price">
+      <span>{{ settings.text_total }} </span>
+      <span class="jq-total-price price money">{{ cart.total_price | money }}</span>
+
+      {%- if settings.enable_freeshipping_msg -%}
+        <span id="cart-drawer-freeshipping-msg" class="free-shipping-message"></span>
+      {%- endif -%}
+    </div>
+
+    {%- render 'cart-drawer-btn-checkout' with position: "Bottom", cart: cart -%}
+
+    {%- if section.settings.enable_html_area_drawer -%}
+      <div class="custom-html">{{ section.settings.drawer_html_area }}</div>
+    {%- endif -%}
+    <div class="cart-bottom">
+      <div class="cupom-code-drawer">
+        {%- if section.settings.review_style_drawer == "above" -%}
+          {%- render 'cart-drawer-continue-shopping' with id: 'continue-shopping-link-top', position: 'top', show_view_cart: true,  -%}
+        {%- endif -%}
+
+        {%- if section.settings.cupom_enable -%}
+          <span id="cart-drawer-coupon-msg" class="cupom-text"></span>
+        {% endif %}
+
+        {%- if section.settings.trustBadges_enable -%}
+          {%- render 'cart-drawer-trust-badges' with section_blocks: section.blocks, vasta_badges_size: section.settings.vasta_badges_size, position: 'top' -%}
+        {%- endif -%}
+
+        {%- if section.settings.paypal_enable -%}
+          <div class="paypal-div">
+            <span class="paypal"><strong><span style="color:#00298b;">Pay</span><span style="color: #0096e5;">Pal</span> Accepted</strong></span><br>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.review_style_drawer == "below" -%}
+          {%- render 'cart-drawer-continue-shopping' with id: 'continue-shopping-link-bellow', position: 'bottom', show_view_cart: true,  -%}
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.enable-reviews-drawer -%}
+        {%- if section.settings.section_reviews_title != blank -%}
+          <span class="section-title cart__reviews-title">{{ section.settings.section_reviews_title }}</span>
+        {%- endif -%}
+
+        {%- render 'cart-drawer-reviews' with section_blocks: section.blocks -%}
+
+        {%- if section.settings.trustBadges_enable and section.settings.disable_trust_badges_bottom == false -%}
+          {%- render 'cart-drawer-trust-badges' with section_blocks: section.blocks, vasta_badges_size: section.settings.vasta_badges_size, position: 'bottom' -%}
+        {%- endif -%}
+
+        {%- if section.settings.enable_continue_shopping_above_reviews -%}
+          {%- render 'cart-drawer-continue-shopping' with id: 'continue-shopping-link-bottom', continue_bellow_review: section.settings.enable_continue_shopping_above_reviews -%}
+        {%- endif -%}
+      {%- endif -%}
+    </div><!-- Cart Bottom -->
+         {%- render 'cross-sell-snippet' -%}
+  </div><!-- Cart Container -->
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer (Sitewide)",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Cart Drawer Settings"
+    },
+    {
+      "type": "text",
+      "id": "text__head_cartDrawer",
+      "label": "Headline Text",
+      "default": "AN ITEM WAS ADDED TO CART!"
+    },
+    {
+      "type": "text",
+      "id": "cartDrawer_empty",
+      "label": "Empty Cart Text",
+      "default": "Your cart is currently empty!"
+    },
+    {
+      "type": "checkbox",
+      "id": "cupom_enable",
+      "label": "Enable Drawer Coupon Code"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_proceed",
+      "label": "Disable Top Button Proceed To Checkout"
+    },
+    {
+      "type": "text",
+      "id": "drawer_cuopon_text",
+      "label": "Cart Drawer Coupon Text",
+      "default": "<strong>Use Code <span style=\"color:blue;\">GET5NOW </span>to save 5% </strong>"
+    },
+    {
+      "type": "checkbox",
+      "id": "paypal_enable",
+      "label": "Enable 'PayPal Accepted' Badge"
+    },
+    {
+      "type": "header",
+      "content": "Dynamic Free Shipping Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_dynamic_free_shipping",
+      "label": "Enable Free Shipping Bar"
+    },
+    {
+      "type": "color",
+      "id": "color_free_shipping_bar",
+      "label": "Free Shipping Bar Color",
+      "default": "#9dcfa3"
+    },
+    {
+      "type": "color",
+      "id": "text_color_free_shipping_bar",
+      "label": "Free Shipping Bar Text Color",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_price_free_shipping_bar",
+      "label": "Free Shipping Bar Background Price",
+      "default": "#26b522"
+    },
+    {
+      "type": "color",
+      "id": "text_color_price_free_shipping_bar",
+      "label": "Free Shipping Bar Color Price",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "shipping_bar_free_shipping_before",
+      "label": "Text Before Price/Quantity",
+      "default": "WE PAY SHIPPING ON ORDERS OVER"
+    },
+    {
+      "type": "text",
+      "id": "shipping_bar_free_shipping_after",
+      "label": "Text After Price/Quantity",
+      "default": "Text Example"
+    },
+    {
+      "type": "text",
+      "id": "shipping_bar_freeshipping_text",
+      "label": "Free Shipping Message After Threshold is Met",
+      "default": "Congratulations! We'll Pay Your Shipping"
+    },
+    {
+      "type": "header",
+      "content": "Continue Shopping Link"
+    },
+    {
+      "type": "select",
+      "id": "action_link_continue_shopping",
+      "label": "Action Link On Continue Shopping Button",
+      "options": [
+        {
+          "value": "link",
+          "label": "Link"
+        },
+        {
+          "value": "close",
+          "label": "Close"
+        }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "url",
+      "id": "href_continue_shopping",
+      "label": "Continue Shopping Button Link",
+      "info": "If selected link will allow the button to be redirected to any page inserted below"
+    },
+    {
+      "type": "text",
+      "id": "text_continue_shopping",
+      "label": "Continue Shopping Text",
+      "default": "Continue Shopping"
+    },
+    {
+      "type": "select",
+      "id": "review_style_drawer",
+      "label": "Link Position",
+      "options": [
+        {
+          "value": "below",
+          "label": "Below Trust Badges"
+        },
+        {
+          "value": "above",
+          "label": "Below Proceed To Checkout"
+        }
+      ],
+      "default": "below"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_continue_shopping_above_reviews",
+      "label": "Continue Shopping Below Reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "continue_shopping_button_style",
+      "label": "Continue Shopping (Button Style)"
+    },
+    {
+      "type": "header",
+      "content": "View Cart"
+    },
+    {
+      "type": "text",
+      "id": "text_view_cart",
+      "label": "View Cart Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "view_cart_button_style",
+      "label": "View Cart (Button Style)"
+    },
+    {
+      "type": "header",
+      "content": "Custom HTML"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_html_area_drawer",
+      "label": "Enable HTML Area",
+      "info": "Content typed here will be appear under 'Proceed To Checkout' button"
+    },
+    {
+      "type": "html",
+      "id": "drawer_html_area",
+      "label": "Custom HTML"
+    },
+    {
+      "type": "header",
+      "content": "Cart Drawer Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color_cartDrawer",
+      "label": "Background",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "font_color_cartDrawer",
+      "label": "Text",
+      "default": "#444"
+    },
+    {
+      "type": "color",
+      "id": "color_price_cartDrawer",
+      "label": "Price",
+      "default": "#953838"
+    },
+    {
+      "type": "color",
+      "id": "color_font_meta_product",
+      "label": "Product Properties",
+      "default": "#656565"
+    },
+    {
+      "type": "color",
+      "id": "color_proceed_to_checkout_text",
+      "label": "Proceed To Checkout Text",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "background_color_button_proceed",
+      "label": "Proceed To Checkout Button",
+      "default": "#26b522"
+    },
+    {
+      "type": "color",
+      "id": "color_proceed_to_checkout_text_hover",
+      "label": "Proceed To Checkout Text Hover",
+      "default": "#fff"
+    },
+    {
+      "type": "color",
+      "id": "background_color_button_proceed_hover",
+      "label": "Proceed To Checkout Button Hover",
+      "default": "#45910d"
+    },
+    {
+      "type": "color",
+      "id": "color_to_continue_shopping",
+      "label": "Continue Shopping And View Cart Link",
+      "default": "#2b80d8"
+    },
+    {
+      "type": "header",
+      "content": "Reviews"
+    },
+    {
+      "type": "text",
+      "id": "section_reviews_title",
+      "label": "Title of Reviews Section",
+      "placeholder": "Section reviews title"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable-reviews-drawer",
+      "label": "Enable Drawer Reviews"
+    },
+    {
+      "type": "select",
+      "id": "review_style",
+      "label": "Reviews Font Weight",
+      "options": [
+        {
+          "value": "600",
+          "label": "Bold"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Trust Badges"
+    },
+    {
+      "type": "checkbox",
+      "id": "trustBadges_enable",
+      "label": "Enable TrustBadges"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_trust_badge_title",
+      "label": "Show Text Below Trust Badges",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_trust_badges_bottom",
+      "label": "Disable Trust Badges Under Reviews"
+    },
+    {
+      "id": "vasta_badges_size",
+      "type": "range",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "label": "Trust Badges Per Row",
+      "default": 6
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust_badges_cart",
+      "name": "Trust Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Block Title",
+          "placeholder": "Block title"
+        },
+        {
+          "type": "select",
+          "id": "svg_trust_badge_cart",
+          "label": "Choose a SVG Trust Badge",
+          "options": [
+            {
+              "value": "amazon",
+              "label": "Amazon"
+            },
+            {
+              "value": "amex",
+              "label": "Amex"
+            },
+            {
+              "value": "apple-pay",
+              "label": "Apple Pay"
+            },
+            {
+              "value": "bitcoin",
+              "label": "Bitcoin"
+            },
+            {
+              "value": "discover",
+              "label": "Discover"
+            },
+            {
+              "value": "diners-club",
+              "label": "Diners Club"
+            },
+            {
+              "value": "google-pay",
+              "label": "Google Pay"
+            },
+            {
+              "value": "jcb",
+              "label": "JCB"
+            },
+            {
+              "value": "master",
+              "label": "Master"
+            },
+            {
+              "value": "paypal",
+              "label": "Paypal - Badge"
+            },
+            {
+              "value": "old-paypal",
+              "label": "Pay Pal (Old Icon)"
+            },
+            {
+              "value": "porteg",
+              "label": "Porteg"
+            },
+            {
+              "value": "sezzle",
+              "label": "Sezzle"
+            },
+            {
+              "value": "shopify",
+              "label": "Shopify"
+            },
+            {
+              "value": "shopify-pay",
+              "label": "Shopify Pay"
+            },
+            {
+              "value": "shopify-secure-black",
+              "label": "Shopify Secure Black Icon"
+            },
+            {
+              "value": "shopify-secure-white",
+              "label": "Shopify Secure White Icon"
+            },
+            {
+              "value": "venmo",
+              "label": "Venmo"
+            },
+            {
+              "value": "visa",
+              "label": "Visa"
+            },
+            {
+              "value": "natural-product",
+              "label": "Natural Product"
+            },
+            {
+              "value": "free-shipping",
+              "label": "Free Shipping"
+            },
+            {
+              "value": "made-usa",
+              "label": "Made In USA"
+            },
+            {
+              "value": "money-back",
+              "label": "30 Days Money Back"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title_trust_badges",
+          "label": "Trust Badge Title",
+          "default": "Trust Badge"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_trust_badge_svg",
+          "label": "Enable Custom Trust Badge SVG",
+          "default": false
+        },
+        {
+          "type": "html",
+          "id": "custom_trust_badge_svg_html",
+          "label": "Custom Trust Badges SVG"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_img_trust_badge_cart",
+          "label": "Enable Image Trust Badge",
+          "info": "100x68",
+          "default": false
+        },
+        {
+          "type": "image_picker",
+          "id": "img_trust_badges_cart",
+          "label": "Trust Badge Image",
+          "info": "100x65"
+        }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "product_image_cart",
+          "label": "Product Image",
+          "info": "200x200"
+        },
+        {
+          "type": "text",
+          "id": "author_review_cart",
+          "label": "Author of the review",
+          "placeholder": "Author of the review"
+        },
+        {
+          "type": "richtext",
+          "id": "content_review_cart",
+          "label": "Content of The Review"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style scoped type="lazyload2">
+  {%- if settings.enable_cart_property == false -%}
+  .cart-drawer .product-variant {
+    display: none !important;
+  }
+  {% endif %}
+
+  :root {
+    {% if section.settings.color_coupon %}
+        --counpon-text-color:{{ section.settings.color_coupon }};
+    {% endif %}
+
+    --color-free-shipping-dynamic:{{ section.settings.color_free_shipping_bar }};
+    --color-free-shipping-text-color:{{ section.settings.text_color_free_shipping_bar }};
+    --bg-color-price-free-shipping-text-color:{{ section.settings.bg_color_price_free_shipping_bar }};
+    --text-color-price-free-shipping-text-color:{{ section.settings.text_color_price_free_shipping_bar }};
+    --background-color-cartDrawer:{{ section.settings.background_color_cartDrawer }};
+    --font-color-cartDrawer:{{ section.settings.font_color_cartDrawer }};
+    --background-color-button-proceed:{{ section.settings.background_color_button_proceed }};
+    --background-color-button-proceed-hover:{{ section.settings.background_color_button_proceed_hover }};
+
+    --font-color-button-proceed:{{ section.settings.color_proceed_to_checkout_text }};
+    --font-color-button-proceed_hover:{{ section.settings.color_proceed_to_checkout_text_hover }};
+
+    --color-font-cart-meta-product:{{ section.settings.color_font_meta_product }};
+    --color-price-cartDrawer:{{ section.settings.color_price_cartDrawer }};
+    --color-continue-shopping-color:{{ section.settings.color_to_continue_shopping }};
+
+    --review-style:{{ section.settings.review_style }};
+}
+
+.cart-drawer .shipping-bar__discount-value {
+  background: var(--bg-color-price-free-shipping-text-color);
+  color: var(--text-color-price-free-shipping-text-color);
+  margin-left: 4px;
+}
+
+.cart-drawer .shipping-bar__message {
+  color: var(--color-free-shipping-text-color);
+}
+
+</style>
+
+{%- capture not_empty_cart -%}
+  <span class="drawer-title">{% render "icon-check" %}{{ section.settings.text__head_cartDrawer | escape }}</span>
+{%- endcapture -%}
+
+{{ product.metafields.custom.comparison_chart }}
+
+<script type="lazyload2">
+  const drawer_texts = {
+      empty_cart: "{{ section.settings.cartDrawer_empty | strip_newlines }}",
+      not_empty_cart: '{{ not_empty_cart | strip_newlines }}',
+      cupom: "{{ section.settings.drawer_cuopon_text | replace: '"' , '\"' | strip_newlines }}",
+
+      free_shipping_msg: {
+        enabled: {{ settings.enable_freeshipping_msg | default: false }},
+        text: "{{ settings.freeshipping_msg }}"
+      }
+  };
+
+  const drawer_progress_bar = {
+      progress_bar: "{{ section.settings.enable_dynamic_free_shipping }}"
+  };
+
+  var shipping_bar = shipping_bar || {};
+  let text_message_initial_before = '{{ section.settings.shipping_bar_free_shipping_before | escape }}'
+  let text_message_initial_after = '{{ section.settings.shipping_bar_free_shipping_after | escape }}'
+  let free_shipping_text = '<span class="shipping-bar__message-wrapper">{{ section.settings.shipping_bar_freeshipping_text | escape }}</span>'
+  const cartDrawerSettings = {
+      shipping_bar: shipping_bar
+  }
+  let cart_discount_by = "{{ settings.enabled_discount_cart_page | escape }}",    
+  cart_success_message = "{{ settings.cart_discount_text }}";
+</script>
+
+<script type="lazyload2">
+  setTimeout(function(){
+    window.CartDrawerAPI = (function(global, opt) {
+      const settings = Object.assign({
+          selectors: {
+              openDrawer: '.main-header .icon--cart',
+              closeDrawer: '.drawer-close',
+              ATCForm: '[action^="/cart/add"]',
+              plusItem: '.js-cart__btn--plus',
+              minusItem: '.js-cart__btn--minus',
+              inputQtdy: '.input-qtd',
+              removeItem: '.js-cart__btn--remove',
+              itemsAmount: '.header__cart__count',
+              shippingBar: '.cart-drawer .shipping-bar__message',
+              cart: {
+                  widget: '.cart-drawer',
+                  header: '.cart-drawer .drawer-title',
+                  container: '.cart-drawer .cart-container',
+                  lineItem: '.cart-drawer .cart-product',
+                  listItemsContainer: '.cart-drawer .list-products',
+                  totalPrice: '.cart-drawer .jq-total-price'
+              }
+          },
+          shipping_bar: {
+              enable_discount: true,
+              first_free_shipping_text: "",
+              free_shipping_text: "",
+              price_enable: "",
+              second_free_shipping_text: "",
+              shipping_quantity: 0,
+              shipping_value: 0,
+              style_shipping: "",
+              text_cart_above_button_sucess: "",
+              text_message_initial_after: "",
+              text_message_initial_before: ""
+          },
+          formatMoney(price, amount = null) {
+              return VastaShop.formatMoney(price, amount);
+          }
+      }, opt);
+
+      const body = document.body;
+      const selectors = settings.selectors;
+      const methods = {
+          cart: {
+              /**
+               * Get all cart items.
+               */
+              getCart() {
+                  return fetch('/cart.js', {
+                      cache: 'default'
+                  }).then(function(res) {
+                      return res.json();
+                  });
+              },
+
+              /**
+               * Add some item into cart.
+               *
+               * @param {Object} data JSON object with data for to insert in cart.
+               */
+              addItem(data) {
+                  return $.post('/cart/add.js', data, null, 'json');
+              },
+
+              /**
+               * Update some item into cart.
+               *
+               * @param {Object} data JSON object with data for to insert in cart.
+               */
+              update(data) {
+                  return fetch('/cart/update.js', {
+                      method: 'POST',
+                      body: JSON.stringify(data),
+                      headers: {
+                          'Content-Type': 'application/json'
+                      }
+                  }).then(function(res) {
+                      return res.json();
+                  });
+              },
+
+
+              /**
+               * Change some item into cart.
+               *
+               * @param {Object} data JSON object with data for change some cart item.
+               */
+              change(data) {
+                  return fetch('/cart/change.js', {
+                      method: 'POST',
+                      body: JSON.stringify(data),
+                      headers: {
+                          'Content-Type': 'application/json'
+                      }
+                  }).then(function(res) {
+                      return res.json();
+                  });
+              },
+
+              /**
+               * Search some variant into product variants array.
+               *
+               * @param {Object} cart Cart
+               * @param {Any} value Value for search into array.
+               * @param {String} field Item attribute for be searched.
+               */
+              searchVariant(cart, value, field = 'id') {
+                  let variant = cart.items.filter(function(item) {
+                      return item[field] == value;
+                  });
+
+                  return (variant.length > 0) ? variant[0] : null;
+              },
+
+              /**
+               * Build the cart.
+               *
+               * @param {Object} cart Cart
+               */
+              buildCart(cart) {
+                  Cart = cart;
+
+                  this.renderCartHeader(cart);
+                  this.renderCartItems(cart);
+                  this.renderTotalPriceItems(cart);
+                  this.updateShippingBar(cart);
+                  this.updateBtnAdd(cart.item_count)
+              },
+
+              /**
+               * Method for update shipping bar.
+               *
+               * @param {Object} cart Cart object.
+               */
+              updateShippingBar(cart) {
+                const bars = document.querySelectorAll(selectors.shippingBar);
+
+                update_shipping_bar(cart);
+
+                if (bars.length > 0) {
+                  const shippingBar = settings.shipping_bar;
+                  const cartDrawerFreeShippingMsg = document.querySelector('#cart-drawer-freeshipping-msg') || {};
+                  const cartDrawerCouponMsg = document.querySelector('#cart-drawer-coupon-msg') || {};
+                  let remain = '';
+                  let progress = 0;
+
+                  if (shippingBar.price_enable === 'shipping_bar_free_price') {
+                      progress = Math.min(cart.total_price, shippingBar.shipping_value) / shippingBar.shipping_value * 100;
+                      remain = settings.formatMoney(shippingBar.shipping_value - cart.total_price);
+                  } else {
+                      progress = Math.min(cart.item_count, shippingBar.shipping_quantity) / shippingBar.shipping_quantity * 100;
+                      remain = shippingBar.shipping_quantity - cart.item_count;
+                  }
+
+                  if (cartDrawerFreeShippingMsg && drawer_texts.free_shipping_msg.enabled) {
+                    if (progress == 100) {
+                      cartDrawerFreeShippingMsg.innerHTML = drawer_texts.free_shipping_msg.text;
+                        cartDrawerCouponMsg.innerHTML  = free_shipping_text;
+                    } else {
+                      cartDrawerFreeShippingMsg.innerHTML = '';
+                      cartDrawerCouponMsg.innerHTML = drawer_texts.cupom;
+                    }
+                  }
+                  
+                    if(cart_discount_by == "price") {
+                      if((cart.total_price / 100) >= cart_discount_price_range) {
+                        cartDrawerCouponMsg.innerHTML  = cart_success_message;
+                      }
+                      else {
+                        cartDrawerCouponMsg.innerHTML = drawer_texts.cupom;
+                      }
+                    }
+                    else if (cart_discount_by == "quantity") {
+                      if(cart.item_count >= cart_discount_quantity_range) {
+                        cartDrawerCouponMsg.innerHTML  = cart_success_message;
+                      }
+                      else {
+                        cartDrawerCouponMsg.innerHTML = drawer_texts.cupom;
+                      }
+                    }
+
+                  bars.forEach(function(bar){
+                    const barWrapper = bar.parentNode || null;
+
+                    if (barWrapper && barWrapper.classList.contains('shipping-bar--counter')) {
+                        const fill = barWrapper.querySelector('.shipping-bar__counter-fill');
+
+                        if (fill) {
+                            fill.style.width = progress + '%';
+                        }
+                    }
+
+                    if ((shippingBar.price_enable === 'shipping_bar_free_price' && cart.total_price >= shippingBar.shipping_value) ||
+                        (shippingBar.price_enable === 'shipping_bar_free_qtd' && cart.item_count >= shippingBar.shipping_quantity)) {
+                          bar.innerHTML = free_shipping_text;
+                    } else if (cart.item_count > 0) {
+                      if(shippingBar.price_enable === 'shipping_bar_free_qtd') {
+                        let text_after_remain = "";
+                        remain === 1 ? text_after_remain = " item" : text_after_remain = " items";
+                        bar.innerHTML = 'Only <span class="shipping-bar__discount-value">' + remain + text_after_remain + '</span> away from free shipping!';
+                      }
+                      else {
+                        bar.innerHTML = 'Only<span class="shipping-bar__discount-value">' + remain + '</span> away from free shipping!';
+                      }
+                    } else {
+                      bar.innerHTML = '<span class="shipping-bar__message--before">' + text_message_initial_before + '&nbsp</span>';
+                        bar.innerHTML += '<span class="shipping-bar__discount-value">' + remain + '</span>';
+                        bar.innerHTML += '<span class="shipping-bar__message--after">' + text_message_initial_after + '</span>';
+                    }
+
+                    if(drawer_progress_bar.progress_bar){
+                      const progressbar = document.querySelector('.progress-done');
+
+                      if(shippingBar.price_enable === 'shipping_bar_free_price') {
+                        const dataDoneValue = remain.replace('$','');
+                        const dataShipping = shippingBar.shipping_value/100;
+                        const progressbarValue =  parseFloat(progress / dataShipping * 100);
+
+                        if (progressbar) {
+                          progressbar.setAttribute('data-done', progressbarValue);
+                        }
+                      } else {
+                        const dataDoneValue = remain;
+                        const dataShipping = shippingBar.shipping_quantity;
+
+                        if (progressbar) {
+                          progressbar.setAttribute('data-done', progress);
+                        }
+                      }
+
+                      if (progressbar) {
+                        progressbar.style.width = progressbar.getAttribute('data-done') + '%';
+                        progressbar.style.opacity = 1;
+                      }
+                    }
+                  });
+                }
+              },
+
+              /**
+               * Render cart items.
+               *
+               * @param {Object} cart Cart
+               */
+              renderCartItems(cart) {
+                  const parent = this;
+                  const drawerItemsContainer = document.querySelector(selectors.cart.listItemsContainer);
+                  let cartDrawerListItems = '';
+
+                  cart.items.forEach(function(item, i){
+                      cartDrawerListItems += parent.cartLineTemplate(item, i, item.key);
+                  });
+
+                  drawerItemsContainer.innerHTML = cartDrawerListItems;
+              },
+
+              /**
+               * Render cart header.
+               *
+               * @param {Object} cart Cart
+               */
+              renderCartHeader(cart) {
+                  const drawerHeader = document.querySelector(selectors.cart.header);
+
+                  if (cart.item_count > 0) {
+                      drawerHeader.innerHTML = drawer_texts.not_empty_cart;
+                  } else {
+                      drawerHeader.innerHTML = drawer_texts.empty_cart;
+                  }
+              },
+
+              /**
+              /**
+              * Updat Button Add To Cart
+              * @function[<updateBtnAdd>]
+              *
+              * This function update the texts of price and quantity in Button Add To Cart
+              *
+              * Dependencies: Object Product
+              * @param{int} item_count - Quantity items
+              *
+              */
+              updateBtnAdd(item_count) {
+                  jQuery('#cart-count .header__cart__count').html(item_count);
+
+                  if (item_count > 1)
+                      jQuery('.jq_qtd_bt_proceed').html(item_count + ' Items');
+                  else
+                      jQuery('.jq_qtd_bt_proceed').html(item_count + ' Item');
+              },
+
+              /**
+               * Render cart total price and items.
+               *
+               * @param {Object} cart Cart
+               */
+              renderTotalPriceItems(cart) {
+                  const cartDrawerContainer = document.querySelector(selectors.cart.container);
+                  const cartCount = document.querySelector(selectors.itemsAmount);
+                  const cartTotalPrice = document.querySelector(selectors.cart.totalPrice);
+
+                  if (cart.item_count > 0) {
+                      cartTotalPrice.innerHTML = VastaShop.formatMoney(cart.total_price);
+                      cartDrawerContainer.classList.remove('empty');
+                  } else {
+                      cartDrawerContainer.classList.add('empty');
+                  }
+
+                  cartCount.innerHTML = cart.item_count;
+              },
+
+              /**
+               * Cart Line Template
+               *
+               * Define the structure for line item from cart.
+               *
+               * @param {Object} item Line Item object Shopify
+               * @param {Number} index Line item posision into cart.
+               * @param {Number} variantID Variant ID.
+               * @return {String} Full template.
+               */
+              cartLineTemplate(item, index, variantID) {
+                  let inventory = -1;
+                  let strDisabled = '';
+                  let strDisabledMax = '';
+                  let isDiscount = ''
+
+                  if (item.total_discount > 0) {
+                      isDiscount = '<span class="cart_discount_price">-' + VastaShop.formatMoney(item.total_discount) + '</span>';
+                  } else {
+                      isDiscount = '';
+                  }
+
+                  let cartItemImage = "https://cdn.shopify.com/shopifycloud/shopify/assets/no-image-2048-5e88c1b20e087fb7bbe9a3771824e743c244f437e4f8ba93bbf7b11b53f7824c_100x.gif";
+                  if(item.image != null ) {
+                      item.image = Shopify.Image.getSizedImageUrl(item.image, '80x');
+                  }
+                  else {
+                      item.image = cartItemImage;
+                  }
+
+                  variant_title = item.variant_title != null ? item.variant_title : '';
+
+                  if (item.quantity == 1) {
+                      strDisabled = 'disabled="disabled"';
+                  }
+
+                  if (variantID == item.id) {
+                      strDisabledMax = 'disabled="disabled"';
+                  }
+
+                  if (item.variant_title) {
+                      item.variant_title = '<small class="product-variant">' + item.variant_title + '</small>';
+                  } else {
+                      item.variant_title = '';
+                  }
+
+                  return '<li class="cart-product ' + item.handle + '" id="jq-cart-item-' + item.id + '" data-variant="' + item.key + '" data-line="' + index + '">' +
+                      '<div class="cart-product-image-wrapper">' +
+                      '   <a aria-label="ImgCartDrawer-' + index + '" href="' + item.url + '" id="ImgCartDrawer-' + index + '">' +
+                      '    <img src="' + item.image + '" alt="' + item.title + '"/>' +
+                      '   </a>' +
+                      '</div>' +
+
+                      '<div class="cart-product-wrapper">' +
+                      '    <div class="product-info">' +
+                      '       <p class="title-item-cart">' +
+                      '           <a aria-label="' + item.product_title + '" href="' + item.url + '" class="title-item-cart">' + item.product_title + '</a>' +
+                      '       </p>' +
+                      item.variant_title +
+                      this.printPropertie(item) +
+                      '       <div class="cart-product-btn-wrapper">' +
+                      '               <button type="button" aria-label="IconMinus-' + index + '" id="IconMinus-' + index + '" class="btn-minus-' + item.variant_id + ' btn icon-minus btn-minus js-cart__btn--minus" name=' + item.id + ' ' + strDisabled + '></button>' +
+                      '               <input aria-label="InputQtd-' + index + '" id="InputQtd-' + index + '" class="jq-input-qtd-' + item.id + ' input-qtd" name="quantity" min="1" data-variant-id="' + item.variant_id + '" data-max="' + inventory + '" value="' + item.quantity + '" type="number">' +
+                      '               <button type="button" aria-label="IconPlus-' + index + '" id="IconPlus-' + index + '" class="btn-plus-' + item.variant_id + ' btn icon-plus btn-plus js-cart__btn--plus" name=' + item.id + ' ' + strDisabledMax + '>' +
+                      '               <span  class="max-msg">Maximum Quantity Available In Stock</span></button>' +
+                      '       </div>' +
+                      '   </div>' +
+                      '   <div class="product-price">' +
+                      '       <strong class="price money"  id="jq-cart-item-price-' + item.id + '-' + index + '">' + VastaShop.formatMoney(item.line_price) + '</strong>' + isDiscount +
+                      '       <button type="button" aria-label="remove-cart" id="bt-remove-cart-'+ index + '" class="js-cart__btn--remove bt-remove-cart" name=' + item.id + '>Remove <span class="spinner__wrapper"><span class="spinner"></span></span></button>' +
+                      '   </div>' +
+                      '</div>' +
+                      '</li>';
+              },
+
+              /**
+               * Define the structure for property from each cart item.
+               */
+              printPropertie(item) {
+                  const all_properties = [];
+
+                  for (var property in item.properties) {
+                      if (property[0] != '_') {
+                          all_properties.push(property.replace(/_/gi, ' ') + ': ' + item.properties[property]);
+                      }
+                  }
+
+                  return '<small class="product-variant">' + all_properties.join('</small><small class="product-variant">') + '</small>';
+              }
+          },
+
+          form: {
+              /**
+               * Method for set width for ATC progress bar.
+               *
+               * @param {Number} progress Actual status for the progress.
+               * @param {Boolean} hide Show/Hide the progress bar on finish activity.
+               */
+              setProgress(progress, hide = false){
+                  const progressBar = document.querySelectorAll('.btn-add-tocart .btn-progress');
+
+                  progressBar.forEach(function(bar) {
+                      bar.style.opacity = '1';
+                      bar.style.width = progress + '%';
+                  });
+
+                  if (hide) {
+                      setTimeout(function(){
+                          progressBar.forEach(function(bar) {
+                              bar.style.opacity = '0';
+                              bar.style.width = 0;
+                          });
+                      }, 200)
+                  }
+              }
+          }
+      };
+
+      methods.cart.getCart().then(function(cart){
+        methods.cart.updateShippingBar(cart);
+      });
+
+      function on(event, selector, callback) {
+          try {
+              if (typeof selector === 'string') {
+                  const elems = document.querySelectorAll(selector);
+
+                  elems.forEach(function(el) {
+                      el.addEventListener(event, function(e) {
+                          if (callback.call(this, e) === false) {
+                              e.preventDefault();
+                          }
+                      }, false);
+                  });
+              } else {
+                  selector.addEventListener(event, function(e) {
+                      if (callback.call(this, e) === false) {
+                          e.preventDefault();
+                      }
+                  }, false);
+              }
+          } catch (e) {
+              console.error(e);
+          }
+      }
+
+      /**
+       * Open Cart Drawer
+       */
+      on('click', selectors.openDrawer, function() {
+          methods.cart.getCart().then(function(cart) {
+              methods.cart.buildCart(cart);
+              body.classList.add('cart-drawer-open', 'cart-open');
+          });
+
+          return false;
+      });
+
+      on('click', document, function(e) {
+          try {
+              const el = e.target;
+              const container = el.closest(selectors.cart.lineItem);
+              let runUpdate = false;
+
+              if (container) {
+                  let quantity;
+                  const key = container.dataset.variant;
+                  const line = container.dataset.line;
+                  const variant = methods.cart.searchVariant(Cart, key, 'key');
+
+                  if (variant) {
+                      if (el.classList.contains(selectors.minusItem.replace(/^\./, ''))) {
+                          quantity = variant.quantity - 1;
+                          runUpdate = true;
+                      } else if (el.classList.contains(selectors.plusItem.replace(/^\./, ''))) {
+                          quantity = variant.quantity + 1;
+                          runUpdate = true;
+                      } else if (el.classList.contains(selectors.removeItem.replace(/^\./, ''))) {
+                          el.classList.add('cart__btn--removing');
+                          quantity = 0;
+                          runUpdate = true;
+                      }
+
+                      if (runUpdate) {
+                          const data = {
+                              id: key,
+                              line: parseInt(line) + 1,
+                              quantity: parseInt(quantity)
+                          };
+
+                          methods.cart.change(data).then(function(cart) {
+                              methods.cart.buildCart(cart);
+
+                              let updatedItem = cart.items.filter(function(item){
+                                return item.key === key
+                              });
+
+                              if (updatedItem.length > 0) {
+                                updatedItem = updatedItem[0];
+
+                                const lineItem = document.querySelector('[data-variant="' + updatedItem.key + '"]');
+
+                                if (lineItem && updatedItem.quantity == (quantity - 1)) {
+                                  lineItem.classList.add('cart-product--max-items');
+                                  el.disabled = true;
+                                }
+                              }
+                          }).catch(function(e) {
+                              console.error(e);
+                          });
+
+                          runUpdate = false;
+                      }
+                  }
+              }
+          } catch (e) {
+              console.error(e);
+          }
+      });
+
+      on('keyup', document, function(e){
+          try {
+              const el = e.target;
+              const container = el.closest(selectors.cart.lineItem);
+              let runUpdate = false;
+
+              if (container) {
+                  let quantity;
+                  const key = container.dataset.variant;
+                  const line = container.dataset.line;
+                  const variant = methods.cart.searchVariant(Cart, key, 'key');
+
+                  if (variant) {
+                      if (el.classList.contains(selectors.inputQtdy.replace(/^\./, ''))) {
+                          el.value = parseInt(el.value) || 1;
+                          quantity = Math.max(el.value, 1);
+                          runUpdate = true;
+
+                          if (runUpdate) {
+                              const data = {
+                                  id: key,
+                                  line: parseInt(line) + 1,
+                                  quantity: parseInt(quantity)
+                              };
+
+                              methods.cart.change(data).then(function(cart) {
+                                  methods.cart.buildCart(cart);
+                              }).catch(function(e) {
+                                  console.error(e);
+                              });
+
+                              runUpdate = false;
+                          }
+                      }
+                  }
+              }
+          } catch (e) {
+              console.error(e);
+          }
+      })
+
+      /**
+       * Close Cart Drawer
+       */
+      on('click', selectors.closeDrawer, function() {
+          body.classList.remove('cart-drawer-open', 'cart-open');
+
+          return false;
+      });
+
+      /**
+       * Add Item to Cart
+       */
+      on('submit', selectors.ATCForm, function() {
+          const query = new URLSearchParams(new FormData(this)).toString();
+          const data = new FormData(this);
+          const atcError = document.querySelector('#add-to-cart-error');
+
+          if (atcError) {
+            atcError.innerHTML = "";
+            atcError.classList.add('hide');
+          }
+
+          methods.form.setProgress(25);
+
+          methods.cart.addItem(query).then(async function(response) {
+              try {
+                methods.form.setProgress(100, true);
+
+                if (response.status === 422 && atcError) {
+                  atcError.innerHTML = "This variant can't be added anymore";
+                  atcError.classList.remove('hide');
+
+                  return;
+                } else if (response.status === 400) {
+                  console.log(response)
+                }
+
+                const cart = await methods.cart.getCart();
+
+                methods.cart.buildCart(cart);
+                body.classList.add('cart-drawer-open', 'cart-open');
+              } catch (e) {
+                  console.error('[CART ERROR]', e)
+              }
+          }).catch(function(e) {
+              methods.form.setProgress(100, true);
+
+              if (e.status === 422) {
+                atcError.innerHTML = "This variant can't be added anymore";
+                atcError.classList.remove('hide');
+                return;
+              }
+
+              console.error('[ADD ITEM ERROR]', e)
+          });
+
+          return false;
+      });
+
+      on('shopify:section:select', document, async function(e){
+        const sectionId = e.detail.sectionId || null;
+
+        if (sectionId && sectionId === 'cart-drawer') {
+          let cart = await methods.cart.getCart();
+          methods.cart.buildCart(cart);
+        }
+      });
+      return methods.cart;
+  })(window, cartDrawerSettings);
+});
+</script>

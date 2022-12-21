@@ -1,0 +1,289 @@
+{
+  "sections": {
+    "16351850661ed94a47": {
+      "type": "banner-style1",
+      "blocks": {
+        "6387f68d-af18-45c4-8cd9-942d907c65c6": {
+          "type": "select",
+          "settings": {
+            "linktext": "SEE MORE",
+            "button_text_transform": "capitalize",
+            "link": "",
+            "vasta_button_horizontal_position": 50,
+            "vasta_button_vertical_position": 69,
+            "vasta_button_horizontal_position_tablet": 26,
+            "vasta_button_vertical_position_tablet": 70,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 50,
+            "vasta_button_vertical_position_mobile": 70,
+            "vasta_button_height": 60,
+            "vasta_button_max_width_desktop": 250,
+            "vasta_button_height_tablet": 50,
+            "vasta_button_max_width_tablet": 250,
+            "vasta_button_height_mobile": 50,
+            "vasta_button_max_width": 180
+          }
+        }
+      },
+      "block_order": [
+        "6387f68d-af18-45c4-8cd9-942d907c65c6"
+      ],
+      "settings": {
+        "custom_class": "",
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/reflective-sunglasses.jpg",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/pink-sunglasses-on-white.jpg",
+        "enable_custom_banner_height": false,
+        "banner_max_height": 430,
+        "banner_max_height_tablet": 430,
+        "banner_max_height_mobile": 210,
+        "full_with_banne1": true,
+        "enable_lazy_load": false,
+        "enable_h1": true,
+        "main_banner_title": "VASTA",
+        "main_banner_sub_title": "Custom Text",
+        "vasta_headline_align": "center",
+        "banner_titcolor": "#3d3d3d",
+        "banner_sub_titcolor": "#3d3d3d",
+        "banner_titles_background_color": "none",
+        "enable_max_width": false,
+        "banner_headline_width": 1000,
+        "main_banner_headline_size": 60,
+        "main_banner_sub_headline_size": 25,
+        "main_banner_headline_size_tablet": 26,
+        "main_banner_sub_headline_size_tablet": 20,
+        "main_banner_headline_size_mobile": 60,
+        "main_banner_sub_headline_size_mobile": 25,
+        "vasta_title_horizontal_position": 50,
+        "vasta_title_vertical_position": 20,
+        "vasta_title_horizontal_position_tablet": 50,
+        "vasta_title_vertical_position_tablet": 30,
+        "vasta_title_horizontal_position_mobile": 50,
+        "vasta_title_vertical_position_mobile": 20,
+        "banner_desktop_width": 100,
+        "banner_mobile_width": 100,
+        "banner_mobile_height": 200,
+        "banner_font_size_button": 16,
+        "banner_font_size_button_tablet": 16,
+        "banner_font_size_button_mobile": 16,
+        "vasta_buttons_hover_effect": "none",
+        "vasta_buttons_color_1": "#26b522",
+        "vasta_buttons_text_color_1": "#ffffff",
+        "vasta_border_color_1": "rgba(0,0,0,0)",
+        "vasta_border_color_1_hover": "#ffffff",
+        "vasta_buttons_hover_color_1": "#1a7117",
+        "vasta_buttons_hover_text_color_1": "#ffffff"
+      }
+    },
+    "16351881143a2d10e5": {
+      "type": "collection-list",
+      "blocks": {
+        "16351881143a2d10e5-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "bundle",
+            "collection_image": "shopify:\/\/shop_images\/close-up-of-fresh-bread.jpg",
+            "collection_title": ""
+          }
+        },
+        "16351881143a2d10e5-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage",
+            "collection_title": "Vasta"
+          }
+        },
+        "16351881143a2d10e5-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "vasta-bump",
+            "collection_image": "shopify:\/\/shop_images\/promo1_230x_71bb5475-539f-4494-b1b0-ed47efcfbb52.jpg",
+            "collection_title": ""
+          }
+        },
+        "26dcb641-695c-44e7-9210-b5a69195f968": {
+          "type": "collection",
+          "settings": {
+            "collection": "all",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "16351881143a2d10e5-0",
+        "16351881143a2d10e5-1",
+        "16351881143a2d10e5-2",
+        "26dcb641-695c-44e7-9210-b5a69195f968"
+      ],
+      "settings": {
+        "custom_class": "",
+        "border_color_collection_list": "#444444",
+        "text_bg_color_collection_list": "#444444",
+        "text_color_collection_list": "#ffffff",
+        "title": "Featured Collections",
+        "top_margin_featured": 0,
+        "products_per_rows_collection_list": "49",
+        "text_transform_title": "uppercase",
+        "collection_product_title_text_transform": "capitalize"
+      }
+    },
+    "163518802243d59863": {
+      "type": "featured-collection",
+      "settings": {
+        "custom_class": "",
+        "top_margin_featured_products": 0,
+        "title": "Featured products",
+        "text_transform_title": "uppercase",
+        "text_transform_product_title": "uppercase",
+        "collection": "rastreio",
+        "products_per_rows": "4",
+        "products_per_rows_feature_collection": "49",
+        "rows": "1",
+        "show_price": true,
+        "show_swatch": false
+      }
+    },
+    "163518791261981d42": {
+      "type": "cta-block",
+      "settings": {
+        "custom_class": "",
+        "buy_now_background_color": "#767676",
+        "buy_nowbackgroung_height": 100,
+        "buy_now_background_top_position": 0,
+        "buy_now_line_direction": "row",
+        "box_limit": 200,
+        "text_above_button": "<h3>Lorem ipsum dolor<\/h3>\nLorem ipsum dolor sit amet consectetur adipiscing elit.",
+        "block_text_align": "left",
+        "text_above_font_size": 19,
+        "text_above_color": "#ffffff",
+        "buy_now_text_button": "LEARN MORE",
+        "text_transform_button": "uppercase",
+        "text_button_font_size": 20,
+        "width_cta_botton": 100,
+        "button_background_color": "#26b522",
+        "button_hover_background_color": "#9c2135",
+        "button_text_color": "#ffffff",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_hover_border_color": "#ffffff",
+        "id_product_block": "accessories",
+        "use_add_to_cart": true,
+        "use_external_link": false,
+        "url_product": "",
+        "url_call_to_action": "shopify:\/\/shop_images\/travel-flatlay.jpg"
+      }
+    },
+    "163518827257c845da": {
+      "type": "banner-style3",
+      "settings": {
+        "custom_class": "",
+        "homepage_banner_style_3": "shopify:\/\/shop_images\/comparing-black-t-shirts-on-a-clothing-rack-in-a-sun-lit-shop.jpg",
+        "mobile_banner_style_3": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+        "enable_custom_banner_height": true,
+        "banner_max_height": 410,
+        "banner_max_height_tablet": 430,
+        "banner_max_height_mobile": 400,
+        "full_with_banne1": true,
+        "enable_lazy_load": true,
+        "enable_h1": true,
+        "homepage_banner_text": "VASTA SHOP",
+        "main_banner_sub_title": "Your Best Choice\n<div>Vasta<\/div>",
+        "homepage_banner_link": "collections\/all",
+        "vasta_headline_align": "center",
+        "font_weight": "bold",
+        "banner_text_color": "#000000",
+        "desktop_text_size": 63,
+        "main_banner_sub_headline_size": 40,
+        "tablet_text_size": 30,
+        "main_banner_sub_headline_size_tablet": 20,
+        "mobile_text_size": 30,
+        "main_banner_sub_headline_size_mobile": 20,
+        "vasta_title_horizontal_position": 50,
+        "vasta_title_vertical_position": 50,
+        "vasta_title_horizontal_position_tablet": 50,
+        "vasta_title_vertical_position_tablet": 50,
+        "vasta_title_horizontal_position_mobile": 50,
+        "vasta_title_vertical_position_mobile": 50,
+        "banner_mobile_width": 100,
+        "banner_mobile_height": 200
+      }
+    },
+    "163518853512c34568": {
+      "type": "reviews",
+      "blocks": {
+        "bf641e7a-f276-4bbb-853d-bbd177712fc3": {
+          "type": "select",
+          "settings": {
+            "stars_review": "3",
+            "title_review": "TEXT",
+            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "author_review": "",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "20d461c7-cc77-4f91-9bf6-76bdb469d3fe": {
+          "type": "select",
+          "settings": {
+            "stars_review": "4",
+            "title_review": "TEXT 2",
+            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "author_review": "",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "03846dea-ab9d-4cc3-9fea-ad5abfa79cdb": {
+          "type": "select",
+          "settings": {
+            "stars_review": "5",
+            "title_review": "TEXT 3",
+            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
+            "author_review": "",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "bf641e7a-f276-4bbb-853d-bbd177712fc3",
+        "20d461c7-cc77-4f91-9bf6-76bdb469d3fe",
+        "03846dea-ab9d-4cc3-9fea-ad5abfa79cdb"
+      ],
+      "settings": {
+        "custom_class": "",
+        "enable_reviews": true,
+        "title": "",
+        "slider_autoplay": false,
+        "slider_speed": 800
+      }
+    },
+    "163518866014942cc3": {
+      "type": "blog-posts",
+      "settings": {
+        "custom_class": "",
+        "title": "NEWS",
+        "section_title_text_transform": "unset",
+        "display_post_image": true,
+        "blog_rewrite_image_home": "placeholder",
+        "blog_article_placeholder_home": "shopify:\/\/shop_images\/download.jpg",
+        "homepage_blog": "news",
+        "posts_amount": "2"
+      }
+    }
+  },
+  "order": [
+    "16351850661ed94a47",
+    "16351881143a2d10e5",
+    "163518802243d59863",
+    "163518791261981d42",
+    "163518827257c845da",
+    "163518853512c34568",
+    "163518866014942cc3"
+  ]
+}

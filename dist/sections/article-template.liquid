@@ -1,0 +1,304 @@
+<!-- start article.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'section-article-blog.css' | asset_url }}"/>
+
+{%- if comment.status == 'pending' -%}
+  {%- assign number_of_comments = article.comments_count | plus: 1 -%}
+{%- else -%}
+  {%- assign number_of_comments = article.comments_count -%}
+{%- endif -%}
+
+<div class="wrapper">
+  {%- if settings.enable_breadcrumbs_blog_post -%}
+    {%- render 'breadcrumb' -%}
+  {%- endif -%} 
+  <div class="article-wrapper  grid blog-grid">
+    <div class="article-section">
+      <article class="article">
+        <header class="section-header">
+          <div class="section-header__left">
+            <h1>{{ article.title }}</h1>
+            {%- capture author -%}
+              <strong>
+                {%- if settings.author_custom != blank -%}
+                  {{ settings.author_custom }}
+                {%- else -%}
+                  {{ article.author }}
+                {%- endif -%}
+              </strong>
+            {%- endcapture -%}
+
+            {%- unless settings.article_hide_date -%}
+              {%- capture date -%}<time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: format: 'month_day_year' }}</time>{%- endcapture -%}
+              <p>{{ 'blogs.article.author_on_date_html' | t: author: author, date: date }}</p>
+            {%- else -%}
+              <p>{{ 'blogs.article.only_author_name_html' | t: author: author }}</p>
+            {%- endunless -%}
+          </div>
+        </header>
+        <div class="article-contect">
+          <div class="article_img">
+            {%- if article.image -%}
+
+              {% assign image_id = 'article-' | append: forloop.index %}
+                {%- render 'responsive-image',
+                  id_prefix: image_id,
+                  image: article.image,
+                  active_lazy: false,
+                  max_width: 2044,
+                  no_wrap: true, 
+                  alt_text: article.image.alt
+                -%}
+            {%- endif -%}
+          </div>
+          <div class="rte">
+            {{ article.content }}
+          </div>
+        </div>
+
+        {% if blog.comments_enabled? and settings.enable_blogs_comments %}
+          {% if number_of_comments > 0 %}
+            <div class="wrapper-comments">
+                  <h2 class="section-title">{{ 'blogs.comments.comments_with_count' | t: count: number_of_comments }}</h2>
+                  {% paginate article.comments by 5 %}
+                    <div class="comments-container">
+                        {% if comment.status == 'pending' %}
+                          <div id="{{ comment.id }}" class="coments-body">
+                            <div class="comments-container">
+                              {{ comment.content }}
+                            </div>
+                            <div class="comment-info">
+                              <span class="comment-author">{{ comment.author | capitalize | prepend: ' ' | prepend: '&mdash;' | append: ',' }} {{ comment.created_at | time_tag: format: 'date' }}</span>
+                            </div>
+                          </div>
+                        {% endif %}
+                        {% for comment in article.comments %}
+                          <div id="{{ comment.id }}" class="coments-body">
+                            <div class="comments-container">
+                              {{ comment.content }}
+                            </div>
+                            <div class="comment-info">
+                              <span class="comment-author">{{ comment.author | capitalize | prepend: ' ' | prepend: '&mdash;' | append: ',' }} {{ comment.created_at | time_tag: format: 'date' }}</span>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      {%- if paginate.pages > 1 -%}
+                        {% render 'pagination', paginate: paginate %}
+                      {%- endif -%}
+                    </div>
+                  {% endpaginate %}
+            </div>
+          {% endif %}
+            <div class="wrapper-new-comment">
+            {% form 'new_comment', article %}
+                {%- assign formId = 'CommentForm' -%}
+                      <h2 class="section-title">{{ 'blogs.comments.title' | t }}</h2>
+
+                      {%- assign post_message = 'blogs.comments.success' -%}
+                      {%- if blog.moderated? and comment.status == 'pending' -%}
+                        {%- assign post_message = 'blogs.comments.success_moderated' -%}
+                      {%- elsif comment.status == 'unapproved' or comment.status == 'spam' -%}
+                        {%- assign post_message = 'blogs.comments.unapproved' -%}
+                      {%- endif -%}
+
+                      {% render 'form-status', form: form, form_id: formId, success_message: post_message %}
+
+                      <div class="form-new-comment">
+                        <div class="new-comments-author">
+                          <label for="{{ formId }}-author">{{ 'blogs.comments.name' | t }}</label>
+                          <input type="text" name="comment[author]" id="{{ formId }}-author" class="form-new-comment-input form-author{% if form.errors contains 'author' %} input--error{% endif %}" value="{{ form.author }}"{% if form.errors contains 'author' %} aria-invalid="true" aria-describedby="{{ formId}}-author-error"{% endif %}>
+                          {% if form.errors contains 'author' %}
+                            <span id="{{ formId }}-author-error" class="input-error-message">
+                              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                              {% render 'icon-error' %}
+                              <span>{{ 'blogs.comments.name' | t }} {{ form.errors.messages['author'] }}.</span>
+                            </span>
+                          {% endif %}
+                        </div>
+                        <div class="new-comments-email">
+                          <label for="{{ formId }}-email">{{ 'blogs.comments.email' | t }}</label>
+                          <input type="email" name="comment[email]" id="{{ formId }}-email" class="form-new-comment-input form-email{% if form.errors contains 'email' %} input--error{% endif %}" value="{{ form.email }}" autocorrect="off" autocapitalize="off" {% if form.errors contains 'email' %} aria-invalid="true" aria-describedby="{{ formId}}-email-error"{% endif %}>
+                          {% if form.errors contains 'email' %}
+                            <span id="{{ formId }}-email-error" class="input-error-message">
+                              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                              {% render 'icon-error' %}
+                              <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+                            </span>
+                          {% endif %}
+                        </div>
+                        <div class="new-comments">
+                          <label for="{{ formId }}-body">{{ 'blogs.comments.message' | t }}</label>
+                          <textarea name="comment[body]" id="{{ formId }}-body" class="form-new-comment-input form-commet-area{% if form.errors contains 'body' %} input--error{% endif %}"{% if form.errors contains 'body' %} aria-invalid="true" aria-describedby="{{ formId}}-body-error"{% endif %}>{{ form.body }}</textarea>
+                          {% if form.errors contains 'body' %}
+                            <span id="{{ formId }}-body-error" class="input-error-message">
+                              <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                              {% render 'icon-error' %}
+                              <span>{{ 'blogs.comments.message' | t }} {{ form.errors.messages['body'] }}.</span>
+                            </span>
+                          {% endif %}
+                        </div>
+                      </div>
+
+                      {% if blog.moderated? %}
+                        <p class="fine-print">{{ 'blogs.comments.moderated' | t }}</p>
+                      {% endif %}
+
+                      <input type="submit" class="btn blogbutton" value="{{ 'blogs.comments.post' | t }}"> 
+            {% endform %}
+          </div>
+        {% endif %}
+      </article>
+
+      {%- if blog.next_article or blog.previous_article -%}
+        <div class="buttons-prev-next-wrapper">
+          {%- if blog.previous_article -%}
+            <span id="buttons-prev-left" class="left">
+              &larr; {{ 'blogs.article.older_post' | t | link_to: blog.previous_article }}
+            </span>
+          {%- endif -%}
+          {%- if blog.next_article -%}
+            <span id="buttons-prev-right" class="right">
+              {{ 'blogs.article.newer_post' | t | link_to: blog.next_article }} &rarr;
+            </span>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.enable_sidebar -%}
+      <aside class="grid__item large--one-quarter sidebar">
+        {%- render 'blog-sidebars' -%}        
+      </aside>
+    {%- endif -%}
+  </div>
+</div>
+
+<style scoped>
+  {%- if section.settings.enable_sidebar == false -%}
+  .article-section{
+    width: 100%;
+  }
+{% endif %}
+</style>
+
+{% schema %}
+{
+  "name": "Article Template",
+  "class": "article-template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Enable Sidebar",
+      "id": "enable_sidebar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "label": "Sidebar Left",
+      "id": "sidebar_left"
+    },
+    {
+      "type": "checkbox",
+      "label": "Fixed Sidebar",
+      "id": "fixed_sidebar"
+    },
+    {
+      "type": "header",
+      "content": "Sidebar"
+    },
+    {
+      "type": "select",
+      "id": "sidebar_text_align",
+      "label": "Sidebar Text Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "recent_posts",
+      "name": "Recent Posts",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Recent Posts"
+        }
+      ]
+    },
+    {
+      "type": "categories",
+      "name": "Categories",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Categories"
+        },
+        {
+          "type": "textarea",
+          "id": "filter_by_tags",
+          "label": "Filter Categories By Tag",
+          "placeholder": "Type the tags",
+          "info": "Separate tags handle with ( ; )."
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter Widget ",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Newsletter Widget "
+        },
+        {
+          "type": "text",
+          "id": "sidebar_title",
+          "label": "Newsletter Widget Title",
+          "placeholder": "Newsletter Widget Title"
+        },
+        {
+          "type": "textarea",
+          "id": "sidebar_text",
+          "label": "Newsletter Widget Text",
+          "default": "Ready to find out more about our new, and upcoming products? Sign up below. "
+        },
+        {
+          "type": "select",
+          "id": "select_newsletter",
+          "label": "Newsletter Manager",
+          "info": "Klaviyo only will work if enabled, check it on Newsletter",
+          "options": [
+            {
+              "label": "Klaviyo",
+              "value": "klaviyo"
+            },
+            {
+              "label": "Default Shopify Form",
+              "value": "newsletter-default"
+            },
+            {
+              "label": "Custom Newsletter",
+              "value": "newsletter-custom"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,333 @@
+<!-- snippet/upsell-checkbox-snippet -->
+{% if enabled %}
+  {% assign containThisPrioriryProduct = false %}
+  {% assign cart_items = '' %}
+  {% for item in items %}
+      {% assign cart_items = cart_items | append: item.id %}
+      {% unless foloop.last %}
+          {% assign cart_items = cart_items | append: ',' %}
+      {% endunless %}
+  {% endfor %}
+  {% assign cart_items = cart_items | split: ',' %}
+  {% assign upsell_product = all_products[upsell_product] %}
+  {% assign variant_id = upsell_product.selected_or_first_available_variant.id | strip %}
+  {% if cart_items contains variant_id %}
+      {% assign containThisPrioriryProduct = true %}
+  {% endif %}
+  {% if upsell_product.available  %}
+  {% if product.selected_or_first_available_variant.id != upsell_product.selected_or_first_available_variant.id %}
+      <div class="upsell-checkbox_container" >
+        <label class="upsell-checkbox_checkbox-block">
+            <upsell-checkbox
+                   data-price="{{ upsell_product.selected_or_first_available_variant.price }}"
+                   class="upsell-checkbox_checkbox-input"
+                   data-price="{{ upsell_product.price }}"
+                   value="{{ upsell_product.selected_or_first_available_variant.id }}"
+                   {% if upsell_product.selected_or_first_available_variant.available == false %}disabled="disabled"{% endif %}
+                   {% if containThisPrioriryProduct %}checked="checked"{% endif %}
+            ></upsell-checkbox>
+        </label>
+        <div v-on:click.prevent="isActive($event)" data-id="{{upsell_product.selected_or_first_available_variant.id}}" class="upsell-checkbox_text-block">
+          {%- if enabled_upsell_image -%}
+            <span class="upsell-checkbox__image-wrapper">
+              {%- assign image = upsell_image | default: upsell_product.featured_image -%}
+
+              <img src="{{- image | image_url: width: 60 -}}" data-img="{{- image | image_url: width: 1000 -}}" class="upsell-checkbox__image"/>
+            </span>
+          {%- endif -%}
+          
+          {{ upsell_text }}
+        </div>
+      </div>
+      {%- if showModal -%}
+        <div class="checkbox-upsell-modal modal-active" data-active="{{upsell_product.selected_or_first_available_variant.id}}">
+          <div class="checkbox-upsell-modal_container">
+            <span class="checkbox-upsell-modal_close">x</span>
+            <div class="checkbox-upsell-modal_content">
+              {% if popup_image %}
+              <img class="checkbox-upsell-modal_img lazy2" data-src="{{ popup_image | img_url: '480x' }}" alt="{{ title }}"/>
+              {% else %}
+              <img class="checkbox-upsell-modal_img lazy2" data-src="{{ upsell_product.featured_image | img_url: '480x' }}" alt="{{ title }}" />
+              {% endif %}
+              {% if popup_description != blank %}
+              <span class="checkbox-upsell-modal_text">{{ popup_description  }}</span>
+              {% else %}
+              <span class="checkbox-upsell-modal_text">{{ upsell_product.description  }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+	  {%- endif -%}
+	  {% endif %}
+    {% else %}
+    <div class="msg msg-error">
+      This product not is <b>available</b>.
+    </div>
+  {% endif %}
+{% endif%}
+
+<style scooped>
+.upsell-checkbox_container {
+    display: flex;
+    position: relative;
+    padding-bottom: 6px;
+}
+.upsell-checkbox_checkbox-fill {
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgba(6, 25, 38, 0.3);
+    transform: translatey(-50%);
+}
+.cart-drawer .empty #cart-drawer-upsell-checkbox-cart-page {
+  display: none;
+}
+.upsell-checkbox__image-wrapper {
+  float: left;
+  margin-right: 10px;
+}
+.upsell-checkbox__image-wrapper,
+.upsell-checkbox__image {
+  width: 50px;
+}
+
+.upsell-checkbox__image {
+  cursor: pointer;
+}
+
+.upsell-checkbox__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.upsell-checkbox__modal--open .upsell-checkbox__modal {
+  opacity: 1;
+  visibility: visible;
+}
+
+.upsell-checkbox__modal-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.upsell-checkbox__modal-box {
+  width: 500px;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px solid #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.upsell-checkbox__modal-image {
+  display: block;
+}
+
+.upsell-checkbox__modal-content {
+  position: relative;
+}
+
+.upsell-checkbox__modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  background: #fff;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  line-height: 17px;
+  text-align: center;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+.template-product .checkbox-upsell-modal_text>p:first-of-type {
+  font-size: 1.4rem;
+}
+
+.template-product .checkbox-upsell-modal_text>p:first-of-type {
+  font-size: 2.3rem;
+  line-height: 1.2;
+}
+
+.template-product .checkbox-upsell-modal_text>p {
+  font-size: 1.4rem;
+}
+
+.template-product deliverr {
+  display: none;
+}
+
+.template-product .checkbox-upsell-modal_text>p:nth-of-type(2) {
+  padding-left: 1rem;
+}
+
+.template-product .checkbox-upsell-modal_text>p+p {
+  margin-top: 20px;
+}
+.upsell-checkbox_text-block a {
+  color: #09f;
+}
+.upsell-checkbox_container {
+  display: flex;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.upsell-checkbox_checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.upsell-checkbox_checkbox-fill {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid rgba(6, 25, 38, 0.3);
+  transform: translatey(-50%);
+}
+
+
+.upsell-checkbox_checkbox-input:checked ~ .upsell-checkbox_checkbox-fill:after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 2px;
+  top: -2px;
+  width: 5px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2.2px 2.2px 0;
+  background-color: transparent;
+  border-radius: 0; 
+  position: absolute;
+  content: '';
+}
+
+.upsell-checkbox_checkbox-input:after {
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+  opacity: 1;
+  left: 3px;
+  top: -1px;
+  width: 4px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+.upsell-checkbox_checkbox-input:checked~.upsell-checkbox_checkbox-fill {
+  background-color: #4c4c4c;
+  border-color: #4c4c4c;
+}
+
+.upsell-checkbox_text-block {
+  padding: 0 0 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.upsell-checkbox_text-block p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-left: 5px;
+  margin-top: 2px;
+}
+
+/* MODAL(START) */
+.modal-active {
+  visibility: hidden;
+}
+
+.checkbox-upsell-modal {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  z-index: 99999999;
+  transition: ease all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkbox-upsell-modal_container {
+  position: relative;
+  background: #fff;
+  border: 10px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  width: 1000px;
+  display: block;
+  max-height: 90%;
+  max-width: 90%;
+}
+
+.checkbox-upsell-modal_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(80%, -90%);
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 100%;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.checkbox-upsell-modal_content {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+}
+
+.checkbox-upsell-modal_img {
+  width: 48%;
+  margin-bottom: 10px;
+  float: left;
+  margin-right: 2%;
+}
+
+.checkbox-upsell-modal_text {
+  max-height: 100%;
+  text-align: left;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+</style>

@@ -1,0 +1,15 @@
+<!-- start product-info-mobile.liquid (SNIPPET) -->
+<div class="mobile" >
+  <p class="product-title">{{ product.title }}</p>
+    {%- if product.metafields.field.short_description != blank and section.settings.select_position_short_description == "before" -%}
+      <div class="meta-short-description"{%- if section.settings.enable_short_description == false -%} style="display: none;"{%- endif -%}>  {{ product.metafields.field.short_description }} </div>
+    {%- endif -%}
+    {%- if settings.product_enabled_app_reviews -%}
+      <div class="products-reviews-stars">
+        {%- render 'reviews-stars' -%}
+      </div>
+    {%- endif -%}
+
+  {%- render 'product-price-new-layout' -%}
+
+</div>

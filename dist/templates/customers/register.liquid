@@ -1,0 +1,101 @@
+<!-- start register.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'template-customer.css' | asset_url }}"/>
+
+<div  class="wrapper" id="CustomerLoginForm" >
+  <h2 class="section-title">{{ 'customer.register.title' | t }}</h1>
+  {%- assign formId = 'RegisterForm' -%}
+  {% form 'create_customer', id: formId, novalidate: 'novalidate', class: 'create-account-form' %}
+    {%- if form.posted_successfully? -%}
+      <p class="form-message form-message--success" tabindex="-1" data-form-status>
+        {{ success_message | default: 'contact.form.post_success' | t }}
+      </p>
+    {%- endif -%}
+
+    {% assign error_order = "author, email, body, password, form" | split: ", " %}
+
+    {%- if form.errors -%}
+
+      {%- if form.errors.translated_fields.size == 1 and form.errors.first == 'form' -%}
+        <p class="form-message" tabindex="-1" data-form-status>
+          {{ form.errors.messages['form'] }}
+        </p>
+      {% else %}
+        <div class="form-message form-message--error">
+          <h2 class="h3 form-message__title" tabindex="-1" data-form-status>{{ 'contact.form.error_heading' | t }}</h2>
+          <ul>
+            {% for error in error_order %}
+              {% for field in form.errors %}
+                {% if error == field %}
+
+                  {% capture field_label %}
+                    {% case field %}
+                      {% when 'author' %}
+                        {{ 'contact.form.name' | t }}
+                      {% when 'body' %}
+                        {{ 'contact.form.message' | t }}
+                      {% else %}
+                        {{ form.errors.translated_fields[field] }}
+                    {% endcase %}
+                  {% endcapture %}
+                  <li>
+                    {%- if field == 'form' -%}
+                      {{ form.errors.messages[field] }}
+                    {%- else -%}
+                      {% comment %} the href should match the input's id {% endcomment %}
+                      <a href="#{{ formId }}-{{ field }}" class="form-message__link">{{ field_label | strip | capitalize }} {{ form.errors.messages[field] }}</a>
+                    {%- endif -%}
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+    <input type="text"
+      name="customer[first_name]"
+      id="FirstName"
+      placeholder="{{ 'customer.register.first_name' | t }}"
+      autofocus
+      {% if form.first_name %}value="{{ form.first_name }}"{% endif %}>
+    <input type="text"
+      name="customer[last_name]"
+      id="LastName"
+      placeholder="{{ 'customer.register.last_name' | t }}"
+      {% if form.last_name %}value="{{ form.last_name }}"{% endif %}>
+    <input type="email"
+      name="customer[email]"
+      id="Email"
+      class="{% if form.errors contains 'email' %}input-error{% endif %}"
+      placeholder="{{ 'customer.register.email' | t }}"
+      value="{% if form.email %}{{ form.email }}{% endif %}"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off">
+    {%- if form.errors contains 'email' -%}
+      <span id="{{ formId }}-email-error" class="input-error-message">
+        <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+        {% render 'icon-error' %}
+        <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+      </span>
+    {%- endif -%}
+    <input type="password"
+      name="customer[password]"
+      id="CreatePassword"
+      class="{% if form.errors contains 'password' %}input-error{% endif %}"
+      placeholder="{{ 'customer.register.password' | t }}">
+    {%- if form.errors contains 'password' -%}
+      <span id="{{ formId }}-password-error" class="input-error-message">
+        {% render 'icon-error' %}
+        <span>{{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.</span>
+      </span>
+    {%- endif -%}
+    <button type="submit" value={{ 'customer.register.submit' | t }} class="button">
+      {{ 'customer.register.submit' | t }}
+    </button>
+    <a title="Register Cancel" id="id-register-cancel" href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+    <a title="Login" id="login" href="{{ routes.account_login_url }}">{{ 'layout.customer.log_in' | t }}</a>
+  <input type="hidden" name="return_to" value="{{ routes.account_url }}">
+{% endform %}
+</div>

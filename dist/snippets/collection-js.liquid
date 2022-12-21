@@ -1,0 +1,57 @@
+<!-- start collection-js.liquid (SNIPPET) -->
+<script type="lazyload2">
+    (function(global){
+        'use strict';
+
+        setTimeout(function(){
+            /**
+             *
+             * Collection Description
+             *
+            */
+            const descriptionButton = document.querySelector('#collection-description__button');
+            const descriptionText = document.querySelector('#collection-description__text');
+            const descriptionButtonLabels = {
+                closed: "{{ 'collections.general.see_more' | t }}",
+                opened: "{{ 'collections.general.see_less' | t }}"
+            };
+
+            if (descriptionButton && descriptionText) {
+                descriptionButton.addEventListener('click', function(e) {
+                    const btn = e.target;
+
+                    e.preventDefault();
+
+                    if (descriptionText.classList.contains('collection-description__text--opened')) {
+                        descriptionText.classList.remove('collection-description__text--opened')
+                        btn.innerHTML = descriptionButtonLabels.closed;
+                    } else {
+                        descriptionText.classList.add('collection-description__text--opened')
+                        btn.innerHTML = descriptionButtonLabels.opened;
+                    }
+                });
+            }
+
+            /**
+             *
+             * Collection Filter
+             *
+            */
+            const filterByInterest = document.querySelector('#filter-by-interest');
+
+            if (filterByInterest) {
+                filterByInterest.addEventListener('change', function(){
+                    location.replace(this.value)
+                });
+            }
+
+            const filterOrderBy = document.querySelector('#filter-sort-by');
+
+            if (filterOrderBy) {
+                filterOrderBy.addEventListener('change', function(){
+                    location.search = Shopify.newState('sort_by', this.value);
+                });
+            }
+        });
+    })(window);
+</script>

@@ -1,0 +1,125 @@
+<!-- start responsive-image.liquid (SNIPPET) -->
+
+{%- comment -%} Added incremental number to avoid conflict styling code when the same images are using this snippet {%- endcomment -%}
+{%- assign min = 65 -%}
+{%- assign max = 80 -%}
+{%- assign diff = max | minus: min -%}
+{%- assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min -%}
+{%- assign image_width = max_width | default: image.image.width -%}
+{%- assign image_height = max_width | divided_by: image.image.aspect_ratio | default: image.image.height -%}
+
+{%- if image == blank -%}
+  {%- assign image_height = image_width -%}  
+{%- endif -%}
+
+{% if image_height == blank %}
+  {% assign image_height = max_width  %}
+{% endif %}
+
+{%- capture responsive_image_counter %}{% increment responsive_image_counter %}{% endcapture -%}
+
+{%- unless size_large -%}
+  {%- assign size_large = 1200 -%}
+{%- endunless -%}
+
+{%- unless size_mobile -%}
+  {%- assign size_mobile = 767 -%}
+{%- endunless -%}
+
+{%- unless size_desk -%}
+  {%- assign size_desk = 767 -%}
+{%- endunless -%}
+
+
+{%- comment -%} Limit image widths to valid options based on image.width {%- endcomment -%}
+{%- assign image_widths = '50,100,150,200,250,300,360,540,720,900,1080,1296,1512,1728,1944,2160,2376,2592,2808,3024' | split: ',' -%}
+{%- capture image_srcset_mount -%}
+  {%- for width in image_widths -%}
+  {%- assign width_num = width | plus: 0 | round -%}
+    {%- if width_num < max_width -%}
+    {%- if image.width >= width_num -%}
+      {% assign widthx = width | append: 'x' %}
+      https:{{ image | img_url: widthx }} {{ width | append: 'w' }},
+    {%- endif -%}
+    {%- else -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if image.width < max_width -%}
+    {%- assign widthx = image.width | append: 'x' -%}
+    https:{{ image | img_url: widthx }} {{ image.width | append: 'w' }}
+  {%- else -%}
+    {%- assign widthx = max_width | append: 'x' -%}
+    https:{{ image | img_url: widthx }} {{ max_width | append: 'w' }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture image_srcset -%}
+{{- image_srcset_mount | split: ',' | reverse | join: ',' -}}
+{%- endcapture -%}
+
+{%- assign max_width = max_width | downcase | append: 'x' -%}
+{%- capture image_widths -%}
+  {%- for width in image_widths -%}
+    {%- comment -%} Check if image width is less or equal to width {%- endcomment -%}
+    {%- assign width_num = width | round -%}
+    {%- if image.width >= width_num -%}{{ width_num }},{%- endif -%}
+  {%- endfor -%}
+  {{ image.width }}
+{%- endcapture -%}
+{%- assign image_widths = image_widths | strip_newlines -%}
+
+{%- unless no_wrap -%}
+{%- if custom_class == false -%}<div id="{{ id_prefix | escape | handleize | default: 'img' }}-prod-{{ image.id }}-{{ randomNumber }}" data-image-id="{{ image.id }}" class="responsive-image__wrapper {{ wrapper_class }}" {{ wrapper_attributes }}>{% endif %}
+{%- endunless -%}
+
+  <img
+    width="{{ image_width }}"
+    height="{{ image_height }}"
+    id="{{ id_prefix | escape | handleize | default: 'img' }}-{{ image.id }}-{{ randomNumber }}"
+    class="{% if custom_class == false %}responsive-image__image{% endif %} {% if active_lazy == true %}lazy2{% endif %} {{ image_class }}"
+    {% if custom_style %} style="{{ custom_style }}" {% endif %}
+    {% if active_lazy == false %}
+       loading="eager"
+       src="{{ image | img_url: max_width }}"
+       srcset="{{ image_srcset }}"
+       sizes="(min-width: 1200px) {{ size_large }}px, (max-width: 767px) {{ size_mobile }}vw, (min-width: 768px) {{ size_desk }}vw"
+    {% else %}
+      {%- if template contains 'product' -%}
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAABhGlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9Ta0UqDkYQcchQnSyIijhqFYpQIdQKrTqYXPohNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHrwXE/3t173L0DhFqJ6XbHGKAbjpVKxKVMdkUKvyKETojoh6gw25yV5STajq97BPh6F+NZ7c/9OXq0nM2AgEQ8w0zLIV4nntp0TM77xCIrKhrxOfGoRRckfuS66vMb54LHAs8UrXRqjlgklgotrLYwK1o68SRxVNMNyhcyPmuctzjrpQpr3JO/MJIzlpe4TnMICSxgETIkqKhgAyU4iNFqkGIjRfvxNv5Bzy+TSyXXBhg55lGGDsXzg//B727t/MS4nxSJA6EX1/0YBsK7QL3qut/Hrls/AYLPwJXR9JdrwPQn6dWmFj0CereBi+umpu4BlzvAwJOpWIonBWkK+TzwfkbflAX6boHuVb+3xj5OH4A0dZW8AQ4OgZECZa+1eXdXa2//nmn09wMjG3KHDOS4EQAAAAlwSFlzAAAuIwAALiMBeKU/dgAAAAd0SU1FB+YFBhQWEhVMTaAAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAADElEQVQI12O4f/8+AAU+Ap5GJPuHAAAAAElFTkSuQmCC"
+      {% else %}
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+      {%- endif -%}
+        loading="lazy"
+        data-src="{{ image | img_url: max_width }}"
+        data-srcset="{{ image_srcset }}"
+        data-sizes="(min-width: 1200px) {{ size_large }}px, (max-width: 767px) {{ size_mobile }}vw, (min-width: 768px) {{ size_desk }}vw"
+    {% endif %}
+    data-widths="[{{ image_widths }}]"
+    data-aspectratio="{{ image.aspect_ratio }}"
+    {% if image.alt != blank %}
+      {% assign image_alt = image.alt | strip_html | escape %}
+    {% elsif alt_text != blank %}
+      {% assign image_alt = alt_text | strip_html | escape %}
+    {% else %}
+      {% assign image_alt = "Image without description." %}
+    {% endif %}
+    alt="{{ image_alt }}"
+    {{ image_attributes }}
+ >
+{%- unless no_wrap -%}
+  {%- if custom_class == false -%}
+    </div>
+  {%- endif -%}
+{%- endunless -%}
+
+<noscript>
+  {% if image.alt != blank %}
+      {% assign image_alt = image.alt | strip_html | escape %}
+    {% elsif alt_text != blank %}
+      {% assign image_alt = alt_text | strip_html | escape %}
+    {% else %}
+      {% assign image_alt = "Image without description." %}
+    {% endif %}
+  <img width="{{ image_width }}" height="{{ image_height }}" class="{{ image_class }} lazy" src="{{ image | img_url: max_width }}" alt="{{ image_alt }}">
+</noscript>

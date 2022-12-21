@@ -1,0 +1,203 @@
+<!-- start cart-js.liquid (SNIPPET) -->
+<script>
+    (function($){
+    // var product_itemLabel = '{{ "products.product.item" | t }}';
+    // var product_itemsLabel = '{{ "products.product.items" | t }}';
+
+    var enable_freeshipping_msg = enable_freeshipping_msg || {{ settings.enable_freeshipping_msg | default: false }};
+    var freeshipping_msg = freeshipping_msg || '{{ settings.freeshipping_msg }}';
+
+    if (typeof cart_page !== 'undefined' && cart_page) {
+        cart_page.text_cart_above_button = "{{ settings.text_cart_above_button | replace: '"', '\"' }}";
+        cart_page.enable_week_message = {{ settings.enable_day_on_message }};
+    }
+
+    window.addEventListener('load', function(){
+        $(document).on('submit', '.jq-remove-cart-item', function(e){
+            e.preventDefault();
+
+            var data = $(this).serialize();
+
+            $('#jq-cart-item-' + get_id_variant(data) +' .bt-remove-cart').html(loading());
+
+            VastaShop.Cart.update(data).then(function(cart, response){
+                if(response === "success") {
+                    if (shipping_bar.enable_discount || shipping_bar.style_shipping == "dicount_style") {
+                        update_shipping_bar(cart);
+                    }
+
+                    update_discount_cart(cart.total_price,cart.item_count);
+
+                    $('#jq-cart-item-' + get_id_variant(data) + ' .bt-remove-cart').html('Removed!');
+                    $('#jq-cart-item-' + get_id_variant(data)).fadeOut('slow',function(){
+                        $(this).remove();
+                    });
+
+                    $('#jq-cart-price-total').html(VastaShop.formatMoney(cart.total_price));
+
+                    if(cart.item_count < 1) {
+                        $('.content-cart').html(continue_shopping());
+                    }else if(cart.item_count == 1) {
+                        $('.jq_qtd_bt_proceed').html(total_items(cart) + ' ' + VastaShop.Variables.product_itemLabel);
+                    }
+                    else if(cart.item_count > 1) {
+                        $('.jq_qtd_bt_proceed').html(total_items(cart) + ' ' + VastaShop.Variables.product_itemsLabel);
+                    }
+
+                    $('#cart-count > .count').html(total_items(cart));
+                }
+            }).catch(function(err) {
+                console.log(err);
+
+            });
+            return false;
+        });
+
+        /**
+        * Increases Amount Items Cart
+        * @function[<plus-cart-item>]
+        *
+        * This function increases the quantity of the product in the cart
+        *
+        * Dependencies: none
+        *
+        * @param: none
+        *
+        */
+        $(document).on('click', '.jq-plus-cart-item', function(){
+            var input_qtd =  $(this).siblings('.jq-input-qtd');
+            input_qtd.siblings('.btn-plus').removeAttr('disabled');
+            input_qtd.siblings('.btn-minus').removeAttr('disabled');
+            input_qtd.removeAttr('disabled');
+
+            if(input_qtd.attr('data-max') == -1){
+                input_qtd.val(parseInt(input_qtd.val()) + 1);
+            }else if(input_qtd.val() >= parseInt(input_qtd.attr('data-max'))){
+                input_qtd.val(parseInt(input_qtd.attr('data-max')));
+                input_qtd.siblings('.btn-plus').attr('disabled','disabled');
+                input_qtd.attr('disabled','disabled');
+             }else if(input_qtd.val() < parseInt(input_qtd.attr('data-max')) ){
+                input_qtd.val(parseInt(input_qtd.val()) + 1);
+            }
+        });
+
+        /**
+        * Edit Quantity Items Cart
+        * @function[<input-qtd-cart>]
+        *
+        * This function edits the quantity of the product in the cart
+        *
+        * Dependencies: none
+        *
+        * @param: none
+        *
+        */
+       $(document).on('blur', '.jq-input-qtd', function(){
+        var input_qtd =  $(this);
+        input_qtd.siblings('.btn-plus').removeAttr('disabled');
+        input_qtd.siblings('.btn-minus').removeAttr('disabled');
+        input_qtd.removeAttr('disabled');
+        if(input_qtd.val() < 1){
+          input_qtd.val(1);
+          input_qtd.siblings('.btn-minus').attr('disabled','disabled');
+        }else if(input_qtd.val() >= parseInt(input_qtd.attr('data-max')) && parseInt(input_qtd.attr('data-max')) != -1){
+          input_qtd.val(parseInt(input_qtd.attr('data-max')));
+          input_qtd.siblings('.btn-plus').attr('disabled','disabled');
+          input_qtd.attr('disabled','disabled');
+        }
+        $('.jq-qtd-item-cart').submit();
+      });
+
+        /**
+        * Decrease Quantity Items Cart
+        * @function[<minus-cart-item>]
+        *
+        * This function decreases the quantity of the product in the carton
+        *
+        * Dependencies: none
+        *
+        * @param: none
+        *
+        */
+        $(document).on('click', '.jq-minus-cart-item', function(){
+            var input_qtd =  $(this).siblings('.jq-input-qtd');
+            input_qtd.siblings('.btn-plus').removeAttr('disabled');
+            input_qtd.removeAttr('disabled');
+            if(input_qtd.val() > 1){
+                input_qtd.val(parseInt(input_qtd.val()) - 1);
+            }else{
+                 input_qtd.siblings('.btn-minus').attr('disabled','disabled');
+            }
+        });
+
+        /**
+        * Updates Value Item Cart
+        * @function[<qtd-item-cart>]
+        *
+        * This function updates the quantity of the product in the cart
+        *
+        * Dependencies: none
+        *
+        * @param: none
+        *
+        * @return false
+        */
+        $(document).on('submit', '.jq-qtd-item-cart', function(){
+            var data = $(this).serialize(),
+            quantity = $(this).find('.input-qtd').eq(0).val(),
+			itemPrice = $(this).find('.input-qtd');
+
+            VastaShop.Cart.update(data).then(function(cart, response){
+                if(response === "success"){
+                    if(shipping_bar.enable_discount || shipping_bar.style_shipping == "dicount_style"){
+                        update_shipping_bar(cart);
+                    }
+
+                    update_discount_cart(cart.total_price,cart.item_count);
+
+                    const discountValue = product_line(cart, parseInt(itemPrice.eq(0).attr('data-line')), 'total_discount');
+
+                    $('#jq-cart-item-price-'+get_id_variant(data)+'-'+itemPrice.eq(0).attr('data-line')).html(VastaShop.formatMoney(product_line(cart, parseInt(itemPrice.eq(0).attr('data-line')))));
+                    $('#jq-cart-item-discount-'+get_id_variant(data)+'-'+itemPrice.eq(0).attr('data-line')).html('-' + VastaShop.formatMoney(discountValue));
+
+                    if (discountValue == 0) {
+                        $('#jq-cart-item-discount-'+get_id_variant(data)+'-'+itemPrice.eq(0).attr('data-line')).hide();
+                    } else {
+                        $('#jq-cart-item-discount-'+get_id_variant(data)+'-'+itemPrice.eq(0).attr('data-line')).show();
+                    }
+                    
+                    $('#jq-cart-price-total').html(VastaShop.formatMoney(cart.total_price));
+
+                    if($('.input-qtd-'+ get_id_variant(data)).val() == 1){
+                        $('.btn-minus-'+ get_id_variant(data)).attr('disabled','disabled');
+                    }
+
+                    if($('.input-qtd-'+ get_id_variant(data)).val() == parseInt($('.input-qtd-'+ get_id_variant(data)).attr('data-mx'))){
+                        $('.btn-plus-'+ get_id_variant(data)).attr('disabled','disabled');
+                    }
+
+                    if(cart.item_count == 1){
+                        $('.jq_qtd_bt_proceed').html(total_items(cart) + ' ' + VastaShop.Variables.product_itemLabel);
+                        $('#cart-count > .count').html(total_items(cart));
+                    }
+                    else if(cart.item_count > 1){
+                        $('.jq_qtd_bt_proceed').html(total_items(cart) + ' ' + VastaShop.Variables.product_itemsLabel);
+                        $('#cart-count > .count').html(total_items(cart));
+                    }
+                    if (quantity < 1) {
+                        $('#jq-cart-item-' + get_id_variant(data)).fadeOut('slow',function(){
+                            $(this).remove();
+                        });
+                    }
+                }
+            }).catch(function(err) {
+                console.log(err);
+
+            });
+            return false;
+        });
+    });
+})(jQuery);
+
+
+</script>

@@ -1,0 +1,221 @@
+<!-- start videos.liquid (SECTION) -->
+<section id="video-slider-{{ section.id }}" data-slider="{{ section.id }}" data-section-type="video" class="wrapper {{ section.settings.video_custom_class }}">
+    {%- if section.settings.enable_section_title and section.settings.section_title != blank -%}
+        <h2 class="section-title">{{ section.settings.section_title }}</h2>
+    {%- endif -%}
+
+    <div id="slider-{{ section.id }}" class="dynamic-video-wrapper wrapper {% if section.settings.enable_videos_slider %} dynamic-video__slider-container {% endif %} {{ section.settings.custom_class }}" style="{% if section.settings.enable_full_width %} max-width: 100%; {% else %} max-width: 600px;{% endif %}">
+        {%- for block in section.blocks -%}
+            {%- if "video" == block.type -%}
+                {%- assign show_videos = false -%}
+                {%- if block.settings.enable_video_by_tag -%}
+                    {%- if product.tags contains block.settings.tag_name -%}
+                        {%- assign show_videos = true -%}
+                    {%- endif -%}
+                {%- else -%}
+                    {%- assign show_videos = true -%}
+                {%- endif -%}
+                
+                {%- if show_videos == true -%}
+                    {%- assign url = block.settings.url -%}
+                    <div class="dynamic-video" style="{% if section.settings.enable_full_width %} max-width: 100%; {% else %} max-width: 560px;{% endif %}">
+                        {% if section.settings.enable_videos_title and block.settings.title != blank %}
+                            <h3 class="videos-title">{{ block.settings.title }}</h3>
+                        {% endif %}
+                        {%- assign platform = '' -%}
+                        {%- if url contains 'youtube' or url contains 'youtu.be' -%}
+                        {%- assign platform = 'youtube' -%}
+                        {%- if url contains 'youtu.be' -%}
+                            {%- assign videoID = url | split: '/' | last -%}
+                        {%- elsif url contains '&' -%}
+                            {%- assign videoID = url | split: '?v=' | last | split: '&' | first -%}
+                        {%- elsif url contains 'embed' -%}
+                            {%- assign videoID = url | split: 'embed/' | last -%}
+                        {%- else -%}
+                            {%- assign videoID = url | split: '?v=' | last -%}
+                        {%- endif -%}
+                        {%- elsif url contains 'vimeo' -%}
+                            {%- assign platform = 'vimeo' -%}
+                        {%- endif -%}
+                        <div class="video" data-video="{{ platform }}">
+                            <iframe class="{{ platform }}{% if slideshow %}hide-player{% endif %}"
+                                data-video-url="{{ url }}"
+                                loading="lazy"
+                                width="560"
+                                height="315"
+                                src="{% if platform == 'youtube' %}https://www.youtube.com/embed/{{- videoID -}}{% else %}{{- url -}}{% endif %}"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+            
+                        {% if section.settings.enable_videos_description and block.settings.video_description != blank %}
+                            <p class="videos-description">{{ block.settings.video_description }}</p>
+                        {% endif %}
+                    </div>
+                {%- endif -%}
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "Videos",
+  "class": "videos-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_section_title",
+      "label": "Enable Section Title",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Videos",
+      "placeholder": "Section title"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_videos_title",
+      "label": "Enable Videos Title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_videos_description",
+      "label": "Enable Videos Description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_videos_slider",
+      "label": "Enable Videos Slider",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_full_width",
+      "label": "Videos Full Width",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Video",
+      "type": "video",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Video Title",
+          "default": "Video Title"
+        },
+        {
+          "type": "video_url",
+          "id": "url",
+          "label": "Link",
+          "accept": [
+            "youtube",
+            "vimeo"
+          ],
+          "info": "The Vimeo Link should be added like this: https://player.vimeo.com/video/ID_HERE"
+        },
+        {
+          "type": "textarea",
+          "id": "video_description",
+          "label": "Video Description",
+          "default": "Text Example"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_video_by_tag",
+          "label": "Enable Video By Tag"
+        },
+        {
+          "type": "text",
+          "id": "tag_name",
+          "label": "Product Video Tag",
+          "info": "Only show video on product pages with these tags."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Video",
+      "name": "Videos"
+    }
+  ]
+}
+{% endschema %}
+
+<script type="lazyload2">
+  setTimeout(function(){
+    window.SectionVideoSlider = (function(){
+      function SectionVideoSlider() {
+        this._run();
+      }
+
+      SectionVideoSlider.prototype = {
+        onSelect: function() {
+          this._run();
+        },
+
+        _run: function() {
+          $('.dynamic-video__slider-container').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<button type="button" class="slick-prev">&lang;</button>',
+            nextArrow: '<button type="button" class="slick-next">&rang;</button>',
+            infinite: true
+          });
+        }
+      };
+
+      return new SectionVideoSlider;
+  })();
+});
+</script>
+
+<style scoped>
+    #shopify-section-{{ section.id }} .dynamic-video-wrapper {
+        {% if section.settings.enable_videos_slider %}
+            display: block;
+            height: auto;
+        {% else %}
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        {% endif %}
+    }
+
+    #shopify-section-{{ section.id }} .dynamic-video-wrapper {
+        {% if section.settings.enable_videos_slider %}
+            margin-bottom: 0;
+        {% else %}
+            margin-bottom: 32px;
+        {% endif %}
+    }
+
+    #shopify-section-{{ section.id }} .dynamic-video-wrapper .dynamic-video .video {
+        {% if section.settings.enable_videos_slider %}
+            padding-top: 0;
+        {% else %}
+            padding-top: 25px;
+        {% endif %}
+    }
+</style>

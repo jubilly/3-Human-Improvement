@@ -1,0 +1,42 @@
+<!-- start cart-drawer-reviews.liquid (SNIPPET) -->
+<div class="cart-drawer-reviews-wrapper">
+    {%- for block in section_blocks -%}
+        {%- if block.type == 'review' -%}
+            <div class="reviews-cartDrawer">
+                <div class="drawer-review_single">
+                    <div class="drawer-review_user">
+                        {%- if block.settings.product_image_cart != blank -%}
+                            <div class="user-img">
+                                {%- if block.settings.product_image_cart.alt != blank -%}
+                                  {%- assign image_alt = block.settings.product_image_cart.alt | strip_html | escape -%}
+                                {%- elsif block.settings.author_review_cart != blank -%}
+                                  {%- assign image_alt = block.settings.author_review_cart | strip_html | escape -%}
+                                {%- else -%}
+                                  {%- assign image_alt = "Image without description." -%}
+                                {%- endif -%}
+                                {%- assign image_id_prefix = 'cart-drawer-reviews' | append: forloop.index -%}
+                                {%- render 'responsive-image',
+                                    id_prefix: image_id_prefix,
+                                    image: block.settings.product_image_cart,
+                                    image_class: 'drawer-user_image lazy',
+                                    active_lazy: true,
+                                    no_wrap: true, 
+                                    alt_text: image_alt,
+                                    data-srcset: 80,
+                                    max_width: 80
+                                -%}
+                            </div>
+                        {%- endif -%}
+
+                        <span class="user-name">{{ block.settings.author_review_cart }}</span>
+                    </div>
+                    <span class="review-stars-verified">
+                        <img width="80" height="80" class="stars-img lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="{{ 'stars-review.png' | asset_img_url: '80x' }}" alt="Stars reviews"/>
+                        Verified Purchase
+                    </span>
+                    {{ block.settings.content_review_cart }}
+                </div>
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+</div>

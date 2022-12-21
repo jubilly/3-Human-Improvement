@@ -1,0 +1,218 @@
+{
+  "sections": {
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "7702b0ba-598d-4a48-8524-de80bd4e2b34": {
+          "type": "tab",
+          "settings": {
+            "title": "Policy Delivery",
+            "tab_title": "Policy Delivery",
+            "tab_content": "hgygy",
+            "enable_metafield_content": false,
+            "tab_metafield_content": "",
+            "enable_tab_by_tag": false,
+            "tag_name": ""
+          }
+        },
+        "3c9528b1-45ad-45c7-86fd-cd9ff25a989b": {
+          "type": "trust-badge",
+          "settings": {
+            "title": "",
+            "svg_trust_badge_cart": "natural-product",
+            "enable_custom_trust_badge_svg": false,
+            "custom_trust_badge_svg_html": "",
+            "enable_img_trust_badge_cart": false,
+            "filter_by_tags": ""
+          }
+        },
+        "3aff45aa-57f1-4a37-92df-f7477665cb2a": {
+          "type": "trust-badge",
+          "settings": {
+            "title": "",
+            "svg_trust_badge_cart": "free-shipping",
+            "enable_custom_trust_badge_svg": false,
+            "custom_trust_badge_svg_html": "",
+            "enable_img_trust_badge_cart": false,
+            "filter_by_tags": ""
+          }
+        },
+        "c38a881c-5dd9-4775-96b9-fe46ca5b7757": {
+          "type": "trust-badge",
+          "settings": {
+            "title": "",
+            "svg_trust_badge_cart": "made-usa",
+            "enable_custom_trust_badge_svg": false,
+            "custom_trust_badge_svg_html": "",
+            "enable_img_trust_badge_cart": false,
+            "filter_by_tags": ""
+          }
+        },
+        "e5cc1966-6803-4f1f-ac71-afdb6089ea54": {
+          "type": "trust-badge",
+          "settings": {
+            "title": "",
+            "svg_trust_badge_cart": "money-back",
+            "enable_custom_trust_badge_svg": false,
+            "custom_trust_badge_svg_html": "",
+            "enable_img_trust_badge_cart": false,
+            "filter_by_tags": ""
+          }
+        },
+        "640d9a99-1e2e-41d3-b639-e15ecc1c39e2": {
+          "type": "checkbox_upsell_product",
+          "settings": {
+            "enabled_upsell": true,
+            "upsell_tags": "",
+            "upsell_product": "2-pcs-mommy-baby-headband",
+            "enable_upsell_image": false,
+            "custom_upsell_image": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "upsell_text": "<p><a href=\"\/products\/2-pcs-mommy-baby-headband\" title=\"2 PCS Mommy & Baby Headband\">Lorem Ipsum<\/a><strong> <\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
+            "show_description": true,
+            "popup_description": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "7702b0ba-598d-4a48-8524-de80bd4e2b34",
+        "3c9528b1-45ad-45c7-86fd-cd9ff25a989b",
+        "3aff45aa-57f1-4a37-92df-f7477665cb2a",
+        "c38a881c-5dd9-4775-96b9-fe46ca5b7757",
+        "e5cc1966-6803-4f1f-ac71-afdb6089ea54",
+        "640d9a99-1e2e-41d3-b639-e15ecc1c39e2"
+      ],
+      "settings": {
+        "enable_new_layout": true,
+        "enable_short_description": true,
+        "select_position_short_description": "after",
+        "font_size_short_description": 20,
+        "font_weight_short_description": "bold",
+        "font_style_short_description": "italic",
+        "enable_product_per_unit_value": true,
+        "product_per_unit_value_tag_filter": "",
+        "product_per_unit_text_color": "#000000",
+        "product_per_unit_font_size": 14,
+        "font_weight_product_per_unit": "normal",
+        "filter_by_tags": "",
+        "svg_special_offer_badge_size": 50,
+        "svg_special_offer_badge_cart": "special-offer-badge-3",
+        "enable_custom_special_offer_badge_svg": false,
+        "custom_special_offer_badge_svg_html": "",
+        "enable_img_special_offer_badge_cart": false,
+        "enable_shipping_calculate": true,
+        "shipping_calculator_label": "Delivery",
+        "shipping_calculator_text_color": "#838383",
+        "shipping_calculator_font_size": 18,
+        "shipping_calculator_font_weight": "normal",
+        "days_to_start_shipping": 5,
+        "approximate_days_for_delivery": 7,
+        "delivery_align": "center",
+        "trust_badges_text": "",
+        "vasta_title_section_badges": 16,
+        "announcement_show_title_badges": false,
+        "vasta_copy_badges": 10,
+        "vasta_badges_size": 4,
+        "trust_badges_text_weight": "normal",
+        "trust_badges_text_transform": "uppercase",
+        "color_text_trust_badges": "#696969",
+        "enabled_tabs": true,
+        "enabled_tabs_accordion": false,
+        "enabled_descp": true,
+        "enabled_bullet_points": false,
+        "enabled_tabs_max_height": false,
+        "enable_tabs_border_radius": false,
+        "enable_tabs_shadow": false,
+        "tabs_max_height": 500,
+        "product_tab_text_transform": "capitalize",
+        "product_description_title": "Description",
+        "custom_class": "",
+        "enabled_videos": true,
+        "active_tab_color": "#313131",
+        "active_tab_bullet_color": "#f40808",
+        "active_tab_text_color": "#ffffff",
+        "inactive_tab_color": "#e2e2e2",
+        "inactive_tab_bullet_color": "#555555",
+        "inactive_tab_text_color": "#000000",
+        "active_tab_border_color": "#c2c2c2",
+        "active_arrow_tab_color": "#ffffff",
+        "inactive_arrow_tab_color": "#000000"
+      }
+    },
+    "reviews": {
+      "type": "reviews",
+      "blocks": {
+        "d336a447-301d-4c5d-9042-b38e39648153": {
+          "type": "select",
+          "settings": {
+            "stars_review": "4",
+            "title_review": "Review Title",
+            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
+            "author_review": "Author Name",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "8c45361e-8005-47c1-90d0-19b8ed972a96": {
+          "type": "select",
+          "settings": {
+            "stars_review": "5",
+            "title_review": "Review Title",
+            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
+            "author_review": "Author Name",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "2243defd-90e4-420f-8384-71ea4960d3e5": {
+          "type": "select",
+          "settings": {
+            "stars_review": "3",
+            "title_review": "Review Title",
+            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
+            "author_review": "Author Name",
+            "date_review": "",
+            "product_review": "",
+            "link_product_review": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "d336a447-301d-4c5d-9042-b38e39648153",
+        "8c45361e-8005-47c1-90d0-19b8ed972a96",
+        "2243defd-90e4-420f-8384-71ea4960d3e5"
+      ],
+      "settings": {
+        "custom_class": "",
+        "enable_reviews": true,
+        "title": "OUR REVIEWS",
+        "slider_autoplay": false,
+        "slider_speed": 800
+      }
+    },
+    "related-products": {
+      "type": "relatedproducts",
+      "settings": {
+        "section_title": "Other Fine Products",
+        "enable_uppercase": "uppercase",
+        "text_transform_products_title": "uppercase",
+        "show_price": true
+      }
+    },
+    "loox-product-reviews-app-section": {
+      "type": "apps",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "main",
+    "reviews",
+    "related-products",
+    "loox-product-reviews-app-section"
+  ]
+}

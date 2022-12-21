@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "main": {
+      "type": "blog-template",
+      "blocks": {
+        "1cb2e988-d4bb-46f6-afbc-43c32b8be3b5": {
+          "type": "newsletter",
+          "settings": {
+            "sidebar_title": "",
+            "sidebar_text": "Ready to find out more about our new, and upcoming products? Sign up below.",
+            "select_newsletter": "klaviyo"
+          }
+        },
+        "a436edb0-4065-44cb-8784-de0fab063d48": {
+          "type": "recent_posts",
+          "settings": {
+          }
+        },
+        "e7d2e64e-5092-4f3c-8e01-e9799081472c": {
+          "type": "categories",
+          "settings": {
+            "filter_by_tags": ""
+          }
+        }
+      },
+      "block_order": [
+        "1cb2e988-d4bb-46f6-afbc-43c32b8be3b5",
+        "a436edb0-4065-44cb-8784-de0fab063d48",
+        "e7d2e64e-5092-4f3c-8e01-e9799081472c"
+      ],
+      "settings": {
+        "enable_sidebar": true,
+        "sidebar_left": true,
+        "fixed_sidebar": false,
+        "sidebar_text_align": "center"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,30 @@
+<!-- start active_account.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'template-customer.css' | asset_url }}"/>
+
+<div class="customer-form">
+  <div class="wrapper">
+    <div class="customer-form__wrapper">
+      <div class="customer-form__title-wrapper">
+        <h1 class="customer-form__title">{{ 'customer.activate_account.title' | t }}</h1>
+        <p class="customer-form__subtitle">{{ 'customer.activate_account.subtext' | t }}</p>
+      </div>
+      
+      {%- form 'activate_customer_password' -%}
+        <div class="customer-form__error">
+         {{ form.errors | default_errors }}
+        </div>
+        
+        <div class="customer-form__fieldset">
+          <input class="customer-form__input" name="customer[password]" id="CustomerPassword" type="password" placeholder="{{ 'customer.activate_account.password' | t }}">
+          <input class="customer-form__input" name="customer[password_confirmation]" id="CustomerPasswordConfirmation" type="password" placeholder="{{ 'customer.activate_account.password_confirm' | t }}">
+        </div>
+        
+        <div class="customer-form__buttons">
+          <input class="customer-form__button" name="activate" id="id-button" type="submit" value="{{ 'customer.activate_account.submit' | t }}">
+          <a class="customer-form__link" name="decline" id="id-button--secondary" type="submit">{{ 'customer.activate_account.cancel' | t }}</a>
+        </div>
+      {%- endform -%}
+    </div>
+  </div>
+</div>

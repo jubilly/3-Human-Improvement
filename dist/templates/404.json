@@ -1,0 +1,54 @@
+{
+  "sections": {
+    "main": {
+      "type": "404-template",
+      "settings": {
+      }
+    },
+    "163286021196390968": {
+      "type": "collection-list",
+      "blocks": {
+        "163286021196390968-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        },
+        "163286021196390968-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        },
+        "163286021196390968-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "163286021196390968-0",
+        "163286021196390968-1",
+        "163286021196390968-2"
+      ],
+      "settings": {
+        "custom_class": "",
+        "border_color_collection_list": "#444",
+        "text_bg_color_collection_list": "#444",
+        "text_color_collection_list": "#fff",
+        "title": "Featured Collections",
+        "top_margin_featured": 125,
+        "text_transform_title": "none",
+        "collection_product_title_text_transform": "uppercase"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "163286021196390968"
+  ]
+}

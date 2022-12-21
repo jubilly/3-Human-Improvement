@@ -1,0 +1,852 @@
+{
+  "current": {
+    "enable_cross_sell_title": true,
+    "cross_sell_title": "Cross Sell",
+    "cross_sell_select_collection": "all",
+    "cross_sell_quantity_products": "4",
+    "show_price": true,
+    "disable_shippingbar_text_email": false,
+    "text_email": "support@store.com",
+    "disable_shippingbar_phone": false,
+    "text_tel": "(000)000-0000",
+    "link-facebook": "https:\/\/facebook.com",
+    "link-instagram": "https:\/\/instagram.com",
+    "link-twitter": "https:\/\/twitter.com",
+    "link-youtube": "https:\/\/youtube.com",
+    "link-pinterest": "https:\/\/pinterest.com",
+    "link-snapchat": "https:\/\/\/snapchat.com",
+    "link-tumblr": "https:\/\/tumblr.com",
+    "link-vimeo": "https:\/\/vimeo.com",
+    "disable_cartDrawer": false,
+    "recently_viewed_product_without_image": "shopify:\/\/shop_images\/logo_150x_41ef649e-6d04-42ac-b664-aba1c72bda44.png",
+    "enable_breadcrumbs": true,
+    "breadcrumb_position": "above",
+    "bredcrumb_font_size": 13,
+    "enable_out_of_stock_button": false,
+    "enable_custom_style": false,
+    "enable_custom_scripts": false,
+    "favicon": "shopify:\/\/shop_images\/vasta_logo_58ebbcf3-e461-41a6-ae18-1a992556c87d.png",
+    "recently_viewed_section_title_text_transform": "uppercase",
+    "enable_button_to_the_top": true,
+    "general_font": "mono",
+    "vasta_copy_body": 16,
+    "item_nav_menu_font_size": 16,
+    "item_nav_menu_font_size_tablet": 15,
+    "typography_h2_font_size": 24,
+    "typography_h2_font_size_mobile": 20,
+    "typography_h3_font_size": 18,
+    "typography_h3_font_size_tablet": 18,
+    "typography_h3_font_size_mobile": 16,
+    "typography_h4_font_size": 20,
+    "typography_h4_font_size_tablet": 18,
+    "typography_h4_font_size_mobile": 13,
+    "typography_h5_font_size": 18,
+    "typography_h5_font_size_tablet": 16,
+    "typography_h5_font_size_mobile": 14,
+    "typography_h6_font_size": 16,
+    "typography_h6_font_size_tablet": 16,
+    "typography_h6_font_size_mobile": 14,
+    "color_accent": "#000000",
+    "color_sale": "#838383",
+    "color_out_of_stock_label": "#767676",
+    "enable_qtd_product": true,
+    "enabled_collection_featured_image": true,
+    "collection_featured_image_position": "above",
+    "enabled_collection_featured_image_filter": false,
+    "collection_featured_image_filter": "",
+    "products_amount": "12",
+    "products_per_row": "3",
+    "products_per_rows_collection": "49",
+    "collection_page_product_title_text_transform": "uppercase",
+    "product_title_color_collection": "#000000",
+    "collection_product_price_font_size": 18,
+    "collection_text_no_products": "There Are No Available Products.",
+    "collection_text_no_products_font_size": 18,
+    "enable_swatch_collection": false,
+    "swatch_round": false,
+    "check_color_collection_swatch": "#26b522",
+    "check_color_collection_swatch_svg": "#fff",
+    "select_swatch_collection": "size",
+    "label_swatch_color_collection": "",
+    "link_sub_collection": "",
+    "collection_enabled_filter_sticky": true,
+    "collection_enabled_filter_interest": true,
+    "collection_enabled_filter_orderby": true,
+    "collection_filter_excluded_tags": "",
+    "announcement_show_description": false,
+    "desc_collection-position": "top",
+    "enable_description": false,
+    "custom_description": "",
+    "enable_see_more": true,
+    "select_position_thumbnails": "left",
+    "product_slider_width": 50,
+    "enable_sticky_product_slider": true,
+    "effect_options": "swipe",
+    "thumbnails_options": "5",
+    "enable_zoom_feature_for_desktop": true,
+    "enable_zoom_feature_for_mobile": false,
+    "product_tag_badge_color": "#005fff",
+    "product_tag_badge_text_color": "#fff",
+    "product_badge_text_tag": "BEST SELLER",
+    "product_badge_text_size": 10,
+    "product_badge_tag": "blue",
+    "position_product_tag_badge": "ribbon-top-left",
+    "product_title_font_size": 27,
+    "product_price_font_size": 28,
+    "product_compare_price_font_size": 10,
+    "add_to_cart_font_size": 16,
+    "product_page_product_title_text_transform": "capitalize",
+    "product_info_mobile_position": "above",
+    "product_info_mobile_direction": "center",
+    "enable_you_save": true,
+    "you_save_color": "#000000",
+    "you_save_show_options": "you_save_both",
+    "you_save_text": "You Save:",
+    "product_disabled_swatch": false,
+    "swatch_round_color_product_page": false,
+    "swatch_round_style_product_page": false,
+    "swatch_round_size_product_page": false,
+    "swatch_checked-color": "#26b522",
+    "add_to_cart_label": "Add To Cart",
+    "add_to_cart_text_transform": "uppercase",
+    "add_to_cart_text_bold": "normal",
+    "product_add_to_cart_bakground": "#26b522",
+    "product_add_to_cart_text_color": "#fff",
+    "product_add_to_cart_background_hover": "#45910d",
+    "product_add_to_cart_text_color_hover": "#fff",
+    "enable_price_atc": true,
+    "button_add_to_cart": true,
+    "atc_progress_bar": true,
+    "enable_add_to_cart_sticky": true,
+    "product_atc_background_color": "#f00",
+    "out_of_stock_label": "(Out of Stock)",
+    "out_of_stock_text_color": "#fff",
+    "out_of_stock_background_color": "#FF0000",
+    "product_tab_full_width": false,
+    "product_disabled_other_fine_products_section": false,
+    "enabled_social_share": false,
+    "social_share_title": "SOCIAL SHARE",
+    "social_share_title_color": "#000000",
+    "social_share_color": "#000",
+    "social_share_position": "below",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "share_email": true,
+    "text_page_default": "",
+    "enabled_size_chart": false,
+    "tag_size_chart": "Size Chart Tag",
+    "size_chart_text": "Size Chart Text",
+    "only_shipping_bar": false,
+    "proceed_to_checkout_top": false,
+    "enable_cart_property": false,
+    "color_font_button_cart": "#fff",
+    "color_background_button": "#26b522",
+    "color_font_button_cart_hover": "#fff",
+    "color_background_button_hover": "#1a7117",
+    "color_cartitem": "#000",
+    "color_phn": "#000000",
+    "color_price_cart": "#b22222",
+    "color_continue_shopping": "#43aecf",
+    "enable_day_on_message": true,
+    "enable_freeshipping_msg": true,
+    "freeshipping_msg": "+ Free Shipping",
+    "continue_shopping_button_style_cart_page": false,
+    "text_continue_shopping": "Continue Shopping",
+    "enable_html_area": true,
+    "cart_html_area": "",
+    "blog_enabled_blog_title": false,
+    "blog_tittle_transform": "capitalize",
+    "show_featured_image": true,
+    "blog_rewrite_image": "none",
+    "enable_blogs_comments": true,
+    "article_hide_date": false,
+    "button_color_background_blog": "#58afea",
+    "button_hover_color_background_blog": "#4386b3",
+    "button_color_text_blog": "#fff",
+    "button_color_text_hover_blog": "#fff",
+    "news_background_color_blog": "#404040",
+    "button_background_color_blog": "#26b522",
+    "newsletter_title": "ENTER YOUR EMAIL TO RECEIVE 10% COUPON IMMEDIATELY",
+    "newsletter_placeholder": "Type your email here",
+    "newsletter_submit": "Give Me 10% Off",
+    "app_review": "loox",
+    "product_enabled_recharge": false,
+    "feat_prod_enabled_app_reviews": true,
+    "enable_sidebar_newsletter": true,
+    "enable_search_form": true,
+    "breadcrumbtextcolor": "#000",
+    "breadcrumbtextstyle": "normal",
+    "sections": {
+      "shipping_bar": {
+        "type": "shipping_bar",
+        "blocks": {
+          "c257f64c-7f66-4038-9574-29a883d9184b": {
+            "type": "discount-style",
+            "settings": {
+              "shipping_bar_type_freeshipping": "shipping_bar_free_price",
+              "free_shipping_background_color": "#26b522",
+              "free_shipping_text_color": "#ffffff",
+              "shipping_bar_free_shipping_before": "WE PAY SHIPPING ON ORDERS OVER",
+              "shipping_bar_free_shipping_after": "",
+              "shipping_bar_freeshipping_text": "Congratulations! We'll Pay Your Shipping",
+              "shipping_bar_value_discount": 100,
+              "shipping_bar_free_qtd_range": 6
+            }
+          },
+          "e39df0af-04ca-4051-b2b1-680d89698615": {
+            "type": "info-style",
+            "settings": {
+              "shipping_bar_info_text": "WE PAY SHIPPING ON ORDERS OVER X USD"
+            }
+          },
+          "77726d5f-dd3d-4a65-990e-b5e03f6ee531": {
+            "type": "sections-style",
+            "settings": {
+              "line_color": "#ededed",
+              "shipping-bar_text-left-section": "Help",
+              "shipping-bar_text-middle-section": "Track",
+              "shipping-bar_text-right-section": "Safe"
+            }
+          }
+        },
+        "block_order": [
+          "c257f64c-7f66-4038-9574-29a883d9184b",
+          "e39df0af-04ca-4051-b2b1-680d89698615",
+          "77726d5f-dd3d-4a65-990e-b5e03f6ee531"
+        ],
+        "settings": {
+          "enable_link_shippingbar_text_email": true,
+          "enable_link_shippingbar_text_phone": true,
+          "background_color": "#383838",
+          "text_color": "#ffffff",
+          "shipping_bar_style": "dicount_style",
+          "position": false,
+          "enable_discount_in_cart": true,
+          "font_size_desktop": 16,
+          "font_size_tablet": 14,
+          "font_size_mobile": 12
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "shop_logo": "shopify:\/\/shop_images\/vasta_logo.png",
+          "enable_svg_logo": true,
+          "logo_svg_html": "<svg version=\"1.1\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" x=\"0px\" y=\"0px\" viewbox=\"0 0 2847.8 811.1\" style=\"enable-background:new 0 0 2847.8 811.1; \" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\" xml:space=\"preserve\">\n<style type=\"text\/css\">\n\t.st0{fill:#211915;}\n<\/style>\n<path class=\"st0\" d=\"M1887.8,71.5V143h-193.4c-127.1,0-196.9,0.4-203.7,1c-70.6,7.2-130.9,48.8-162.6,112.5\n\tc-18.9,37.9-24.9,85.7-16.2,129c6.4,31.6,22.1,63.8,43.8,89.6c26.7,32,66.3,56.3,106.8,65.8c21,4.9,24.7,5.1,108.8,5.1\n\tc43.5,0,82.7,0.4,87.2,1c27.5,3.1,49.4,21.9,55.9,48c1.2,4.8,1.5,9.3,1.2,17.5s-1,12.2-3.6,19c-7.6,19.1-23.9,33.4-43.8,38.5\n\tc-3.9,1.1-7.9,1.7-12,2c-4.1,0-4.3,0.2-4.7,3.2l-0.4,3.3v-3.3l-0.2-3.2h-378.1V143h-152v66.1l-10.7-7.4\n\tc-115.8-79.6-271-77.7-384.5,4.6c-7,5-16.1,12-20.3,15.5s-7.3,5.7-6.6,4s8.6-20.2,18-42.1s17.1-40.1,17.1-40.3s-39.3-0.4-87.4-0.4\n\tH559l-18,45.2c-9.8,24.9-53.2,134.3-96.2,243.1s-78.7,197.4-79.1,197S322.6,519,270.8,386.4s-94.5-241.6-94.9-242.3\n\ts-23.7-1-88.3-0.9L0,143.5L141.3,477l141.4,333.5h165.2l69.2-161.2l69.2-161.2l1.2,14.8c14.3,177.8,165.2,313.3,342.8,307.8\n\tc64.2-2,122.8-20.5,175.3-55.3l15.2-10.1V811l277.3-0.3c306.2-0.3,280.1,0.3,306.2-6.3c72-18.3,129.8-78,145.9-150.5\n\tc4-18.3,4.9-29,4.3-50.7c-0.7-25.7-3.8-42.1-12.3-64.9c-22.5-60.2-74.9-107.7-136.6-123.7c-23.7-6.2-19.6-5.9-116.3-6.6\n\tc-78-0.5-89.7-0.8-94.5-2.2c-28.2-8.4-46.3-30.1-47.8-57.4c-1.6-30.6,18-56.7,48.5-64.5c7.4-1.8,12.7-1.9,199.9-1.9h192.3l0.3,169.2\n\tl0.3,169.3l2.7,13.5c8.8,43.7,27.8,80.5,57.8,111.3c32.9,34,70,53.7,118,62.9c11.3,2.1,13.3,2.2,120.3,2.5l108.7,0.4V745l10.8,7.4\n\tc46,31.4,96.8,50.2,153.7,56.8c16.2,1.9,59.7,1.6,76-0.6c54.6-7.1,104.2-25.8,148.8-56.2l10.7-7.4v53h152V156h-152l-0.2,26.4\n\tl-0.3,26.3l-14.5-9.6c-46-30.5-93.1-47.4-150.5-54.3c-13.4-1.6-55.2-1.5-69.5,0.1c-78.3,8.8-146.5,41.5-201.6,96.5\n\tc-21.2,21.3-35.7,39.8-50.9,65.1c-51.5,85.5-61.2,191.7-26.3,286.5c8.6,23.4,26.2,56.8,40.4,76.8l1.6,2.2h-63.9\n\tc-54.4,0-64.8-0.2-69.8-1.5c-22-5.8-38-21.8-46.8-46.8l-3.2-9.2l-0.3-166.2l-0.2-166.3l73.7-0.2l73.8-0.3v-138l-73.7-0.3l-73.8-0.2\n\tV0h-152V71.5z M949.9,283.5c36.2,4.7,70.5,19.3,98.9,42.2c8.8,7.1,24.6,23.3,31.1,31.8c35.6,46.5,48.7,105.1,36.3,161.4\n\tc-8.2,37.4-27.3,71.6-55,98.1c-25.5,24.6-54.5,40.8-89,49.4c-66.8,16.9-139.6-4.2-187.5-54.1c-22.3-23.3-37.3-48.9-46.5-79.1\n\tc-6.2-20.4-7.7-31.7-7.7-56.2s1.5-35.8,7.7-56.2C758.7,353.2,814,302,882.9,286.6c6.3-1.4,15-2.9,19.4-3.4\n\tC914.8,281.8,938.2,281.9,949.9,283.5z M2521.6,283.1c101.7,11,178.4,100.1,173.9,201.9c-5.5,121.1-117,207.4-236.2,182.9\n\tc-28.5-5.9-60-21-83-39.9c-9.3-7.7-25.7-24.7-32.6-34c-59-78.6-50.1-188.8,20.7-257c26.1-25.2,56.4-41.7,91.9-50.1\n\tC2477.7,282.2,2499.8,280.9,2521.6,283.1L2521.6,283.1z\"><\/path>\n<\/svg>",
+          "shop_logo_alt": "Vasta",
+          "choose_custom_dimensions": "width",
+          "logo_max_width": 140,
+          "logo_max_height": 180,
+          "mobile_logo_max_width": 140,
+          "mobile_logo_max_height": 40,
+          "enabled_search_bar": true,
+          "enabled_search_bar_mobile": true,
+          "enable_menu_into_header": false,
+          "header_searchbar_placeholder": "Search...",
+          "vasta_search_border_color": "#c1c1c1",
+          "vasta_search_button_color": "#3b3a3a",
+          "vasta_search_text_button_color": "#ffffff",
+          "vasta_search_button_hover_color": "#6c6c6c",
+          "vasta_search_text_button_hover_color": "#000000",
+          "vasta_border_color_on_mobile": "#000000",
+          "menu": "main-menu",
+          "min_width_dropdown_menu": 100,
+          "header_menu_caps": "uppercase",
+          "nav_back_color": "#ffffff",
+          "vasta_dropdown_menu_color": "#e4e4e4",
+          "nav_text_color": "#383838",
+          "vasta_menu_hover_text_color": "#000000",
+          "nav_drpback_color": "#e4e4e4",
+          "nav_drphover_color": "#bcbcbc",
+          "vasta_dropdown_menu_text_color": "#000000",
+          "vasta_dropdown_menu_hover_text_color": "#000000",
+          "vasta_dropdown_menu_border_color": "#000000",
+          "header_title_icons": "capitalize",
+          "cart_title_font_size": 14,
+          "vasta_menu_color": "#000000",
+          "vasta_menu_title_color": "#3b3b3b",
+          "enable_custom_icon_cart_svg": false,
+          "custom_icon_cart_svg_html": "",
+          "enable_img_custom_icon_cart": false,
+          "enable_cart_title": true,
+          "cart_title_text": "Cart",
+          "cart_title_color": "#3c3c3c",
+          "vasta_cart_color": "#3c3c3c",
+          "vasta_icon_color_text": "#ffffff",
+          "vasta_icon_color_text_hover": "#ffffff",
+          "vasta_icon_color": "#26b522",
+          "vasta_icon_color_hover": "#204a80"
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "blocks": {
+          "1bd6e3bd-9ad2-4ad1-bec0-63830fd62856": {
+            "type": "trust_badges_cart",
+            "settings": {
+              "title": "Visa",
+              "svg_trust_badge_cart": "visa",
+              "title_trust_badges": "",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge_cart": true,
+              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-natural-product.png"
+            }
+          },
+          "22f96216-cc1f-48ed-bf27-d7cc2c69ecaa": {
+            "type": "trust_badges_cart",
+            "settings": {
+              "title": "Master",
+              "svg_trust_badge_cart": "master",
+              "title_trust_badges": "",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge_cart": true,
+              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-made-usa.png"
+            }
+          },
+          "8934bd74-6ea5-424e-8c53-68079c88bb26": {
+            "type": "trust_badges_cart",
+            "settings": {
+              "title": "Discover",
+              "svg_trust_badge_cart": "discover",
+              "title_trust_badges": "",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge_cart": true,
+              "img_trust_badges_cart": "shopify:\/\/shop_images\/icon-money-back.png"
+            }
+          },
+          "87fe1909-c46d-4214-8465-acc6db46385b": {
+            "type": "review",
+            "settings": {
+              "product_image_cart": "shopify:\/\/shop_images\/download.jpg",
+              "author_review_cart": "John W.",
+              "content_review_cart": "<p>Amazing Product!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1bd6e3bd-9ad2-4ad1-bec0-63830fd62856",
+          "22f96216-cc1f-48ed-bf27-d7cc2c69ecaa",
+          "8934bd74-6ea5-424e-8c53-68079c88bb26",
+          "87fe1909-c46d-4214-8465-acc6db46385b"
+        ],
+        "settings": {
+          "text__head_cartDrawer": "AN ITEM WAS ADDED TO CART!",
+          "cartDrawer_empty": "Your cart is currently empty!",
+          "cupom_enable": true,
+          "disable_proceed": true,
+          "drawer_cuopon_text": "<strong>Use Code <span style=\"color:blue;\">GET5NOW <\/span>to save 5% <\/strong>",
+          "paypal_enable": true,
+          "enable_dynamic_free_shipping": true,
+          "color_free_shipping_bar": "#0099ff",
+          "text_color_free_shipping_bar": "#ffffff",
+          "bg_color_price_free_shipping_bar": "#26b522",
+          "text_color_price_free_shipping_bar": "#ffffff",
+          "shipping_bar_free_shipping_before": "WE PAY SHIPPING ON ORDERS OVER",
+          "shipping_bar_free_shipping_after": "Text Example",
+          "shipping_bar_freeshipping_text": "Congratulations! We'll Pay Your Shipping",
+          "action_link_continue_shopping": "link",
+          "href_continue_shopping": "shopify:\/\/collections",
+          "text_continue_shopping": "Continue Shopping",
+          "review_style_drawer": "above",
+          "enable_continue_shopping_above_reviews": false,
+          "continue_shopping_button_style": false,
+          "text_view_cart": "View Cart",
+          "view_cart_button_style": true,
+          "enable_html_area_drawer": false,
+          "drawer_html_area": "",
+          "background_color_cartDrawer": "#ffffff",
+          "font_color_cartDrawer": "#444444",
+          "color_price_cartDrawer": "#953838",
+          "color_font_meta_product": "#656565",
+          "color_proceed_to_checkout_text": "#ffffff",
+          "background_color_button_proceed": "#26b522",
+          "color_proceed_to_checkout_text_hover": "#ffffff",
+          "background_color_button_proceed_hover": "#45910d",
+          "color_to_continue_shopping": "#d82b2b",
+          "section_reviews_title": "REVIEWS",
+          "enable-reviews-drawer": false,
+          "review_style": "600",
+          "trustBadges_enable": true,
+          "enable_trust_badge_title": true,
+          "disable_trust_badges_bottom": true,
+          "vasta_badges_size": 4
+        }
+      },
+      "menu-mobile": {
+        "type": "menu-mobile",
+        "settings": {
+          "background_color_mobile": "#ffffff",
+          "border_color_mobile": "#4e4e4e",
+          "search_text_color_mobile": "#4e4e4e",
+          "button_color_menu_mobile": "#4e4e4e",
+          "button_icon_color_menu_mobile": "#ffffff",
+          "font_color_menu_mobile": "#000000",
+          "menu": "main-menu",
+          "enable_mobile_search": true,
+          "disable_login": false,
+          "menu_mobile_searchbar_placeholder": "Search...",
+          "enable_icon_menu": false,
+          "text_tel": true,
+          "text_email": true,
+          "enable_mobile_newsletter": true,
+          "select_newsletter": "klaviyo",
+          "enable_dropdown_clicking": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "ccf9de1f-5b7b-4050-93f8-afc430a178da": {
+            "type": "infos",
+            "settings": {
+              "enable_phone": true,
+              "enable_email": true,
+              "address": "123 Main St. Los Angeles",
+              "address_link": "http:\/\/testvasta.myshopify.com\/"
+            }
+          },
+          "592bd923-4f9a-46a9-8170-2ae108369e2d": {
+            "type": "newsletter",
+            "settings": {
+              "footer_newsletter_enable": true,
+              "select_newsletter": "klaviyo"
+            }
+          },
+          "d77508b7-96a9-4f72-9ff7-e4730d7b856c": {
+            "type": "popular_collection",
+            "settings": {
+              "text_editable": "Example",
+              "link_popular_collection": "",
+              "url_popular_collection": "shopify:\/\/shop_images\/icon-free-shipping_200x_d0097988-cdbf-462d-a43f-41d5c070c45b.png"
+            }
+          },
+          "879550b6-7008-4958-9306-e9f038eadde2": {
+            "type": "popular_collection",
+            "settings": {
+              "text_editable": "Example",
+              "link_popular_collection": "",
+              "url_popular_collection": "shopify:\/\/shop_images\/icon-money-back_83e66519-aaec-4c58-b134-4d6e2b7814ef.png"
+            }
+          },
+          "938d2b3e-efcf-43e9-9eec-7f5ee000306a": {
+            "type": "popular_collection",
+            "settings": {
+              "text_editable": "Example",
+              "link_popular_collection": "",
+              "url_popular_collection": "shopify:\/\/shop_images\/icon-natural-product_e0f80c97-9c03-465c-a85a-0045dc1d4f01.png"
+            }
+          },
+          "bb9773c8-ca16-42ad-a795-ac1c2401d302": {
+            "type": "popular_collection",
+            "settings": {
+              "text_editable": "Example",
+              "link_popular_collection": "",
+              "url_popular_collection": "shopify:\/\/shop_images\/icon-made-usa.png"
+            }
+          },
+          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d": {
+            "type": "menu_footer",
+            "settings": {
+              "title": "Footer menu",
+              "menu": "footer",
+              "enable_customer_account": true
+            }
+          },
+          "ae3ad1f0-d0ad-480f-b0df-afd9157085f9": {
+            "type": "menu_footer",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "menu": "",
+              "enable_customer_account": false
+            }
+          },
+          "b13d34e8-f789-4fef-bb27-64bdc320ab4c": {
+            "type": "menu_footer",
+            "disabled": true,
+            "settings": {
+              "title": "",
+              "menu": "",
+              "enable_customer_account": false
+            }
+          },
+          "1ef505c2-2868-4cf3-9aaf-70c586ab23c1": {
+            "type": "logo_footer",
+            "settings": {
+              "logo_url": "shopify:\/\/shop_images\/new_logo_bgs_white.png",
+              "enable_svg_logo": false,
+              "logo_svg_html": "",
+              "shop_logo_alt": "",
+              "choose_custom_dimensions": "width",
+              "logo_max_width": 200,
+              "logo_max_height": 90
+            }
+          },
+          "e674eaf1-5430-4e8e-84d2-52d653c1e525": {
+            "type": "trust_badges_footer",
+            "settings": {
+              "title": "",
+              "svg_trust_badge": "visa",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge": false,
+              "trust_badge_image_height": 35
+            }
+          },
+          "19cb74d1-5fae-4694-aa3a-9ac4fb336813": {
+            "type": "trust_badges_footer",
+            "settings": {
+              "title": "",
+              "svg_trust_badge": "amex",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge": false,
+              "trust_badge_image_height": 35
+            }
+          },
+          "d5f02746-ce78-490c-aad6-9f8c0108a67a": {
+            "type": "trust_badges_footer",
+            "settings": {
+              "title": "",
+              "svg_trust_badge": "paypal",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge": false,
+              "trust_badge_image_height": 35
+            }
+          },
+          "d1670d3d-77f6-486b-9119-ac2457f3e782": {
+            "type": "trust_badges_footer",
+            "settings": {
+              "title": "",
+              "svg_trust_badge": "shopify-pay",
+              "enable_custom_trust_badge_svg": false,
+              "custom_trust_badge_svg_html": "",
+              "enable_img_trust_badge": false,
+              "trust_badge_image_height": 35
+            }
+          }
+        },
+        "block_order": [
+          "ccf9de1f-5b7b-4050-93f8-afc430a178da",
+          "592bd923-4f9a-46a9-8170-2ae108369e2d",
+          "d77508b7-96a9-4f72-9ff7-e4730d7b856c",
+          "879550b6-7008-4958-9306-e9f038eadde2",
+          "938d2b3e-efcf-43e9-9eec-7f5ee000306a",
+          "bb9773c8-ca16-42ad-a795-ac1c2401d302",
+          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d",
+          "ae3ad1f0-d0ad-480f-b0df-afd9157085f9",
+          "b13d34e8-f789-4fef-bb27-64bdc320ab4c",
+          "1ef505c2-2868-4cf3-9aaf-70c586ab23c1",
+          "e674eaf1-5430-4e8e-84d2-52d653c1e525",
+          "19cb74d1-5fae-4694-aa3a-9ac4fb336813",
+          "d5f02746-ce78-490c-aad6-9f8c0108a67a",
+          "d1670d3d-77f6-486b-9119-ac2457f3e782"
+        ],
+        "settings": {
+          "background_color": "#dcdcdc",
+          "border_color": "rgba(0,0,0,0)",
+          "title_font_color": "#000000",
+          "font_color": "#313131",
+          "popular_collection_text": "#ffffff",
+          "popular_collection_background": "#000000",
+          "social_color": "#ffffff",
+          "collection_title": "Popular Collections",
+          "font_size_title_footer": 16,
+          "font_size_itens_footer": 12,
+          "text_post_copy_right": "All Right Reserved.",
+          "position_social_and_info": "left",
+          "font_size_pop_itens_footer": 9,
+          "font_size_pop_itens_footer_mobile": 12,
+          "enable_html_area_1": false,
+          "footer_html_area_1": "",
+          "enable_html_area_2": false,
+          "footer_html_area_2": ""
+        }
+      },
+      "1632427166baa5f24b": {
+        "type": "banner-style3",
+        "settings": {
+          "custom_class": "",
+          "homepage_banner_style_3": "shopify:\/\/shop_images\/close-up-grey-marl-hoodie.jpg",
+          "mobile_banner_style_3": "shopify:\/\/shop_images\/fitness-first-personal-trainer_1_1024x_4b1c9abd-eb07-439e-9cfe-bfe9814f3a22.jpg",
+          "enable_custom_banner_height": true,
+          "banner_max_height": 710,
+          "banner_max_height_tablet": 400,
+          "banner_max_height_mobile": 240,
+          "full_with_banne1": true,
+          "enable_lazy_load": true,
+          "enable_h1": true,
+          "homepage_banner_text": "VASTA SHOP",
+          "main_banner_sub_title": "Your Best Choice\n<div>Vasta<\/div>",
+          "homepage_banner_link": "",
+          "vasta_headline_align": "center",
+          "font_weight": "normal",
+          "banner_text_color": "#3e3e3e",
+          "desktop_text_size": 100,
+          "main_banner_sub_headline_size": 55,
+          "tablet_text_size": 60,
+          "main_banner_sub_headline_size_tablet": 41,
+          "mobile_text_size": 37,
+          "main_banner_sub_headline_size_mobile": 20,
+          "vasta_title_horizontal_position": 50,
+          "vasta_title_vertical_position": 67,
+          "vasta_title_horizontal_position_tablet": 50,
+          "vasta_title_vertical_position_tablet": 50,
+          "vasta_title_horizontal_position_mobile": 49,
+          "vasta_title_vertical_position_mobile": 50,
+          "banner_mobile_width": 80,
+          "banner_mobile_height": 120
+        }
+      },
+      "163242747131ead0cc": {
+        "type": "custom-area",
+        "settings": {
+          "custom_class": "",
+          "title": "Premium Bands For Powerful Results",
+          "html_area": "<div class=\"wrapper\"><p style=\"text-align: center;padding: 0 10px 30px;margin-bottom: 30px;font-size: 17px;border-bottom: 1px solid #eee;font-weight: bold;\">Clench Fitness believes in the quality of what we produce. From multi-layered bands that last 3 times longer than the typical band, to incredibly durable handles tested to withstand over 100,000 reps. Our products are guaranteed to exceed your highest expectations.<\/p><\/div>"
+        }
+      },
+      "16324276624653fe24": {
+        "type": "reviews",
+        "blocks": {
+          "32151acb-a44e-4244-a414-6c445618d324": {
+            "type": "select",
+            "settings": {
+              "stars_review": "2",
+              "title_review": "Lorem Lipsum",
+              "content_review": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vel nunc feugiat, sollicitudin libero sit amet, tincidunt tellus. Aenean eget felis vel metus ornare placerat sed ac libero. Praesent at sollicitudin nunc.<\/p>",
+              "author_review": "Tester",
+              "date_review": "08\/21\/2020",
+              "product_review": "All Power",
+              "link_product_review": "https:\/\/testvasta.myshopify.com\/collections\/all\/products\/allpowers-15000mah-solar-external-battery-electric-cigarette-lighter-power-bank",
+              "product": "copy-of-gmc-silverado-1500-2021-none-none-cloth"
+            }
+          },
+          "5592ae34-99cb-4879-8b03-1e869f962b55": {
+            "type": "select",
+            "settings": {
+              "stars_review": "3",
+              "title_review": "Neque porro quisquam",
+              "content_review": "<p>Curabitur rhoncus neque ut volutpat imperdiet. Cras viverra, est eget dapibus suscipit, augue velit pretium elit, vitae vulputate erat quam nec ante.<\/p>",
+              "author_review": "Tester 2",
+              "date_review": "08\/18\/2020",
+              "product_review": "Example",
+              "link_product_review": "https:\/\/testvasta.myshopify.com\/collections\/all",
+              "product": ""
+            }
+          },
+          "f4b94479-311f-49cf-8615-203332632c85": {
+            "type": "select",
+            "settings": {
+              "stars_review": "5",
+              "title_review": "Sed auctor lorem porttitor nibh",
+              "content_review": "<p>Ut a viverra ex. Integer eu ipsum facilisis, semper mauris id, blandit quam. Cras varius placerat risus, in scelerisque orci varius non. Vestibulum tempus lectus lorem, at consequat felis interdum ut.<\/p>",
+              "author_review": "Tester 3",
+              "date_review": "08\/21\/2020",
+              "product_review": "",
+              "link_product_review": "https:\/\/testvasta.myshopify.com\/about",
+              "product": ""
+            }
+          },
+          "c1d2ab8e-5c9e-4f23-8a80-207584996cfe": {
+            "type": "select",
+            "settings": {
+              "stars_review": "4",
+              "title_review": "Lorem",
+              "content_review": "<p>Ut a viverra ex. Integer eu ipsum facilisis, semper mauris id, blandit quam. Cras varius placerat risus, in scelerisque orci varius non. Vestibulum tempus lectus lorem, at consequat felis interdum ut.<\/p>",
+              "author_review": "",
+              "date_review": "",
+              "product_image": "shopify:\/\/shop_images\/images.jpg",
+              "product_review": "",
+              "link_product_review": "",
+              "product": ""
+            }
+          }
+        },
+        "block_order": [
+          "32151acb-a44e-4244-a414-6c445618d324",
+          "5592ae34-99cb-4879-8b03-1e869f962b55",
+          "f4b94479-311f-49cf-8615-203332632c85",
+          "c1d2ab8e-5c9e-4f23-8a80-207584996cfe"
+        ],
+        "settings": {
+          "custom_class": "",
+          "enable_reviews": true,
+          "title": "REVIEWS",
+          "slider_autoplay": true,
+          "slider_speed": 800
+        }
+      },
+      "16329387823ada67e2": {
+        "type": "banner-style1",
+        "blocks": {
+          "0615a74c-5030-46ae-a5ab-07e53566f274": {
+            "type": "select",
+            "settings": {
+              "linktext": "View Products",
+              "button_text_transform": "uppercase",
+              "link": "shopify:\/\/collections",
+              "vasta_button_horizontal_position": 37,
+              "vasta_button_vertical_position": 56,
+              "vasta_button_horizontal_position_tablet": 29,
+              "vasta_button_vertical_position_tablet": 57,
+              "show_mobile_buttons": true,
+              "vasta_button_horizontal_position_mobile": 50,
+              "vasta_button_vertical_position_mobile": 76,
+              "vasta_button_height": 60,
+              "vasta_button_max_width": 180
+            }
+          }
+        },
+        "block_order": [
+          "0615a74c-5030-46ae-a5ab-07e53566f274"
+        ],
+        "settings": {
+          "custom_class": "",
+          "homepage_banner_style_1": "shopify:\/\/shop_images\/rack-of-womens-clothing_2300x_d236ba81-e210-40e7-80ad-07a369a8a230.jpg",
+          "mobile_banner_style_1": "shopify:\/\/shop_images\/mock_760x_a20205b0-c675-47a7-a6a7-af69e68bab18.jpg",
+          "enable_custom_banner_height": true,
+          "banner_max_height": 380,
+          "banner_max_height_tablet": 350,
+          "banner_max_height_mobile": 160,
+          "full_with_banne1": true,
+          "enable_lazy_load": true,
+          "enable_h1": true,
+          "main_banner_title": "My Headline Text",
+          "main_banner_sub_title": "My sub headline text",
+          "vasta_headline_align": "left",
+          "banner_titcolor": "#000000",
+          "banner_sub_titcolor": "#000000",
+          "main_banner_headline_size": 45,
+          "main_banner_sub_headline_size": 20,
+          "main_banner_headline_size_tablet": 35,
+          "main_banner_sub_headline_size_tablet": 20,
+          "main_banner_headline_size_mobile": 33,
+          "main_banner_sub_headline_size_mobile": 20,
+          "vasta_title_horizontal_position": 40,
+          "vasta_title_vertical_position": 30,
+          "vasta_title_horizontal_position_tablet": 50,
+          "vasta_title_vertical_position_tablet": 30,
+          "vasta_title_horizontal_position_mobile": 50,
+          "vasta_title_vertical_position_mobile": 70,
+          "banner_desktop_width": 100,
+          "banner_mobile_width": 100,
+          "banner_mobile_height": 200,
+          "vasta_buttons_hover_effect": "none",
+          "vasta_buttons_color_1": "#000000",
+          "vasta_buttons_text_color_1": "#ffffff",
+          "vasta_border_color_1": "#ffffff",
+          "vasta_border_color_1_hover": "#ffffff",
+          "vasta_buttons_hover_color_1": "#ffffff",
+          "vasta_buttons_hover_text_color_1": "#000000"
+        }
+      },
+      "163302004686ed8108": {
+        "type": "cta-block",
+        "settings": {
+          "custom_class": "",
+          "buy_now_background_color": "#000000",
+          "buy_nowbackgroung_height": 75,
+          "buy_now_background_top_position": 0,
+          "buy_now_line_direction": "row",
+          "text_above_button": "",
+          "text_above_font_size": 20,
+          "text_above_color": "#000",
+          "buy_now_text_button": "buy now",
+          "text_transform_button": "capitalize",
+          "button_background_color": "#ffffff",
+          "button_hover_background_color": "#9c2135",
+          "button_text_color": "#9c2135",
+          "button_hover_text_color": "#ffffff",
+          "button_border_color": "#ffffff",
+          "button_hover_border_color": "#ffffff",
+          "id_product_block": "",
+          "use_external_link": true,
+          "url_product": "shopify:\/\/products\/gmc-silverado-1500-2019-new-body-custom-cloth",
+          "url_call_to_action": "shopify:\/\/shop_images\/cover.png"
+        }
+      },
+      "16330216230c6d6a92": {
+        "type": "collection-list",
+        "blocks": {
+          "16330216230c6d6a92-0": {
+            "type": "collection",
+            "settings": {
+              "collection": "accessories",
+              "collection_title": ""
+            }
+          },
+          "16330216230c6d6a92-1": {
+            "type": "collection",
+            "settings": {
+              "collection": "best-sellers",
+              "collection_title": ""
+            }
+          },
+          "16330216230c6d6a92-2": {
+            "type": "collection",
+            "settings": {
+              "collection": "frontpage",
+              "collection_title": ""
+            }
+          }
+        },
+        "block_order": [
+          "16330216230c6d6a92-0",
+          "16330216230c6d6a92-1",
+          "16330216230c6d6a92-2"
+        ],
+        "settings": {
+          "custom_class": "Text",
+          "border_color_collection_list": "#444444",
+          "text_bg_color_collection_list": "#413e3e",
+          "text_color_collection_list": "#ffffff",
+          "title": "Featured Collections",
+          "top_margin_featured": 75,
+          "text_transform_title": "capitalize",
+          "collection_product_title_text_transform": "uppercase"
+        }
+      },
+      "1633022599516fba4b": {
+        "type": "blog-posts",
+        "settings": {
+          "custom_class": "",
+          "display_post_image": true,
+          "blog_rewrite_image_home": "placeholder",
+          "blog_article_placeholder_home": "shopify:\/\/shop_images\/unisex-heavy-blend-hoodie-black-front-6077313093382_720x_200x_ad4a2346-8cbe-4d0e-b78a-332d4f4675fe.jpg",
+          "homepage_blog": "fitness-blog",
+          "posts_amount": "4"
+        }
+      },
+      "16324285625b4ef403": {
+        "type": "featured-collection",
+        "settings": {
+          "custom_class": "",
+          "top_margin_featured_products": 0,
+          "title": "Featured products",
+          "text_transform_title": "uppercase",
+          "text_transform_product_title": "lowercase",
+          "collection": "all",
+          "products_per_rows": "4",
+          "rows": "2",
+          "show_price": true
+        }
+      }
+    },
+    "content_for_index": [
+      "16329387823ada67e2",
+      "163242747131ead0cc",
+      "163302004686ed8108",
+      "16324285625b4ef403",
+      "16330216230c6d6a92",
+      "1632427166baa5f24b",
+      "16324276624653fe24",
+      "1633022599516fba4b"
+    ]
+  }
+}

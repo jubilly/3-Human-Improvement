@@ -1,0 +1,187 @@
+<!-- start collection-template.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'section-collection-list.css' | asset_url }}"/>
+<link rel="stylesheet" data-href="{{ 'section-collections.css' | asset_url }}"/>
+
+{%- assign items_per_row = settings.products_per_row | default: 4 -%}
+{%- assign grid_uniform_class = "grid-uniform--s" | append: items_per_row -%}
+
+{%- case items_per_row -%}
+  {%- when '2' -%}
+    {%- assign image_width = 600 -%}
+
+  {%- when '3' -%}
+    {%- assign image_width = 400 -%}
+
+  {%- when '4' -%}
+    {%- assign image_width = 200 -%}
+{%- endcase -%}
+
+{% paginate collection.products by settings.products_amount %}
+  <div class="collection-page">
+    <div class="wrapper">
+      {%- if settings.breadcrumb_position == 'above' and settings.enable_breadcrumbs -%}
+        <div class="collection-page__breadcrumb-wrapper">
+          {%- render 'breadcrumb' -%}
+
+          {%- if settings.enable_qtd_product -%}
+            {%- render 'breadcrumb-product-count' with paginate:paginate -%}
+          {%- endif -%}
+        </div>
+
+        {%- if settings.collection_featured_image_position == 'between' -%}
+          {%- render 'collection-banner' -%}
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if settings.collection_featured_image_position == 'above' -%}
+        {%- render 'collection-banner' -%}
+      {%- endif -%}
+
+      <h1 class="collection-page__title title">{{- collection.title -}}</h1>
+
+      {%- if settings.breadcrumb_position == 'below' -%}
+        {%- if settings.collection_featured_image_position == 'between' -%}
+          {%- render 'collection-banner' -%}
+        {%- endif -%}
+
+        {%- if  settings.enable_breadcrumbs -%}
+          <div class="collection-page__breadcrumb-wrapper">
+            {%- render 'breadcrumb' -%}
+
+            {%- if settings.enable_qtd_product -%}
+              {%- render 'breadcrumb-product-count' with paginate:paginate -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+
+      {%- if settings.collection_featured_image_position == 'below' -%}
+        {%- render 'collection-banner' -%}
+      {%- endif -%}
+
+      {%- if settings.desc_collection-position == "top" -%}
+        {%- render 'collection-description' -%}
+      {%- endif -%}
+    </div>
+
+    {%- render 'collection-filter' -%}
+
+    <div class="wrapper">
+      <div class="collection-page__grid-products grid-uniform {{ grid_uniform_class }}">
+        {%- for product in collection.products -%}
+          {%- assign show_product = true -%}
+              {%- if product.available == false and settings.enable_out_of_stock_button == false -%}
+                  {%- assign show_product = false -%}
+              {%- endif -%}
+          {%- if show_product -%}
+          {%- render 'product-card',
+            prod: product,
+            max_width: image_width,
+            width_large: image_width,
+            width_mobile: image_width,
+            width_desk: image_width,
+            show_swatch: settings.enable_swatch_collection,
+            show_reviews: true,
+            show_price: true
+          -%}
+        {%- endif -%}
+        {%- else -%}
+          <span class="collection-page__no-items">{{- settings.collection_text_no_products -}}</span>
+        {%- endfor -%}
+      </div>
+
+      {%- if settings.desc_collection-position == "bottom" -%}
+        {%- render 'collection-description' -%}
+      {%- endif -%}
+
+      {%- render 'pagination' with paginate: paginate -%}
+    </div>
+  </section>
+{% endpaginate %}
+
+{%- if settings.enable_out_of_stock_button == false -%}
+  <script>
+      const enable_out_stock = {{settings.enable_out_of_stock_button}}
+      if ( !enable_out_stock && window.location.search.indexOf("?filter.v.availability=1") === -1 ){
+          location.assign("?filter.v.availability=1");
+      }
+  </script>
+{%- else -%}
+  <script>
+      const enable_out_stock = {{settings.enable_out_of_stock_button}}
+      if ( enable_out_stock && window.location.search.indexOf("?filter.v.availability=1") > -1){
+         let url = location.search;
+         let params = new URLSearchParams(url.search);
+         params.delete('filter.v.availability'); 
+         location.search = params.toString();
+      }
+  </script>
+{%- endif -%}
+
+<style scoped type="lazyload2">
+#shopify-section-{{ section.id }} .grid__item-title-link {
+  text-transform: {{ settings.collection_page_product_title_text_transform }};
+  color: {{ settings.product_title_color_collection }};
+}
+
+#shopify-section-{{ section.id }} .collection-page__no-items {
+  font-size: {{ settings.collection_text_no_products_font_size | plus: 0.0 | divided_by: 16 }}rem;
+}
+{%- if section.settings.collection_banner_image_checkbox -%}
+  #shopify-section-{{ section.id }} .collection-banner {
+      padding-top: {{ section.settings.collection_banner_image }}%;
+  }
+{%- endif -%}
+
+#shopify-section-{{ section.id }} .collection-description__text {
+  text-align: {{ settings.announcement_description_position }};
+  color: {{ settings.description_color }};
+}
+
+#shopify-section-{{ section.id }} .collection-description__text.see-more.see-more:not(.collection-description__text--opened) {
+  max-height: {{ settings.description_size }}px;
+}
+
+#shopify-section-{{ section.id }} .collection-description__button {
+  color: {{ settings.desc_seemore-color }};
+}
+
+#shopify-section-{{ section.id }} .grid__item-price {
+  font-size: {{ settings.collection_product_price_font_size | plus: 0.0 | divided_by: 16 }}rem;
+}
+@media (max-width: 767px){
+  .collection-page .grid__item {
+    flex-basis: {{settings.products_per_rows_collection}}%;
+  }
+}
+</style>
+
+{% schema %}
+  {
+    "name": "Collection Banner",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection Banner"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_banner_image_checkbox",
+        "label": "Enable Range Banner Image",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "collection_banner_image",
+        "min": 10,
+        "max": 100,
+        "step": 5,
+        "unit": "%",
+        "label": "Banner Image Height",
+        "default": 40
+      }
+    ]
+  }
+{% endschema %}

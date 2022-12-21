@@ -1,0 +1,501 @@
+<!-- start shipping_bar.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-shipping-bar.css' | asset_url }}"/>
+
+{%- assign shipping_bar_style = section.settings.shipping_bar_style -%}
+
+{%- assign shipping_bar_type = blank -%}
+
+{%- case shipping_bar_style -%}
+  {%- when 'sections_style' -%}
+      {%- assign shipping_bar_type = 'shipping-bar--sections-style' -%}
+  {%- when 'info_style' -%}
+      {%- assign shipping_bar_type = 'shipping-bar--info-style' -%}
+  {%- else -%}
+      {%- assign shipping_bar_type = 'shipping-bar--discount-style' -%}
+{%- endcase -%}
+{% if template contains 'cart' and section.settings.enable_discount_in_cart  %}
+  {%- assign shipping_bar_type = 'shipping-bar--discount-style' -%}
+  {%- assign shipping_bar_style = 'dicount_style' -%}
+{%- endif -%}
+
+<div id="shipping-bar" class="shipping-bar {{ shipping_bar_type }} lazybg" data-style="{{- shipping_bar_style -}}">
+  <div class="wrapper">
+      <div class="shipping-bar__wrapper">
+          {%- for block in section.blocks -%}
+            {% if template contains 'cart' and section.settings.enable_discount_in_cart  %}
+              {%- render 'shipping-bar-discount' with block: block -%}
+            {% break %}
+          {% else %}
+            {%- if shipping_bar_style == 'sections_style' and block.type == 'sections-style' -%}
+                {%- render 'shipping-bar-sections' with block: block -%}
+                {%- break -%}
+            {%- elsif shipping_bar_style == 'info_style' and block.type == 'info-style' -%}
+                {%- render 'shipping-bar-informational' with message: block.settings.shipping_bar_info_text -%}
+                {%- break -%}
+            {%- elsif shipping_bar_style == 'dicount_style' and block.type == 'discount-style' -%}
+                {%- render 'shipping-bar-discount' with block: block -%}
+                {%- break -%}
+            {%- endif -%}
+          {% endif %}
+          {%- endfor -%}
+
+      </div>
+  </div>
+</div>
+
+<style scoped>
+:root {
+  {%- if section.settings.position -%}
+    --shipping-bar-height: 40px;
+  {%- else -%}
+    --shipping-bar-height: 0;
+  {%- endif -%}
+}
+#shopify-section-{{ section.id }} {
+  background-color: {{ section.settings.background_color }};
+  color: {{ section.settings.text_color }};
+  {%- if section.settings.position -%}
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  {%- endif -%}
+}
+#shopify-section-{{ section.id }} svg {
+  fill: {{ section.settings.text_color }};
+}
+</style>
+
+<style scoped type="lazyload2">
+.shipping-bar--fixed {
+  position: sticky;
+  top: 0;
+}
+.shipping-bar__section-item,
+.shipping-bar__wrapper {
+  display: flex;
+  align-items: center;
+}
+.shipping-bar__wrapper {
+  height: 40px;
+  justify-content: space-between;
+}
+.shipping-bar__section-item,
+.shipping-bar__item {
+  flex: 1;
+}
+.shipping-bar__item {
+  line-height: 1.15;
+}
+.shipping-bar__item:nth-of-type(1) {
+  text-align: left;
+}
+.shipping-bar__item:nth-of-type(2) {
+  text-align: center;
+}
+.shipping-bar--info-style .shipping-bar__item:nth-of-type(2) {
+  text-transform: uppercase;
+}
+.shipping-bar__item:nth-of-type(3) {
+  text-align: right;
+}
+.shipping-bar__item--small {
+  max-width: 230px;
+}
+.shipping-bar__item svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  transform: translateY(2px);
+}
+.shipping-bar__link {
+  color: inherit;
+  font: inherit;
+}
+.shipping-bar__section-item {
+  justify-content: center;
+  height: calc(100% - 10px);
+  width: 33%;
+}
+.shipping-bar__section-item + .shipping-bar__section-item {
+  border-left: 1px solid var(--shipping-bar-items-line-color, #fff);
+}
+.shipping-bar__section-image  {
+  width: 100%;
+  max-width: 25px;
+  margin-right: 10px;
+}
+.shipping-bar--discount-style .shipping-bar__discount-value {
+  background: var(--shipping-bar-price-background, rgb(28, 168, 28));
+  margin: 0 4px;
+}
+.shipping-bar__discount-value {
+  display: inline-block;
+  color: var(--shipping-bar-price-text-color, rgb(255, 255, 255));
+  margin: 0px 4px;
+}
+.shipping-bar__discount-value:not(:last-child) {
+  margin-right: 4px;
+}
+.shipping-bar .shipping-bar__message {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+@media (max-width: 1019px) {
+  .shipping-bar__item--small {
+    max-width: 190px;
+  }
+}
+@media (max-width: 479px) {
+  .shipping-bar__item {
+    font-size: .85rem;
+  }
+  .shipping-bar__section-item {
+    font-size: 10px;
+  }
+  .shipping-bar > .wrapper {
+    padding: 0;
+  }
+}
+</style>
+
+{% schema %}
+{
+"name": "Shipping Bar (Sitewide)",
+"class": "shipping-bar",
+"max_blocks": 3,
+"settings": [
+  {
+    "type": "header",
+    "content": "General Settings"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_link_shippingbar_text_email",
+    "label": "Enable Email Link"
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_link_shippingbar_text_phone",
+    "label": "Enable Phone Link"
+  },
+  {
+    "type": "header",
+    "content": "Colors"
+  },
+  {
+    "type": "color",
+    "id": "background_color",
+    "label": "Background Color",
+    "default": "#383838"
+  },
+  {
+    "type": "color",
+    "id": "text_color",
+    "label": "Text Color",
+    "default": "#FFFFFF"
+  },
+  {
+    "type": "header",
+    "content": "Style"
+  },
+  {
+    "type": "select",
+    "id": "shipping_bar_style",
+    "label": "Sitewide Shipping Bar Style",
+    "options": [
+      {
+        "label": "Sections With Icons",
+        "value": "sections_style"
+      },
+      {
+        "label": "Discount Threshold",
+        "value": "dicount_style"
+      },
+      {
+        "label": "Informational",
+        "value": "info_style"
+      }
+    ]
+  },
+  {
+    "type": "checkbox",
+    "id": "position",
+    "label": "Enable Sticky Shipping Bar",
+    "default": false
+  },
+  {
+    "type": "checkbox",
+    "id": "enable_discount_in_cart",
+    "label": "Keep Shipping Bar Discount Threshold Only On Cart Page",
+    "default": false
+  },
+  {
+    "type": "header",
+    "content": "FONT SIZE"
+  },
+  {
+    "type": "range",
+    "id": "font_size_desktop",
+    "label": "Font Size on Desktop",
+    "unit": "px",
+    "min": 10,
+    "max": 32,
+    "step": 1,
+    "default": 16
+  },
+  {
+    "type": "range",
+    "id": "font_size_tablet",
+    "label": "Font Size on Tablet",
+    "unit": "px",
+    "min": 10,
+    "max": 32,
+    "step": 1,
+    "default": 14
+  },
+  {
+    "type": "range",
+    "id": "font_size_mobile",
+    "label": "Font Size on Mobile",
+    "unit": "px",
+    "min": 10,
+    "max": 32,
+    "step": 1,
+    "default": 12
+  }
+],
+"blocks": [
+  {
+    "type": "sections-style",
+    "name": "Section With Icons",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "color",
+        "id": "line_color",
+        "label": "Divisor Line Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "image_picker",
+        "id": "shipping-bar_icon-left-section",
+        "label": "Icon Image - Left Section",
+        "info": "80x80"
+      },
+      {
+        "type": "text",
+        "id": "shipping-bar_text-left-section",
+        "label": "Text - Left Section"
+      },
+      {
+        "type": "image_picker",
+        "id": "shipping-bar_icon-middle-section",
+        "label": "Icon Image - Middle Section",
+        "info": "80x80"
+      },
+      {
+        "type": "text",
+        "id": "shipping-bar_text-middle-section",
+        "label": "Text - Middle Section"
+      },
+      {
+        "type": "image_picker",
+        "id": "shipping-bar_icon-right-section",
+        "label": "Icon Image - Right Section",
+        "info": "80x80"
+      },
+      {
+        "type": "text",
+        "id": "shipping-bar_text-right-section",
+        "label": "Text - Right Section"
+      }
+    ]
+  },
+  {
+    "type": "discount-style",
+    "name": "Discount Threshold",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "header",
+        "content": "Discount Threshold",
+        "info": "Make sure to include the email and phone number to 'Customize>Theme settings > Store Info."
+      },
+      {
+        "type": "select",
+        "id": "shipping_bar_type_freeshipping",
+        "label": "Threshold Default Style",
+        "options": [
+          {
+            "label": "By Price",
+            "value": "shipping_bar_free_price"
+          },
+          {
+            "label": "By Quantity",
+            "value": "shipping_bar_free_qtd"
+          }
+        ]
+      },
+      {
+        "type": "color",
+        "id": "free_shipping_background_color",
+        "label": "Discount Price Background Color",
+        "default": "#E32C2B"
+      },
+      {
+        "type": "color",
+        "id": "free_shipping_text_color",
+        "label": "Discount Price Text Color",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "text",
+        "id": "shipping_bar_free_shipping_before",
+        "label": "Text Before Price/Quantity",
+        "default": "WE PAY SHIPPING ON ORDERS OVER"
+      },
+      {
+        "type": "text",
+        "id": "shipping_bar_free_shipping_after",
+        "label": "Text After Price/Quantity",
+        "default": "Text Example"
+      },
+      {
+        "type": "text",
+        "id": "shipping_bar_freeshipping_text",
+        "label": "Free Shipping Message After Threshold is Met",
+        "default": "Congratulations! We'll Pay Your Shipping"
+      },
+      {
+        "type": "header",
+        "content": "Settings Of Free Shipping by Price"
+      },
+      {
+        "type": "range",
+        "id": "shipping_bar_value_discount",
+        "min": 0,
+        "max": 500,
+        "step": 5,
+        "unit": "$",
+        "label": "Free Shipping Value",
+        "default": 50
+      },
+      {
+        "type": "header",
+        "content": "Settings of Free Shipping by Quantity"
+      },
+      {
+        "type": "range",
+        "id": "shipping_bar_free_qtd_range",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "label": "Product Qtd of Free Shipping Bar",
+        "default": 10
+      }
+    ]
+  },
+  {
+    "type": "info-style",
+    "name": "Informational",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "text",
+        "id": "shipping_bar_info_text",
+        "label": "Center Bar Text",
+        "info": "Make sure to include the email and phone number to 'Customize>Theme settings > Store Info."
+      }
+    ]
+  }
+]
+}
+{% endschema %}
+
+<style scoped type="lazyload2">
+#shopify-section-{{ section.id }} .shipping-bar__section-item,
+#shopify-section-{{ section.id }} .shipping-bar__message,
+#shopify-section-{{ section.id }} .shipping-bar__item--small {
+  font-size: {{ section.settings.font_size_desktop }}px;
+}
+
+#shopify-section-{{ section.id }} .shipping-bar__item svg {
+  width: {{ section.settings.font_size_desktop }}px;
+}
+
+@media (max-width: 1019px) {
+  #shopify-section-{{ section.id }} .shipping-bar__section-item,
+  #shopify-section-{{ section.id }} .shipping-bar__message,
+  #shopify-section-{{ section.id }} .shipping-bar__item--small {
+    font-size: {{ section.settings.font_size_tablet }}px;
+  }
+
+  #shopify-section-{{ section.id }} .shipping-bar__item svg {
+    width: {{ section.settings.font_size_tablet }}px;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .shipping-bar__section-item,
+  #shopify-section-{{ section.id }} .shipping-bar__message,
+  #shopify-section-{{ section.id }} .shipping-bar__item--small {
+    font-size: {{ section.settings.font_size_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} .shipping-bar__item svg {
+    width: {{ section.settings.font_size_mobile }}px;
+  }
+}
+</style>
+
+<script type="lazyload2">
+  var shipping_bar = shipping_bar || {};
+  {% for block in section.blocks %}
+      {% if "discount-style" == block.type %}
+          shipping_bar = {
+              enable_update: true,
+              style_shipping: '{{ section.settings.shipping_bar_style | escape }}',
+              enable_discount: {{ section.settings.enable_discount_in_cart }},
+              free_shipping_text: '<span class="shipping-bar__message-wrapper">{{ block.settings.shipping_bar_freeshipping_text | escape }}</span>',
+              first_free_shipping_text: '{{ block.settings.shipping_bar_free_shipping_before | escape }}',
+              second_free_shipping_text: '{{ block.settings.shipping_bar_free_shipping_after | escape }}',
+              text_cart_above_button_sucess:'<span class="shipping-bar__message-wrapper">{{ block.settings.shipping_bar_freeshipping_text | escape }}</span>',
+              text_message_initial_before:'{{ block.settings.shipping_bar_free_shipping_before | escape }}',
+              text_message_initial_after:'{{ block.settings.shipping_bar_free_shipping_after | escape }}',
+
+              price_enable: '{{ block.settings.shipping_bar_type_freeshipping | escape }}',
+              shipping_quantity: {{ block.settings.shipping_bar_free_qtd_range }},
+              shipping_value: {{ block.settings.shipping_bar_value_discount | times: 100 }}
+          };
+      {% endif %}
+  {% endfor %}
+</script>
+
+<script type="lazyload2">
+  setTimeout(function(){
+    window.SectionShippingBar = (function(){
+      function SectionShippingBar() {
+        this._run();
+      }
+
+      SectionShippingBar.prototype = {
+        _run: function() {
+          update_shipping_bar(VastaShop.Cart.current);
+        },
+
+        onSelect: function() {
+          this._run();
+        },
+
+        onBlockSelect: function() {
+          this._run();
+        }
+      };
+
+      return new SectionShippingBar;
+    })();
+  }, 3000);
+</script>

@@ -1,0 +1,191 @@
+<!-- start cart.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'section-cart.css' | asset_url }}"/>
+
+<!-- Begin ReCharge code -->
+{%- if settings.product_enabled_recharge -%}
+  {%- render 'subscription-cart-footer' -%}
+{%- endif -%}
+<!-- End ReCharge code -->
+<div class="wrapper">
+  {%- if cart.item_count < 1 -%}
+  <div class="cart__empty text-center" data-cart-view="data-cart-view">
+    <p class="empty-cart">{{ 'cart.general.empty' | t }}</p>
+    <a title="Continue Shopping" aria-label="cart-continue-shopping" id="cart-continue-shopping" href="{{ settings.href_continue_shopping }}" class="continue-shopping continue-shopping-margin-bottom"> 
+      <span class="cart-continue-shopping-link {% if settings.continue_shopping_button_style_cart_page %}cont-button-style{% endif %}">{{ settings.text_continue_shopping }}</span> 
+    </a>
+  </div>
+  {%- else -%}
+  
+  <div class="content-cart">
+      {%- if settings.credit_cards_page != blank -%}
+      <div class="btn-wrapper">
+      {%- else -%}
+          <div class="btn-wrapper img-end {% if settings.credit_cards_page == blank and settings.proceed_to_checkout_top == true %} btn-wrapper-no-content{% endif %}">
+      {%- endif -%}
+        {%- if settings.credit_cards_page != blank -%} 
+          {%- assign image_alt = settings.credit_cards_page.alt | default: 'Trust Badges' | strip_html | escape -%}
+          {%- assign image_id_prefix = 'cart-credit-card' -%}
+          {% render 'responsive-image',
+            id_prefix: image_id_prefix,
+            image: settings.credit_cards_page, 
+            active_lazy: false,
+            max_width: 500,
+            no_wrap: true, 
+            alt_text: image_alt
+          %}
+        {%- endif -%}
+        {%- unless settings.proceed_to_checkout_top -%}
+            <form action="/cart" method="post">
+              <button aria-label="ProceedToCheckoutTop" id="ProceedToCheckoutTop" name="checkout" class="btn-add-tocart">
+                {%- render 'icon-lock' -%}
+                <span class="cart-atc">{{ 'cart.general.proceed_checkout' | t }} (<span class="jq_qtd_bt_proceed qtd_bt_proceed cart-atc">{{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }}</span>)  → </span>
+              </button>
+            </form>
+        {%- endunless -%}
+      </div>
+    <div class="cart-products-wrapper">
+      <ul class="list-products">
+        {%- for item in cart.items -%}
+          <li class="cart-product" id="jq-cart-item-{{ item.variant_id }}">
+            <div class="cart-product-image-wrapper">
+                <a title="{{ item.title | strip_html | escape }}" aria-label="cart-product-image" id="cart-product-image-{{ forloop.index }}" href="{{ item.url }}">
+                  {%- if item.image.alt != blank -%}
+                    {%- assign image_alt = item.image.alt | strip_html | escape -%}
+                  {%- elsif item.product.title != blank -%}
+                    {%- assign image_alt = item.title | strip_html | escape -%}
+                  {%- else -%}
+                    {%- assign image_alt = "Image without description." -%}
+                  {%- endif -%}
+                  {%- assign image_id_prefix = 'item-image-img' | append: forloop.index -%}
+                  {% if forloop.index > 3 %}
+                  {%- render 'responsive-image',
+                    id_prefix: image_id_prefix,
+                    image: item.image, 
+                    active_lazy: true,
+                    max_width: 180,
+                    no_wrap: true, 
+                    alt_text: image_alt
+                  -%}
+                  {% else %}
+                  {%- render 'responsive-image',
+                    id_prefix: image_id_prefix,
+                    image: item.image, 
+                    active_lazy: false,
+                    max_width: 180,
+                    no_wrap: true, 
+                    alt_text: image_alt
+                  -%}
+                  {% endif %}
+                </a>
+            </div>
+
+            <div class="cart-product-wrapper">
+              <div class="product-info">
+               <a title="{{ item.product.title | strip_html | escape }}" aria-label="title-item-cart" id="title-item-cart-{{ forloop.index }}" href="{{ item.url }}"> <p class="title-item-cart">{{ item.product.title }}</p></a>
+               {%- if settings.enable_cart_property -%}
+               {%- unless item.variant.title contains "Default" -%}
+               <small class="product-variant">{{ item.variant.title }}</small>
+               {%- endunless -%}
+               {%- endif -%}
+                {%- for property in item.properties -%}
+                {%- assign firstLetter = property.first | slice: 0 -%}
+                  {%- if firstLetter != '_' -%}
+                    <small class="product-variant">{{ property.first | replace: '_', ' ' | capitalize }}: {{ property.last }}</small>
+                  {%- endif -%}
+              {%- endfor -%}
+
+                <div class="cart-product-btn-wrapper">
+                  <form action="/cart" novalidate class="jq-qtd-item-cart">
+                    {%- if item.variant.inventory_policy == 'continue' or item.variant.inventory_management == blank -%}  {%- assign maxQTD = -1 -%} {%- else -%}{%- assign maxQTD = item.variant.inventory_quantity -%}{%- endif -%}
+                    <button aria-label="icon-btn-minus" data-line="{{ forloop.index | minus: 1 }}" id="icon-btn-minus-{{ forloop.index }}" class="btn-minus-{{ item.variant_id }} btn icon-minus btn-minus jq-minus-cart-item" {% if item.quantity == 1 %}disabled="disabled"{% endif %} ></button>
+                    <input aria-label="jq-input-qtd" data-line="{{ forloop.index | minus: 1 }}" id="jq-input-qtd-{{ forloop.index }}" class="input-qtd-{{ item.variant_id }} jq-input-qtd input-qtd" name="updates[{{ item.variant_id }}]" min="1" data-max="{{ maxQTD }}" type="number" value="{{ item.quantity }}">
+                    <button aria-label="icon-btn-plus" data-line="{{ forloop.index | minus: 1 }}"  id="icon-btn-plus-{{ forloop.index }}" class="btn-plus-{{ item.variant_id }} btn icon-plus btn-plus jq-plus-cart-item"
+                    {%- if maxQTD == item.quantity -%}
+                      disabled="disabled"
+                    {%- endif -%}
+                    ></button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="product-price">
+                <strong class="price" id="jq-cart-item-price-{{ item.variant_id }}-{{ forloop.index | minus: 1 }}">{{ item.price | times: item.quantity | money }}</strong>
+
+                <span id="jq-cart-item-discount-{{ item.variant_id }}-{{ forloop.index | minus: 1 }}" class="price product-price__discount" {% if item.total_discount == 0 %}style="display: none;"{% endif %}>-{{ item.total_discount | money }}</span>
+
+                <form action="/cart" class="jq-remove-cart-item">
+                  <input aria-label="jq-cart-item" type="hidden" name="updates[{{ item.variant_id }}]" value="0" class="jq-cart-item"/>
+                  <button aria-label="bt-remove-cart" id="bt-remove-cart-{{ forloop.index }}" class="bt-remove-cart">{{ 'cart.general.remove' | t }}</button>
+                </form>
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    {%- assign day_message = '' -%}
+    {%- if settings.enable_day_on_message == false -%}
+      {%- assign day_message = 'day-message' -%}
+    {%- endif -%}
+
+
+    <div class="btn-wrapper btn-wrapper-2">
+  
+      <a title="Continue Shopping" aria-label="continue-shopping-no-mobile" id="continue-shopping-no-mobile" href="{{ settings.href_continue_shopping }}" class="continue-shopping no-mobile {% if settings.continue_shopping_button_style_cart_page %}cont-button-style{% endif %}" >{{ settings.text_continue_shopping }}</a>
+      <form action="/cart" method="post" class="form-cart-proceed-to-checkout">
+        <div class="pull-right cart-total-bottom">{{ settings.text_total }} <strong class="price-total" id="jq-cart-price-total">{{ cart.total_price | money }}</strong>
+          {%- if settings.enable_freeshipping_msg -%}
+          <span id="cart-drawer-freeshipping-msg" class="free-shipping-message"></span>
+        {%- endif -%}
+        </div>
+        <button aria-label="ProceedToCheckoutBellow" id="ProceedToCheckoutBellow" name="checkout" class="btn-add-tocart">
+          {%- render 'icon-lock' -%}
+          <span>{{ 'cart.general.proceed_checkout' | t }} (<span class="jq_qtd_bt_proceed qtd_bt_proceed">{{ cart.item_count }} {{ cart.item_count | pluralize: 'Item', 'Items' }}</span>)  → </span>
+        </button>
+        <a title="Continue Shopping" aria-label="continue-shopping-mobile" id="continue-shopping-mobile" href="{{ settings.href_continue_shopping }}" class="continue-shopping mobile {% if settings.continue_shopping_button_style_cart_page %}cont-button-style-mobile{% endif %}" >{{ settings.text_continue_shopping }}</a>
+        <div class="text_botom_button {{ day_message }}">
+          {%- if settings.enabled_discount_cart_page != 'none' -%}
+            <section class="coupon-cart">
+                <p class="message-text">{{ settings.text_cart_above_button }}</p>
+                {%- if settings.enable_day_on_message -%}<span><strong>{{ "now" | date: "%A" }} Only! </strong></span>{%- endif -%}
+              {%- if settings.credit_cards_page != blank -%}
+              {%- assign image_alt = settings.credit_cards_page.alt | default: 'Trust Badges' | strip_html | escape -%}
+              {%- assign image_id_prefix = 'coupon-image-img' -%}
+              {%- render 'responsive-image',
+                id_prefix: image_id_prefix,
+                image: settings.credit_cards_page, 
+                active_lazy: true,
+                image_class: 'trust-badges',
+                max_width: 800,
+                no_wrap: true, 
+                alt_text: image_alt
+              -%}
+              {%- endif -%}
+            </section>
+          {%- endif -%}
+        </div>
+         {%- if settings.enable_html_area -%}
+            <div class="custom-html">{{ settings.cart_html_area }}</div>
+          {%- endif -%}
+      </form>
+    </div>
+  </div>
+  {%- endif -%}
+  {%- render 'cross-sell-snippet' -%}
+</div>
+
+<style scoped>
+  :root{
+    --color-font-button-cart: {{ settings.color_font_button_cart }};
+    --color-cart-item-title: {{ settings.color_cartitem }};
+    --color-phone-number: {{ settings.color_phn }};
+    --color-background-button: {{ settings.color_background_button }};
+    --color-price-cart-page: {{ settings.color_price_cart }};
+    --color-continue-shopping-color: {{ settings.color_continue_shopping }};
+    --color-font-button-cart-hover: {{ settings.color_font_button_cart_hover }};
+    --color-background-button-hover: {{ settings.color_background_button_hover }};
+
+  }
+</style>

@@ -1,0 +1,23 @@
+{
+  "name": "human-improvement",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp watch",
+    "shopify:login": "shopify login -s human-improvement.myshopify.com",
+    "shopify:serve": "shopify theme serve dist",
+    "shopify:pull": "shopify theme pull dist",
+    "shopify:push": "shopify theme push dist"
+  },
+  "author": "Amanda Prates",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.18.10",
+    "gulp-babel": "^8.0.0",
+    "gulp-flatten": "^0.4.0"
+  },
+  "devDependencies": {
+  }
+}

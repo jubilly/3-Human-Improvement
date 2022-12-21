@@ -1,0 +1,294 @@
+<!-- start search-template.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-search.css' | asset_url }}"/>
+
+{%- assign image_width = 560 -%}
+{%- assign width_mobile = 200 -%}
+{%- assign width_desk = 560 -%}
+{%- assign width_small = 300 -%}
+
+{%- assign items_per_row = section.settings.products_per_rows_desktop -%}
+
+<style scoped>
+  .section-header .zero-founds-message, .section-header .text-center{
+    font-size: 18px;
+  }
+
+  .section-title-text {
+    text-align: center;
+    margin-top: 30px;
+
+    text-transform: {{ section.settings.section_title_text_transform }};
+  }
+
+  .section-header .text-center a{
+    font-weight: 700;
+  }
+</style>
+
+<div class="wrapper">
+  <div class="search collection container">
+    <div class="inner">
+      {% if settings.enable_breadcrumbs_search %}  
+        {%- render 'breadcrumb' -%}
+      {% endif %}
+      {% if template contains 'search' and section.settings.enable_swatch_bar_inside_wrapper and search.performed != true %}
+        <header class="section-header">
+            <h1 id="id-section-header" class="section-header__title section-header__left title">Search...</strong></h1>
+            {%- if settings.enable_search_form -%}
+                <form id="template-search-form" action="/search" method="get" class="search-page-form">
+                    <input aria-label="search-text" type="text" class="search-text" name="q" id="Search-Template-Input" value="{{ search.terms | escape }}" placeholder="Search...">
+                    <button id="Template-SearchButton" type="submit" class="button">
+                        <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+                    </button>
+                </form>
+            {%- endif -%}
+        </header>
+      {% endif %}
+
+      {%- if search.performed -%}
+      <h1 id="id-section-header" class="section-header__title section-header__left title">Search for: <strong class="search-terms">"{{ search.terms }}"</strong></h1>
+          {%- if search.results_count == 0 -%}
+            <header class="section-header">
+              <p class="zero-founds-message text-center">Sorry, no results for: "{{ search.terms }}"</p>
+              <p class="text-center">{{ 'general.search.no_results_html' | t: terms: search.terms }}</p>
+
+              {%- if section.settings.feature_collection != blank -%}  
+                <h2 class="section-title-text">{{ section.settings.section_title_text }}</h2>
+              {%- endif -%}
+            </header>
+              {%- paginate collections[section.settings.feature_collection].products by section.settings.products_per_collection -%}
+              <div class="grid-uniform grid-uniform--s{{items_per_row}}">
+                  {% for product in collections[section.settings.feature_collection].products %}
+                      {%- render 'product-card',
+                        prod: product,
+                        width_mobile: width_mobile,
+                        width_desk: width_desk,
+                        max_width: image_width,
+                        show_swatch: false,
+                        show_reviews: true,
+                        show_price: true
+                      -%}
+                  {% endfor %}
+              </div>
+              {%- endpaginate -%}
+          {%- elsif section.settings.enable_swatch_bar_inside_wrapper -%}
+            <header class="section-header">
+              <h2 class="hide">{{ search.terms }}</h2>
+
+              <form id="template-search-form" action="/search" method="get" class="search-page-form">
+                <input type="hidden" name="type" value="products">
+                <input aria-label="search-text" type="text" class="search-text" name="q" id="Search-Template-Input" value="{{ search.terms | escape }}" placeholder="{{ header_searchbar_placeholder }}">
+                <button id="Template-SearchButton" type="submit" class="button">
+                    <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span>
+                </button>
+              </form>
+            </header>
+          {%- endif -%}
+      {%- else -%}
+          <header class="section-header">
+            <h2 class="hide">{{ search.terms }}</h2>
+            <span class="section-header__title section-header__left text-center">{{ 'general.search.title' | t }}</span>
+          </header>
+      {%- endif -%}
+
+      {%- if search.performed and search.results_count > 0 -%}
+        {%- paginate search.results by 50 -%}
+            {%- if template contains 'search' -%}
+              {%- assign source = search.results -%}
+              {%- assign is_search = true -%}
+            {%- else -%}
+              {%- assign source = collection.products -%}
+              {%- assign is_search = false -%}
+            {%- endif -%}
+
+            {%- capture list_of_products -%}
+            
+              {%- for item in source -%}
+                {%- if is_search -%}
+                  {%- case item.object_type -%}
+                    {%- when 'product' -%}
+                  {%- render 'product-card',
+                    prod: item,
+                    width_large: width_large,
+                    width_mobile: width_mobile,
+                    width_desk: width_desk,
+                    max_width: image_width,
+                    show_swatch: false,
+                    show_reviews: true,
+                    show_price: true
+                  -%}
+                    {%- endcase -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                {% if settings.enable_products_pages_article == 'article' or settings.enable_products_pages_article == 'article,page' %} 
+                  <h1>ARTICLES</h1>
+                {%- endif -%}
+                {%- for item in source -%}
+                  {%- if is_search -%}
+                    {%- case item.object_type -%}
+                     {%- when 'article' -%}
+                          {%- render 'article-card',
+                            article: item,
+                            width_large: width_large,
+                            width_mobile: width_mobile,
+                            width_desk: width_desk,
+                            max_width: image_width,
+                            show_image: true,
+                          -%}
+                  {%- endcase -%}
+                {%- endif -%}
+              {%- endfor -%}
+              {% if settings.enable_products_pages_article == 'page' or settings.enable_products_pages_article == 'article,page' %} 
+              <h1>PAGES</h1>
+              {%- endif -%}
+              <div class="grid__card">
+              {%- for item in source -%}
+                {%- if is_search -%}
+                  {%- case item.object_type -%}
+                    {%- when 'page' -%}
+                      <div class="card__content" >
+                      <div class="card__information">
+                        <h3 class="card__heading">
+                          <a href="{{ item.url }}" class="page-title">
+                            {{ item.title | truncate: 50 | escape | upcase }}
+                          </a>
+                        </h3>
+                        <a class="page-content" href="{{ item.url }}">{{ item.content | strip_html | truncatewords: 15 }}</a>
+                      </div>
+                      <div class="card__badge ">
+                        <span class="badge color-background-1">{{ item.object_type }}</span>
+                      </div>
+                    </div>
+                    {%- endcase -%}
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+            {%- endcapture -%}
+
+            <div class="grid-uniform grid-uniform--s4 ">
+              {{ list_of_products }}
+            </div>
+            {%- if paginate.pages > 1 -%}
+                <hr>
+                <div class="pagination">
+                  {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+                </div>
+            {%- endif -%}
+        {%- endpaginate -%}
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search Template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_swatch_bar_inside_wrapper",
+      "label": "Enable Search Bar Inside Wrapper",
+      "default": false
+    },
+    {
+    "type":"header",
+    "content":"Product Promote Alternatives"
+    },
+    {
+      "type": "text",
+      "id": "section_title_text",
+      "label": "Section Title",
+      "default": "Check out these alternatives:"
+    },
+    {
+      "type": "select",
+      "id": "section_title_text_transform",
+      "label": "Section Title Transform",
+      "default": "capitalize",
+      "options": [
+        {
+          "value": "none",
+          "label": "Same as Input"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        }
+      ]
+    },
+    {
+      "type": "collection",
+      "id": "feature_collection",
+      "label": "Choose one Collection to display as suggestion when search is empty"
+    },
+    {
+      "type": "range",
+      "id": "products_per_collection",
+      "label": "Products per Collection",
+      "default": 4,
+      "min": 3,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "type": "select",
+      "id": "products_per_rows_desktop",
+      "label": "Products Per Row In Desktop Version",
+      "default": "4",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "products_per_rows_mobile",
+      "label": "Products Per Row In Mobile Version",
+      "default": "2",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style scoped> 
+{%- if section.settings.products_per_rows_mobile == "1" -%}
+  @media(max-width: 767px) {
+      .grid-uniform {
+        display: block;
+      }
+  }
+{%- endif -%}
+</style>

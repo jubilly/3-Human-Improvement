@@ -1,0 +1,187 @@
+<!-- start relatedproducts.liquid (SECTION) -->
+
+{%- unless settings.product_disabled_other_fine_products_section -%}
+  {%- assign number_of_related_products_per_row = 4 -%}
+  {%- assign number_of_rows = 1 -%}
+  {%- assign heading = section.settings.section_title -%}
+  {%- assign same_vendor = false -%}
+  {%- assign same_type = false -%}
+  {%- assign exclusions = 'frontpage,drawer,drawer-bump,todos' | split: ',' -%}
+
+  {%- if product.metafields.c_f['Related Products'] -%}
+    {%- assign collection = collections[product.metafields.c_f['Related Products']] -%}
+  {%- endif -%}
+
+  {%- assign found_a_collection = false -%}
+  {%- if collection and collection.all_products_count > 1 -%}
+    {%- unless exclusions contains collection.handle -%}
+        {%- assign found_a_collection = true -%}
+    {%- endunless -%}
+  {%- endif -%}
+
+  {%- unless found_a_collection -%}
+    {%- for c in product.collections -%}
+        {%- unless exclusions contains c.handle or c.all_products_count < 2 -%}
+          {%- assign found_a_collection = true -%}
+          {%- assign collection = c -%}
+          {%- break -%}
+        {%- endunless -%}
+    {%- endfor -%}
+  {%- endunless -%}
+
+  {%- if found_a_collection -%}
+    <div class="relate-content">
+      <div class="wrapper">
+        <div class="grid__item">
+        {%- unless heading == blank -%}
+            <header class="section-header">
+              <h2 class="reviewtitle section-title section-header__title" id="related_product">{{ heading }}</h2>
+            </header>
+        {%- endunless -%}
+
+        {%- assign counter = 0 -%}
+        {%- assign break_at = number_of_rows | times: number_of_related_products_per_row -%}
+        {%- assign current_product = product -%}
+
+        {%- if section.settings.number_of_related_products_per_row == '2' -%}
+          {%- assign col_width = 'half' -%}
+          {%- assign width_large = 550 -%}
+          {%- assign width_mobile = 46 -%}
+          {%- assign width_desk = 45 -%}
+
+          {%- elsif section.settings.number_of_related_products_per_row == '3' -%}
+            {%- assign col_width = 'third' -%}
+            {%- assign width_large = 380 -%}
+            {%- assign width_mobile = 46 -%}
+            {%- assign width_desk = 30 -%}
+          {%- else -%}
+            {%- assign col_width = 'quarter' -%}
+            {%- assign width_large = 300 -%}
+            {%- assign width_mobile = 45 -%}
+            {%- assign width_desk = 20 -%}
+        {%- endif -%}
+          <div class="grid-uniform grid-uniform--s4">
+            {%- for product in collection.products -%}
+              {%- unless product.handle == current_product.handle -%}
+                {%- unless same_vendor and current_product.vendor != product.vendor -%}
+                  {%- unless same_type and current_product.type != product.type -%}
+                    {% if product.available or settings.enable_out_of_stock_button == true %}
+                      {%- render 'product-card',
+                        collection_temp: collection_temp,
+                        amount: amount,
+                        enable_lazy: enable_lazy,
+                        prod: product,
+                        index: forloop.index,
+                        col_width: col_width,
+                        max_width: width_large,
+                        width_large: width_large,
+                        width_mobile: width_mobile,
+                        width_desk: width_desk,
+                        show_reviews: settings.feat_prod_enabled_app_reviews,
+                        show_price: section.settings.show_price,
+                        style: "opacity:1;visibility:visible;" -%}
+                      {%- assign counter = counter | plus: 1 -%}
+                    {%- endif -%}
+                    {%- if counter == break_at -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endunless -%}
+                {%- endunless -%}
+              {%- endunless -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Related Products",
+  "class": "related_product",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Related Products",
+      "info": "This section choose whether or not to display the related products."
+    },
+    {
+      "type": "text",
+      "label": "Section Title",
+      "id": "section_title",
+      "default": "Other Fine Products"
+    },
+    {
+      "type": "select",
+      "id": "enable_uppercase",
+      "label": "Section Title Text Transform:",
+      "default": "uppercase",
+      "options": [
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "unset",
+          "label": "Same as Input"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "text_transform_products_title",
+      "label": "Product Title Text Transform:",
+      "default": "uppercase",
+      "options": [
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        },
+        {
+          "value": "lowercase",
+          "label": "Lowercase"
+        },
+        {
+          "value": "unset",
+          "label": "Same as Input"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show Price Related Products",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
+
+<style scoped>
+
+{% assign capitalization = section.settings.enable_uppercase %}
+  #related_product {
+  text-transform: {{ capitalization }};
+}
+
+.section-related-products .product-title.{{ section.settings.text_transform_products_title }} p {
+  text-transform: {{ section.settings.text_transform_products_title }};
+}
+
+.related_product .reviewtitle.section-title.section-header__title {
+	text-transform: unset;
+}
+</style>

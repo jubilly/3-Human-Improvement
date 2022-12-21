@@ -1,0 +1,76 @@
+<!-- start reviews-judgeme.liquid (SECTION) -->
+{% if settings.app_review == 'judgeme' %}
+<section id="shopify-section-{{ section.id }}-content" data-section-type="reviews-judgeme">
+    <div class="wrapper jdgm-carousel-wrapper {{ section.settings.custom_class }}">
+        <h2 class='section-title'>{{ section.settings.title | default: 'Let customers speak for us' }}</h2>
+        {{ shop.metafields.judgeme.featured_carousel }}
+    </div>
+</section>
+{% endif %}
+{% schema %}
+{
+  "name": "Reviews Judgeme",
+  "class": "reviews-judgeme",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Reviews",
+      "name": "Reviews Judgeme"
+    }
+  ]
+}
+{% endschema %}
+<!-- start reviews home-page-judme -->
+<style scoped>
+.jdgm-carousel-wrapper {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    padding: 48px 0;
+    display: block;
+}
+.jdgm-carousel__left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  
+  .jdgm-carousel__right-arrow {
+  
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+  
+  
+  @media (max-width: 1019px){
+    .jdgm-carousel__left-arrow {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+    }
+  
+  
+    .jdgm-carousel__right-arrow {
+  
+      position: absolute;
+      top: 50%;
+      right: 20px;
+    }
+  
+  }
+  
+</style>
+      

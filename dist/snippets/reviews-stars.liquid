@@ -1,0 +1,33 @@
+<!-- start reviews-stars.liquid (SNIPPET) -->
+{%- assign product_id = productId | default: product.id -%}
+{%- case settings.app_review -%}
+    {%- when 'stamped' -%}
+    <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{ product_id }}" data-product-title="{{ product.title | replace: '"', '&quote;' }}" data-product-type="{{ product.type }}" style="display: block;"></span>
+
+    {%- when 'judgeme' -%}
+        {%- render 'judgeme_widgets' with widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: false, product: product -%}
+    {%- when 'loox' -%}
+        <a href="#looxReviews">
+            <div 
+                class="loox-rating" 
+                data-id="{{ product.id }}" 
+                data-rating="{{ product.metafields.loox.avg_rating }}" 
+                data-raters="{{ product.metafields.loox.num_reviews }}" 
+                data-pattern="([rating] of [count] Reviews)">
+            </div>
+        </a>
+    {%- when 'yotpo' -%}
+        <div class="yotpo bottomLine"
+            data-appkey="{{ settings.yotpo_key }}"
+            data-domain="{{ shop.permanent_domain | escape }}"
+            data-product-id="{{ product_id }}"
+            data-product-models="{{ product_id }}"
+            data-name="{{ product.title | escape }}"
+            data-url="{{ shop.url }}{{ product.url }}"
+            data-image-url="{{ product.featured_image | product_img_url: '200x' | replace: '?', '%3F' | replace: '&' , '%26' }}"
+            data-description="{{ product.description | escape }}"
+            data-bread-crumbs="{% for tag in product.tags %}{{ tag | escape }};{% endfor %}">
+        </div>
+    {%- when 'product_reviews' -%}
+        <span class="shopify-product-reviews-badge" data-id="{{ product_id }}"></span>
+{%- endcase -%}

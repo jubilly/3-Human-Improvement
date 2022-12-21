@@ -1,0 +1,53 @@
+<!-- start reason-section.liquid (SECTION) -->
+{%- if section.settings.enabled_section -%}
+<div class="wrapper">
+	<div class="great-reasons"> 
+		<div class="text-1" data-theme-editor-setting="cart_trust_label"><strong>{{ section.settings.title_section_text }}</strong></div>
+    {%- assign img = section.settings.image_reason -%}
+    {%- if img != blank -%}
+      {%- if section.settings.image_reason.alt != blank -%}
+        {%- assign image_alt = section.settings.image_reason.alt | strip_html | escape -%}
+      {%- elsif section.settings.title_section_text != blank -%}
+        {%- assign image_alt = section.settings.title_section_text | strip_html | escape -%}
+      {%- else -%}
+        {%- assign image_alt = "Image without description." -%}
+      {%- endif -%}
+    
+      {%- render 'responsive-image',
+        id_prefix: 'reason-section',
+        image: img, 
+        active_lazy: true,
+        image_class: 'trust-badges',
+        no_wrap: true, 
+        max_width: 500,
+        alt_text: image_alt -%}
+    {%- endif -%}
+	</div>
+</div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Reasons Section",
+  "class": "reasons-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled_section",
+      "label": "Enable Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "label": "Title",
+      "id": "title_section_text"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_reason",
+      "label": "Image Reason",
+      "info": "560x280"
+    }
+  ]
+}
+{% endschema %}

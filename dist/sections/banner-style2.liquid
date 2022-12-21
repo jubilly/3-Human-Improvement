@@ -1,0 +1,281 @@
+<!-- start banner-style2.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-banner-2.css' | asset_url }}"/>
+
+{%- assign imageDesktop = section.settings.homepage_banner_style_2 -%}
+{%- assign paddingTopDesktop = imageDesktop.height | plus: 0.0 | divided_by: imageDesktop.width | times: 100.0 -%}
+{%- assign imageMobile = section.settings.mobile_banner_style_2 -%}
+{%- assign paddingTopMobile = imageMobile.height | plus: 0.0 | divided_by: imageMobile.width | times: 100.0 -%}
+<section class="shopify-section banner homepage-style-2 {{ section.settings.custom_class }}">
+  {%- assign enable_lazy = section.settings.enable_lazy_load -%}
+  <div class="wrapper wrapper-banner">
+    <div class="banner">
+        <div class="banner-image-wrapper">
+          <div class="banner-img banner-padding-top-desktop banner-padding-top-mobile">
+            {%- if section.settings.homepage_title != blank -%}
+              <h2 class="mobile banner-2-title">{{ section.settings.homepage_title }}</h2>
+            {% else %}
+              <h2 class="banner-2-title hide">Banner-Desktop-{{ section.id }}</h2>
+            {%- endif -%}
+            {%- if section.settings.homepage_banner_style_2.alt != blank -%}
+                {%- assign image01_alt = section.settings.homepage_banner_style_2.alt | strip_html | escape -%}
+            {%- elsif section.settings.homepage_title != blank -%}
+                
+            {%- else -%}
+                
+            {%- endif -%}
+            <picture>
+              <source media="(min-width: {%- if section.settings.mobile_banner_style_2 != blank -%}768px{%- else -%}0px{%- endif -%})"
+                     sizes="100vw"
+                     srcset="{{ section.settings.homepage_banner_style_2 | image_url: width: 800 }} 800w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 800 }} 800w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 900 }} 900w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1000 }} 1000w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1100 }} 1100w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1200 }} 1200w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1300 }} 1300w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1400 }} 1400w,
+                     {{ section.settings.homepage_banner_style_2 | image_url: width: 1500 }} 1500w">
+              {%- if section.settings.mobile_banner_style_2 != blank -%}
+               <source media="(max-width: 767px)"
+                     sizes="100vw"
+                     srcset="{{ section.settings.mobile_banner_style_2 | image_url: width: 450 }} 450w,
+                             {{ section.settings.mobile_banner_style_2 | image_url: width: 550 }} 550w,
+                             {{ section.settings.mobile_banner_style_2 | image_url: width: 650 }} 650w,
+                             {{ section.settings.mobile_banner_style_2 | image_url: width: 750 }} 750w">
+              {%- endif -%}
+   
+              <img
+               width="{{ imageDesktop.width }}"
+               height="{{ imageDesktop.height }}"
+   
+               {% if enable_lazy %}
+                 loading="lazy"
+                 class="lazy2 lazy3"
+                 data-src="{{ section.settings.homepage_banner_style_2 | image_url: width: 1440 }}"
+                 src= "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt = "{{ image_alt }}"
+               {%- else -%}
+                 src="{{ section.settings.homepage_banner_style_2 | image_url: width: 1440 }}" alt = "{{ image_alt }}"
+               {% endif %}
+              >
+           </picture>
+          </div>
+          <p class="no-mobile banner-2-subtitle">{{ section.settings.homepage_text_under_banner }}</p>
+        </div>
+        <div class="banner-content">
+          {% if section.settings.homepage_title != blank %}
+            <h2 class="no-mobile banner-2-title">{{ section.settings.homepage_title }}</h2>
+          {% else%}
+           <h2 class="banner-2-title hide">Banner-Mobile-{{ section.id }} </h2>
+          {% endif %}
+          {%- if section.settings.homepage_banner_product_2.alt != blank -%}
+              {%- assign image02_alt = section.settings.homepage_banner_product_2.alt | strip_html | escape -%}
+          {%- elsif section.settings.homepage_title != blank -%}
+              {%- assign image02_alt = section.settings.homepage_title | strip_html | escape -%}
+          {%- else -%}
+              {%- assign image02_alt = "Image without description." -%}
+          {%- endif -%}
+
+          {% if enable_lazy == true %}
+            <img width="{{ imageDesktop.width }}" height="{{ imageDesktop.height }}" class="no-mobile banner-2-image lazy2 lazy3" data-src="{{ section.settings.homepage_banner_product_2 | image_url: width: 852 }}" alt="{{ image02_alt }}" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="/>
+          {% else %}
+            <img width="{{ imageDesktop.width }}" height="{{ imageDesktop.height }}" class="no-mobile banner-2-image" src="{{ section.settings.homepage_banner_product_2 | image_url: width: 852 }}" alt="{{ image02_alt }}"/>
+          {% endif %}
+
+          {%- if section.settings.homepage_text_button != blank -%}
+            <a title="{{ section.settings.homepage_title_button | strip_html | escape }}" id="banner2-btn" href="{{ section.settings.homepage_link_button }}" class="button">
+              {{ section.settings.homepage_text_button }}
+            </a>
+          {%- endif -%}
+          <p class="no-mobile banner-2-subtitle"><span class="content-2-subtitle">{{ section.settings.homepage_text_under_button }}</span></p>
+        </div>
+  </div>
+
+  <div class="clear"></div>
+</div>
+</section>
+
+<style scoped>
+
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .wrapper .banner .banner-content .banner-2-title{
+    color:{{ section.settings.primary_title_color }};
+    font-style: {{ section.settings.vasta_banner_font_style }};
+  }
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .wrapper .banner .banner-content .banner-2-subtitle .content-2-subtitle{
+    color:{{ section.settings.secondary_below_color }};
+    font-style: {{ section.settings.vasta_banner_font_style }};
+  }
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .banner-2-subtitle{
+    color:{{ section.settings.primary_below_color }};
+    font-style: {{ section.settings.vasta_banner_font_style }};
+  }
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .button{
+    background-color: {{ section.settings.banner_2_button_background_color }};
+    color:{{ section.settings.banner_2_button_text_color }};
+    font-style: {{ section.settings.vasta_banner_font_style }};
+  }
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .button:hover,
+  #shopify-section-{{ section.id }} .homepage-style-2.banner .button:active{
+    background-color: {{ section.settings.banner_2_button_hover_background_color }};
+    color: {{ section.settings.banner_2_button_hover_text_color }};
+    font-style: {{ section.settings.vasta_banner_font_style }};
+  }
+
+  #shopify-section-{{ section.id }} .homepage-style-2 .banner-img.banner-padding-top-desktop {
+    padding-top: {{ paddingTopDesktop }}%;
+    margin-bottom: 5px;
+  }
+
+  @media (max-width: 767px) {
+  {% if section.settings.mobile_banner_style_2 != blank %}
+    #shopify-section-{{ section.id }} .homepage-style-2 .banner-img.banner-padding-top-mobile {
+      padding-top: {{ paddingTopMobile }}%;
+    }
+  {% endif %}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Banner(With Two Images)",
+  "class": "banner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "header",
+      "content": "Primary Banner settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "homepage_banner_style_2",
+      "label": "Primary Banner Image",
+      "info": "As Big as Possible"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_banner_style_2",
+      "label": "Mobile Banner Image",
+      "info": "As Big as Possible"
+    },
+    {
+      "type": "text",
+      "id": "homepage_title",
+      "label": "Primary Banner Headline",
+      "default": "Headline Example"
+    },
+    {
+      "type": "text",
+      "id": "homepage_text_under_banner",
+      "label": "Text Under Primary Banner (Desktop Only)",
+      "default": "Text Example"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Banner Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "homepage_banner_product_2",
+      "label": "Product Image (Desktop Only)",
+      "info": "374x243"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_lazy_load",
+      "label": "Enable Lazy Load",
+      "info": "If this is the first section of the homepage, you have to keep this field unchecked for Google Pagespeed score improvements.",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "homepage_link_button",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "homepage_text_button",
+      "label": "Button Text",
+      "default": "Text Example"
+    },
+    {
+      "type": "text",
+      "id": "homepage_text_under_button",
+      "label": "Text Under Button (Desktop Only)"
+    },
+    {
+      "type": "select",
+      "id": "vasta_banner_font_style",
+      "label": "Choose Banner Font Style",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "italic",
+          "label": "Italic"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "primary_title_color",
+      "label": "Main Headline Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "primary_below_color",
+      "label": "Text Color Under Primary Banner",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "secondary_below_color",
+      "label": "Text Color Under Secondary Banner",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "banner_2_button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "banner_2_button_background_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "banner_2_button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "banner_2_button_hover_background_color",
+      "label": "Button Hover Background Color",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner (Two Photos)",
+      "category": "Banner"
+    }
+  ]
+}
+{% endschema %}
+<!-- end banner-style2.liquid -->

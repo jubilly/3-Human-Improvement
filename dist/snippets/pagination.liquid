@@ -1,0 +1,18 @@
+<!-- start pagination.liquid (SNIPPET) -->
+<div class="pagination">
+  {%- if paginate.previous.is_link -%}
+    <a class="pagination__item" href="{{- paginate.previous.url -}}">←</a>
+  {%- endif -%}
+
+  {%- for part in paginate.parts -%}
+    {%- if part.is_link -%}
+      <a class="pagination__item" href="{{- part.url -}}">{{- part.title -}}</a>
+    {%- else -%}
+      <span class="pagination__item pagination__item--current">{{- part.title -}}</span>
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if paginate.next.is_link -%}
+    <a class="pagination__item" href="{{- paginate.next.url -}}">→</a>
+  {%- endif -%}
+</div>

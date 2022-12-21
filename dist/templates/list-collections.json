@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "list-collections-template",
+      "settings": {
+        "collection_list_page_title": "",
+        "enable_custom_list_collections": "remove",
+        "custom_list_collections": "All",
+        "collection_list_font_color": "#000",
+        "collection_list_background_color": "transparent",
+        "collection_list_font_size": 16,
+        "product_title_position": "center"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,273 @@
+<!-- start featured-collection.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-featured-collection.css' | asset_url }}"/>
+
+{%- assign max_width = 280 -%}
+{%- assign width_mobile = 45 -%}
+{%- assign width_desk = 20 -%}
+
+{%- case section.settings.products_per_rows -%}
+{%- when '2' -%}
+  {%- assign max_width = 560 -%}
+  {%- assign items_qtd_per_row = "grid-uniform--s2" -%}
+{%- when '3' -%}
+  {%- assign max_width = 380 -%}
+  {%- assign items_qtd_per_row = "grid-uniform--s3" -%}
+{%- when '4' -%}
+  {%- assign items_qtd_per_row = "grid-uniform--s4" -%}
+{%- endcase -%}
+
+{%- assign temp_collection = collections[section.settings.collection] -%}
+{%- assign rows = section.settings.rows | default: 1 -%}
+{%- assign items_per_row = section.settings.products_per_rows | default: 4 -%}
+{%- assign item_count = items_per_row | times: rows -%}
+
+{%- assign enable_lazy = true -%}
+
+{%- if section.settings.top_margin_featured_products > 0 -%}
+{%- assign enable_lazy = false -%}
+{%- endif -%}
+
+<section class="featured-collection{% if section.settings.custom_class != blank %} {{ section.settings.custom_class | handleize }}{% endif %}">
+<div class="wrapper">
+  {%- if section.settings.title != blank -%}
+  <div class="featured-collection__wrapper">
+      <h2 class="featured-collection__title">{{- section.settings.title -}}</h2>
+    {%- else -%}
+      <h2 class="hide">Featured Products</h2>
+    {%- endif -%}
+
+    <div class="grid-uniform {{ items_qtd_per_row }}">
+      {%- for temp_product in temp_collection.products limit: item_count-%}
+        {%- assign show_product = true -%}
+
+        {%- if temp_product.available == false and settings.enable_out_of_stock_button == false -%}
+          {%- assign show_product = false -%}
+        {%- endif -%}
+
+        {%- if show_product -%}
+          {%- render 'product-card',
+            prod: temp_product,
+            max_width: max_width,
+            width_large: width_large,
+            width_mobile: width_mobile,
+            index: forloop.index,
+            width_desk: width_desk,
+            show_reviews: settings.feat_prod_enabled_app_reviews,
+            show_price: section.settings.show_price,
+            enable_lazy: enable_lazy
+            show_swatch: section.settings.show_swatch
+          -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+</section>
+
+<style scoped>
+#shopify-section-{{ section.id }} .featured-collection__title {
+text-transform: {{ section.settings.text_transform_title }}
+}
+#shopify-section-{{ section.id }} .grid__item-title-link {
+text-transform: {{ section.settings.text_transform_product_title }};
+color: #000
+}
+@media (min-width: 768px) {
+.shopify-section.banner + #shopify-section-{{ section.id }} {
+  top: {{ section.settings.top_margin_featured_products | times: -1 }}px;
+  margin-bottom: {{ section.settings.top_margin_featured_products | times: -1 }}px;
+  position: relative;
+}
+}
+@media (max-width: 479px){
+  #shopify-section-{{ section.id }} .grid-uniform .grid__item {
+    flex-basis: {{section.settings.products_per_rows_feature_collection}}%;
+  }
+}
+</style>
+
+<style scoped type="lazyload2">
+.featured-collection__wrapper {
+  background-color: #fff;
+  padding-bottom: 25px;
+}
+.featured-collection__title {
+  text-align: center;
+  padding: 21px 0 20px;
+}
+.featured-collection .grid-uniform {
+  justify-content: center;
+}
+</style>
+
+{% schema %}
+{
+"name": "Featured Products",
+"class": "featured-collection",
+"settings": [
+  {
+    "type": "header",
+    "content": "Featured products"
+  },
+  {
+    "type": "text",
+    "id": "custom_class",
+    "label": "Custom Class",
+    "info": "Custom class to apply css styles for specific sections"
+  },
+  {
+    "type": "range",
+    "id": "top_margin_featured_products",
+    "info": "Only works if section above is the banner",
+    "min": 0,
+    "max": 500,
+    "step": 5,
+    "unit": "px",
+    "label": "Position On/Off Banner",
+    "default": 0
+  },
+  {
+    "type": "text",
+    "id": "title",
+    "label": "Headline Text",
+    "default": "Featured products"
+  },
+  {
+    "type": "select",
+    "id": "text_transform_title",
+    "label": "Headline Text Transform",
+    "options": [
+      {
+        "value": "capitalize",
+        "label": "Capitalize"
+      },
+      {
+        "value": "none",
+        "label": "Same as Input"
+      },
+      {
+        "value": "uppercase",
+        "label": "Uppercase"
+      },
+      {
+        "value": "lowercase",
+        "label": "Lowercase"
+      }
+    ],
+    "default": "none"
+  },
+  {
+    "type": "select",
+    "id": "text_transform_product_title",
+    "label": "Product Title Text Transform",
+    "options": [
+      {
+        "value": "capitalize",
+        "label": "Capitalize"
+      },
+      {
+        "value": "lowercase",
+        "label": "Lowercase"
+      },
+      {
+        "value": "none",
+        "label": "Same as Input"
+      },
+      {
+        "value": "uppercase",
+        "label": "Uppercase"
+      }
+    ],
+    "default": "none"
+  },
+  {
+    "id": "collection",
+    "type": "collection",
+    "label": "Collection"
+  },
+  {
+    "id": "products_per_rows",
+    "label": "Products Per Row Desktop",
+    "type": "select",
+    "options": [
+      {
+        "label": "2 products",
+        "value": "2"
+      },
+      {
+        "label": "3 products",
+        "value": "3"
+      },
+      {
+        "label": "4 products",
+        "value": "4"
+      }
+    ],
+    "default": "4"
+  },
+  {
+    "id": "products_per_rows_feature_collection",
+    "label": "Products Per Row Mobile",
+    "type": "select",
+    "options": [
+      {
+        "label": "1 product",
+        "value": "94"
+      },
+      {
+        "label": "2 products",
+        "value": "49"
+      }
+    ],
+    "default": "49"
+  },
+  {
+    "id": "rows",
+    "label": "Number of Rows",
+    "type": "select",
+    "options": [
+      {
+        "label": "1 row",
+        "value": "1"
+      },
+      {
+        "label": "2 rows",
+        "value": "2"
+      },
+      {
+        "label": "3 rows",
+        "value": "3"
+      },
+      {
+        "label": "4 rows",
+        "value": "4"
+      },
+      {
+        "label": "5 rows",
+        "value": "5"
+      }
+    ],
+    "default": "1"
+  },
+  {
+    "type": "checkbox",
+    "id": "show_price",
+    "label": "Show Price"
+  },
+  {
+    "type": "checkbox",
+    "id": "show_swatch",
+    "label": "Enable Swatch Options",
+    "default": false
+  }
+],
+"presets": [
+  {
+    "name": "Featured Products",
+    "category": "Products"
+  }
+]
+}
+{% endschema %}
+<!-- end featured-collection.liquid -->

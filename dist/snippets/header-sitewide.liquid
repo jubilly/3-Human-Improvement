@@ -1,0 +1,36 @@
+<!-- start header-sitewide (SNIPPET) -->
+<div class="header__sitewide__wrapper header__wrapper">
+  <div class="header__icon__wrap icon--menu">
+    {%- render 'icon-hamburger' -%}
+    <span>Menu</span>
+  </div>
+
+  {%- render 'header-logo' -%}
+
+  {%- if section.settings.enabled_search_bar -%}
+    {%- render 'header-searchbar', mobile: false -%}
+  {%- endif -%}
+
+  {%- if section.settings.enabled_search_bar == false and section.settings.enable_menu_into_header -%}
+    {%- render 'main-menu' -%}
+  {%- endif -%}
+
+  <div id="cart-count" class="header__icon__wrap icon--cart">
+    <div class="header__icon__count__wrap">
+      {%- render 'header-icon-cart' -%}
+      <span class="header__cart__count">{{ cart.item_count }}</span>
+    </div>
+    
+    {%- if section.settings.enable_cart_title == true -%}
+      <span class="header__cart__text">{{ section.settings.cart_title_text }}</span>
+    {%- endif -%}
+  </div>
+
+  {%- if settings.disable_cartDrawer and template.name != 'cart' -%} 
+    <a title="CART" href="/cart" id="id-cart-icon-2"></a>
+  {%- endif -%}
+</div>
+
+{%- if section.settings.enabled_search_bar_mobile -%}
+  {%- render 'header-searchbar', mobile: true -%}
+{%- endif -%}

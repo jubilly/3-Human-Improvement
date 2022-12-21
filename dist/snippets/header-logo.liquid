@@ -1,0 +1,24 @@
+<!-- start header-logo (SNIPPET) -->
+<div id="Header{{ section_title }}" class="header__logo">
+  <a class="header__logo__anchor" title="{{ section.settings.shop_logo_alt }}" href="/" >
+    {%- if section.settings.enable_svg_logo -%}
+      {{ section.settings.logo_svg_html }}
+    {%- else -%}
+      {%- if section.settings.shop_logo != blank -%}
+        {%- assign image_size = section.settings.logo_max_width | times: 2 -%}
+
+        {%- render 'responsive-image',
+          id_prefix: logo_alt,
+          image: section.settings.shop_logo,
+          max_width: image_size,
+          active_lazy: false,
+          no_wrap: true,
+          alt_text: section.settings.shop_logo_alt,
+          image_attributes: img_attributes
+        -%}
+      {%- else -%}
+        {{ shop.name }}
+      {%- endif -%}
+    {%- endif -%}
+  </a>
+</div>

@@ -1,0 +1,358 @@
+<!-- start product-js.liquid (SNIPPET) -->
+<script type="lazyload2">
+	{%- if settings.product_enabled_recharge -%}
+		window.addEventListener('load', function(){
+			recharge();
+		});
+	{%- endif -%}
+
+	(function ($) {
+		$(document).ready(function () {
+			$(window).on('scroll', function() {
+				if( $("#button-out-of-stock").is(":visible") == false ) {
+					const $mainFooter = $('.footer-section').eq(0);
+					var _positionTop = $('#AddToCart');
+					var offsetTop = _positionTop.offset().top;
+					var scrollPostion = $(this).scrollTop() + 10;
+					var documentHeight = $mainFooter.offset().top;
+					var footerHeight = $mainFooter.height();
+					var footer = $mainFooter.offset().top;
+					var appear = $(window).scrollTop() + $(window).height();
+
+					if (scrollPostion > offsetTop && appear < footer) {
+						$('#AddToCart3').addClass("AddToCartFixed");
+						$('#AddToCart3').removeClass("no-show");
+					} else {
+						$('#AddToCart3').removeClass("AddToCartFixed");
+						$('#AddToCart3').addClass("no-show");
+					}
+				}
+			});
+			// Variables
+
+			var swatch_locked = false,
+				_product_featured = $('.jq-featured-slider');
+
+			_product_featured.on('init', function (event, slick) {
+				$('.lds-css.ng-scope').remove();
+				$('.product-slider').removeClass('invisible');
+				
+				{%- if settings.enable_zoom_feature_for_desktop -%}
+					if ($(window).width() >= 768) {
+						$('.magnify-zoom img').magnify();
+					}
+				{%- endif -%}
+			});
+
+			$('.jq-swatch-element,.jq-product-variant').change(function() {
+				swatch_locked = true;
+			});
+
+			_product_featured.on('beforeChange', function(event, slick, currentSlideIndex) {
+				var iframes = $('.slick-current iframe', slick.$slider);
+
+				iframes.each(function(i){
+					this.src = this.src;
+				});
+			});
+			
+			_product_featured.on('afterChange', function(event, slick, currentSlideIndex) {
+				var variant_option, current_slide;
+
+				if (swatch_locked === false) {
+					current_slide = $('.product-slider-thumbnails .slick-current .product-slide').data('forloop-index');
+					variant_option = $('.all-variant option[data-image-position="' + current_slide + '"]');
+
+					if (variant_option.length > 0 && current_slide != '') {
+						variant_option = variant_option.eq(0);
+
+						variant_option.data('options').split(',').forEach(function(option) {
+							var productVariation = option.replace(/"/g, '\\"').replace(/'/g, "\\'");
+            				$('.product-variant option[value="' + productVariation + '"]').parent().val(productVariation.replace(/\\/gi, '')).trigger('change');
+							$('.swatch-element[data-swatch="' + productVariation + '"]').trigger("click");
+						});
+					}
+				}
+
+				swatch_locked = false;
+			});
+
+
+			//*******************************************************************************************
+			// SLICKS
+			//*******************************************************************************************
+			var product_variant_id = parseInt(window.location.href.replace(/.*\?variant=/g, '')),
+				initial_image = 0,
+				number_of_images = {{ settings.thumbnails_options | default: 5 }};
+
+
+			VastaShop.Product.current.variants.forEach(function ( variant ) {
+				if (variant.id == product_variant_id && variant.featured_image != null) {
+					initial_image = variant.featured_image.position - 1;
+				}
+			});
+
+			var productSliderFeatured = $('.product-slider-featured'),
+				productSliderThumbnails = $('.product-slider-thumbnails');
+
+			var slide_effect = "{{ settings.effect_options }}";
+			var effect_fade = slide_effect == 'fade' ? true : false;
+
+			// Slick for products images - Featured image
+			productSliderFeatured.slick({
+				lazyLoad: 'ondemand',
+				slidesToShow: 1,
+				fade: effect_fade,
+				initialSlide: initial_image,
+				prevArrow: '<button type="button" class="slick-prev">&lang;</button>',
+				nextArrow: '<button type="button" class="slick-next">&rang;</button>',
+				asNavFor: productSliderThumbnails
+			});
+
+			productSliderThumbnails.slick({
+				{%- if settings.select_position_thumbnails != "below" -%}
+					vertical: true,
+					verticalSwiping: true,
+				{%- endif -%}
+				lazyLoad: 'ondemand',
+				infinite: true,
+				slidesToShow: number_of_images,
+				initialSlide: initial_image,
+				focusOnSelect: true,
+				asNavFor: productSliderFeatured,
+				prevArrow: '<button type="button" class="slick-prev">&lang;</button>',
+				nextArrow: '<button type="button" class="slick-next">&rang;</button>',
+				responsive: [{
+					breakpoint: 1279,
+					settings: {
+						slidesToShow: number_of_images,
+						slidesToScroll: 1
+					}
+				}]
+			});
+
+			//*******************************************************************************************
+			//*******************************************************************************************
+
+			/**
+			* Edit Quantity Product
+			* @function[<quantity-edit>]
+			*
+			* This function edit quantity of product on product page
+			*
+			* Dependencies: none
+			*
+			* @param: none
+			*
+			*/
+			VastaShop.Variables._quantity.blur(function () {
+				var self = $(this),
+                    max = self.attr('data-max'),
+					self_value = self.val();
+
+                var tag_current_price = $('#all-product-variants option:selected').data('price'),
+                    tag_currency = $('.product-price .current-price').eq(1).text()[0],
+					quantity_value = self_value;
+
+				var totalPrice;
+
+                if (VastaShop.Variables._quantity.attr('data-max') != -1 && quantity_value > parseInt(VastaShop.Variables._quantity.attr('data-max'))) {
+					quantity_value = parseInt(VastaShop.Variables._quantity.attr('data-max'));
+					inventoryControl($('.all-variant').val());
+					VastaShop.Variables._button_plus.attr('disabled', 'disabled');
+					$("#StockWarning").addClass('stock-wrn--active');
+				} else {
+					inventoryControl($('.all-variant').val());
+					VastaShop.Variables._button_minus.attr('disabled', 'disabled');
+					$("#StockWarning").removeClass('stock-wrn--active');
+				}
+				
+				if (quantity_value < 1) {
+					quantity_value = 1;
+				}
+
+				self.val(parseInt(quantity_value));
+
+                totalPrice = tag_current_price * quantity_value;
+
+				VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(totalPrice));
+                VastaShop.Variables._add_to_cart_num_items.html(quantity_value + ' ' + (quantity_value > 1 ? VastaShop.Variables.product_itemsLabel : VastaShop.Variables.product_itemLabel));
+
+				inventoryControl($('.all-variant option:selected').val());
+
+                enableInputs();
+
+				if (parseInt($('.all-variant option:selected').attr('data-inventory')) != -1) {
+                    if (self.val() >= parseInt(self.attr('data-max'))) {
+                        self.val(self.attr('data-max'));
+                        $(' .product-quantity-wrapper > .btn-plus').attr('disabled', 'disabled');
+                    }
+                }
+                if (parseInt(self.val()) == 1) {
+                    self.parent().find('#ButtonMinus').attr('disabled', 'disabled');
+                }
+			}).change(function () {
+
+				var quantity_value = (!$.trim($(this).val()) || ($(this).val() < 1)) ? 1 : VastaShop.Variables._quantity.val(),
+					tag_current_price = $('#all-product-variants option:selected').data('price');
+				var totalPrice;
+
+				inventoryControl($('.all-variant option:selected').val());
+
+				totalPrice = tag_current_price * quantity_value;
+
+				enableInputs();
+
+                if (parseInt($('.all-variant option:selected').attr('data-inventory')) != -1) {
+                    if ($(this).val() >= parseInt($(this).attr('data-max'))) {
+                        $(this).val($(this).attr('data-max'));
+                        $(' .product-quantity-wrapper > .btn-plus').attr('disabled', 'disabled');
+                    }
+                }
+                if (parseInt($(this).val()) == 1) {
+                    $(this).parent().find('#ButtonMinus').attr('disabled', 'disabled');
+				}
+
+                VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(totalPrice));
+                VastaShop.Variables._add_to_cart_num_items.html(quantity_value + ' ' + (quantity_value > 1 ? VastaShop.Variables.product_itemsLabel : VastaShop.Variables.product_itemLabel));
+            });
+			//*******************************************************************************************
+			//*******************************************************************************************
+
+			/**
+			* Action Button Plus
+			* @function[<action-button-plus>]
+			*
+			* This feature adds quantity of product on the product page
+			*
+			* Dependencies: none
+			*
+			* @param: none
+			*
+			*/
+			$(' .product-quantity-wrapper > .btn-plus').click(function () {
+				var quantity_value = parseInt(VastaShop.Variables._quantity.val()) + 1,
+                    tag_current_price = $('#all-product-variants option:selected').data('price'),
+					tag_currency = $('.product-price .current-price').eq(1).text()[0];
+
+				if (VastaShop.Variables._quantity.attr('data-max') != -1 && quantity_value > parseInt(VastaShop.Variables._quantity.attr('data-max'))) {
+					quantity_value = parseInt(VastaShop.Variables._quantity.attr('data-max'));
+
+					inventoryControl($('.all-variant').val());
+
+					VastaShop.Variables._button_plus.attr('disabled', 'disabled');
+					$("#StockWarning").addClass('stock-wrn--active');
+				} else {
+					inventoryControl($('.all-variant').val());
+					$("#StockWarning").removeClass('stock-wrn--active');
+				}
+
+				VastaShop.Variables._quantity.val(quantity_value);
+
+				VastaShop.Product.calculateTotalPrice({
+					quantity: quantity_value
+				});
+				VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(VastaShop.Product.totalPrice));
+				VastaShop.Variables._add_to_cart_num_items.html(quantity_value + ' ' + (quantity_value > 1 ? VastaShop.Variables.product_itemsLabel : VastaShop.Variables.product_itemLabel));
+				VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(parseInt(VastaShop.Variables._quantity.val()) * tag_current_price));
+			});
+
+			//*******************************************************************************************
+			//*******************************************************************************************
+
+			/**
+			* Action Button Minus
+			* @function[<action-button-minus>]
+			*
+			* This function decreases quantity of product on the product page
+			*
+			* Dependencies: none
+			*
+			* @param: none
+			*
+			*/
+			VastaShop.Variables._button_minus.click(function () {
+				$(this).removeAttr('disabled', 'disabled');
+
+				var quantity_value = parseInt(VastaShop.Variables._quantity.val()) - 1,
+					tag_current_price = $('#all-product-variants option:selected').data('price'),
+					tag_currency = $('.product-price .current-price').eq(1).text()[0];
+
+				if (quantity_value <= 1) {
+					quantity_value = 1;
+					inventoryControl($('.all-variant').val());
+					VastaShop.Variables._button_minus.attr('disabled', 'disabled');
+				} else {
+					inventoryControl($('.all-variant').val());
+				}
+				$("#StockWarning").removeClass('stock-wrn--active');
+				
+				VastaShop.Variables._quantity.val(quantity_value);
+
+				VastaShop.Product.calculateTotalPrice({
+					quantity: quantity_value
+				});
+
+				VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(VastaShop.Product.totalPrice));
+				VastaShop.Variables._add_to_cart_num_items.html(quantity_value + ' ' + (quantity_value > 1 ? VastaShop.Variables.product_itemsLabel : VastaShop.Variables.product_itemLabel));
+				VastaShop.Variables._add_to_cart_value.html(VastaShop.formatMoney(parseInt(VastaShop.Variables._quantity.val()) * tag_current_price));
+			});
+
+
+			/**
+			* Activate Floating ACT
+			* @function[<act-button-floating>]
+			*
+			* This function activates the floating ACT button on the foot wheel of the page
+			*
+			* Dependencies: none
+			*
+			* @param: none
+			*
+			*/
+			function product_box_floating() {
+				const components = {
+					$shippingBar: $('#shipping-bar'),
+					$productTabs: $('.product-info .product-tabs').eq(0)
+				};
+				const shippingBarHeight = components.$shippingBar.height();
+				const shipping_bar_height = parseFloat(shippingBarHeight);
+				const scrollTop = parseFloat($(this).scrollTop());
+
+				if (components.$productTabs.length > 0) {
+					const offsetTabs = parseFloat(components.$productTabs.offset().top);
+
+					if ((offsetTabs - scrollTop) <= (0 + shipping_bar_height)) {
+						$('.product-box-float').addClass('show');
+					} else {
+						$('.product-box-float').removeClass('show');
+					}
+				}
+			}
+
+			$(window).scroll(product_box_floating);
+			$(window).resize(product_box_floating);
+		});
+
+
+		function dynamicVideos() {
+			$('.dynamic-video__slider').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				prevArrow: '<button type="button" class="slick-prev">&lang;</button>',
+				nextArrow: '<button type="button" class="slick-next">&rang;</button>',
+			});
+		}
+
+		dynamicVideos();
+
+		$(window).on('shopify:block:select shopify:section:select', function(e){
+			const el = $(e.target);
+			let settings = el.data('shopify-editor-section') || null;
+
+			if (settings && settings.type) {
+				dynamicVideos();
+			}
+		});
+	})(jQuery);
+</script>

@@ -1,0 +1,61 @@
+<!-- start shipping-bar-sections (SNIPPETS) -->
+
+<style scoped>
+:root {
+    --shipping-bar-items-line-color: {{- block.settings.line_color -}};
+}
+</style>
+
+<div class="shipping-bar__section-item">
+    {%- assign image = block.settings.shipping-bar_icon-left-section -%}
+
+    {%- if image != blank -%}
+        {%- render 'responsive-image',
+            id_prefix: 'shipping_bar1',
+            image: image,
+            image_class: 'shipping-bar__section-image no-mobile',
+            active_lazy: false,
+            no_wrap: true, 
+            alt_text: image.alt,
+            max_width: 50
+        -%}
+    {%- endif -%}
+
+    {{- block.settings.shipping-bar_text-left-section -}}
+</div>
+
+<div class="shipping-bar__section-item">
+    {%- assign image = block.settings.shipping-bar_icon-middle-section -%}
+
+    {%- if image != blank -%}
+        {%- render 'responsive-image',
+            id_prefix: 'shipping_bar2',
+            image: image,
+            image_class: 'shipping-bar__section-image no-mobile',
+            active_lazy: false,
+            no_wrap: true, 
+            alt_text: image.alt,
+            max_width: 50
+        -%}
+    {%- endif -%}
+
+    {{- block.settings.shipping-bar_text-middle-section -}}
+</div>
+
+<div class="shipping-bar__section-item">
+    {%- assign image = block.settings.shipping-bar_icon-right-section -%}
+
+    {%- if image != blank -%}
+        {%- render 'responsive-image',
+            id_prefix: 'shipping_bar3',
+            image: image,
+            image_class: 'shipping-bar__section-image no-mobile',
+            active_lazy: false,
+            no_wrap: true, 
+            alt_text: image.alt,
+            max_width: 50
+        -%}
+    {%- endif -%}
+
+    {{- block.settings.shipping-bar_text-right-section -}}
+</div>

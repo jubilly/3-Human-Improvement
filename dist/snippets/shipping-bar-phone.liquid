@@ -1,0 +1,15 @@
+<!-- start shipping-bar-phone.liquid (SNIPPET) -->
+{%- assign phone = settings.text_tel -%}
+<div class="shipping-bar__item shipping-bar__item--small no-mobile">
+  {%- unless settings.disable_shippingbar_phone -%}
+    {%- if section.settings.enable_link_shippingbar_text_phone and phone != blank -%}
+      <a href="tel:{{- phone | remove: ' ' | remove: '-' | remove: '(' | remove: ')' -}}" title="Store Phone" class="shipping-bar__link">
+        {%- render 'icon-phone' -%}
+        {{- phone -}}
+      </a>
+    {%- else -%}
+      {%- render 'icon-phone' -%}
+      {{- phone -}}
+    {%- endif -%}
+  {%- endunless -%}
+</div>

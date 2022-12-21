@@ -1,0 +1,41 @@
+<!-- start article-card.liquid (SNIPPET) -->
+<link rel="stylesheet" data-href="{{ 'component-card.css' | asset_url }}"/>
+
+{%- assign temp_product = article.image -%}
+{%- assign max_width_large = width_large | default: 500 -%}
+{%- assign max_width_mobile_large = width_mobile | default: 45 -%}
+{%- assign max_width_desk = width_desk | default: 20 -%}
+{%- assign prefix = 'Image' | append: variant.id -%}
+{%- assign lazyload = enable_lazy | default: true -%}
+
+<div class="grid__item">
+
+  <div class="grid__item-image-wrapper">
+    <a href="{{ article.url }}" title="{{- article.title | strip_html | escape -}}" class="grid__item-link">
+
+      {%- if temp_product == null and settings.recently_viewed_product_without_image != blank -%}
+        {%- assign final_image = settings.recently_viewed_product_without_image -%}
+
+        {%- render 'responsive-image' with
+          max_width: 300,
+          image: final_image,
+          image_class: 'grid__item-image one',   
+          active_lazy: true
+        -%}
+
+      {%- else -%}
+        {%- assign final_image = temp_product -%}
+
+        {%- render 'responsive-image' with
+          max_width: 300,
+          image: final_image,
+          image_class: 'grid__item-image',   
+          active_lazy: true
+        -%}
+      {%- endif -%}
+
+    </a>
+    </div>
+    <h3 class="grid__item-title"><a href="{{ article.url }}" title="{{- article.title | strip_html | escape -}}"  class="grid__item-title-link">{{- article.title -}}</a></h3>
+  
+</div>

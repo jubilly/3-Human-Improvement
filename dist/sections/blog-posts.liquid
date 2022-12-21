@@ -1,0 +1,184 @@
+<!-- start blog-posts.liquid (SECTION) -->
+
+<link rel="stylesheet" data-href="{{ 'section-article-blog.css' | asset_url }}"/>
+
+<section id="blog-posts" {% if section.settings.custom_class != blank %} class="{{ section.settings.custom_class }}" {% endif %}>
+  
+  {%- assign sectionTitle = section.settings.title -%}
+
+  {%- if sectionTitle == blank -%}
+    {%- assign sectionTitle = blogs[section.settings.homepage_blog].title -%}
+  {%- endif -%}
+
+  <h2 class="section-title">{{ sectionTitle }}</h2>
+  <div class="wrapper content-wrapper">
+    {%- for article in blogs[section.settings.homepage_blog].articles limit: section.settings.posts_amount -%}
+      {%- assign col = "half" -%}
+      {%- if section.settings.posts_amount == '3' -%}
+        {%- assign col = "third" -%}
+      {%- endif -%}
+      {%- assign id_blog_posts = forloop.index | prepend: 'blog-posts-' -%}
+      <article class="post {{ col }}">
+        {%- if section.settings.display_post_image -%}
+          {%- if article.image != blank -%}
+            <a href="{{ article.url }}" class="img-post-home">
+              {%- if article.image.alt != blank -%}
+              {%- elsif article.title != blank -%}
+              {%- else -%}
+              {%- endif -%}
+              {%- render 'responsive-image',
+                id_prefix: id_blog_posts,
+                image: article.image,
+                active_lazy: true,
+                max_width: 880,
+                no_wrap: true, 
+                alt_text: section.settings.homepage_banner_text,
+                size_large: 440, 
+                size_mobile: 39, 
+                size_desk: 10
+              -%}
+            </a>
+          {%- else -%}
+            <a href="{{ article.url }}" class="img-post-home">
+              {%- if section.settings.blog_rewrite_image_home == 'placeholder' -%}
+                {%- render 'responsive-image',
+                id_prefix: id_blog_posts,
+                image: section.settings.blog_article_placeholder_home,
+                active_lazy: true,
+                max_width: 880,
+                no_wrap: true, 
+                alt_text: section.settings.blog_article_placeholder_home.alt,
+                size_large: 440, 
+                size_mobile: 39, 
+                size_desk: 10
+              -%}
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endif-%}
+        <div class="post-content-home">
+          <h3 class="blog_post_title">{{ article.title }}</h3>
+
+          <div class="date">{{ article.published_at | date: "%B %d, %Y" }}</div>
+          
+          <div class="blog_post_content">{{ article.content | strip_html | truncatewords: 20 }}</div>
+          
+          <a title="Read More" id="BlogPostsLink-{{ forloop.index }}" class="blog_post_link" href="{{ article.url }}">Read More →</a>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+<style scoped>
+#shopify-section-{{ section.id }} .section-title {
+  text-transform: {{ section.settings.section_title_text_transform }};
+}
+</style>
+
+{% schema %}
+{
+  "name": "Blog Posts",
+  "class": "homepage_blog_posts",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Blog Post"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "BLOG"
+    },
+    {
+      "type": "select",
+      "id": "section_title_text_transform",
+      "label": "Section Title Text Transform",
+      "options": [
+        {
+          "label": "Same As Input",
+          "value": "unset"
+        },
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "display_post_image",
+      "label": "Display Post Image",
+      "default": true
+    },
+    {
+      "type": "radio",
+      "id": "blog_rewrite_image_home",
+      "label": "Show Image When There Isn't One Available?",
+      "options": [
+        {
+          "label": "None",
+          "value": "none"
+        },
+        {
+          "label": "Placeholder",
+          "value": "placeholder"
+        }
+      ],
+      "default": "placeholder"
+    },
+    {
+      "type": "image_picker",
+      "id": "blog_article_placeholder_home",
+      "label": "Placeholder Image",
+      "info": "200x200"
+    },
+    {
+      "type": "blog",
+      "id": "homepage_blog",
+      "label": "Choose The Blog"
+    },
+    {
+      "type": "select",
+      "id": "posts_amount",
+      "label": "Number of Posts to Display",
+      "options": [
+        {
+          "value": "2",
+          "label": "2 posts"
+        },
+        {
+          "value": "3",
+          "label": "3 posts"
+        },
+        {
+          "value": "4",
+          "label": "4 posts"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog Posts",
+      "category": "Blog"
+    }
+  ]
+}
+{% endschema %}
+<!-- end blog-posts.liquid -->

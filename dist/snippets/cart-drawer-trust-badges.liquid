@@ -1,0 +1,59 @@
+<!-- start cart-drawer-trust-badges.liquid (SNIPPET) -->
+<div class="trust-badges-wrapper">
+    {%- assign count_trust_badge = 0 -%}
+    {%- for block in section_blocks -%}
+        {%- if block.type == 'trust_badges_cart' -%}
+        {%- assign count_trust_badge = count_trust_badge | plus: 1 -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- assign trustBageSize = 0 -%}
+    {%- case vasta_badges_size -%}
+      {%- when 1 -%}
+        {%- assign trustBageSize = 478 -%}
+      {%- when 2 -%}
+        {%- assign trustBageSize = 229 -%}
+      {%- when 3 -%}
+       {%- assign trustBageSize = 151 -%}
+      {%- when 4 -%}
+        {%- assign trustBageSize = 108 -%}
+      {%- when 5 -%}
+        {%- assign trustBageSize = 83 -%}
+      {%- else -%}
+        {%- assign trustBageSize = 69 -%}
+    {%- endcase -%}
+    {%- for block in section_blocks -%}
+        {%- if block.type == 'trust_badges_cart' -%}
+
+            <div class="trust-badges-img col-{{ vasta_badges_size }}">
+                {%- if block.settings.enable_img_trust_badge_cart -%}
+                {%- assign image_alt = block.settings.img_trust_badges_cart.alt | default: 'Image without description.' | strip_html | escape -%}
+                {%- assign image_id_prefix = 'cart-drawer-trust-badges-img' | append: forloop.index | append: '-' | append: position | append: '-' -%}
+
+                {%- render 'responsive-image',
+                    id_prefix: image_id_prefix,
+                    image: block.settings.img_trust_badges_cart,
+                    active_lazy: true,
+                    no_wrap: true,
+                    alt_text: image_alt,
+                    max_width: trustBageSize
+                -%}
+
+                {%- else -%}
+                    {%- if block.settings.enable_custom_trust_badge_svg -%}
+                    {{ block.settings.custom_trust_badge_svg_html }}
+                    {%- else -%}
+                        {%- assign snippet_icon_trust_badge = 'icon-' | append: block.settings.svg_trust_badge_cart | append: '.svg' -%}
+                        {%- assign image_alt = block.settings.svg_trust_badge_cart | escape | replace: "-" , " " | capitalize | default: 'Image without description.' -%}
+                        {%- assign image_id_prefix = 'cart-drawer-trust-badges-svg' | append: forloop.index | append: '-' | append: position | append: '-' -%}
+                        <img width="120" height="120" class="lazy2 lazy3" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="  data-src="{{ snippet_icon_trust_badge | asset_url }}" alt="{{ block.settings.svg_trust_badge_cart | escape | replace: "-" , " " | capitalize | default: 'Image without description.' }}" />
+
+                    {%- endif -%}
+                {%- endif -%}
+                {%- if section.settings.enable_trust_badge_title -%}
+                <label class="title-badge-cart-drawer">{{ block.settings.title_trust_badges }}</label>
+
+                {%- endif -%}
+            </div>
+        {%- endif -%}
+    {%- endfor -%}
+ </div>

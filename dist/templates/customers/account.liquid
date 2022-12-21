@@ -1,0 +1,71 @@
+<!-- start account.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'template-customer.css' | asset_url }}"/>
+
+<div class="wrapper" >
+  <div class="account-content">
+    <div class="account-header">
+      <h1 class="account-title">{{ 'customer.account.title' | t }}</h1>
+
+      <a class="account-logout-link" href="/account/logout">Logout</a>
+    </div>
+    
+    {%- if settings.product_enabled_recharge -%}
+      <p class="subscription-recharge"><a href="/tools/recurring/login/">Manage Subscriptions</a></p>
+    {%- endif -%}
+    
+    {%- paginate customer.orders by 20 -%}
+      {%- if customer.orders.size != 0 -%}
+      <div class="account-wrapper">
+        <div class="account-orders">
+          <h2 class="section-title">{{ 'customer.orders.title' | t }}</h2> 
+          {%- for order in customer.orders -%}
+          <a title="{{ order.name }}" href="{{ order.customer_url }}" class="account-orders-content">
+            <div class="orders-customers-info">
+                <div class="order-text">
+                  <p class="customer-info-text">{{ 'customer.orders.order_number' | t }}:</p>
+                  <p>{{ order.name }}</p>
+                </div>
+                <div class="order-text">
+                  <p class="customer-info-text">{{ 'customer.orders.date' | t }}:</p>
+                  <p data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</p>
+                </div>
+                <div class="order-text">                
+                  <p class="customer-info-text">{{ 'customer.orders.payment_status' | t }}:</p>
+                  <p data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</p>
+                </div>
+                <div class="order-text">
+                  <p class="customer-info-text">{{ 'customer.orders.fulfillment_status' | t }}:</p>
+                  <p data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</p>
+                </div>
+                <div class="order-text">
+                  <p class="customer-info-text">{{ 'customer.orders.total' | t }}:</p>
+                  <p data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</p>
+                </div>
+            </div>
+          </a>
+          {%- endfor -%}
+        </div>
+        <div class="address">
+          <h2 class="section-title">{{ 'customer.account.details' | t }}</h2>
+            {%- render 'customer-address' with address: customer.default_address -%}
+            <a class="customer-address" title="Addresses" id="id-addresses" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+        </div>
+        {%- if paginate.pages > 1 -%}
+          {%- render 'pagination' -%}
+        {%- endif -%}
+    </div>
+    {%- else -%}
+      <h2 class="section-title">{{ 'customer.orders.title' | t }}</h2> 
+      <p class="no-orders">{{ 'customer.orders.none' | t }}</p>
+      <div class="address">
+        <h2 class="section-title">{{ 'customer.account.details' | t }}</h2>
+          {%- render 'customer-address' with address: customer.default_address -%}
+          <a class="customer-address" title="Addresses" id="id-addresses" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+      </div>
+    {%- endif -%}
+    {%- endpaginate -%}
+
+    
+  </div>
+</div>

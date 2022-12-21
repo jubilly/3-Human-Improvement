@@ -1,0 +1,126 @@
+{
+  "sections": {
+    "main": {
+      "type": "cart-template",
+      "settings": {
+      }
+    },
+    "reason-section": {
+      "type": "reason-section",
+      "settings": {
+        "enabled_section": true,
+        "title_section_text": "4 Great reasons to buy from us:",
+        "image_reason": "shopify:\/\/shop_images\/trust-badges_550x_6953aab6-0aeb-42ce-bffe-26dd312e6243.png"
+      }
+    },
+    "1645127448522fc47e": {
+      "type": "text-column",
+      "blocks": {
+        "85898429-70f2-4314-97a2-2cf69afb4712": {
+          "type": "text_column",
+          "settings": {
+            "enabled_image": false,
+            "title_column": "RETURN POLICY",
+            "content_column": "Not satisfied with your order? We'll take it back within 60 days of delivery."
+          }
+        },
+        "de163b24-dfef-4aea-a160-76ece42658f9": {
+          "type": "text_column",
+          "settings": {
+            "enabled_image": false,
+            "title_column": "SECURE CHECKOUT",
+            "content_column": "We use encrypted SSL security to ensure that your information is 100% protected."
+          }
+        },
+        "3b48f74a-22ef-42b8-85c8-a8192366f17b": {
+          "type": "text_column",
+          "settings": {
+            "enabled_image": false,
+            "title_column": "",
+            "content_column": ""
+          }
+        },
+        "8a2b1f7d-448e-480b-830f-f22a24b46d0b": {
+          "type": "text_column",
+          "settings": {
+            "enabled_image": true,
+            "image": "shopify:\/\/shop_images\/trust_badge1_817bfadb-e13b-45c7-8bea-c59a996bd006.png",
+            "title_column": "",
+            "content_column": ""
+          }
+        }
+      },
+      "block_order": [
+        "85898429-70f2-4314-97a2-2cf69afb4712",
+        "de163b24-dfef-4aea-a160-76ece42658f9",
+        "3b48f74a-22ef-42b8-85c8-a8192366f17b",
+        "8a2b1f7d-448e-480b-830f-f22a24b46d0b"
+      ],
+      "settings": {
+        "custom_class": ""
+      }
+    },
+    "16333651269ff4d27f": {
+      "type": "reviews",
+      "blocks": {
+        "a914c460-0085-4e8a-b169-58e4445ff713": {
+          "type": "select",
+          "settings": {
+            "stars_review": "5",
+            "title_review": "Title Example",
+            "content_review": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id maximus nunc, eu accumsan velit. <\/p>",
+            "author_review": "John Doe",
+            "date_review": "MM\/DD\/YYYY",
+            "product_review": "Product Title",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "d529a16d-557d-441c-9f4c-9c5cc4526da1": {
+          "type": "select",
+          "settings": {
+            "stars_review": "5",
+            "title_review": "Title Example",
+            "content_review": "<p>Curabitur nec ligula quis dui auctor varius ut sit amet libero. Fusce eget sapien nec neque convallis pulvinar.<\/p>",
+            "author_review": "Mary Doe",
+            "date_review": "MM\/DD\/YYYY",
+            "product_review": "Product Title",
+            "link_product_review": "",
+            "product": ""
+          }
+        },
+        "aa98b455-c820-49ba-9169-1915624f7996": {
+          "type": "select",
+          "settings": {
+            "stars_review": "5",
+            "title_review": "Title Example",
+            "content_review": "<p>Aliquam rutrum rhoncus mollis. Vivamus id risus a ligula gravida vestibulum sit amet in est. Ut eget vehicula nulla.<\/p>",
+            "author_review": "F.J. Misty",
+            "date_review": "MM\/DD\/YYYY",
+            "product_review": "Product Title",
+            "link_product_review": "",
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "a914c460-0085-4e8a-b169-58e4445ff713",
+        "d529a16d-557d-441c-9f4c-9c5cc4526da1",
+        "aa98b455-c820-49ba-9169-1915624f7996"
+      ],
+      "settings": {
+        "custom_class": "",
+        "enable_reviews": true,
+        "title": "",
+        "slider_autoplay": false,
+        "slider_speed": 800
+      }
+    }
+  },
+  "order": [
+    "main",
+    "reason-section",
+    "1645127448522fc47e",
+    "16333651269ff4d27f"
+  ]
+}

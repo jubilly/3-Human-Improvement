@@ -1,0 +1,308 @@
+<!-- start reviews.liquid (SECTION) -->
+
+<link data-href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link data-href="{{ 'section-reviews.css' | asset_url }}"/>
+
+
+{% if section.settings.enable_reviews %}
+  <section data-section-type="reviews" id="slider-reviews-{{ section.id }}" data-slider="{{ section.id }}" class="{{ section.settings.custom_class }}">
+      <h3 class="hide">Reviews</h3>
+      <div class="reviews-content">
+        <div class="wrapper">
+          {%- if section.settings.title != blank -%}
+            <h2 class="section-title">{{ section.settings.title | escape }}</h2>
+          {%- endif -%}
+
+          <div id="slider-{{ section.id }}" class="slick-slider" data-autoplay="{{ section.settings.slider_autoplay }}" data-speed="{{ section.settings.slider_speed }}">
+            {%- for block in section.blocks -%}
+              {%- if "select" == block.type -%}
+                <div class="slick-content" {{ block.shopify_attributes }}>
+                  <div class="star-reviews">
+                    {%- for i in (1..block.settings.stars_review) -%}
+                      {%- render "icon-star" -%}
+                    {%- endfor -%}
+                  </div>
+
+                  <div class="text-reviews">
+                    {%- if block.settings.title_review != blank -%}
+                    <strong class="review-title">{{ block.settings.title_review }}</strong>
+                    {%- endif -%}
+                    {{ block.settings.content_review }}
+                  </div>
+
+                  {%- if block.settings.author_review != blank -%}
+                  <div class="athor-reviews">
+                    <strong>{{ block.settings.author_review }}</strong>
+                  </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.date_review != blank -%}
+                  <div class="date-reviews">
+                    {{ block.settings.date_review }}
+                  </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.product_image != blank -%}
+                    <div class="img-reviews">
+                      <a title="{{ block.settings.title_review | strip_html | escape }}" id="ReviewsLink-{{ forloop.index }}" href="{{ block.settings.link_product_review }}">
+                        {%- assign image_id_prefix = 'reviews-img' | append: forloop.index -%}
+
+                        {%- if block.settings.product_image != blank -%}
+                          {% assign image = block.settings.product_image %}
+                        {% else %}
+                          {%- assign product_temp = all_products[block.settings.product] -%}
+                          {%- assign image = product_temp.featured_image -%}
+                        {% endif %}
+
+                        {%- if image.alt != blank -%}
+                          {%- assign image_alt = image.alt | strip_html | escape -%}
+                        {%- elsif block.settings.title_review != blank -%}
+                          {%- assign image_alt = block.settings.title_review | strip_html | escape -%}
+                        {%- else -%}
+                          {%- assign image_alt = "Image without description." -%}
+                        {%- endif -%}
+
+                        {%- if image != blank -%}
+                          {%- render 'responsive-image',
+                              id_prefix: image_id_prefix,
+                              image: image,
+                              active_lazy: true,
+                              max_width: 150,
+                              no_wrap: true,
+                              alt_text: image_alt
+                          -%}
+                        {%- endif -%}
+                        {{ block.settings.product_review }}
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+{% endif %}
+
+{% schema %}
+{
+  "name": "Reviews",
+  "class": "reviews reviews-sm-desktop reviews-tablet reviews-mobile reviews-sm-mobile",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class",
+      "info": "Custom class to apply css styles for specific sections"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_reviews",
+      "label": "Enable Reviews",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Headline Text",
+      "default": "REVIEWS",
+      "placeholder": "Type headline text"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay",
+      "label": "Slider Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "slider_speed",
+      "label": "Slider Speed",
+      "min": 800,
+      "max": 3000,
+      "step": 100,
+      "unit": "s",
+      "default": 800,
+      "info": "Transition time in milliseconds."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "select",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "select",
+          "id": "stars_review",
+          "label": "Review Rating",
+          "default": "5",
+          "options": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "title_review",
+          "label": "Review Title",
+          "default": "Title Example",
+          "placeholder": "Title of the review"
+        },
+        {
+          "type": "richtext",
+          "id": "content_review",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id maximus nunc, eu accumsan velit. Curabitur nec ligula quis dui auctor varius ut sit amet libero. Fusce eget sapien nec neque convallis pulvinar. Aliquam rutrum rhoncus mollis. Vivamus id risus a ligula gravida vestibulum sit amet in est. Ut eget vehicula nulla.</p>",
+          "label": "Review Content"
+        },
+        {
+          "type": "text",
+          "id": "author_review",
+          "label": "Review Author",
+          "default": "John Doe",
+          "placeholder": "Author of the review"
+        },
+        {
+          "type": "text",
+          "id": "date_review",
+          "default": "MM/DD/YYYY",
+          "label": "Review Publication Date",
+          "placeholder": "Date of the review"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Review Image",
+          "info": "200x200"
+        },
+        {
+          "type": "text",
+          "id": "product_review",
+          "label": "Product Title",
+          "default": "Product Title",
+          "placeholder": "Product title"
+        },
+        {
+          "type": "text",
+          "id": "link_product_review",
+          "label": "Product Link",
+          "placeholder": "Product URL"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews",
+      "category": "Reviews"
+    }
+  ]
+}
+{% endschema %}
+
+<script type="lazyload2">
+setTimeout(function(){
+  window.SectionReviews = (function(){
+    function SectionReviews() {
+      this.settings = {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        responsive: [
+            {
+              breakpoint: 1280,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 1019,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1
+              }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                }
+            }
+        ]
+      };
+
+      this._run();
+    }
+
+    SectionReviews.prototype = {
+      onLoad: function() {
+        this._run();
+      },
+
+      _run: function() {
+        var slider, autoplay, autoplaySpeed,
+            settings = this.settings;
+
+        jQuery('[id^="slider-reviews-"]').each(function(){
+          slider = '#slider-' + $(this).data('slider');
+
+          autoplay = jQuery(slider).data('autoplay');
+          autoplaySpeed = jQuery(slider).data('speed');
+
+          if (typeof autoplay !== 'undefined' && autoplay != true && autoplay != false) {
+            autoplay = true;
+          }
+
+          if (typeof autoplaySpeed !== 'undefined' && autoplaySpeed < 800 && autoplaySpeed > 3000) {
+            autoplaySpeed = 800;
+          }
+
+          settings.autoplay = autoplay;
+          settings.autoplaySpeed = autoplaySpeed;
+
+          jQuery(slider).not('.slick-initialized').slick( settings );
+        });
+      }
+    };
+
+    return new SectionReviews;
+  })();
+});
+</script>

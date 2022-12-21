@@ -1,0 +1,91 @@
+<!-- start product-card.liquid (SNIPPET) -->
+<link rel="stylesheet" data-href="{{ 'component-card.css' | asset_url }}"/>
+
+{%- assign variant = prod.selected_or_first_available_variant -%}
+{%- assign temp_product = variant.product -%}
+{%- assign max_width_large = width_large | default: 500 -%}
+{%- assign max_width_mobile_large = width_mobile | default: 45 -%}
+{%- assign max_width_desk = width_desk | default: 20 -%}
+{%- assign prefix = 'Image' | append: variant.id -%}
+{%- assign lazyload = enable_lazy | default: true -%}
+
+<div class="grid__item">
+  {%- for tagBadge in prod.tags -%}
+    {%- assign handledTagBadge = tagBadge | handle -%}
+    {%- assign handedTagTyped = settings.product_badge_tag | handle -%}
+
+    {%- if handledTagBadge == handedTagTyped and settings.product_badge_text_tag != blank -%}
+        <label class="product_tag_badge ribbon {{ settings.position_product_tag_badge }}">
+            <span>{{ settings.product_badge_text_tag }}</span>
+        </label>
+    {%- endif -%}
+  {%- endfor -%}
+
+  <div title="{{- variant.title | strip_html | escape -}}" class="grid__item-link">
+    <div class="grid__item-image-wrapper">
+      <a href="{{- variant.url | within: collection -}}" class="grid__item_image-link">
+      {%- if temp_product.featured_media == null and settings.recently_viewed_product_without_image != blank -%}
+        {%- assign final_image = settings.recently_viewed_product_without_image -%}
+          {%- render 'responsive-image' with
+            max_width: 300,
+            image: final_image,
+            image_class:'grid__item-image one',
+            active_lazy: true
+          -%}
+          
+      {%- else -%}
+        {%- assign final_image = temp_product -%}
+        {%- assign secondary_image = prod.images[1] | default: prod.images[0] -%}
+
+        {%- render 'responsive-image' with
+          max_width: 300,
+          image: secondary_image,
+          image_class: 'grid__item-image one',
+          active_lazy: true
+        -%}
+        {%- render 'responsive-image' with
+          max_width: 300,
+          image: final_image,
+          image_class: 'grid__item-image',
+          active_lazy: true
+        -%}
+      {%- endif -%}
+      
+    </a> 
+    </div>
+
+    <h3 class="grid__item-title"><a href="{{- variant.url | within: collection -}}" class="grid__item-title-link">{{- temp_product.title -}}</a></h3>
+
+    <div class="grid__item-price-wrapper" id="update-variant-price">
+      {%- if show_price -%}
+        {%- if variant.compare_at_price > variant.price -%}
+          <span class="grid__item-compare-at-price">{{- variant.compare_at_price | money -}}</span>
+        {%- endif -%}
+
+        <span class="grid__item-price">{{- variant.price | money -}}</span> 
+      {%- endif -%}
+
+      {% if settings.enable_outofstock_label %}
+        {%- unless variant.available -%}
+          <span class="grid__item-sold-out">{{ settings.unavailable_product_label | default: '(Out Of Stock)' }}</span>
+        {%- endunless -%}
+      {% endif %}
+    </div>
+
+    {%- if show_reviews -%}
+      <div class="grid__item-reviews-wrapper">
+        {%- render 'reviews-stars' with product: temp_product -%}
+      </div>
+    {%- endif -%}
+
+    {%- if show_swatch -%}
+      <div class="grid__item-swatch-wrapper">
+        {%- render 'swatch_collection' with
+          prod: temp_product,
+          type: settings.select_swatch_collection
+        -%}
+      </div>
+    {%- endif -%}
+  </div>
+  
+</div>

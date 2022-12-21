@@ -1,0 +1,64 @@
+<!-- start newsletter-form.liquid (SNIPPET) -->
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Newsletter" section on the Theme Editor.
+  Theme Store required settings
+  - Heading: title of the newsletter section
+  - Subheading: description of the newsletter section
+{%- endcomment -%}
+<div class="newsletter-form full">
+    <h3 class="news_letter_title">{{ settings.newsletter_title }}</h3>
+
+    {%- assign formId = 'Contact_' | append: section.id -%}
+    {%- form 'customer', id: formId -%}  
+    {%- if form.posted_successfully? or form.email -%}
+            <p class="thank_you">
+                {{ settings.thank_you_newsletter }}
+
+                <span style='color:{{ settings.coupon_text_color }}'>
+                <strong>{{ settings.cupom_code_newsletter }}</strong> 
+                </span>
+            </p>
+            <script type="lazyload2">
+                setTimeout(function(){
+                    const $mainFooter = $('.footer-section').eq(0);
+
+                    var docHeight = $mainFooter.offset().top + $mainFooter.height();
+
+                    scroll(0, docHeight - window.innerHeight);
+
+                    document.addEventListener('scroll', function(){
+                        if (docHeight != ($mainFooter.offset().top + $mainFooter.height())) {
+                            docHeight = $mainFooter.offset().top + $mainFooter.height();
+                            scroll(0, docHeight - window.innerHeight)
+                        }
+                    });
+                });
+            </script>
+
+        {%- else -%}
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <div class="inputControlNewsletter">
+                <input type="email"
+                name="contact[email]"
+                class="emailNewsletterForm"
+                id="Email-{{ section_id }}"
+                value="{%- if customer.email != blank -%}{{ customer.email }}{%- endif -%}"
+                placeholder="{{ settings.newsletter_placeholder }}"
+                required
+                >
+            </div>
+            <div class="buttonControlNewsletterForm">
+                <button type="submit" name="commit" id="Subscribe-{{ section_id }}" class="buttonNewsletterForm">
+                    {{ settings.newsletter_submit }}
+                </button>
+            </div>
+
+
+            {%- if form.errors -%}
+            <div class="error_message">{{ form.errors | default_errors }}</div>
+            {%- endif -%}
+
+        {%- endif -%}
+    {%- endform -%}
+</div>

@@ -1,0 +1,101 @@
+<!-- start order.liquid (TEMPLATE) -->
+
+<link rel="stylesheet" data-href="{{ 'template-customer.css' | asset_url }}"/>
+
+<div class="wrapper" >
+  <div class="account-header">
+    <h1 class="account-title">{{ 'customer.account.title' | t }}</h1>
+
+    <a class="account-logout-link" href="/account/logout">Logout</a>
+  </div>
+
+  <a title="Account" id="id-account-return" class="link-back" href="/account">&larr; {{ 'customer.account.return' | t }}</a>
+
+  <h2>{{ 'customer.order.title' | t: name: order.name }} - {{ 'customer.order.date' | t: date: order.created_at | date: "%B %d, %Y %I:%M%p" }}</h2>
+
+  {%- if order.cancelled -%}
+  {%- assign cancelled_at = order.cancelled_at | date: "%B %d, %Y %I:%M%p" -%}
+  <p>{{ 'customer.order.cancelled' | t: date: cancelled_at }}</p>
+  <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason }}</p>
+  {%- endif -%}
+<div class="order-container">
+  <div class="customer-order-status">
+    <div class="order-status">
+      <h2 class="section-title">Order summary</h2>
+        <div class="order-status-items">
+          <p class="customer-status-text">{{ 'customer.order.subtotal' | t }}:</p>
+          <p data-label="{{ 'customer.order.subtotal' | t }}">{{ order.subtotal_price | money }}</p>
+        </div>
+        <div class="order-status-items">
+          {%- for discount in order.discounts -%}
+            <p class="customer-status-text">{{ discount.code }} {{ 'customer.order.discount' | t }}:</p>
+            <p data-label="{{ 'customer.order.discount' | t }}">{{ discount.savings | money }}</p>
+          {%- endfor -%}
+        </div>
+        <div class="order-status-items">
+          {%- for shipping_method in order.shipping_methods -%}
+            <p class="customer-status-text">{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }}):</p>
+            <p data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})">{{ shipping_method.price | money }}</p>
+          {%- endfor -%}
+        </div>
+        <div class="order-status-items">
+          {%- for tax_line in order.tax_lines -%}
+            <p class="customer-status-text">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%):</p>
+            <p data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">{{ tax_line.price | money }}</p>
+          {%- endfor -%}
+        </div>
+        <div class="order-status-items order-total">
+          <p class="customer-status-text">{{ 'customer.order.total' | t }}:</p>
+          <p data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money }} {{ order.currency }}</p>
+        </div>
+    </div>
+
+    <div class="order-shipping-address">
+      <h2 class="section-title">{{ 'customer.order.shipping_address' | t }}</h2>
+      {%- render 'customer-address' with address: order.shipping_address -%}
+    </div>
+    
+    <div class="order-billing-address">
+      <h2 class="section-title">{{ 'customer.order.billing_address' | t }}</h2>
+      {%- render 'customer-address' with address: order.billing_address -%}
+    </div>
+  </div>
+  <div class="customer-order"> 
+      <div class="product-orders">
+          <h2 class="section-title">
+          {%- if order.line_items.size == 1 -%}{{ 'customer.order.product' | t }}{% else %} {{ 'customer.order.products' | t }}{% endif %}</h2>
+          <div class="grid-uniform grid-uniform--s4">
+          {%- for line_item in order.line_items -%}
+            <div class="grid__item">
+              {%- assign order_product_image = line_item.image -%}
+              {%- assign id_orders = 'order-' | append: forloop.index -%}
+              <a class="grid-product-order-link" href= "{{ line_item.product.url }}" title= "{{ line_item.title }}" target= "_blank">
+                  <div>
+                    {%- render 'responsive-image' ,
+                      image: order_product_image,
+                      id_prefix: id_orders,
+                      active_lazy: true,
+                      max_width: 280,
+                      no_wrap: true, 
+                      alt_text: section.settings.homepage_banner_text,
+                      size_large: 140, 
+                      size_mobile: 39, 
+                      size_desk: 10
+                  -%}
+                  </div>  
+                  <div class="grid-product-info">
+                    <span class="grid-product-title">{{ line_item.title }}</span>
+                    <div class="order-price">
+                      <span class="price money">{{ line_item.price | money }}</span>
+                      <span class="order-unity"> x {{ line_item.quantity }} {%- if line_item.quantity != 1 -%}{{ 'customer.order.units' | t }}{%- else -%}{{ 'customer.order.unit' | t }}{%- endif -%} </span>
+                    </div>
+                  </div>
+              </a>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+
+  </div>
+</div>
+</div>

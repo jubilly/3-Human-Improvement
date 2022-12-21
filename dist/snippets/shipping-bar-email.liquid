@@ -1,0 +1,15 @@
+<!-- start shipping-bar-email.liquid (SNIPPET) -->
+{%- assign email = settings.text_email -%}
+<div class="shipping-bar__item shipping-bar__item--small no-mobile">
+  {%- unless settings.disable_shippingbar_text_email -%}
+    {%- if section.settings.enable_link_shippingbar_text_email and email != blank -%}
+      <a href="mailto:{{- email -}}" title="Store Email" class="shipping-bar__link">
+        {%- render 'icon-envelope' -%}
+        {{- email -}}
+      </a>
+    {%- else -%}
+      {%- render 'icon-envelope' -%}
+      {{- email -}}
+    {%- endif -%}
+  {%- endunless -%}
+</div>
