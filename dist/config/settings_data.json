@@ -33,15 +33,16 @@
     "vasta_copy_body": 16,
     "item_nav_menu_font_size": 16,
     "item_nav_menu_font_size_tablet": 15,
-    "typography_h2_font_size": 24,
-    "typography_h2_font_size_mobile": 20,
-    "typography_h3_font_size": 18,
+    "typography_h2_font_size": 40,
+    "typography_h2_font_size_tablet": 40,
+    "typography_h2_font_size_mobile": 32,
+    "typography_h3_font_size": 16,
     "typography_h3_font_size_tablet": 18,
     "typography_h3_font_size_mobile": 16,
-    "typography_h4_font_size": 20,
+    "typography_h4_font_size": 16,
     "typography_h4_font_size_tablet": 18,
     "typography_h4_font_size_mobile": 13,
-    "typography_h5_font_size": 18,
+    "typography_h5_font_size": 16,
     "typography_h5_font_size_tablet": 16,
     "typography_h5_font_size_mobile": 14,
     "typography_h6_font_size": 16,
@@ -168,9 +169,11 @@
     "button_color_text_hover_blog": "#fff",
     "news_background_color_blog": "#404040",
     "button_background_color_blog": "#26b522",
-    "newsletter_title": "ENTER YOUR EMAIL TO RECEIVE 10% COUPON IMMEDIATELY",
+    "newsletter_title": "Enter Your Email To Receive 10% Coupon Immediately",
     "newsletter_placeholder": "Type your email here",
     "newsletter_submit": "Give Me 10% Off",
+    "newsletter_button_color": "#ff8835",
+    "newsletter_button_color_hover": "#ff8835",
     "app_review": "loox",
     "product_enabled_recharge": false,
     "feat_prod_enabled_app_reviews": true,
@@ -232,13 +235,13 @@
           "vasta_search_text_button_color": "#000000",
           "vasta_search_button_hover_color": "#ffffff",
           "vasta_search_text_button_hover_color": "#000000",
-          "vasta_border_color_on_mobile": "#000000",
+          "vasta_border_color_on_mobile": "rgba(0,0,0,0)",
           "menu": "shop",
           "min_width_dropdown_menu": 100,
-          "header_menu_caps": "uppercase",
+          "header_menu_caps": "none",
           "nav_back_color": "#ffffff",
           "vasta_dropdown_menu_color": "#e4e4e4",
-          "nav_text_color": "#383838",
+          "nav_text_color": "#000000",
           "vasta_menu_hover_text_color": "#000000",
           "nav_drpback_color": "#e4e4e4",
           "nav_drphover_color": "#bcbcbc",
@@ -254,8 +257,8 @@
           "enable_img_custom_icon_cart": false,
           "enable_cart_title": true,
           "cart_title_text": "Cart",
-          "cart_title_color": "#3c3c3c",
-          "vasta_cart_color": "#3c3c3c",
+          "cart_title_color": "#000000",
+          "vasta_cart_color": "#000000",
           "vasta_icon_color_text": "#ffffff",
           "vasta_icon_color_text_hover": "#ffffff",
           "vasta_icon_color": "#ff8835",
@@ -379,48 +382,28 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "ccf9de1f-5b7b-4050-93f8-afc430a178da": {
-            "type": "infos",
-            "settings": {
-              "enable_phone": true,
-              "enable_email": true,
-              "address": "123 Main St. Los Angeles",
-              "address_link": "http:\/\/testvasta.myshopify.com\/"
-            }
-          },
-          "592bd923-4f9a-46a9-8170-2ae108369e2d": {
-            "type": "newsletter",
-            "settings": {
-              "footer_newsletter_enable": true,
-              "select_newsletter": "klaviyo"
-            }
-          },
           "d77508b7-96a9-4f72-9ff7-e4730d7b856c": {
             "type": "popular_collection",
             "settings": {
-              "text_editable": "Example",
-              "link_popular_collection": ""
+              "text_editable": "Try vanilla",
+              "link_popular_collection": "shopify:\/\/products\/vanilla-protein-powder",
+              "url_popular_collection": "shopify:\/\/shop_images\/IMAGEM_l_Sachet_Vanilla.png"
             }
           },
           "879550b6-7008-4958-9306-e9f038eadde2": {
             "type": "popular_collection",
             "settings": {
-              "text_editable": "Example",
-              "link_popular_collection": ""
+              "text_editable": "Try Chocolate",
+              "link_popular_collection": "shopify:\/\/products\/chocolate-protein-powder",
+              "url_popular_collection": "shopify:\/\/shop_images\/IMAGEM_l_Sachet_Chocolate.png"
             }
           },
           "938d2b3e-efcf-43e9-9eec-7f5ee000306a": {
             "type": "popular_collection",
             "settings": {
-              "text_editable": "Example",
-              "link_popular_collection": ""
-            }
-          },
-          "bb9773c8-ca16-42ad-a795-ac1c2401d302": {
-            "type": "popular_collection",
-            "settings": {
-              "text_editable": "Example",
-              "link_popular_collection": ""
+              "text_editable": "Mix pack",
+              "link_popular_collection": "shopify:\/\/products\/variety",
+              "url_popular_collection": "shopify:\/\/shop_images\/IMAGEM_l_Box_mix_pack.png"
             }
           },
           "1178d51e-62a3-4d0d-86b6-bec20aa9db9d": {
@@ -449,85 +432,30 @@
               "enable_customer_account": false
             }
           },
-          "1ef505c2-2868-4cf3-9aaf-70c586ab23c1": {
-            "type": "logo_footer",
+          "592bd923-4f9a-46a9-8170-2ae108369e2d": {
+            "type": "newsletter",
             "settings": {
-              "enable_svg_logo": false,
-              "logo_svg_html": "",
-              "shop_logo_alt": "",
-              "choose_custom_dimensions": "width",
-              "logo_max_width": 200,
-              "logo_max_height": 90
-            }
-          },
-          "e674eaf1-5430-4e8e-84d2-52d653c1e525": {
-            "type": "trust_badges_footer",
-            "settings": {
-              "title": "",
-              "svg_trust_badge": "visa",
-              "enable_custom_trust_badge_svg": false,
-              "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge": false,
-              "trust_badge_image_height": 35
-            }
-          },
-          "19cb74d1-5fae-4694-aa3a-9ac4fb336813": {
-            "type": "trust_badges_footer",
-            "settings": {
-              "title": "",
-              "svg_trust_badge": "amex",
-              "enable_custom_trust_badge_svg": false,
-              "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge": false,
-              "trust_badge_image_height": 35
-            }
-          },
-          "d5f02746-ce78-490c-aad6-9f8c0108a67a": {
-            "type": "trust_badges_footer",
-            "settings": {
-              "title": "",
-              "svg_trust_badge": "paypal",
-              "enable_custom_trust_badge_svg": false,
-              "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge": false,
-              "trust_badge_image_height": 35
-            }
-          },
-          "d1670d3d-77f6-486b-9119-ac2457f3e782": {
-            "type": "trust_badges_footer",
-            "settings": {
-              "title": "",
-              "svg_trust_badge": "shopify-pay",
-              "enable_custom_trust_badge_svg": false,
-              "custom_trust_badge_svg_html": "",
-              "enable_img_trust_badge": false,
-              "trust_badge_image_height": 35
+              "footer_newsletter_enable": true,
+              "select_newsletter": "klaviyo"
             }
           }
         },
         "block_order": [
-          "ccf9de1f-5b7b-4050-93f8-afc430a178da",
-          "592bd923-4f9a-46a9-8170-2ae108369e2d",
           "d77508b7-96a9-4f72-9ff7-e4730d7b856c",
           "879550b6-7008-4958-9306-e9f038eadde2",
           "938d2b3e-efcf-43e9-9eec-7f5ee000306a",
-          "bb9773c8-ca16-42ad-a795-ac1c2401d302",
           "1178d51e-62a3-4d0d-86b6-bec20aa9db9d",
           "ae3ad1f0-d0ad-480f-b0df-afd9157085f9",
           "b13d34e8-f789-4fef-bb27-64bdc320ab4c",
-          "1ef505c2-2868-4cf3-9aaf-70c586ab23c1",
-          "e674eaf1-5430-4e8e-84d2-52d653c1e525",
-          "19cb74d1-5fae-4694-aa3a-9ac4fb336813",
-          "d5f02746-ce78-490c-aad6-9f8c0108a67a",
-          "d1670d3d-77f6-486b-9119-ac2457f3e782"
+          "592bd923-4f9a-46a9-8170-2ae108369e2d"
         ],
         "settings": {
-          "background_color": "#dcdcdc",
+          "background_color": "#ffffff",
           "border_color": "rgba(0,0,0,0)",
           "title_font_color": "#000000",
           "font_color": "#313131",
-          "popular_collection_text": "#ffffff",
-          "popular_collection_background": "#000000",
+          "popular_collection_text": "#000000",
+          "popular_collection_background": "#d9d9d9",
           "social_color": "#ffffff",
           "collection_title": "Popular Collections",
           "font_size_title_footer": 16,

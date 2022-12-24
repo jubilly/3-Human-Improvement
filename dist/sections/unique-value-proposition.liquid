@@ -46,8 +46,12 @@
         <div class="shipping-text-content">
             {% if section.settings.enable_icon_text %}
             <div class="uvp-text-container">
+                {% if block.settings.title != blank %}
                 <h3 class="shipping-text-text">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.body_text != blank %}
                 <p class="shipping-body-text">{{ block.settings.body_text }}</p>
+                {% endif %}
             </div>
             {% endif %}
           {%- if block.settings.use_custom_svg -%}

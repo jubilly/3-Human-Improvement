@@ -1,0 +1,139 @@
+
+// Font Sharp Grotesk Book Setup
+
+body {
+    /* Shipping Bar */
+    .shipping-bar__wrapper {
+        height: 50px;
+    }
+    #shopify-section-shipping_bar .shipping-bar__item svg {
+        width: 29.54px;
+        height: 24px;
+        transform: translate(0);
+    }
+
+    .shipping-bar__link {
+        display: flex;
+        align-items: center;
+        font-family: var(--headerFont);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0;
+        text-align: center;
+    }
+    .shipping-bar__item:nth-of-type(3) .shipping-bar__link {
+        justify-content: flex-end;
+    }
+    /* Search Bar */
+    .header__search__form {
+        border: 1px solid #C9C9C9;
+        border-radius: 18px;
+        border-right: none;
+        height: 31px;
+    }
+    .header__search__form .header__search__input {
+        border: none;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 10px;
+        text-transform: capitalize;
+        border-radius: 18px;
+        padding: 0px 12px;
+        height: 100%;
+    }
+    .header__search__form .button {
+        border: 1px solid #000000;
+        border-radius: 18px;
+        height: 100%;
+    }
+    .header__search__form .button:hover{
+        border: 1px solid #000000;
+    }
+    /* cart icon */
+    .header__icon__count__wrap .custom-svg {
+        border: 1px solid #000000;
+        border-radius: 100%;
+        width: 31px;
+        height: 31px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header__icon__wrap svg {
+        width: 17px;
+    }
+    .custom-svg.hasItems {
+        background: #000;
+    }
+    .header__icon__wrap.icon--cart .custom-svg.hasItems svg path {
+        fill: #fff;
+    }
+    // Menu
+    .header__item__anchor {
+        padding: 0 16px;
+        line-height: 16px;
+    }
+    .header__list.list--parent {
+        padding-bottom: 18px;
+    } 
+    // Banner 
+    .homepage-style-1 .btn-v {
+        border-radius: 32px;
+    }
+    .banner_custom_text {
+        position: absolute;
+        color: var(--custom-text-color);
+        font-size: var(--custom-text-font-size);
+        top: var(--custom-text-y);
+        left: var(--custom-text-x);
+        z-index: 1;
+    }
+    //UVP
+    .shipping-text {
+        padding: 21px 0 28px;
+    }
+    .shipping-text .shipping-text-content {
+        margin-bottom: 0!important;
+    }
+    .shipping-text .shipping-text-content svg {
+        width: auto!important;
+        padding: 0;
+        margin: 0 10px;
+    }
+    .uvp-text-container {
+        margin-top: 6px;
+    }
+    //Feauted Collection
+    .grid__item-subtitle {
+        display: inline-block;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        .shipping-bar .wrapper,
+        .header__wrapper {
+            padding: 0;
+            width: 85%;
+        }
+        .header__wrapper {
+            padding: 16px 0 19px;
+        }
+        .header__cart__count {
+            width: 15px;
+            height: 15px;
+            min-width: auto;
+            min-height: auto;
+            font-size: 10px;
+            top: -4px;
+            right: -5px;
+        }
+        .header__cart__text {
+            position: absolute;
+            bottom: -18px;
+            left: 2px;
+        }
+    }
+}

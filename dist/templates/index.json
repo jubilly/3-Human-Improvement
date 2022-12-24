@@ -1,64 +1,76 @@
 {
   "sections": {
-    "16351850661ed94a47": {
+    "fe1965c1-f55e-4629-ada4-fbb7c4e8f7f3": {
       "type": "banner-style1",
       "blocks": {
-        "6387f68d-af18-45c4-8cd9-942d907c65c6": {
+        "5654d7d2-7b7b-4a5c-a118-3302687227b3": {
           "type": "select",
           "settings": {
-            "linktext": "SEE MORE",
+            "linktext": "Learn more",
             "button_text_transform": "capitalize",
             "link": "",
-            "vasta_button_horizontal_position": 50,
-            "vasta_button_vertical_position": 69,
-            "vasta_button_horizontal_position_tablet": 26,
-            "vasta_button_vertical_position_tablet": 70,
-            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position": 16,
+            "vasta_button_vertical_position": 51,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 15,
+            "show_mobile_buttons": false,
             "vasta_button_horizontal_position_mobile": 50,
-            "vasta_button_vertical_position_mobile": 70,
-            "vasta_button_height": 60,
-            "vasta_button_max_width_desktop": 250,
+            "vasta_button_vertical_position_mobile": 15,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 166,
             "vasta_button_height_tablet": 50,
             "vasta_button_max_width_tablet": 250,
             "vasta_button_height_mobile": 50,
-            "vasta_button_max_width": 180
+            "vasta_button_max_width": 250
           }
         }
       },
       "block_order": [
-        "6387f68d-af18-45c4-8cd9-942d907c65c6"
+        "5654d7d2-7b7b-4a5c-a118-3302687227b3"
       ],
       "settings": {
         "custom_class": "",
-        "homepage_banner_style_1": "shopify:\/\/shop_images\/reflective-sunglasses.jpg",
-        "mobile_banner_style_1": "shopify:\/\/shop_images\/pink-sunglasses-on-white.jpg",
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Topo.png",
+        "tablet_banner_style_1": "shopify:\/\/shop_images\/IMAGEM-l-Topo_2.png",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/IMAGEM-l-Topo_2_1.png",
         "enable_custom_banner_height": false,
-        "banner_max_height": 430,
+        "banner_max_height": 500,
         "banner_max_height_tablet": 430,
         "banner_max_height_mobile": 210,
         "full_with_banne1": true,
         "enable_lazy_load": false,
-        "enable_h1": true,
-        "main_banner_title": "VASTA",
-        "main_banner_sub_title": "Custom Text",
-        "vasta_headline_align": "center",
-        "banner_titcolor": "#3d3d3d",
-        "banner_sub_titcolor": "#3d3d3d",
+        "enable_h1": false,
+        "main_banner_title": "The Easiest To Digest",
+        "main_banner_sub_title": "Protein Powder",
+        "vasta_headline_align": "left",
+        "banner_titcolor": "#ffffff",
+        "banner_sub_titcolor": "#ffffff",
         "banner_titles_background_color": "none",
         "enable_max_width": false,
         "banner_headline_width": 1000,
-        "main_banner_headline_size": 60,
-        "main_banner_sub_headline_size": 25,
+        "custom_text_color": "#ffffff",
+        "custom_text": "Smooth, delicious, and 5x digestion support.",
+        "custom_text_desktop": 10,
+        "custom_text_tablet": 20,
+        "custom_text_mobile": 26,
+        "custom_text_desktop_x": 36,
+        "custom_text_desktop_y": 90,
+        "custom_text_tablet_x": 100,
+        "custom_text_tablet_y": 100,
+        "custom_text_mobile_x": 100,
+        "custom_text_mobile_y": 100,
+        "main_banner_headline_size": 32,
+        "main_banner_sub_headline_size": 48,
         "main_banner_headline_size_tablet": 26,
         "main_banner_sub_headline_size_tablet": 20,
-        "main_banner_headline_size_mobile": 60,
-        "main_banner_sub_headline_size_mobile": 25,
-        "vasta_title_horizontal_position": 50,
-        "vasta_title_vertical_position": 20,
-        "vasta_title_horizontal_position_tablet": 50,
+        "main_banner_headline_size_mobile": 22,
+        "main_banner_sub_headline_size_mobile": 20,
+        "vasta_title_horizontal_position": 58,
+        "vasta_title_vertical_position": 34,
+        "vasta_title_horizontal_position_tablet": 57,
         "vasta_title_vertical_position_tablet": 30,
         "vasta_title_horizontal_position_mobile": 50,
-        "vasta_title_vertical_position_mobile": 20,
+        "vasta_title_vertical_position_mobile": 30,
         "banner_desktop_width": 100,
         "banner_mobile_width": 100,
         "banner_mobile_height": 200,
@@ -66,224 +78,241 @@
         "banner_font_size_button_tablet": 16,
         "banner_font_size_button_mobile": 16,
         "vasta_buttons_hover_effect": "none",
-        "vasta_buttons_color_1": "#26b522",
+        "vasta_buttons_color_1": "#ff8835",
         "vasta_buttons_text_color_1": "#ffffff",
-        "vasta_border_color_1": "rgba(0,0,0,0)",
-        "vasta_border_color_1_hover": "#ffffff",
-        "vasta_buttons_hover_color_1": "#1a7117",
+        "vasta_border_color_1": "#ff8835",
+        "vasta_border_color_1_hover": "#ff8835",
+        "vasta_buttons_hover_color_1": "#ffffff",
         "vasta_buttons_hover_text_color_1": "#ffffff"
       }
     },
-    "16351881143a2d10e5": {
-      "type": "collection-list",
+    "8f35a9ad-9f6f-47ff-99f8-8f576fa935ba": {
+      "type": "unique-value-proposition",
       "blocks": {
-        "16351881143a2d10e5-0": {
-          "type": "collection",
+        "1d050340-5888-4c38-bdbc-a6f9b66ab5cb": {
+          "type": "icon",
           "settings": {
-            "collection": "bundle",
-            "collection_image": "shopify:\/\/shop_images\/close-up-of-fresh-bread.jpg",
-            "collection_title": ""
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Organic <br>protein",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"67\" height=\"37\" viewbox=\"0 0 67 37\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M0.188 27H20.528V22.644H5.696C5.876 21.096 7.208 20.088 9.08 19.116C10.052 18.684 11.096 18.18 12.14 17.712C14.156 16.812 16.172 15.804 17.864 14.436C19.52 13.032 20.564 11.232 20.564 8.676C20.564 5.652 19.052 3.276 16.172 1.908C14.732 1.224 12.932 0.899999 10.808 0.899999C4.148 0.899999 0.476 3.96 0.476 9.792V10.836H5.3V10.008C5.3 6.768 7.172 4.968 10.736 4.968C13.976 4.968 15.668 6.264 15.668 8.928C15.668 10.728 14.3 11.916 12.212 12.924C11.168 13.464 10.124 13.932 8.9 14.472C6.812 15.372 4.688 16.38 2.996 17.784C1.268 19.188 0.188 20.988 0.188 23.544V27ZM23.356 27H43.696V22.644H28.864C29.044 21.096 30.376 20.088 32.248 19.116C33.22 18.684 34.264 18.18 35.308 17.712C37.324 16.812 39.34 15.804 41.032 14.436C42.688 13.032 43.732 11.232 43.732 8.676C43.732 5.652 42.22 3.276 39.34 1.908C37.9 1.224 36.1 0.899999 33.976 0.899999C27.316 0.899999 23.644 3.96 23.644 9.792V10.836H28.468V10.008C28.468 6.768 30.34 4.968 33.904 4.968C37.144 4.968 38.836 6.264 38.836 8.928C38.836 10.728 37.468 11.916 35.38 12.924C34.336 13.464 33.292 13.932 32.068 14.472C29.98 15.372 27.856 16.38 26.164 17.784C24.436 19.188 23.356 20.988 23.356 23.544V27ZM55.4629 36.396H55.7149C62.9149 36.396 66.3349 33.66 66.3349 29.124C66.3349 25.416 63.8149 23.04 58.0189 23.04H53.8429C51.3949 23.04 50.5309 22.644 50.5309 21.672C50.5309 20.988 50.8549 20.592 52.2949 20.34C53.0149 20.196 54.0589 20.16 55.4989 20.16H55.8229C61.6909 20.16 65.1829 17.496 65.1829 13.104V12.96C65.1829 9.828 63.0949 7.488 59.2429 6.948C63.6709 6.912 65.3269 6.012 65.3269 2.7V2.016H59.8549V2.34C59.8549 4.32 59.5669 5.292 58.4149 5.724C57.8029 5.976 56.9389 6.084 55.7149 6.192L54.6709 6.264C49.7389 6.588 46.6429 8.82 46.6429 12.96C46.6429 15.984 48.0469 17.928 50.8909 18.828C48.0109 19.44 46.4269 20.844 46.4269 22.968C46.4269 25.056 47.6509 26.46 50.4589 26.856C47.1829 27.612 45.8149 29.232 45.8149 31.464C45.8149 33.408 46.6789 34.92 49.4869 35.748C50.8909 36.18 52.8709 36.396 55.4629 36.396ZM55.8229 16.812C53.0149 16.812 51.3589 15.588 51.3589 13.176V13.068C51.3589 10.404 53.3389 9.18 55.8949 9.18C58.4509 9.18 60.4669 10.152 60.4669 13.032V13.14C60.4669 15.588 58.9549 16.812 55.8229 16.812ZM55.7509 32.508H54.9949C51.7549 32.508 50.4589 31.176 50.4589 29.88V29.808C50.4589 28.368 51.5749 27.252 54.1309 27H57.8389C60.8629 27 61.9429 27.936 61.9429 29.376C61.9429 31.356 60.0349 32.508 55.7509 32.508Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
           }
         },
-        "16351881143a2d10e5-1": {
-          "type": "collection",
+        "744f1a49-9d37-4b70-88e6-d883bdb6a515": {
+          "type": "icon",
           "settings": {
-            "collection": "frontpage",
-            "collection_title": "Vasta"
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Healthy <br>fiber",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"44\" height=\"36\" viewbox=\"0 0 44 36\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M10.592 26.504C14.984 26.504 18.152 24.92 19.844 22.184C20.708 20.78 21.14 19.16 21.14 17.288C21.14 13.652 19.592 10.916 16.856 9.368C15.488 8.648 13.904 8.252 11.96 8.252C8.792 8.252 6.848 9.224 5.444 10.628L6.272 4.544H14.12C16.784 4.544 18.296 4.436 19.16 3.86C19.988 3.32 20.24 2.276 20.24 0.331998H2.564L0.764 13.94L5.768 15.272L5.948 15.056C6.956 13.4 8.432 12.212 11.312 12.212C14.444 12.212 16.316 13.94 16.316 17.108C16.316 20.492 14.12 22.292 10.844 22.292C7.46 22.292 5.624 20.384 5.624 17.828V17.648H0.512V17.72C0.548 23.12 3.752 26.504 10.592 26.504ZM33.1035 35.396H33.3555C40.5555 35.396 43.9755 32.66 43.9755 28.124C43.9755 24.416 41.4555 22.04 35.6595 22.04H31.4835C29.0355 22.04 28.1715 21.644 28.1715 20.672C28.1715 19.988 28.4955 19.592 29.9355 19.34C30.6555 19.196 31.6995 19.16 33.1395 19.16H33.4635C39.3315 19.16 42.8235 16.496 42.8235 12.104V11.96C42.8235 8.828 40.7355 6.488 36.8835 5.948C41.3115 5.912 42.9675 5.012 42.9675 1.7V1.016H37.4955V1.34C37.4955 3.32 37.2075 4.292 36.0555 4.724C35.4435 4.976 34.5795 5.084 33.3555 5.192L32.3115 5.264C27.3795 5.588 24.2835 7.82 24.2835 11.96C24.2835 14.984 25.6875 16.928 28.5315 17.828C25.6515 18.44 24.0675 19.844 24.0675 21.968C24.0675 24.056 25.2915 25.46 28.0995 25.856C24.8235 26.612 23.4555 28.232 23.4555 30.464C23.4555 32.408 24.3195 33.92 27.1275 34.748C28.5315 35.18 30.5115 35.396 33.1035 35.396ZM33.4635 15.812C30.6555 15.812 28.9995 14.588 28.9995 12.176V12.068C28.9995 9.404 30.9795 8.18 33.5355 8.18C36.0915 8.18 38.1075 9.152 38.1075 12.032V12.14C38.1075 14.588 36.5955 15.812 33.4635 15.812ZM33.3915 31.508H32.6355C29.3955 31.508 28.0995 30.176 28.0995 28.88V28.808C28.0995 27.368 29.2155 26.252 31.7715 26H35.4795C38.5035 26 39.5835 26.936 39.5835 28.376C39.5835 30.356 37.6755 31.508 33.3915 31.508Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
           }
         },
-        "16351881143a2d10e5-2": {
-          "type": "collection",
+        "c35168b0-30b3-4cc5-8884-29fec1e758c4": {
+          "type": "icon",
           "settings": {
-            "collection": "vasta-bump",
-            "collection_image": "shopify:\/\/shop_images\/promo1_230x_71bb5475-539f-4494-b1b0-ed47efcfbb52.jpg",
-            "collection_title": ""
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Added <br> sugar",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"46\" height=\"37\" viewbox=\"0 0 46 37\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M11.312 27.54C15.668 27.54 18.908 25.704 20.708 22.104C21.572 20.268 22.04 18.036 22.04 15.336V13.176C22.04 7.776 20.204 4.14 16.964 2.268C15.308 1.296 13.472 0.864 11.312 0.864C4.508 0.864 0.62 5.148 0.62 13.212V15.336C0.62 23.472 4.4 27.54 11.312 27.54ZM11.312 23.22C7.316 23.22 5.588 20.412 5.588 15.156V13.392C5.588 8.1 7.316 5.148 11.312 5.148C15.236 5.148 17.036 8.1 17.036 13.392V15.12C17.036 20.52 15.164 23.22 11.312 23.22ZM34.1934 36.396H34.4454C41.6454 36.396 45.0654 33.66 45.0654 29.124C45.0654 25.416 42.5454 23.04 36.7494 23.04H32.5734C30.1254 23.04 29.2614 22.644 29.2614 21.672C29.2614 20.988 29.5854 20.592 31.0254 20.34C31.7454 20.196 32.7894 20.16 34.2294 20.16H34.5534C40.4214 20.16 43.9134 17.496 43.9134 13.104V12.96C43.9134 9.828 41.8254 7.488 37.9734 6.948C42.4014 6.912 44.0574 6.012 44.0574 2.7V2.016H38.5854V2.34C38.5854 4.32 38.2974 5.292 37.1454 5.724C36.5334 5.976 35.6694 6.084 34.4454 6.192L33.4014 6.264C28.4694 6.588 25.3734 8.82 25.3734 12.96C25.3734 15.984 26.7774 17.928 29.6214 18.828C26.7414 19.44 25.1574 20.844 25.1574 22.968C25.1574 25.056 26.3814 26.46 29.1894 26.856C25.9134 27.612 24.5454 29.232 24.5454 31.464C24.5454 33.408 25.4094 34.92 28.2174 35.748C29.6214 36.18 31.6014 36.396 34.1934 36.396ZM34.5534 16.812C31.7454 16.812 30.0894 15.588 30.0894 13.176V13.068C30.0894 10.404 32.0694 9.18 34.6254 9.18C37.1814 9.18 39.1974 10.152 39.1974 13.032V13.14C39.1974 15.588 37.6854 16.812 34.5534 16.812ZM34.4814 32.508H33.7254C30.4854 32.508 29.1894 31.176 29.1894 29.88V29.808C29.1894 28.368 30.3054 27.252 32.8614 27H36.5694C39.5934 27 40.6734 27.936 40.6734 29.376C40.6734 31.356 38.7654 32.508 34.4814 32.508Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
           }
         },
-        "26dcb641-695c-44e7-9210-b5a69195f968": {
-          "type": "collection",
+        "ece8ea45-b7f5-4b96-82cd-50e32458bda7": {
+          "type": "icon",
           "settings": {
-            "collection": "all",
-            "collection_title": ""
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Great taste <br> guaranteed",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"7\" height=\"27\" viewbox=\"0 0 7 27\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M6.244 0.331998H1.204V6.74C1.204 10.556 1.456 14.084 1.708 16.46C1.852 17.612 1.96 18.368 2.068 18.692C2.392 18.584 3.004 18.548 3.724 18.548C4.444 18.548 4.984 18.584 5.38 18.692C5.56 18.008 5.884 15.56 6.064 12.14C6.208 10.448 6.244 8.684 6.244 6.74V0.331998ZM3.652 26.468C5.776 26.468 6.82 25.568 6.82 23.3C6.82 20.924 5.776 20.168 3.652 20.168C1.564 20.168 0.484 20.924 0.484 23.3C0.484 25.676 1.348 26.468 3.652 26.468Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
           }
         }
       },
       "block_order": [
-        "16351881143a2d10e5-0",
-        "16351881143a2d10e5-1",
-        "16351881143a2d10e5-2",
-        "26dcb641-695c-44e7-9210-b5a69195f968"
+        "1d050340-5888-4c38-bdbc-a6f9b66ab5cb",
+        "744f1a49-9d37-4b70-88e6-d883bdb6a515",
+        "c35168b0-30b3-4cc5-8884-29fec1e758c4",
+        "ece8ea45-b7f5-4b96-82cd-50e32458bda7"
       ],
       "settings": {
         "custom_class": "",
-        "border_color_collection_list": "#444444",
-        "text_bg_color_collection_list": "#444444",
-        "text_color_collection_list": "#ffffff",
-        "title": "Featured Collections",
-        "top_margin_featured": 0,
-        "products_per_rows_collection_list": "49",
-        "text_transform_title": "uppercase",
-        "collection_product_title_text_transform": "capitalize"
+        "enable_icon_text": true,
+        "title": "",
+        "title_text_transform": "capitalize",
+        "text_color": "#000000",
+        "body_text_color": "#000000",
+        "icons_color": "#000000",
+        "choose_icon_dimensions": "width",
+        "icon_uvp2_size": 70,
+        "icon_text_orientation": "row-reverse",
+        "icon_text_alignment": "center",
+        "vasta_badges_size": 4,
+        "vasta_badges_size_mobile": 2
       }
     },
-    "163518802243d59863": {
+    "914c83fe-8c52-40f9-ba07-444294909f26": {
       "type": "featured-collection",
       "settings": {
         "custom_class": "",
         "top_margin_featured_products": 0,
-        "title": "Featured products",
-        "text_transform_title": "uppercase",
-        "text_transform_product_title": "uppercase",
-        "collection": "rastreio",
+        "title": "Complete protein powder",
+        "text_transform_title": "none",
+        "text_transform_product_title": "none",
+        "collection": "test-collection",
         "products_per_rows": "4",
         "products_per_rows_feature_collection": "49",
         "rows": "1",
-        "show_price": true,
-        "show_swatch": false
+        "show_price": false,
+        "show_swatch": false,
+        "custom_metafield": true,
+        "dynamic_metafield": "",
+        "products_text_colors": "#938c89"
       }
     },
-    "163518791261981d42": {
-      "type": "cta-block",
+    "28a68d7c-4d8f-4ada-b647-527b92cd0c91": {
+      "type": "unique-value-proposition",
+      "blocks": {
+        "9d4bfef2-54e8-4251-87aa-d7f283f53496": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Non-GMO",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"50\" height=\"50\" viewbox=\"0 0 50 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M25 0C31.9029 0 38.1531 2.7984 42.6773 7.32266C47.2014 11.8464 50 18.0971 50 25C50 31.9029 47.2016 38.1531 42.6773 42.6773C38.1531 47.2016 31.9029 50 25 50C18.0971 50 11.8464 47.2014 7.32266 42.6773C2.7984 38.1531 0 31.9029 0 25C0 18.0971 2.79865 11.8464 7.32266 7.32266C11.8464 2.79865 18.0971 0 25 0ZM40.7694 9.23062C36.734 5.19518 31.1583 2.69895 25 2.69895C18.8414 2.69895 13.2658 5.19518 9.23062 9.23062C5.19518 13.2658 2.69895 18.8414 2.69895 25C2.69895 31.1583 5.19518 36.734 9.23062 40.7694C13.2658 44.8048 18.8414 47.3011 25 47.3011C31.1583 47.3011 36.734 44.8048 40.7694 40.7694C44.8048 36.734 47.3011 31.1583 47.3011 25C47.3011 18.8414 44.8048 13.2658 40.7694 9.23062Z\" fill=\"black\"><\/path>\n<path d=\"M6.36872 41.7234L41.7234 6.36876L43.6313 8.27669L8.27664 43.6313L6.36872 41.7234Z\" fill=\"black\"><\/path>\n<path d=\"M17.2148 12.0367C18.7596 12.0367 20.1598 12.6642 21.1739 13.6781L21.1772 13.6814C22.1912 14.6956 22.8187 16.0958 22.8187 17.6406C22.8187 19.1836 22.1912 20.5839 21.177 21.5995L21.1737 21.6028C20.158 22.617 18.7578 23.2446 17.2148 23.2446C15.6677 23.2446 14.2664 22.617 13.2523 21.6028C12.2384 20.589 11.6108 19.1877 11.6108 17.6406C11.6108 16.0958 12.2384 14.6956 13.2523 13.6814L13.2556 13.6781C14.2697 12.6642 15.6699 12.0367 17.2148 12.0367ZM19.9068 14.9486C19.2188 14.2613 18.2669 13.836 17.2148 13.836C16.1626 13.836 15.2107 14.2613 14.5227 14.9486C13.8355 15.6366 13.4101 16.5885 13.4101 17.6406C13.4101 18.6912 13.836 19.6426 14.5242 20.3309C15.2125 21.0191 16.1641 21.4453 17.2148 21.4453C18.2677 21.4453 19.2191 21.0204 19.9051 20.3342L19.9084 20.3309C20.5946 19.645 21.0194 18.6935 21.0194 17.6406C21.0194 16.5885 20.5941 15.6366 19.9068 14.9486Z\" fill=\"black\"><\/path>\n<path d=\"M34.4476 19.2525C36.7205 19.2525 38.7786 20.174 40.2681 21.6635C41.7578 23.1533 42.6794 25.2114 42.6794 27.4842C42.6794 29.7571 41.7578 31.8152 40.2681 33.3049C38.7786 34.7944 36.7205 35.716 34.4476 35.716C32.1748 35.716 30.1167 34.7944 28.627 33.3049C27.1375 31.8152 26.2159 29.7571 26.2159 27.4842C26.2159 25.2114 27.1375 23.1533 28.627 21.6635C30.1167 20.174 32.1748 19.2525 34.4476 19.2525ZM38.9962 22.9355C37.8326 21.7719 36.224 21.0518 34.4476 21.0518C32.6713 21.0518 31.0628 21.7719 29.8989 22.9355C28.7353 24.0993 28.0152 25.7079 28.0152 27.4842C28.0152 29.2606 28.7353 30.8691 29.8989 32.033C31.0628 33.1966 32.6713 33.9167 34.4476 33.9167C36.224 33.9167 37.8326 33.1966 38.9962 32.033C40.1602 30.8689 40.8801 29.2606 40.8801 27.4842C40.8801 25.7079 40.1602 24.0996 38.9962 22.9355Z\" fill=\"black\"><\/path>\n<path d=\"M23.3764 34.0521C24.3852 34.0521 25.2994 34.4616 25.9606 35.1228C26.6218 35.784 27.0313 36.6982 27.0313 37.707C27.0313 38.7158 26.6218 39.63 25.9606 40.2912C25.2958 40.9522 24.3821 41.362 23.3764 41.362C22.3714 41.362 21.4585 40.9527 20.7955 40.2912L20.7922 40.2879C20.1307 39.6249 19.7214 38.712 19.7214 37.707C19.7214 36.7013 20.1312 35.7876 20.794 35.1246C21.4534 34.4616 22.3676 34.0521 23.3764 34.0521ZM24.6886 36.3948C24.3533 36.0594 23.8887 35.8513 23.3764 35.8513C22.8641 35.8513 22.3995 36.0594 22.0641 36.3948H22.0608C21.7273 36.7281 21.5207 37.1924 21.5207 37.707C21.5207 38.2219 21.7273 38.686 22.0608 39.0193L22.0641 39.0226C22.3974 39.3561 22.8615 39.5627 23.3764 39.5627C23.891 39.5627 24.3553 39.3561 24.6886 39.0226V39.0193C25.0239 38.6839 25.232 38.2193 25.232 37.707C25.232 37.1947 25.0239 36.7301 24.6886 36.3948Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        },
+        "861f80dc-6bfe-4770-abbc-b824e8dcd258": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Gluten free",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"32\" height=\"50\" viewbox=\"0 0 32 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M13.7073 0H15.4902C18.4446 0 21.1302 1.22161 23.0758 3.18906C25.0216 5.15671 26.2297 7.87247 26.2297 10.8599V14.7761L23.5592 17.5368V10.8599C23.5592 8.61725 22.6509 6.57736 21.188 5.09804C19.7253 3.61896 17.708 2.70045 15.4902 2.70045H13.7073C11.4898 2.70045 9.47223 3.61896 8.00931 5.09804C6.54666 6.57736 5.63829 8.6175 5.63829 10.8599V31.4666C5.63829 32.7913 5.95539 34.0453 6.51635 35.1549L4.57371 37.1632C3.55654 35.5047 2.96778 33.5519 2.96778 31.4666V10.8599C2.96778 7.87247 4.17589 5.15671 6.12149 3.18906C8.06733 1.22161 10.753 0 13.7073 0ZM26.2297 17.3504V18.6375L23.5592 21.3981V20.1111L26.2297 17.3504ZM26.2297 21.2105V31.4666C26.2297 34.4541 25.0216 37.1698 23.0758 39.1375C21.1302 41.1049 18.4446 42.3266 15.4902 42.3266H13.7073C11.4637 42.3266 9.37512 41.6218 7.64773 40.4211L9.55228 38.452C10.7682 39.1965 12.191 39.6261 13.7073 39.6261H15.4902C17.708 39.6261 19.7253 38.7076 21.188 37.2285C22.6509 35.7492 23.5592 33.7093 23.5592 31.4666V23.9709L26.2297 21.2105ZM6.2633 39.278C6.21564 39.2316 6.16831 39.1848 6.12149 39.1375C5.95838 38.9725 5.80053 38.8022 5.64812 38.627L7.52195 36.6899C7.67653 36.8766 7.83911 37.0564 8.00931 37.2285C8.04915 37.2688 8.08952 37.3086 8.13021 37.3481L6.2633 39.278Z\" fill=\"black\"><\/path>\n<path d=\"M23.7822 16.888C23.8305 16.978 23.8776 17.0688 23.9233 17.1604L23.0431 18.0704C23.3142 17.6943 23.5613 17.2994 23.7822 16.888ZM24.6362 18.9978C24.7327 19.3376 24.8127 19.6845 24.8755 20.0374L23.2579 21.7097C23.2487 21.3098 23.213 20.9165 23.1525 20.5316L24.6362 18.9978ZM25.0273 22.4534C24.8936 25.1555 23.7551 27.5904 21.982 29.3833C20.2603 31.1244 17.9394 32.2604 15.3593 32.4482L17.5939 30.1379C18.7812 29.6954 19.8462 28.9978 20.7235 28.1107C21.645 27.1788 22.3598 26.0376 22.7925 24.7636L25.0273 22.4534ZM12.9674 32.3476C12.6169 32.292 12.2722 32.2187 11.9341 32.1287L13.418 30.5948C13.7996 30.6474 14.1891 30.6749 14.5848 30.6756L12.9674 32.3476ZM10.1015 31.4488C9.02462 30.9284 8.04962 30.2269 7.2153 29.3833C5.32597 27.4725 4.15699 24.8326 4.15699 21.9171C4.15699 20.0964 4.61286 18.3832 5.41534 16.888C5.74544 17.503 6.13434 18.081 6.57408 18.6146C6.16361 19.6338 5.9373 20.7488 5.9373 21.9171C5.9373 24.3358 6.90698 26.526 8.47386 28.1107C9.30902 28.9551 10.3143 29.6279 11.4331 30.0722L10.1015 31.4488Z\" fill=\"black\"><\/path>\n<path d=\"M14.5988 1.29997C17.482 1.29997 20.0927 2.48206 21.982 4.39257C23.8716 6.30333 25.0406 8.94332 25.0406 11.8588C25.0406 14.7744 23.8716 17.4143 21.982 19.3248C20.0927 21.2356 17.482 22.4177 14.5988 22.4177C11.7156 22.4177 9.10492 21.2356 7.2153 19.3248C5.32597 17.4143 4.15699 14.7744 4.15699 11.8588C4.15699 8.94332 5.32597 6.30333 7.2153 4.39257C9.10492 2.48206 11.7156 1.29997 14.5988 1.29997ZM20.7235 5.66521C19.1566 4.08076 16.9907 3.10026 14.5988 3.10026C12.2069 3.10026 10.041 4.08076 8.47386 5.66521C6.90698 7.2499 5.9373 9.44008 5.9373 11.8588C5.9373 14.2776 6.90698 16.4678 8.47386 18.0522C10.041 19.6369 12.2069 20.6174 14.5988 20.6174C16.9907 20.6174 19.1566 19.6369 20.7235 18.0522C22.2906 16.4678 23.2603 14.2776 23.2603 11.8588C23.2603 9.44008 22.2906 7.2499 20.7235 5.66521Z\" fill=\"black\"><\/path>\n<path d=\"M15.934 15.026V25.4194L13.2636 28.18V15.026H15.934ZM15.934 27.9938V29.2808L13.2636 32.0414V30.7544L15.934 27.9938ZM15.934 31.854V50H13.2636V34.6149L15.934 31.854Z\" fill=\"black\"><\/path>\n<path d=\"M0 43.1785L29.9092 12.2594L31.8182 14.1475L1.90904 45.0665L0 43.1785Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        },
+        "3f40b435-6870-4930-9904-c18f5dd0b795": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Dairy free",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"38\" height=\"50\" viewbox=\"0 0 38 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M18.4972 19.5895C21.7583 19.5895 24.7108 20.9125 26.848 23.0515C28.9854 25.1907 30.3075 28.1456 30.3075 31.4093C30.3075 34.673 28.9854 37.6281 26.848 39.7671C24.7108 41.9061 21.7583 43.2291 18.4972 43.2291C15.2364 43.2291 12.2834 41.9061 10.1461 39.7671C8.00883 37.6281 6.6869 34.6727 6.6869 31.4093C6.6869 28.1456 8.00883 25.1907 10.1461 23.0515C12.2834 20.9125 15.2364 19.5895 18.4972 19.5895ZM24.9598 24.9412C23.3064 23.2864 21.0214 22.2628 18.4972 22.2628C15.973 22.2628 13.6878 23.2864 12.0343 24.9412C10.3808 26.5963 9.35799 28.8831 9.35799 31.4093C9.35799 33.9355 10.3808 36.2225 12.0343 37.8774C13.6878 39.5322 15.973 40.5559 18.4972 40.5559C21.0214 40.5559 23.3064 39.5322 24.9598 37.8774C26.6133 36.2225 27.6364 33.9355 27.6364 31.4093C27.6364 28.8833 26.6133 26.5963 24.9598 24.9412Z\" fill=\"black\"><\/path>\n<path d=\"M5.04629 20.6804C1.00257 30.8034 2.54104 38.0026 6.52692 42.3277C9.60276 45.6651 14.1444 47.3359 18.6956 47.3374C23.2465 47.3389 27.7866 45.672 30.8589 42.3352C34.8387 38.0127 36.3709 30.8115 32.3242 20.6751L32.2899 20.5887L32.2772 20.5445C30.1099 12.8401 27.2009 7.65987 24.0329 4.91241C22.2858 3.397 20.4773 2.65189 18.7009 2.66276C16.9242 2.67363 15.1168 3.44296 13.3734 4.95507C10.157 7.74471 7.22521 12.9651 5.09322 20.5445L5.07579 20.6066L5.04629 20.6804ZM4.56549 44.1341C-0.0510783 39.1245 -1.9138 30.9819 2.54354 19.7651C4.82168 11.6949 8.04362 6.05175 11.631 2.94009C13.8658 1.0016 16.2613 0.014811 18.6903 0.000165179C21.1196 -0.0144806 23.5239 0.944763 25.7752 2.89738C29.3162 5.96841 32.518 11.575 34.8325 19.7845C39.2832 31.0016 37.427 39.1382 32.8203 44.1416C29.222 48.0496 23.9532 50.0018 18.6956 50C13.4378 49.9982 8.16678 48.0418 4.56549 44.1341Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        },
+        "b60a5f7a-25bd-46de-babf-4a5e54eb3b76": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Organic protein",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"30\" height=\"50\" viewbox=\"0 0 30 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M16.3749 14.9386V50H13.6677V14.9386H16.3749Z\" fill=\"black\"><\/path>\n<path d=\"M14.741 41.9531C9.80007 40.895 6.30689 39.1569 3.96188 36.9539C2.02412 35.1335 0.873348 33.0067 0.344403 30.687C-0.171786 28.4226 -0.0835378 25.9994 0.447722 23.5191C2.18092 15.4279 8.69924 6.57997 14.0458 0.888332L14.8804 0L15.8488 0.74027C22.2551 5.63896 27.563 13.594 29.1967 21.2201C29.7482 23.7942 29.8873 26.3398 29.5192 28.7319C29.1427 31.1802 28.2391 33.4681 26.711 35.4668C24.408 38.4781 20.7148 40.7937 15.3017 41.9531L15.0213 42.013L14.741 41.9531ZM5.8122 34.9869C7.76588 36.8225 10.7465 38.298 15.0203 39.2483C19.5929 38.2195 22.6784 36.294 24.5645 33.8278C25.801 32.2104 26.5351 30.3417 26.8443 28.3303C27.1625 26.2626 27.0376 24.0419 26.5535 21.7807C25.1318 15.1443 20.6654 8.22156 15.1695 3.6531C10.2475 9.08202 4.61517 16.9639 3.09098 24.0797C2.6372 26.1991 2.55411 28.2369 2.97741 30.0946C3.38844 31.8974 4.2898 33.5569 5.8122 34.9869Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        },
+        "10398da0-a1f1-453a-a4eb-d390c616a2a8": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "No added sugar",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"50\" height=\"50\" viewbox=\"0 0 50 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M24.9999 0C31.9029 0 38.153 2.79841 42.6773 7.3227C47.2013 11.8465 50 18.0971 50 25C50 31.9029 47.2016 38.153 42.6773 42.6773C38.153 47.2016 31.9029 50 24.9999 50C18.0971 50 11.8464 47.2013 7.32264 42.6773C2.79835 38.153 0 31.9029 0 25C0 18.0971 2.79863 11.8465 7.32264 7.3227C11.8464 2.79869 18.0971 0 24.9999 0ZM40.7693 9.23065C36.7339 5.1952 31.1583 2.69896 24.9999 2.69896C18.8414 2.69896 13.2658 5.1952 9.2306 9.23065C5.19515 13.2658 2.69891 18.8414 2.69891 25C2.69891 31.1583 5.19515 36.734 9.2306 40.7694C13.2658 44.8048 18.8414 47.3011 24.9999 47.3011C31.1583 47.3011 36.7339 44.8048 40.7693 40.7694C44.8048 36.734 47.301 31.1583 47.301 25C47.301 18.8414 44.8048 13.2658 40.7693 9.23065Z\" fill=\"black\"><\/path>\n<path d=\"M6.36868 41.7234L41.7233 6.36875L43.6312 8.27666L8.27659 43.6313L6.36868 41.7234Z\" fill=\"black\"><\/path>\n<path d=\"M17.7584 16.8138L17.8284 39.9924H26.7239L26.764 39.9751V16.7481L17.7584 16.8138ZM27.764 39.5447L32.0994 37.6789L32.2419 17.3045L29.6056 14.1778L27.764 16.4222V39.5447ZM26.9277 40.9924H16.8353L16.8338 40.4924L17.0404 15.8229L19.4609 13.206V9.5077C19.4609 9.23155 19.6848 9.00766 19.9609 9.00766H29.6009C29.8771 9.00766 30.1009 9.23155 30.1009 9.5077V13.2173L33.2406 16.9409L33.0909 38.3399C31.0573 39.2151 28.9031 40.1425 26.9277 40.9924ZM29.1009 10.0077H20.461V12.8982H29.1009V10.0077ZM28.5463 13.8982H20.1762L18.4051 15.8129L27.0269 15.75L28.5463 13.8982Z\" fill=\"black\"><\/path>\n<path d=\"M17.8416 16.8962L17.9111 39.909H26.6806V16.8317L17.8416 16.8962ZM17.6751 16.7314C20.7325 16.7105 23.7899 16.6869 26.8473 16.6644V40.0299L26.7408 40.0757H17.7456L17.6751 16.7314ZM27.8473 39.4182L32.0168 37.6238L32.1586 17.3348L29.6064 14.3077L27.8473 16.4515V39.4182ZM27.6807 39.6712V16.3929L29.6048 14.0479L32.3251 17.2742C32.283 24.0939 32.235 30.9143 32.182 37.7339L27.6807 39.6712ZM16.7525 41.0758C16.7286 32.6618 16.8955 24.2087 16.9576 15.7902L19.3776 13.174V9.5077C19.3776 9.34665 19.4429 9.20071 19.5484 9.09521C19.6543 8.98971 19.8001 8.92433 19.9609 8.92433H29.6009C29.7619 8.92433 29.9079 8.98971 30.0134 9.09521C30.1189 9.20071 30.1843 9.34665 30.1843 9.5077V13.1872L33.3237 16.9107C33.2795 24.0718 33.2291 31.2338 33.1735 38.3949C31.0981 39.2906 29.0209 40.1824 26.9446 41.0758H16.7525ZM16.918 40.9091H26.9107L33.0082 38.2848L33.1573 16.9712L30.0176 13.2475V9.5077C30.0176 9.39262 29.9709 9.28839 29.8956 9.21304C29.8202 9.13769 29.716 9.09101 29.6009 9.09101H19.9609C19.8457 9.09101 19.7415 9.13764 19.6661 9.2129C19.5909 9.28839 19.5442 9.39262 19.5442 9.5077V13.2381L17.123 15.8556L16.9168 40.4929L16.918 40.9091ZM29.0175 10.0911H20.5443V12.8148H29.0175V10.0911ZM29.1842 9.9244V12.9815H20.3776V9.9244H29.1842ZM28.3705 13.9816H20.212L18.5961 15.7285L26.9873 15.6673L28.3705 13.9816ZM28.722 13.8149C28.1701 14.4875 27.6187 15.1605 27.0663 15.8327C24.1157 15.8576 21.1647 15.8762 18.2141 15.8973L20.1403 13.8149H28.722Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        }
+      },
+      "block_order": [
+        "9d4bfef2-54e8-4251-87aa-d7f283f53496",
+        "861f80dc-6bfe-4770-abbc-b824e8dcd258",
+        "3f40b435-6870-4930-9904-c18f5dd0b795",
+        "b60a5f7a-25bd-46de-babf-4a5e54eb3b76",
+        "10398da0-a1f1-453a-a4eb-d390c616a2a8"
+      ],
       "settings": {
         "custom_class": "",
-        "buy_now_background_color": "#767676",
-        "buy_nowbackgroung_height": 100,
-        "buy_now_background_top_position": 0,
-        "buy_now_line_direction": "row",
-        "box_limit": 200,
-        "text_above_button": "<h3>Lorem ipsum dolor<\/h3>\nLorem ipsum dolor sit amet consectetur adipiscing elit.",
-        "block_text_align": "left",
-        "text_above_font_size": 19,
-        "text_above_color": "#ffffff",
-        "buy_now_text_button": "LEARN MORE",
-        "text_transform_button": "uppercase",
-        "text_button_font_size": 20,
-        "width_cta_botton": 100,
-        "button_background_color": "#26b522",
-        "button_hover_background_color": "#9c2135",
-        "button_text_color": "#ffffff",
-        "button_hover_text_color": "#ffffff",
-        "button_border_color": "#ffffff",
-        "button_hover_border_color": "#ffffff",
-        "id_product_block": "accessories",
-        "use_add_to_cart": true,
-        "use_external_link": false,
-        "url_product": "",
-        "url_call_to_action": "shopify:\/\/shop_images\/travel-flatlay.jpg"
+        "enable_icon_text": true,
+        "title": "",
+        "title_text_transform": "capitalize",
+        "text_color": "#000000",
+        "body_text_color": "#000000",
+        "icons_color": "#000000",
+        "choose_icon_dimensions": "width",
+        "icon_uvp2_size": 50,
+        "icon_text_orientation": "column-reverse",
+        "icon_text_alignment": "center",
+        "vasta_badges_size": 5,
+        "vasta_badges_size_mobile": 2
       }
     },
-    "163518827257c845da": {
+    "9d6ec6ea-6414-468f-99bc-ac815f9e3d03": {
       "type": "banner-style3",
       "settings": {
         "custom_class": "",
-        "homepage_banner_style_3": "shopify:\/\/shop_images\/comparing-black-t-shirts-on-a-clothing-rack-in-a-sun-lit-shop.jpg",
-        "mobile_banner_style_3": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
-        "enable_custom_banner_height": true,
-        "banner_max_height": 410,
+        "homepage_banner_style_3": "shopify:\/\/shop_images\/IMAGEM_l_Product_nas_monstanhas.png",
+        "enable_custom_banner_height": false,
+        "banner_max_height": 500,
         "banner_max_height_tablet": 430,
-        "banner_max_height_mobile": 400,
+        "banner_max_height_mobile": 210,
         "full_with_banne1": true,
-        "enable_lazy_load": true,
-        "enable_h1": true,
-        "homepage_banner_text": "VASTA SHOP",
-        "main_banner_sub_title": "Your Best Choice\n<div>Vasta<\/div>",
-        "homepage_banner_link": "collections\/all",
+        "enable_lazy_load": false,
+        "enable_h1": false,
+        "homepage_banner_text": "",
+        "main_banner_sub_title": "",
+        "homepage_banner_link": "",
         "vasta_headline_align": "center",
-        "font_weight": "bold",
-        "banner_text_color": "#000000",
-        "desktop_text_size": 63,
-        "main_banner_sub_headline_size": 40,
+        "font_weight": "normal",
+        "banner_text_color": "#000",
+        "desktop_text_size": 30,
+        "main_banner_sub_headline_size": 20,
         "tablet_text_size": 30,
         "main_banner_sub_headline_size_tablet": 20,
         "mobile_text_size": 30,
         "main_banner_sub_headline_size_mobile": 20,
         "vasta_title_horizontal_position": 50,
-        "vasta_title_vertical_position": 50,
-        "vasta_title_horizontal_position_tablet": 50,
-        "vasta_title_vertical_position_tablet": 50,
+        "vasta_title_vertical_position": 30,
+        "vasta_title_horizontal_position_tablet": 23,
+        "vasta_title_vertical_position_tablet": 18,
         "vasta_title_horizontal_position_mobile": 50,
-        "vasta_title_vertical_position_mobile": 50,
+        "vasta_title_vertical_position_mobile": 30,
         "banner_mobile_width": 100,
         "banner_mobile_height": 200
       }
     },
-    "163518853512c34568": {
-      "type": "reviews",
-      "blocks": {
-        "bf641e7a-f276-4bbb-853d-bbd177712fc3": {
-          "type": "select",
-          "settings": {
-            "stars_review": "3",
-            "title_review": "TEXT",
-            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
-            "author_review": "",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        },
-        "20d461c7-cc77-4f91-9bf6-76bdb469d3fe": {
-          "type": "select",
-          "settings": {
-            "stars_review": "4",
-            "title_review": "TEXT 2",
-            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
-            "author_review": "",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        },
-        "03846dea-ab9d-4cc3-9fea-ad5abfa79cdb": {
-          "type": "select",
-          "settings": {
-            "stars_review": "5",
-            "title_review": "TEXT 3",
-            "content_review": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<\/p>",
-            "author_review": "",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "bf641e7a-f276-4bbb-853d-bbd177712fc3",
-        "20d461c7-cc77-4f91-9bf6-76bdb469d3fe",
-        "03846dea-ab9d-4cc3-9fea-ad5abfa79cdb"
-      ],
+    "9d8bbec5-a04e-47bb-a000-ebeca828cdab": {
+      "type": "custom-review",
       "settings": {
-        "custom_class": "",
-        "enable_reviews": true,
-        "title": "",
-        "slider_autoplay": false,
-        "slider_speed": 800
+        "product_chosen": "variety"
       }
     },
-    "163518866014942cc3": {
-      "type": "blog-posts",
+    "e5133219-4c22-4c2a-9bab-8356a75c225a": {
+      "type": "custom-area",
       "settings": {
         "custom_class": "",
-        "title": "NEWS",
-        "section_title_text_transform": "unset",
-        "display_post_image": true,
-        "blog_rewrite_image_home": "placeholder",
-        "blog_article_placeholder_home": "shopify:\/\/shop_images\/download.jpg",
-        "homepage_blog": "news",
-        "posts_amount": "2"
+        "title": "",
+        "html_area": "<style>.custom-area{ text-align: center;}<\/style>\n<svg width=\"100%\" height=\"100%\" viewbox=\"0 0 1278 122\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M1281.07 0.194872H1307.79V89.5476H1281.07V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M1190.8 0.194872H1217.51V89.5476H1190.8V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M1100.53 0.194872H1127.24V89.5476H1100.53V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M1010.25 0.194872H1036.97V89.5476H1010.25V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M919.979 0.194872H946.693V89.5476H919.979V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M829.705 0.194872H855.498V89.5476H829.705V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M739.431 0.194872H765.224V89.5476H739.431V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M649.157 0.194872H674.95V89.5476H649.157V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M558.884 0.194872H584.676V89.5476H558.884V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M467.688 0.194872H494.402V89.5476H467.688V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M377.415 0.194872H404.128V89.5476H377.415V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M287.141 0.194872H313.854V89.5476H287.141V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M196.867 0.194872H223.58V89.5476H196.867V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M106.593 0.194872H133.307V89.5476H106.593V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M16.3189 0.194872H42.1114V89.5476H16.3189V0.194872Z\" fill=\"black\"><\/path>\n<path d=\"M1262.65 121.788H1235.94V32.4356H1262.65V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M1172.38 121.788H1145.66V32.4356H1172.38V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M1082.1 121.788H1055.39V32.4356H1082.1V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M991.83 121.788H965.116V32.4356H991.83V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M900.635 121.788H874.842V32.4356H900.635V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M810.361 121.788H784.568V32.4356H810.361V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M720.087 121.788H694.294V32.4356H720.087V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M629.813 121.788H604.021V32.4356H629.813V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M539.539 121.788H512.825V32.4356H539.539V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M449.265 121.788H422.552V32.4356H449.265V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M358.991 121.788H332.278V32.4356H358.991V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M268.717 121.788H242.004V32.4356H268.717V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M178.443 121.788H151.73V32.4356H178.443V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M87.2484 121.788H61.4558V32.4356H87.2484V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M-3.02554 121.788H-28.8181V32.4356H-3.02554V121.788Z\" fill=\"black\"><\/path>\n<path d=\"M1305.16 121.705C1306.81 119.507 1307.79 116.775 1307.79 113.814C1307.79 106.551 1301.9 100.663 1294.64 100.663C1287.37 100.663 1281.49 106.551 1281.49 113.814C1281.49 116.775 1282.46 119.507 1284.12 121.705H1305.16Z\" fill=\"black\"><\/path>\n<path d=\"M1214.78 121.705C1216.43 119.507 1217.41 116.775 1217.41 113.814C1217.41 106.551 1211.52 100.663 1204.26 100.663C1197 100.663 1191.11 106.551 1191.11 113.814C1191.11 116.775 1192.09 119.507 1193.74 121.705H1214.78Z\" fill=\"black\"><\/path>\n<path d=\"M1124.4 121.705C1126.05 119.507 1127.03 116.775 1127.03 113.814C1127.03 106.551 1121.14 100.663 1113.88 100.663C1106.62 100.663 1100.73 106.551 1100.73 113.814C1100.73 116.775 1101.71 119.507 1103.36 121.705H1124.4Z\" fill=\"black\"><\/path>\n<path d=\"M1034.02 121.705C1035.68 119.507 1036.65 116.775 1036.65 113.814C1036.65 106.551 1030.77 100.663 1023.5 100.663C1016.24 100.663 1010.35 106.551 1010.35 113.814C1010.35 116.775 1011.33 119.507 1012.98 121.705H1034.02Z\" fill=\"black\"><\/path>\n<path d=\"M943.646 121.705C945.297 119.507 946.275 116.775 946.275 113.814C946.275 106.551 940.387 100.663 933.124 100.663C925.861 100.663 919.973 106.551 919.973 113.814C919.973 116.775 920.951 119.507 922.602 121.705H943.646Z\" fill=\"black\"><\/path>\n<path d=\"M853.268 121.705C854.918 119.507 855.897 116.775 855.897 113.814C855.897 106.551 850.009 100.663 842.746 100.663C835.482 100.663 829.594 106.551 829.594 113.814C829.594 116.775 830.573 119.507 832.224 121.705H853.268Z\" fill=\"black\"><\/path>\n<path d=\"M762.889 121.705C764.54 119.507 765.518 116.775 765.518 113.814C765.518 106.551 759.63 100.663 752.367 100.663C745.104 100.663 739.216 106.551 739.216 113.814C739.216 116.775 740.194 119.507 741.845 121.705H762.889Z\" fill=\"black\"><\/path>\n<path d=\"M672.511 121.705C674.162 119.507 675.14 116.775 675.14 113.814C675.14 106.551 669.252 100.663 661.989 100.663C654.726 100.663 648.838 106.551 648.838 113.814C648.838 116.775 649.816 119.507 651.467 121.705H672.511Z\" fill=\"black\"><\/path>\n<path d=\"M582.132 121.705C583.783 119.507 584.762 116.775 584.762 113.814C584.762 106.551 578.874 100.663 571.61 100.663C564.347 100.663 558.459 106.551 558.459 113.814C558.459 116.775 559.438 119.507 561.089 121.705H582.132Z\" fill=\"black\"><\/path>\n<path d=\"M491.754 121.705C493.405 119.507 494.383 116.775 494.383 113.814C494.383 106.551 488.495 100.663 481.232 100.663C473.969 100.663 468.081 106.551 468.081 113.814C468.081 116.775 469.059 119.507 470.71 121.705H491.754Z\" fill=\"black\"><\/path>\n<path d=\"M401.376 121.705C403.027 119.507 404.005 116.775 404.005 113.814C404.005 106.551 398.117 100.663 390.854 100.663C383.591 100.663 377.703 106.551 377.703 113.814C377.703 116.775 378.681 119.507 380.332 121.705H401.376Z\" fill=\"black\"><\/path>\n<path d=\"M310.997 121.705C312.648 119.507 313.627 116.775 313.627 113.814C313.627 106.551 307.739 100.663 300.475 100.663C293.212 100.663 287.324 106.551 287.324 113.814C287.324 116.775 288.303 119.507 289.954 121.705H310.997Z\" fill=\"black\"><\/path>\n<path d=\"M220.619 121.705C222.27 119.507 223.248 116.775 223.248 113.814C223.248 106.551 217.36 100.663 210.097 100.663C202.834 100.663 196.946 106.551 196.946 113.814C196.946 116.775 197.924 119.507 199.575 121.705H220.619Z\" fill=\"black\"><\/path>\n<path d=\"M130.241 121.705C131.892 119.507 132.87 116.775 132.87 113.814C132.87 106.551 126.982 100.663 119.719 100.663C112.455 100.663 106.568 106.551 106.568 113.814C106.568 116.775 107.546 119.507 109.197 121.705H130.241Z\" fill=\"black\"><\/path>\n<path d=\"M39.8622 121.705C41.5132 119.507 42.4915 116.775 42.4915 113.814C42.4915 106.551 36.6035 100.663 29.3403 100.663C22.0771 100.663 16.1892 106.551 16.1892 113.814C16.1892 116.775 17.1675 119.507 18.8184 121.705H39.8622Z\" fill=\"black\"><\/path>\n<path d=\"M1238.93 0C1237.28 2.19797 1236.3 4.93005 1236.3 7.89062C1236.3 15.1538 1242.19 21.0418 1249.45 21.0418C1256.71 21.0418 1262.6 15.1538 1262.6 7.89062C1262.6 4.93005 1261.62 2.19797 1259.97 0H1238.93Z\" fill=\"black\"><\/path>\n<path d=\"M1148.55 0C1146.9 2.19797 1145.92 4.93005 1145.92 7.89062C1145.92 15.1538 1151.81 21.0418 1159.07 21.0418C1166.33 21.0418 1172.22 15.1538 1172.22 7.89062C1172.22 4.93005 1171.24 2.19797 1169.59 0H1148.55Z\" fill=\"black\"><\/path>\n<path d=\"M1058.17 0C1056.52 2.19797 1055.54 4.93005 1055.54 7.89062C1055.54 15.1538 1061.43 21.0418 1068.69 21.0418C1075.95 21.0418 1081.84 15.1538 1081.84 7.89062C1081.84 4.93005 1080.86 2.19797 1079.21 0H1058.17Z\" fill=\"black\"><\/path>\n<path d=\"M967.791 0C966.14 2.19797 965.162 4.93005 965.162 7.89062C965.162 15.1538 971.05 21.0418 978.313 21.0418C985.576 21.0418 991.464 15.1538 991.464 7.89062C991.464 4.93005 990.486 2.19797 988.835 0H967.791Z\" fill=\"black\"><\/path>\n<path d=\"M877.413 0C875.762 2.19797 874.784 4.93005 874.784 7.89062C874.784 15.1538 880.672 21.0418 887.935 21.0418C895.198 21.0418 901.086 15.1538 901.086 7.89062C901.086 4.93005 900.108 2.19797 898.457 0H877.413Z\" fill=\"black\"><\/path>\n<path d=\"M787.034 0C785.383 2.19797 784.405 4.93005 784.405 7.89062C784.405 15.1538 790.293 21.0418 797.556 21.0418C804.82 21.0418 810.708 15.1538 810.708 7.89062C810.708 4.93005 809.729 2.19797 808.078 0H787.034Z\" fill=\"black\"><\/path>\n<path d=\"M696.656 0C695.005 2.19797 694.027 4.93005 694.027 7.89062C694.027 15.1538 699.915 21.0418 707.178 21.0418C714.441 21.0418 720.329 15.1538 720.329 7.89062C720.329 4.93005 719.351 2.19797 717.7 0H696.656Z\" fill=\"black\"><\/path>\n<path d=\"M606.278 0C604.627 2.19797 603.649 4.93005 603.649 7.89062C603.649 15.1538 609.537 21.0418 616.8 21.0418C624.063 21.0418 629.951 15.1538 629.951 7.89062C629.951 4.93005 628.973 2.19797 627.322 0H606.278Z\" fill=\"black\"><\/path>\n<path d=\"M515.899 0C514.248 2.19797 513.27 4.93005 513.27 7.89062C513.27 15.1538 519.158 21.0418 526.421 21.0418C533.685 21.0418 539.573 15.1538 539.573 7.89062C539.573 4.93005 538.594 2.19797 536.943 0H515.899Z\" fill=\"black\"><\/path>\n<path d=\"M425.521 0C423.87 2.19797 422.892 4.93005 422.892 7.89062C422.892 15.1538 428.78 21.0418 436.043 21.0418C443.306 21.0418 449.194 15.1538 449.194 7.89062C449.194 4.93005 448.216 2.19797 446.565 0H425.521Z\" fill=\"black\"><\/path>\n<path d=\"M335.143 0C333.492 2.19797 332.513 4.93005 332.513 7.89062C332.513 15.1538 338.401 21.0418 345.665 21.0418C352.928 21.0418 358.816 15.1538 358.816 7.89062C358.816 4.93005 357.837 2.19797 356.187 0H335.143Z\" fill=\"black\"><\/path>\n<path d=\"M244.764 0C243.113 2.19797 242.135 4.93005 242.135 7.89062C242.135 15.1538 248.023 21.0418 255.286 21.0418C262.549 21.0418 268.437 15.1538 268.437 7.89062C268.437 4.93005 267.459 2.19797 265.808 0H244.764Z\" fill=\"black\"><\/path>\n<path d=\"M154.386 0C152.735 2.19797 151.757 4.93005 151.757 7.89062C151.757 15.1538 157.645 21.0418 164.908 21.0418C172.171 21.0418 178.059 15.1538 178.059 7.89062C178.059 4.93005 177.081 2.19797 175.43 0H154.386Z\" fill=\"black\"><\/path>\n<path d=\"M64.0076 0C62.3567 2.19797 61.3784 4.93005 61.3784 7.89062C61.3784 15.1538 67.2664 21.0418 74.5296 21.0418C81.7928 21.0418 87.6808 15.1538 87.6808 7.89062C87.6808 4.93005 86.7025 2.19797 85.0516 0H64.0076Z\" fill=\"black\"><\/path>\n<path d=\"M-26.3708 0C-28.0217 2.19797 -29 4.93005 -29 7.89062C-29 15.1538 -23.112 21.0418 -15.8488 21.0418C-8.58563 21.0418 -2.69765 15.1538 -2.69765 7.89062C-2.69765 4.93005 -3.67592 2.19797 -5.32685 0H-26.3708Z\" fill=\"black\"><\/path>\n<\/svg>"
       }
     }
   },
   "order": [
-    "16351850661ed94a47",
-    "16351881143a2d10e5",
-    "163518802243d59863",
-    "163518791261981d42",
-    "163518827257c845da",
-    "163518853512c34568",
-    "163518866014942cc3"
+    "fe1965c1-f55e-4629-ada4-fbb7c4e8f7f3",
+    "8f35a9ad-9f6f-47ff-99f8-8f576fa935ba",
+    "914c83fe-8c52-40f9-ba07-444294909f26",
+    "28a68d7c-4d8f-4ada-b647-527b92cd0c91",
+    "9d6ec6ea-6414-468f-99bc-ac815f9e3d03",
+    "9d8bbec5-a04e-47bb-a000-ebeca828cdab",
+    "e5133219-4c22-4c2a-9bab-8356a75c225a"
   ]
 }

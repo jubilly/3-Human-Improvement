@@ -7,11 +7,17 @@
 <section class="shopify-section banner homepage-style-1 {{ section.settings.custom_class }}">
   {%- assign imageDesktop = section.settings.homepage_banner_style_1 -%}
   {%- assign paddingTopDesktop = imageDesktop.height | plus: 0.0 | divided_by: imageDesktop.width | times: 100.0 -%}
+  {% assign imageTablet = section.settings.tablet_banner_style_1 %}
+  {%- assign paddingTopTablet = imageTablet.height | plus: 0.0 | divided_by: imageTablet.width | times: 100.0 -%}
   {%- assign imageMobile = section.settings.mobile_banner_style_1 -%}
   {%- assign paddingTopMobile = imageMobile.height | plus: 0.0 | divided_by: imageMobile.width | times: 100.0 -%}
 
   {%- if section.settings.homepage_banner_style_1 == blank -%}
     {%- assign paddingTopDesktop = 40 -%}
+  {%- endif -%}
+
+  {%- if imageTablet == blank -%}
+    {%- assign paddintTopTablet = 50 -%}
   {%- endif -%}
 
   {%- if section.settings.mobile_banner_style_1 == blank -%}
@@ -23,7 +29,7 @@
   {%- if imageDesktop == blank -%}
     {%- assign image_desktop_height = image_desktop_width -%}
   {%- endif -%}
-  <div class="banner-img {% if section.settings.enable_custom_banner_height == false %}banner-padding-top-desktop{% endif %}{% if section.settings.enable_custom_banner_height == false %} banner-padding-top-mobile{% endif %}">
+  <div class="banner-img {% if section.settings.enable_custom_banner_height == false %}banner-padding-top-desktop{% endif %}{% if section.settings.enable_custom_banner_height == false %} banner-padding-top-tablet{% endif %}{% if section.settings.enable_custom_banner_height == false %} banner-padding-top-mobile{% endif %}">
 
     {%- if section.settings.homepage_banner_style_1.alt != blank -%}
       {%- assign image_alt = section.settings.homepage_banner_style_1.alt | strip_html | escape -%}
@@ -35,11 +41,22 @@
       <picture>
         {%- assign default_image = section.settings.homepage_banner_style_1 -%}
         {%- assign desktop_widths = '1500,1400,1300,1200,1100,1000,900,800' | split: ',' -%}
+        {%- assign tablet_widths = '1200,1100,1000,900,800,700' | split: ',' -%}
         {%- assign mobile_widths = '700,600,500,400' | split: ',' -%}
 
-        <source class="{% if enable_lazy %}lazy2 lazy3{% endif %} banner-image-desktop" media="(min-width: 768px)" {% if enable_lazy %}data-{% endif %}srcset="
+        <source class="{% if enable_lazy %}lazy2 lazy3{% endif %} banner-image-desktop" media="(min-width: 1020px)" {% if enable_lazy %}data-{% endif %}srcset="
           {%- for desktop_width in desktop_widths -%}
             https:{{- default_image | image_url: width: desktop_width }} {{ desktop_width }}w,
+          {%- endfor -%}
+        "/>
+
+        {%- if imageTablet != blank -%}
+          {%- assign default_image = imageTablet -%}
+        {%- endif -%}
+
+        <source class="{% if enable_lazy %}lazy2 lazy3{% endif %} banner-image-tablet" media="(min-width: 768px)" {% if enable_lazy %}data-{% endif %}srcset="
+          {%- for tablet_width in tablet_widths -%}
+            https:{{- default_image | image_url: width: tablet_width }} {{ tablet_width }}w,
           {%- endfor -%}
         "/>
  
@@ -69,6 +86,14 @@
           <div class="banner-sub-title" >{{ section.settings.main_banner_sub_title }}</div>
         </div>
     {%- endif -%}
+    
+    {% assign customText = section.settings.custom_text %}
+
+    {% if customText != blank %}
+      <div class="banner_custom_text">
+        <p>{{ customText }}</p>
+      </div>
+    {% endif %}
 
     {%- assign count = 0 -%}
     <div class="slider-buttons" id="CallToAction-{{ section.id }}">
@@ -108,8 +133,14 @@
     {
       "type": "image_picker",
       "id": "homepage_banner_style_1",
-      "label": "Banner Image Desktop and Tablet",
+      "label": "Banner Image Desktop",
       "info": "1440x500"
+    },
+    {
+      "type": "image_picker",
+      "id": "tablet_banner_style_1",
+      "label": "Banner Image Tablet",
+      "info": "1019x500"
     },
     {
       "type": "image_picker",
@@ -243,6 +274,148 @@
       "max": 1280,
       "step": 10,
       "default": 1000
+    },
+    {
+      "type": "header",
+      "content": "Custom text"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "label": "Custom Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Custom Text color"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_text",
+      "label": "Custom Text",
+      "placeholder": "Custom Text"
+    },
+    {
+      "type": "header",
+      "content": "Custom Text Font Size"
+    },
+    {
+      "type": "paragraph",
+      "content": "Destkop"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Desktop",
+      "default": 26
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Tablet",
+      "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Mobile",
+      "default": 26
+    },
+    {
+      "type": "header",
+      "content": "Custom Text Position"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    { 
+      "type": "range",
+      "id": "custom_text_desktop_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%", 
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_desktop_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
     },
     {
       "type": "header",
@@ -664,7 +837,7 @@
           "id": "vasta_button_height",
           "min": 20,
           "max": 100,
-          "step": 10,
+          "step": 2,
           "unit": "px",
           "label": "Button Height on Desktop",
           "default": 70
@@ -672,12 +845,12 @@
         {
           "type": "range",
           "id": "vasta_button_max_width_desktop",
-          "min": 10,
-          "max": 400,
-          "step": 10,
-          "unit": "px",
+          "min": 20,
+          "max": 200,
+          "step": 2,
+          "unit": "px", 
           "label": "Button Max Width on Desktop",
-          "default": 250
+          "default": 100
         },
         {
           "type": "header",
@@ -688,7 +861,7 @@
           "id": "vasta_button_height_tablet",
           "min": 20,
           "max": 100,
-          "step": 10,
+          "step": 2,
           "unit": "px",
           "label": "Button Height on Tablet",
           "default": 50
@@ -712,7 +885,7 @@
           "id": "vasta_button_height_mobile",
           "min": 20,
           "max": 100,
-          "step": 10,
+          "step": 2,
           "unit": "px",
           "label": "Button Height on Mobile",
           "default": 50
@@ -809,11 +982,21 @@
   height: auto;
 }
 
+#shopify-section-{{ section.id }} {
+  --custom-text-x:{{ section.settings.custom_text_desktop_x }}%;
+  --custom-text-y:{{ section.settings.custom_text_desktop_y }}%;
+  --custom-text-color: {{ section.settings.custom_text_color }};
+  --custom-text-font-size: {{ section.settings.custom_text_desktop }};
+}
+
 /**@media queries**/
 @media (max-width: 1019px) {
   #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
     top:{{ section.settings.vasta_title_vertical_position_tablet }}%;
     left:{{ section.settings.vasta_title_horizontal_position_tablet }}%;
+    }
+    #shopify-section-{{ section.id }} .homepage-style-1 .banner-img.banner-padding-top-tablet {
+      padding-top: {{ paddingTopTablet }}%;
     }
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
@@ -838,6 +1021,12 @@
         height:{{ block.settings.vasta_button_height_tablet }}px;
       }
     {% endfor %}
+
+    #shopify-section-{{ section.id }} {
+      --custom-text-x:{{ section.settings.custom_text_tablet_x }}%;
+      --custom-text-y:{{ section.settings.custom_text_tablet_y }}%;
+      --custom-text-font-size: {{ section.settings.custom_text_tablet }};
+    }
   }
 
 @media(max-width: 767px) {
@@ -874,6 +1063,12 @@
   {% endif %}
   #shopify-section-{{ section.id }} .btn-v {
     font-size:{{ section.settings.banner_font_size_button_mobile }}px;
+  }
+
+  #shopify-section-{{ section.id }} {
+    --custom-text-x:{{ section.settings.custom_text_mobile_x }}%;
+    --custom-text-y:{{ section.settings.custom_text_mobile_y }}%;
+    --custom-text-font-size: {{ section.settings.custom_text_mobile }};
   }
 }
 

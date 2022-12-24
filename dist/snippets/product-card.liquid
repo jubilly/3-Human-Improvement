@@ -54,8 +54,18 @@
     </a> 
     </div>
 
-    <h3 class="grid__item-title"><a href="{{- variant.url | within: collection -}}" class="grid__item-title-link">{{- temp_product.title -}}</a></h3>
-
+    <h3 class="grid__item-title">
+      <a href="{{- variant.url | within: collection -}}" class="grid__item-title-link">
+        <span class="grid__item-title">
+          {{- temp_product.title -}}
+        </span>
+        {% if custom_metafield %}
+         <span class="grid__item-subtitle customHeadline5">
+          {{ prod.metafields.custom.custom_subtitle }}
+         </span>
+        {% endif %}
+      </a>
+    </h3>
     <div class="grid__item-price-wrapper" id="update-variant-price">
       {%- if show_price -%}
         {%- if variant.compare_at_price > variant.price -%}

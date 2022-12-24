@@ -38,6 +38,9 @@
 
     <link rel="canonical" href="{{ canonical_url }}">
 
+    {% comment %} Custom edits Vasta {% endcomment %}
+    <link rel="stylesheet" data-href="{{ 'custom-edits.css' | asset_url }}" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     {%- if settings.enable_custom_style -%}
       {%- render 'custom_head' -%}
     {%- endif -%}

@@ -56,7 +56,9 @@
             show_reviews: settings.feat_prod_enabled_app_reviews,
             show_price: section.settings.show_price,
             enable_lazy: enable_lazy
-            show_swatch: section.settings.show_swatch
+            show_swatch: section.settings.show_swatch,
+            custom_metafield: section.settings.custom_metafield,
+            dynamic_metafield: section.settings.dynamic_metafield
           -%}
         {%- endif -%}
       {%- endfor -%}
@@ -65,20 +67,26 @@
 </div>
 </section>
 
+<style>
+  #shopify-section-{{ section.id }} {
+    --product-text-colors: {{ section.settings.products_text_colors }};
+  }
+</style>
+
 <style scoped>
 #shopify-section-{{ section.id }} .featured-collection__title {
-text-transform: {{ section.settings.text_transform_title }}
+  text-transform: {{ section.settings.text_transform_title }}
 }
 #shopify-section-{{ section.id }} .grid__item-title-link {
-text-transform: {{ section.settings.text_transform_product_title }};
-color: #000
+  text-transform: {{ section.settings.text_transform_product_title }};
+  color: var(--product-text-colors);
 }
 @media (min-width: 768px) {
-.shopify-section.banner + #shopify-section-{{ section.id }} {
-  top: {{ section.settings.top_margin_featured_products | times: -1 }}px;
-  margin-bottom: {{ section.settings.top_margin_featured_products | times: -1 }}px;
-  position: relative;
-}
+  .shopify-section.banner + #shopify-section-{{ section.id }} {
+    top: {{ section.settings.top_margin_featured_products | times: -1 }}px;
+    margin-bottom: {{ section.settings.top_margin_featured_products | times: -1 }}px;
+    position: relative;
+  }
 }
 @media (max-width: 479px){
   #shopify-section-{{ section.id }} .grid-uniform .grid__item {
@@ -260,6 +268,33 @@ color: #000
     "id": "show_swatch",
     "label": "Enable Swatch Options",
     "default": false
+  },
+  {
+    "type": "header",
+    "content": "Custom Metafield"
+  },
+  {
+    "type": "checkbox",
+    "id": "custom_metafield",
+    "label": "Enable Custom Metafield",
+    "default": false
+  },
+  {
+     "type": "text",
+     "id": "dynamic_metafield",
+     "label": "Metafield",
+     "info": "Click on insert dynamic source and select the desired text metafield"
+  },
+  {
+    "type": "header",
+    "content": "Colors"
+  },
+  {
+    "type": "color",
+    "id": "products_text_colors",
+    "label": "Product Texts Colors",
+    "default": "#000",
+    "info": "Set product title and subtitle color"
   }
 ],
 "presets": [
@@ -270,4 +305,5 @@ color: #000
 ]
 }
 {% endschema %}
+
 <!-- end featured-collection.liquid -->

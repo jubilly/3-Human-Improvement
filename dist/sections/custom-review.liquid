@@ -1,0 +1,213 @@
+<style>
+    {% if template.name contains 'index' %}
+        .spr-form {
+            display: none;
+        }
+    {% endif %}
+    .custom-reviews__wrapper {
+        margin: auto;
+        border: 0;
+    }
+    .spr-container {
+        padding: 0;
+        border: 0;
+    }
+    .spr-header-title {
+        font-size: 40px;
+        line-height: 40px;
+        text-transform: capitalize;
+    }
+    .spr-container a {
+        color: #fff!important;
+        background-color: #000!important;
+        transition: all .3s;
+        transform: scale(1);
+        padding: 10px 30px;
+        border-radius: 50px;
+        display: inline-block;
+        max-width: max-content;
+        text-transform: capitalize;
+    }
+    .spr-container .spr-icon-star:before {
+        color: #ECB42E;
+    }
+    .spr-summary-actions-togglereviews {
+        color: #C9C9C9;
+        text-decoration: underline;
+    }
+    .review-author {
+        text-transform: uppercase;
+        font-style: normal;
+        font-size: 16px;
+        line-height: 16px;
+        color: #000000;
+    }
+    .review-date.accent {
+        margin-top: 3px;
+        font-size: 8px;
+        line-height: 8px;
+        text-transform: uppercase;
+        color: #000000;
+        font-style: normal;
+    }
+    .new-review-form .spr-form-input {
+        height: 40px;
+        padding: 0 20px;
+        color: #fff;
+        box-shadow: none;
+        border-radius: 50px;
+        border: 2px solid #000;
+        background: none;
+    }
+
+    .spr-form-input.spr-starrating {
+        border: none;
+        padding: 0;
+    }
+    .spr-icon-star.spr-icon-star-empty {
+        background: #fff!important;
+    }
+    .spr-container a:before {
+        background-color: #fff;
+        color: #000!important;
+        border-color: #000!important;
+    }
+    .spr-starrating .spr-icon-star.spr-icon-star-empty  {
+        padding: 0;
+        opacity: 1;
+    }
+    .spr-form-input-text, .spr-form-input-email, .spr-form-input-textarea {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    .spr-form-review-body .spr-form-input {
+        border: 0;
+        height: auto;
+        padding: 0;
+    }
+    .spr-form-review-body .spr-form-input.spr-form-input-textarea {
+        border: 0;
+        height: auto;
+        padding: 20px;
+        color: #fff;
+        box-shadow: none;
+        border-radius: 0;
+        border: 2px solid #000;
+        background: none;
+        min-height: 100px;
+    }
+    .spr-button.spr-button-primary {
+        font-family: unset;
+        font-weight: unset;
+        font-style: normal;
+        letter-spacing: unset;
+        text-transform: unset;
+        padding: 12px 20px;
+        font-size: unset;
+        background-color: #000;
+        color: #fff;
+        border-radius: 45px;
+    }
+    .spr-button.spr-button-primary:hover,
+    .spr-summary-actions-newreview:hover,
+    .spr-review-reportreview:hover {
+        transition: background-color .15s ease-out;
+        background-color: #9660d1!important;
+    }
+    .spr-pagination-page a {
+        background-color: unset!important;
+        color: #C9C9C9!important;
+        padding: 0 6px;
+    }
+    .spr-icon.spr-icon-star {
+        width: 18px;
+        height: 18px;
+        font-size: 94%;
+    }
+    .spr-review {
+        position: relative;
+        border-color: #000;
+    }
+    .spr-review-content {
+        color: #C9C9C9;
+        margin-left: 22%;
+        width: auto;
+    }
+    .spr-review-header {
+        position: relative;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .spr-review-header-title {
+        text-transform: capitalize;
+        position: absolute;
+        top: 0;
+        left: 22%;
+        font-size: 32px;
+        line-height: 32px;
+    }
+    .spr-review-content-body {
+        font-size: 14px;
+        font-family: var(--auxiliarFont);
+        line-height: 120%;
+    }
+    .spr-review-footer {
+        width: 100%;
+        flex-grow: 1;
+    }
+    .spr-pagination-prev,
+    .spr-pagination-next {
+        position: static;
+    }
+    .spr-pagination-prev a,
+    .spr-pagination-next a {
+        background-color: unset!important;
+        color: #c9c9c9!important;
+        padding: 0;
+    }
+    @media screen and (min-width: 768px) {
+        .custom-reviews__wrapper {
+            width: 85.73%;
+        }
+    }
+</style>
+
+{% assign productChosen = section.settings.product_chosen %}
+<div id="reviews" class="custom-reviews__wrapper dark {{ productChosen.title | downcase }}">
+  <div id='reviews__inject'>
+  </div>
+  {% assign reviewid = productChosen.id %}
+  {% if reviewid == 4691428933722 %}
+    {% assign reviewid = 4644531798106 %}
+  {% endif %}
+  <div id="shopify-product-reviews" data-id="{{ reviewid }}">
+    {{ productChosen.metafields.spr.reviews }}
+  </div>
+</div>
+
+{% schema %}
+    {
+        "name": "Custom Reviews",
+        "class": "custom-reviews",
+        "settings": [
+            {
+                "type": "header",
+                "content": "Product"
+            },
+            {
+                "type": "product",
+                "id": "product_chosen",
+                "label": "Pick a product"
+            }
+        ],
+        "presets": [
+            {
+                "name": "Custom Reviews",
+                "category": "Reviews"
+            }
+        ]
+    }
+{% endschema %}
