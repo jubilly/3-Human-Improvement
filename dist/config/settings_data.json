@@ -9,6 +9,8 @@
     "text_email": "Info@Buyhi.Co",
     "disable_shippingbar_phone": false,
     "text_tel": "+1(310)888-8888",
+    "cartpage_phone": "+1(310)888-8888",
+    "cartpage_email": "Info@Buyhi.Co",
     "link-facebook": "https:\/\/facebook.com",
     "link-instagram": "https:\/\/instagram.com",
     "link-twitter": "https:\/\/twitter.com",
@@ -27,6 +29,7 @@
     "enable_custom_scripts": true,
     "favicon": "shopify:\/\/shop_images\/vasta_logo_58ebbcf3-e461-41a6-ae18-1a992556c87d.png",
     "vasta_wrapper_width": 1200,
+    "disable_recently_viewed_on_homepage_page": true,
     "recently_viewed_section_title_text_transform": "uppercase",
     "enable_button_to_the_top": true,
     "general_font": "mono",
@@ -406,29 +409,35 @@
               "url_popular_collection": "shopify:\/\/shop_images\/IMAGEM_l_Box_mix_pack.png"
             }
           },
-          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d": {
-            "type": "menu_footer",
-            "settings": {
-              "title": "Footer menu",
-              "menu": "footer",
-              "enable_customer_account": true
-            }
-          },
           "ae3ad1f0-d0ad-480f-b0df-afd9157085f9": {
             "type": "menu_footer",
-            "disabled": true,
             "settings": {
-              "title": "",
-              "menu": "",
+              "title": "Shop",
+              "menu": "shop",
               "enable_customer_account": false
             }
           },
           "b13d34e8-f789-4fef-bb27-64bdc320ab4c": {
             "type": "menu_footer",
-            "disabled": true,
             "settings": {
-              "title": "",
-              "menu": "",
+              "title": "Learn",
+              "menu": "learn",
+              "enable_customer_account": false
+            }
+          },
+          "fec863ab-b319-4f5b-bb6e-d0f2ad154e1e": {
+            "type": "menu_footer",
+            "settings": {
+              "title": "Museum of smoothies",
+              "menu": "museum-of-smoothies",
+              "enable_customer_account": false
+            }
+          },
+          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d": {
+            "type": "menu_footer",
+            "settings": {
+              "title": "Help",
+              "menu": "help",
               "enable_customer_account": false
             }
           },
@@ -438,16 +447,28 @@
               "footer_newsletter_enable": true,
               "select_newsletter": "klaviyo"
             }
+          },
+          "72862759-96ca-40b6-9332-cb42d2198dc7": {
+            "type": "infos",
+            "settings": {
+              "enable_phone": true,
+              "enable_email": true,
+              "address": "",
+              "address_link": "",
+              "custom_content": "shopify:\/\/shop_images\/SAUDACAO_HI.png"
+            }
           }
         },
         "block_order": [
           "d77508b7-96a9-4f72-9ff7-e4730d7b856c",
           "879550b6-7008-4958-9306-e9f038eadde2",
           "938d2b3e-efcf-43e9-9eec-7f5ee000306a",
-          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d",
           "ae3ad1f0-d0ad-480f-b0df-afd9157085f9",
           "b13d34e8-f789-4fef-bb27-64bdc320ab4c",
-          "592bd923-4f9a-46a9-8170-2ae108369e2d"
+          "fec863ab-b319-4f5b-bb6e-d0f2ad154e1e",
+          "1178d51e-62a3-4d0d-86b6-bec20aa9db9d",
+          "592bd923-4f9a-46a9-8170-2ae108369e2d",
+          "72862759-96ca-40b6-9332-cb42d2198dc7"
         ],
         "settings": {
           "background_color": "#ffffff",
@@ -459,11 +480,11 @@
           "social_color": "#ffffff",
           "collection_title": "Popular Collections",
           "font_size_title_footer": 16,
-          "font_size_itens_footer": 12,
+          "font_size_itens_footer": 13,
           "text_post_copy_right": "All Right Reserved.",
           "position_social_and_info": "left",
-          "font_size_pop_itens_footer": 9,
-          "font_size_pop_itens_footer_mobile": 12,
+          "font_size_pop_itens_footer": 8,
+          "font_size_pop_itens_footer_mobile": 14,
           "enable_html_area_1": false,
           "footer_html_area_1": "",
           "enable_html_area_2": false,

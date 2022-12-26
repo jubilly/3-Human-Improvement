@@ -52,7 +52,7 @@
               {%- endif -%}
               
               <a title="{{ block.settings.text_editable | strip_html | escape }}" id="ftr-pop_col-link-{{ block.id }}" href="{{ block.settings.link_popular_collection }}">               
-                {% render 'responsive-image' with image: block.settings.url_popular_collection, custom_class: true, max_width: 300, active_lazy : true, id_prefix: index, size_large: 152, size_mobile: 39, size_desk: 10 %}
+                {% render 'responsive-image' with image: block.settings.url_popular_collection, custom_class: true, max_width: 500, active_lazy : true, id_prefix: index, size_large: 300, size_mobile: 150, size_desk: 10 %}
                 {% if block.settings.text_editable != blank %}
                   <h5 class="popular_collections_text">{{ block.settings.text_editable }}</h5>
                 {% endif %}
@@ -70,57 +70,7 @@
         {%- endif -%}
       {%- endfor -%}
 
-      {%- if has_info_social and position_social_and_info == "left" -%}
-        <div class="info">
-          {%- for block in section.blocks -%}
-            {%- if "infos" == block.type -%}
-              {%- if block.settings.enable_phone != blank -%}<a title="Telephone" id="ftr-info-tel" href="tel:{{ settings.text_tel | replace: '+', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' | replace: ' ', '' }}" target="_blank"> {%- render "icon-phone" -%}  <p>{{ settings.text_tel }}</p> </a>{%- endif -%}
-              {%- if block.settings.enable_email != blank -%}<a title="E-mail" id="ftr-info-mail" href="mailto:{{ settings.text_email }}" target="_blank"> {%- render "icon-envelope" -%}   <p>{{ settings.text_email }}</p> </a> {%- endif -%}
-              {%- if block.settings.address != blank -%}<a title="Adress" id="ftr-info-adress" href="{%- if block.settings.address_link -%}{{ block.settings.address_link }}{%- else -%} # {%- endif -%}" target="_blank"> {%- render "icon-pin" -%}<p>{{ block.settings.address }}</p></a>{%- endif -%}
-            {%- endif -%}
-          {%- endfor -%}
-
-          <div class="social-net">
-            {%- for block in section.blocks -%}
-              {%- if "social" == block.type -%}
-                {%- case block.settings.social_media -%}
-                  {%- when 'icon-facebook' -%}
-                  {%- assign social_link = settings.link-facebook -%}
-
-                  {%- when 'icon-instagram' -%}
-                  {%- assign social_link = settings.link-instagram -%}
-
-                  {%- when 'icon-pinterest' -%}
-                  {%- assign social_link = settings.link-pinterest -%}
-
-                  {%- when 'icon-snapchat' -%}
-                  {%- assign social_link =  settings.link-snapchat -%}
-
-                  {%- when 'icon-tumblr' -%}
-                  {%- assign social_link = settings.link-tumblr -%}
-
-                  {%- when 'icon-twitter' -%}
-                  {%- assign social_link = settings.link-twitter -%}
-
-                  {%- when 'icon-vimeo' -%}
-                  {%- assign social_link = settings.link-vimeo -%}
-
-                  {%- when 'icon-youtube' -%}
-                  {%- assign social_link = settings.link-youtube -%}
-
-                  {%- when 'icon-tiktok' -%}
-                  {%- assign social_link = settings.link-tiktok -%}
-
-                {%- endcase -%}
-                <a title="{{ block.settings.social_media | strip_html | escape }}" aria-label="ftr-social-{{ block.id }}" id="ftr-social-{{ block.id }}" href="{{ social_link }}" target="_blank">
-                  {%- render 'icon-media-social' with icon: block.settings.social_media -%}
-                </a>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </div>
-      {%- endif -%}
-
+      {% comment %} Original Info content {% endcomment %}
       {%- if section.settings.enable_html_area_1 -%}
         <div class="custom-html">{{ section.settings.footer_html_area_1 }}</div>
       {%- endif -%}
@@ -143,9 +93,15 @@
 
             {%- if block.settings.title != blank -%}
               {%- assign menu_title = block.settings.title -%}
-            {%- endif -%}
+            {%- endif -%} 
 
-            <h4 class="nav-title">{{ menu_title }} {%- render "icon-arrow-down" -%}</h4>
+            <h4 class="nav-title">
+              {{ menu_title }} 
+              {%- render "custom-icon-arrow-down" -%}
+              <span class="custom-icon__minus">
+                {%- render "custom-icon-minus" -%}
+              </span>
+            </h4>
             <ul class="no-bullets">
               {%- for link in menu.links -%}
                 <li class="footer-menu-item"><a id="ftr-menu-{{ block.id }}-{{ forloop.index }}" href="{{ link.url }}">{{ link.title }}</a></li>
@@ -248,6 +204,67 @@
       {%- endif -%}
       </div>
   </div> <!-- end wrapper -->
+
+  {% comment %} Custom Info {% endcomment %}
+  {%- if has_info_social and position_social_and_info == "left" -%}
+    <div class="info custom__info">
+      {%- for block in section.blocks -%}
+        {%- if "infos" == block.type -%}
+          {% if block.settings.custom_content != blank %}
+            {% assign customImage = block.settings.custom_content %}
+            <div class="info__custom-image">
+              {% render 'responsive-image' with image: customImage, custom_class: true, max_width: 400, active_lazy: true, id_prefix: index, size_large: 152, size_mobile: 100, size_desk: 50 %}
+            </div>
+          {% endif %}
+          <div class="custom__info-social-medias">
+          {%- if block.settings.enable_email != blank -%}<a class="footer__custom-email" title="E-mail" id="ftr-info-mail" href="mailto:{{ settings.text_email }}" target="_blank"> {%- render "icon-envelope" -%}   <p>{{ settings.text_email }}</p> </a> {%- endif -%}
+            {%- if block.settings.enable_phone != blank -%}<a class="footer__custom-telephone" title="Telephone" id="ftr-info-tel" href="tel:{{ settings.text_tel | replace: '+', '' | replace: '(', '' | replace: ')', '' | replace: '-', '' | replace: ' ', '' }}" target="_blank"> {%- render "icon-phone" -%}  <p>{{ settings.text_tel }}</p> </a>{%- endif -%}
+          </div>
+          {%- if block.settings.address != blank -%}<a title="Adress" id="ftr-info-adress" href="{%- if block.settings.address_link -%}{{ block.settings.address_link }}{%- else -%} # {%- endif -%}" target="_blank"> {%- render "icon-pin" -%}<p>{{ block.settings.address }}</p></a>{%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="social-net">
+        {%- for block in section.blocks -%}
+          {%- if "social" == block.type -%}
+            {%- case block.settings.social_media -%}
+              {%- when 'icon-facebook' -%}
+              {%- assign social_link = settings.link-facebook -%}
+
+              {%- when 'icon-instagram' -%}
+              {%- assign social_link = settings.link-instagram -%}
+
+              {%- when 'icon-pinterest' -%}
+              {%- assign social_link = settings.link-pinterest -%}
+
+              {%- when 'icon-snapchat' -%}
+              {%- assign social_link =  settings.link-snapchat -%}
+
+              {%- when 'icon-tumblr' -%}
+              {%- assign social_link = settings.link-tumblr -%}
+
+              {%- when 'icon-twitter' -%}
+              {%- assign social_link = settings.link-twitter -%}
+
+              {%- when 'icon-vimeo' -%}
+              {%- assign social_link = settings.link-vimeo -%}
+
+              {%- when 'icon-youtube' -%}
+              {%- assign social_link = settings.link-youtube -%}
+
+              {%- when 'icon-tiktok' -%}
+              {%- assign social_link = settings.link-tiktok -%}
+
+            {%- endcase -%}
+            <a class="footer__custom-social-media" title="{{ block.settings.social_media | strip_html | escape }}" aria-label="ftr-social-{{ block.id }}" id="ftr-social-{{ block.id }}" href="{{ social_link }}" target="_blank">
+              {%- render 'icon-media-social' with icon: block.settings.social_media -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
   <div class="credits">
     <div class="wrapper">
       <p class="copyright-class" id="copyright">Copyright &copy; {{ "now" | date: "%Y" }} <a id="CopyrightReserved" href="/">{{ shop.name }}</a>. {{ section.settings.text_post_copy_right }}</p>
@@ -538,6 +555,12 @@
           "id": "address_link",
           "label": "Address Link",
           "placeholder": "Adress link"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_content",
+          "label": "Custom Image",
+          "info": "Recommended: .jpg, 400x31"
         }
       ]
     },
@@ -651,7 +674,7 @@
     {
       "type": "menu_footer",
       "name": "Menu",
-      "limit": 3,
+      "limit": 4,
       "settings": [
         {
           "type": "text",
@@ -879,13 +902,13 @@
     SectionFooter.prototype = {
       _run: function() {
 
-        if ( window.innerWidth < 768 )
+        if ( window.innerWidth < 1020 )
           $('.site-footer .menu-footer-grid').addClass('clickable');
         else
           $('.site-footer .menu-footer-grid').removeClass('clickable');
 
-      $(window).resize(function(){
-        if ( window.innerWidth < 768 ) {
+      $(window).resize(function(){ 
+        if ( window.innerWidth < 1020 ) {
           $('.site-footer .menu-footer-grid').addClass('clickable');
           $('.site-footer .menu-footer-grid .no-bullets').hide();
         } else {
@@ -895,7 +918,7 @@
       });
 
       $('.site-footer .menu-footer-grid').click(function(){
-          if (window.innerWidth < 768 && $(this).hasClass('clickable')) {
+          if (window.innerWidth < 1020 && $(this).hasClass('clickable')) {
 
             $('.site-footer .menu-footer-grid .no-bullets').stop().slideUp();
 

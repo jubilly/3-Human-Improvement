@@ -1,5 +1,5 @@
 <!-- start header-searchbar (SNIPPET) -->
-<div class="{% if mobile %}mobile{% else %}no-mobile{% endif %} header__search__form__wrapper">
+<div class="{% if mobile %}show-tablet-and-up{% else %}show-desktop{% endif %} header__search__form__wrapper">
   <form id="search-form" action="/search" method="get" class="header__search__form">
     <input type="hidden" name="type" value="product,{{ settings.enable_products_pages_article }}">
     <input

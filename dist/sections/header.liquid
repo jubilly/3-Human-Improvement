@@ -141,6 +141,25 @@
 </style>
 
 <style scoped type="lazyload2">
+  .show-desktop {
+    display: none!important;
+  }
+
+  .show-tablet-and-up {
+      display: none!important;
+  }
+
+  @media screen and (max-width: 1019px) {
+      .show-tablet-and-up {
+          display: block!important;
+      }    
+  }
+
+  @media screen and (min-width: 1020px) {
+      .show-desktop {
+          display: block!important;
+      }    
+  }
   .header__sitewide__wrapper {
     display: flex;
     align-items: center;
@@ -376,6 +395,13 @@
     height: auto;
   }
 
+  /* Custom edits */
+  @media (min-width: 1020px) {
+    .header__icon__wrap.icon--menu {
+      display: none;
+    }
+  }
+
   @media(min-width: 768px){
     .header__wrapper {
       max-width: var(--wrapperWidth);
@@ -417,10 +443,6 @@
     .header__icon__wrap {
       width: unset;
       min-height: unset;
-    }
-
-    .header__icon__wrap.icon--menu {
-      display: none;
     }
 
     .header__cart__count {
