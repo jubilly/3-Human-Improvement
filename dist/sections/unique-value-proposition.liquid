@@ -31,6 +31,19 @@
     {%- assign trustBadgeSizeMobile = 16.6 -%}
 {%- endcase -%}
 
+<style>
+  @media screen and (max-width: 1019px) {
+    #shopify-section-{{ section.id }} .shipping-text .shipping-text-content {
+      flex-direction: {{ section.settings.mobile_text_direction }}!important;
+    }
+    #shopify-section-{{ section.id }} .uvp-text-container {
+      {% if section.settings.mobile_text_direction == 'column-reverse' %}
+        margin-top: 6px;
+      {% endif %}
+    }
+  }
+</style>
+
 <section class="shipping-text {{ section.settings.custom_class }}">
   {%- if section.settings.title != blank -%}
     {%- assign sectionTitleTextTransform = section.settings.title_text_transform -%}
@@ -248,6 +261,29 @@
       "step": 1,
       "label": "Trust Badges Per Row For Mobile",
       "default": 2
+    },
+    {
+      "type": "select",
+      "id": "mobile_text_direction",
+      "label": "Mobile text direction",
+      "options": [
+        {
+          "label": "Right",
+          "value": "row-reverse"
+        },
+        {
+          "label": "Left",
+          "value": "revert"
+        },
+        {
+          "label": "Above",
+          "value": "column"
+        },
+        {
+          "label": "Below",
+          "value": "column-reverse"
+        }
+      ]
     }
   ],
   "blocks": [

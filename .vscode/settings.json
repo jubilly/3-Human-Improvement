@@ -1,4 +1,28 @@
 {
     "liquid.format.enable": false,
-    "liquid.completion.schema": true
+    "liquid.completion.sections": true,
+    "liquid.validate.schema": true,
+    "liquid.completion.schema": true,
+    "liquid.completion.tags": true,
+    "liquid.completion.objects": true,
+    "liquid.completion.filters": true,
+    "[html]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    },
+    // Enables formatting of all .tsx files
+    "[xml]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    },
+    // Enables formatting of all .css files
+    "[css]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    },
+    // Enables formatting of all .json files
+    "[json]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    },
+    // Enables formatting of all .jsonc files
+    "[jsonc]": {
+        "editor.defaultFormatter": "sissel.shopify-liquid"
+    }
 }

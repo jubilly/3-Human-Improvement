@@ -12,16 +12,16 @@
             "vasta_button_horizontal_position": 16,
             "vasta_button_vertical_position": 51,
             "vasta_button_horizontal_position_tablet": 50,
-            "vasta_button_vertical_position_tablet": 15,
-            "show_mobile_buttons": false,
-            "vasta_button_horizontal_position_mobile": 50,
-            "vasta_button_vertical_position_mobile": 15,
+            "vasta_button_vertical_position_tablet": 48,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 40,
+            "vasta_button_vertical_position_mobile": 58,
             "vasta_button_height": 36,
             "vasta_button_max_width_desktop": 166,
             "vasta_button_height_tablet": 50,
             "vasta_button_max_width_tablet": 250,
-            "vasta_button_height_mobile": 50,
-            "vasta_button_max_width": 250
+            "vasta_button_height_mobile": 36,
+            "vasta_button_max_width": 160
           }
         }
       },
@@ -43,6 +43,7 @@
         "main_banner_title": "The Easiest To Digest",
         "main_banner_sub_title": "Protein Powder",
         "vasta_headline_align": "left",
+        "text_transform": "initial",
         "banner_titcolor": "#ffffff",
         "banner_sub_titcolor": "#ffffff",
         "banner_titles_background_color": "none",
@@ -55,22 +56,22 @@
         "custom_text_mobile": 26,
         "custom_text_desktop_x": 36,
         "custom_text_desktop_y": 90,
-        "custom_text_tablet_x": 100,
-        "custom_text_tablet_y": 100,
-        "custom_text_mobile_x": 100,
-        "custom_text_mobile_y": 100,
+        "custom_text_tablet_x": 18,
+        "custom_text_tablet_y": 90,
+        "custom_text_mobile_x": 6,
+        "custom_text_mobile_y": 90,
         "main_banner_headline_size": 32,
         "main_banner_sub_headline_size": 48,
-        "main_banner_headline_size_tablet": 26,
-        "main_banner_sub_headline_size_tablet": 20,
-        "main_banner_headline_size_mobile": 22,
-        "main_banner_sub_headline_size_mobile": 20,
+        "main_banner_headline_size_tablet": 32,
+        "main_banner_sub_headline_size_tablet": 48,
+        "main_banner_headline_size_mobile": 20,
+        "main_banner_sub_headline_size_mobile": 32,
         "vasta_title_horizontal_position": 58,
         "vasta_title_vertical_position": 34,
-        "vasta_title_horizontal_position_tablet": 57,
+        "vasta_title_horizontal_position_tablet": 65,
         "vasta_title_vertical_position_tablet": 30,
         "vasta_title_horizontal_position_mobile": 50,
-        "vasta_title_vertical_position_mobile": 30,
+        "vasta_title_vertical_position_mobile": 55,
         "banner_desktop_width": 100,
         "banner_mobile_width": 100,
         "banner_mobile_height": 200,
@@ -78,11 +79,13 @@
         "banner_font_size_button_tablet": 16,
         "banner_font_size_button_mobile": 16,
         "vasta_buttons_hover_effect": "none",
+        "enable_button_radius": true,
+        "button_radius": 20,
         "vasta_buttons_color_1": "#ff8835",
         "vasta_buttons_text_color_1": "#ffffff",
         "vasta_border_color_1": "#ff8835",
         "vasta_border_color_1_hover": "#ff8835",
-        "vasta_buttons_hover_color_1": "#ffffff",
+        "vasta_buttons_hover_color_1": "#ff8835",
         "vasta_buttons_hover_text_color_1": "#ffffff"
       }
     },
@@ -153,7 +156,8 @@
         "icon_text_orientation": "row-reverse",
         "icon_text_alignment": "center",
         "vasta_badges_size": 4,
-        "vasta_badges_size_mobile": 2
+        "vasta_badges_size_mobile": 2,
+        "mobile_text_direction": "row-reverse"
       }
     },
     "914c83fe-8c52-40f9-ba07-444294909f26": {
@@ -165,13 +169,12 @@
         "text_transform_title": "none",
         "text_transform_product_title": "none",
         "collection": "test-collection",
-        "products_per_rows": "4",
+        "products_per_rows": "2",
         "products_per_rows_feature_collection": "49",
-        "rows": "1",
+        "rows": "2",
         "show_price": false,
         "show_swatch": false,
         "custom_metafield": true,
-        "dynamic_metafield": "",
         "products_text_colors": "#938c89"
       }
     },
@@ -205,9 +208,20 @@
           "settings": {
             "icon_shipping": "icon-fighter-jet",
             "title": "",
-            "body_text": "Dairy free",
+            "body_text": "Keto + Paleo",
             "use_custom_svg": true,
             "custom_svg_html": "<svg width=\"38\" height=\"50\" viewbox=\"0 0 38 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M18.4972 19.5895C21.7583 19.5895 24.7108 20.9125 26.848 23.0515C28.9854 25.1907 30.3075 28.1456 30.3075 31.4093C30.3075 34.673 28.9854 37.6281 26.848 39.7671C24.7108 41.9061 21.7583 43.2291 18.4972 43.2291C15.2364 43.2291 12.2834 41.9061 10.1461 39.7671C8.00883 37.6281 6.6869 34.6727 6.6869 31.4093C6.6869 28.1456 8.00883 25.1907 10.1461 23.0515C12.2834 20.9125 15.2364 19.5895 18.4972 19.5895ZM24.9598 24.9412C23.3064 23.2864 21.0214 22.2628 18.4972 22.2628C15.973 22.2628 13.6878 23.2864 12.0343 24.9412C10.3808 26.5963 9.35799 28.8831 9.35799 31.4093C9.35799 33.9355 10.3808 36.2225 12.0343 37.8774C13.6878 39.5322 15.973 40.5559 18.4972 40.5559C21.0214 40.5559 23.3064 39.5322 24.9598 37.8774C26.6133 36.2225 27.6364 33.9355 27.6364 31.4093C27.6364 28.8833 26.6133 26.5963 24.9598 24.9412Z\" fill=\"black\"><\/path>\n<path d=\"M5.04629 20.6804C1.00257 30.8034 2.54104 38.0026 6.52692 42.3277C9.60276 45.6651 14.1444 47.3359 18.6956 47.3374C23.2465 47.3389 27.7866 45.672 30.8589 42.3352C34.8387 38.0127 36.3709 30.8115 32.3242 20.6751L32.2899 20.5887L32.2772 20.5445C30.1099 12.8401 27.2009 7.65987 24.0329 4.91241C22.2858 3.397 20.4773 2.65189 18.7009 2.66276C16.9242 2.67363 15.1168 3.44296 13.3734 4.95507C10.157 7.74471 7.22521 12.9651 5.09322 20.5445L5.07579 20.6066L5.04629 20.6804ZM4.56549 44.1341C-0.0510783 39.1245 -1.9138 30.9819 2.54354 19.7651C4.82168 11.6949 8.04362 6.05175 11.631 2.94009C13.8658 1.0016 16.2613 0.014811 18.6903 0.000165179C21.1196 -0.0144806 23.5239 0.944763 25.7752 2.89738C29.3162 5.96841 32.518 11.575 34.8325 19.7845C39.2832 31.0016 37.427 39.1382 32.8203 44.1416C29.222 48.0496 23.9532 50.0018 18.6956 50C13.4378 49.9982 8.16678 48.0418 4.56549 44.1341Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "use_custom_image": false
+          }
+        },
+        "10398da0-a1f1-453a-a4eb-d390c616a2a8": {
+          "type": "icon",
+          "settings": {
+            "icon_shipping": "icon-fighter-jet",
+            "title": "",
+            "body_text": "Dairy free",
+            "use_custom_svg": true,
+            "custom_svg_html": "<svg width=\"50\" height=\"50\" viewbox=\"0 0 50 50\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M24.9999 0C31.9029 0 38.153 2.79841 42.6773 7.3227C47.2013 11.8465 50 18.0971 50 25C50 31.9029 47.2016 38.153 42.6773 42.6773C38.153 47.2016 31.9029 50 24.9999 50C18.0971 50 11.8464 47.2013 7.32264 42.6773C2.79835 38.153 0 31.9029 0 25C0 18.0971 2.79863 11.8465 7.32264 7.3227C11.8464 2.79869 18.0971 0 24.9999 0ZM40.7693 9.23065C36.7339 5.1952 31.1583 2.69896 24.9999 2.69896C18.8414 2.69896 13.2658 5.1952 9.2306 9.23065C5.19515 13.2658 2.69891 18.8414 2.69891 25C2.69891 31.1583 5.19515 36.734 9.2306 40.7694C13.2658 44.8048 18.8414 47.3011 24.9999 47.3011C31.1583 47.3011 36.7339 44.8048 40.7693 40.7694C44.8048 36.734 47.301 31.1583 47.301 25C47.301 18.8414 44.8048 13.2658 40.7693 9.23065Z\" fill=\"black\"><\/path>\n<path d=\"M6.36868 41.7234L41.7233 6.36875L43.6312 8.27666L8.27659 43.6313L6.36868 41.7234Z\" fill=\"black\"><\/path>\n<path d=\"M17.7584 16.8138L17.8284 39.9924H26.7239L26.764 39.9751V16.7481L17.7584 16.8138ZM27.764 39.5447L32.0994 37.6789L32.2419 17.3045L29.6056 14.1778L27.764 16.4222V39.5447ZM26.9277 40.9924H16.8353L16.8338 40.4924L17.0404 15.8229L19.4609 13.206V9.5077C19.4609 9.23155 19.6848 9.00766 19.9609 9.00766H29.6009C29.8771 9.00766 30.1009 9.23155 30.1009 9.5077V13.2173L33.2406 16.9409L33.0909 38.3399C31.0573 39.2151 28.9031 40.1425 26.9277 40.9924ZM29.1009 10.0077H20.461V12.8982H29.1009V10.0077ZM28.5463 13.8982H20.1762L18.4051 15.8129L27.0269 15.75L28.5463 13.8982Z\" fill=\"black\"><\/path>\n<path d=\"M17.8416 16.8962L17.9111 39.909H26.6806V16.8317L17.8416 16.8962ZM17.6751 16.7314C20.7325 16.7105 23.7899 16.6869 26.8473 16.6644V40.0299L26.7408 40.0757H17.7456L17.6751 16.7314ZM27.8473 39.4182L32.0168 37.6238L32.1586 17.3348L29.6064 14.3077L27.8473 16.4515V39.4182ZM27.6807 39.6712V16.3929L29.6048 14.0479L32.3251 17.2742C32.283 24.0939 32.235 30.9143 32.182 37.7339L27.6807 39.6712ZM16.7525 41.0758C16.7286 32.6618 16.8955 24.2087 16.9576 15.7902L19.3776 13.174V9.5077C19.3776 9.34665 19.4429 9.20071 19.5484 9.09521C19.6543 8.98971 19.8001 8.92433 19.9609 8.92433H29.6009C29.7619 8.92433 29.9079 8.98971 30.0134 9.09521C30.1189 9.20071 30.1843 9.34665 30.1843 9.5077V13.1872L33.3237 16.9107C33.2795 24.0718 33.2291 31.2338 33.1735 38.3949C31.0981 39.2906 29.0209 40.1824 26.9446 41.0758H16.7525ZM16.918 40.9091H26.9107L33.0082 38.2848L33.1573 16.9712L30.0176 13.2475V9.5077C30.0176 9.39262 29.9709 9.28839 29.8956 9.21304C29.8202 9.13769 29.716 9.09101 29.6009 9.09101H19.9609C19.8457 9.09101 19.7415 9.13764 19.6661 9.2129C19.5909 9.28839 19.5442 9.39262 19.5442 9.5077V13.2381L17.123 15.8556L16.9168 40.4929L16.918 40.9091ZM29.0175 10.0911H20.5443V12.8148H29.0175V10.0911ZM29.1842 9.9244V12.9815H20.3776V9.9244H29.1842ZM28.3705 13.9816H20.212L18.5961 15.7285L26.9873 15.6673L28.3705 13.9816ZM28.722 13.8149C28.1701 14.4875 27.6187 15.1605 27.0663 15.8327C24.1157 15.8576 21.1647 15.8762 18.2141 15.8973L20.1403 13.8149H28.722Z\" fill=\"black\"><\/path>\n<\/svg>",
             "use_custom_image": false
           }
         },
@@ -222,7 +236,7 @@
             "use_custom_image": false
           }
         },
-        "10398da0-a1f1-453a-a4eb-d390c616a2a8": {
+        "34bb8224-4b37-4e95-841b-642568679b7a": {
           "type": "icon",
           "settings": {
             "icon_shipping": "icon-fighter-jet",
@@ -238,8 +252,9 @@
         "9d4bfef2-54e8-4251-87aa-d7f283f53496",
         "861f80dc-6bfe-4770-abbc-b824e8dcd258",
         "3f40b435-6870-4930-9904-c18f5dd0b795",
+        "10398da0-a1f1-453a-a4eb-d390c616a2a8",
         "b60a5f7a-25bd-46de-babf-4a5e54eb3b76",
-        "10398da0-a1f1-453a-a4eb-d390c616a2a8"
+        "34bb8224-4b37-4e95-841b-642568679b7a"
       ],
       "settings": {
         "custom_class": "",
@@ -253,15 +268,260 @@
         "icon_uvp2_size": 50,
         "icon_text_orientation": "column-reverse",
         "icon_text_alignment": "center",
-        "vasta_badges_size": 5,
-        "vasta_badges_size_mobile": 2
+        "vasta_badges_size": 6,
+        "vasta_badges_size_mobile": 3,
+        "mobile_text_direction": "column-reverse"
       }
     },
-    "9d6ec6ea-6414-468f-99bc-ac815f9e3d03": {
-      "type": "banner-style3",
+    "f531ce73-1796-4b43-9793-b402ee552e63": {
+      "type": "custom-banner",
+      "blocks": {
+        "7f0794b0-1573-4fad-bba6-1b07710fb251": {
+          "type": "select",
+          "settings": {
+            "linktext": "Learn more",
+            "button_text_transform": "capitalize",
+            "link": "",
+            "enable_helper_text": false,
+            "helper_text": "Helper Text",
+            "helper_text_direction": "row-reverse",
+            "vasta_button_horizontal_position": 50,
+            "vasta_button_vertical_position": 30,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 31,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 50,
+            "vasta_button_vertical_position_mobile": 21,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 166,
+            "vasta_button_height_tablet": 50,
+            "vasta_button_max_width_tablet": 166,
+            "vasta_button_height_mobile": 36,
+            "vasta_button_max_width": 166
+          }
+        },
+        "96a6e09f-6567-4040-816f-a99540678329": {
+          "type": "reviews",
+          "settings": {
+            "block_review_mobile": true,
+            "review_name": "Jordan Lohram",
+            "review_image": "shopify:\/\/shop_images\/Ellipse_21.png",
+            "review_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.facilisis.",
+            "review_stars": "5",
+            "review_position_x": 10,
+            "review_position_y": 10,
+            "tablet_review_position_x": 10,
+            "tablet_review_position_y": 37,
+            "mobile_review_position_x": 14,
+            "mobile_review_position_y": 28
+          }
+        },
+        "51aa0a6b-a80a-495d-a5ac-d81bc7b7a63f": {
+          "type": "reviews",
+          "settings": {
+            "block_review_mobile": false,
+            "review_name": "Helena Lancelot",
+            "review_image": "shopify:\/\/shop_images\/Ellipse_21_1.png",
+            "review_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.facilisis.",
+            "review_stars": "5",
+            "review_position_x": 70,
+            "review_position_y": 10,
+            "tablet_review_position_x": 62,
+            "tablet_review_position_y": 37,
+            "mobile_review_position_x": 10,
+            "mobile_review_position_y": 10
+          }
+        }
+      },
+      "block_order": [
+        "7f0794b0-1573-4fad-bba6-1b07710fb251",
+        "96a6e09f-6567-4040-816f-a99540678329",
+        "51aa0a6b-a80a-495d-a5ac-d81bc7b7a63f"
+      ],
       "settings": {
         "custom_class": "",
-        "homepage_banner_style_3": "shopify:\/\/shop_images\/IMAGEM_l_Product_nas_monstanhas.png",
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Product_nas_monstanhas_1.png",
+        "tablet_banner_style_1": "shopify:\/\/shop_images\/IMG_7358_1.png",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/BAKCGROUND-l-Expo-product---Mobile.png",
+        "enable_custom_banner_height": true,
+        "banner_max_height": 800,
+        "banner_max_height_tablet": 690,
+        "banner_max_height_mobile": 520,
+        "full_with_banne1": true,
+        "enable_lazy_load": false,
+        "enable_h1": false,
+        "main_banner_title": "Your Protein",
+        "main_banner_sub_title": "Wherever you are",
+        "vasta_headline_align": "center",
+        "text_transform": "initial",
+        "banner_titcolor": "#ffffff",
+        "banner_sub_titcolor": "#ffffff",
+        "banner_titles_background_color": "none",
+        "enable_max_width": false,
+        "banner_headline_width": 1000,
+        "custom_text_color": "#000000",
+        "custom_text": "",
+        "custom_text_desktop": 48,
+        "custom_text_tablet": 35,
+        "custom_text_mobile": 26,
+        "custom_text_desktop_x": 100,
+        "custom_text_desktop_y": 100,
+        "custom_text_tablet_x": 100,
+        "custom_text_tablet_y": 100,
+        "custom_text_mobile_x": 100,
+        "custom_text_mobile_y": 100,
+        "main_banner_headline_size": 48,
+        "main_banner_sub_headline_size": 32,
+        "main_banner_headline_size_tablet": 48,
+        "main_banner_sub_headline_size_tablet": 32,
+        "main_banner_headline_size_mobile": 32,
+        "main_banner_sub_headline_size_mobile": 16,
+        "vasta_title_horizontal_position": 50,
+        "vasta_title_vertical_position": 16,
+        "vasta_title_horizontal_position_tablet": 50,
+        "vasta_title_vertical_position_tablet": 19,
+        "vasta_title_horizontal_position_mobile": 50,
+        "vasta_title_vertical_position_mobile": 20,
+        "banner_desktop_width": 100,
+        "banner_mobile_width": 100,
+        "banner_mobile_height": 200,
+        "block_review_desktop_width": 275,
+        "block_review_tablet_width": 200,
+        "block_review_mobile_width": 200,
+        "banner_font_size_button": 16,
+        "banner_font_size_button_tablet": 10,
+        "banner_font_size_button_mobile": 10,
+        "vasta_buttons_hover_effect": "none",
+        "enable_button_radius": true,
+        "button_radius": 32,
+        "vasta_buttons_color_1": "#ff8835",
+        "vasta_buttons_text_color_1": "#ffffff",
+        "vasta_border_color_1": "rgba(0,0,0,0)",
+        "vasta_border_color_1_hover": "#ffffff",
+        "vasta_buttons_hover_color_1": "#ffffff",
+        "vasta_buttons_hover_text_color_1": "#000000",
+        "color_author_name": "#ffffff",
+        "color_review_stars": "#ecb42e",
+        "color_review_content": "#ffffff"
+      }
+    },
+    "9d8bbec5-a04e-47bb-a000-ebeca828cdab": {
+      "type": "custom-review",
+      "settings": {
+        "product_chosen": "variety"
+      }
+    },
+    "d3ff38b4-86f2-406c-b6b0-ccf08d1ba558": {
+      "type": "custom-banner",
+      "blocks": {
+        "3a7fdc84-adb7-4d24-88ac-a97bd9416cc0": {
+          "type": "select",
+          "settings": {
+            "linktext": "Energy+Mood",
+            "button_text_transform": "capitalize",
+            "link": "",
+            "enable_helper_text": true,
+            "helper_text": "Boosts",
+            "helper_text_direction": "row-reverse",
+            "vasta_button_horizontal_position": 20,
+            "vasta_button_vertical_position": 36,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 15,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 4,
+            "vasta_button_vertical_position_mobile": 31,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 130,
+            "vasta_button_height_tablet": 36,
+            "vasta_button_max_width_tablet": 100,
+            "vasta_button_height_mobile": 20,
+            "vasta_button_max_width": 150
+          }
+        },
+        "1db9d373-572e-4470-911a-07a69c821ad9": {
+          "type": "select",
+          "settings": {
+            "linktext": "gut health",
+            "button_text_transform": "capitalize",
+            "link": "",
+            "enable_helper_text": true,
+            "helper_text": "Supports",
+            "helper_text_direction": "row-reverse",
+            "vasta_button_horizontal_position": 63,
+            "vasta_button_vertical_position": 29,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 15,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 50,
+            "vasta_button_vertical_position_mobile": 26,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 120,
+            "vasta_button_height_tablet": 36,
+            "vasta_button_max_width_tablet": 108,
+            "vasta_button_height_mobile": 20,
+            "vasta_button_max_width": 160
+          }
+        },
+        "c37923d8-d27a-4650-a606-c6e34f420f6b": {
+          "type": "select",
+          "settings": {
+            "linktext": "lean muscle",
+            "button_text_transform": "capitalize",
+            "link": "shopify:\/\/collections\/all",
+            "enable_helper_text": true,
+            "helper_text": "Builds",
+            "helper_text_direction": "row-reverse",
+            "vasta_button_horizontal_position": 23,
+            "vasta_button_vertical_position": 76,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 32,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 4,
+            "vasta_button_vertical_position_mobile": 63,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 144,
+            "vasta_button_height_tablet": 36,
+            "vasta_button_max_width_tablet": 150,
+            "vasta_button_height_mobile": 20,
+            "vasta_button_max_width": 150
+          }
+        },
+        "bd51506d-cb0b-4bd4-ad03-4fa627d3ea8d": {
+          "type": "select",
+          "settings": {
+            "linktext": "bloating",
+            "button_text_transform": "capitalize",
+            "link": "",
+            "enable_helper_text": true,
+            "helper_text": "No",
+            "helper_text_direction": "row-reverse",
+            "vasta_button_horizontal_position": 56,
+            "vasta_button_vertical_position": 76,
+            "vasta_button_horizontal_position_tablet": 50,
+            "vasta_button_vertical_position_tablet": 15,
+            "show_mobile_buttons": true,
+            "vasta_button_horizontal_position_mobile": 67,
+            "vasta_button_vertical_position_mobile": 63,
+            "vasta_button_height": 36,
+            "vasta_button_max_width_desktop": 100,
+            "vasta_button_height_tablet": 36,
+            "vasta_button_max_width_tablet": 100,
+            "vasta_button_height_mobile": 20,
+            "vasta_button_max_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "3a7fdc84-adb7-4d24-88ac-a97bd9416cc0",
+        "1db9d373-572e-4470-911a-07a69c821ad9",
+        "c37923d8-d27a-4650-a606-c6e34f420f6b",
+        "bd51506d-cb0b-4bd4-ad03-4fa627d3ea8d"
+      ],
+      "settings": {
+        "custom_class": "",
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGENS.png",
+        "tablet_banner_style_1": "shopify:\/\/shop_images\/EXPO_PRODUTO_2.png",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/Mask_group.png",
         "enable_custom_banner_height": false,
         "banner_max_height": 500,
         "banner_max_height_tablet": 430,
@@ -269,32 +529,59 @@
         "full_with_banne1": true,
         "enable_lazy_load": false,
         "enable_h1": false,
-        "homepage_banner_text": "",
-        "main_banner_sub_title": "",
-        "homepage_banner_link": "",
+        "main_banner_title": "Protein powder",
+        "main_banner_sub_title": "that actually makes\nyou feel better.",
         "vasta_headline_align": "center",
-        "font_weight": "normal",
-        "banner_text_color": "#000",
-        "desktop_text_size": 30,
-        "main_banner_sub_headline_size": 20,
-        "tablet_text_size": 30,
+        "text_transform": "capitalize",
+        "banner_titcolor": "#000000",
+        "banner_sub_titcolor": "#000000",
+        "banner_titles_background_color": "none",
+        "enable_max_width": false,
+        "banner_headline_width": 1000,
+        "custom_text_color": "#000000",
+        "custom_text": "",
+        "custom_text_desktop": 26,
+        "custom_text_tablet": 20,
+        "custom_text_mobile": 26,
+        "custom_text_desktop_x": 100,
+        "custom_text_desktop_y": 100,
+        "custom_text_tablet_x": 100,
+        "custom_text_tablet_y": 100,
+        "custom_text_mobile_x": 100,
+        "custom_text_mobile_y": 100,
+        "main_banner_headline_size": 32,
+        "main_banner_sub_headline_size": 32,
+        "main_banner_headline_size_tablet": 26,
         "main_banner_sub_headline_size_tablet": 20,
-        "mobile_text_size": 30,
+        "main_banner_headline_size_mobile": 26,
         "main_banner_sub_headline_size_mobile": 20,
         "vasta_title_horizontal_position": 50,
-        "vasta_title_vertical_position": 30,
-        "vasta_title_horizontal_position_tablet": 23,
-        "vasta_title_vertical_position_tablet": 18,
+        "vasta_title_vertical_position": 50,
+        "vasta_title_horizontal_position_tablet": 50,
+        "vasta_title_vertical_position_tablet": 50,
         "vasta_title_horizontal_position_mobile": 50,
-        "vasta_title_vertical_position_mobile": 30,
+        "vasta_title_vertical_position_mobile": 60,
+        "banner_desktop_width": 40,
         "banner_mobile_width": 100,
-        "banner_mobile_height": 200
-      }
-    },
-    "9d8bbec5-a04e-47bb-a000-ebeca828cdab": {
-      "type": "custom-review",
-      "settings": {
-        "product_chosen": "variety"
+        "banner_mobile_height": 200,
+        "block_review_desktop_width": 200,
+        "block_review_tablet_width": 200,
+        "block_review_mobile_width": 200,
+        "banner_font_size_button": 16,
+        "banner_font_size_button_tablet": 10,
+        "banner_font_size_button_mobile": 10,
+        "vasta_buttons_hover_effect": "none",
+        "enable_button_radius": true,
+        "button_radius": 10,
+        "vasta_buttons_color_1": "#000000",
+        "vasta_buttons_text_color_1": "#ffffff",
+        "vasta_border_color_1": "#000000",
+        "vasta_border_color_1_hover": "#000000",
+        "vasta_buttons_hover_color_1": "#000000",
+        "vasta_buttons_hover_text_color_1": "#ffffff",
+        "color_author_name": "#ffffff",
+        "color_review_stars": "#ecb42e",
+        "color_review_content": "#ffffff"
       }
     },
     "e5133219-4c22-4c2a-9bab-8356a75c225a": {
@@ -311,8 +598,9 @@
     "8f35a9ad-9f6f-47ff-99f8-8f576fa935ba",
     "914c83fe-8c52-40f9-ba07-444294909f26",
     "28a68d7c-4d8f-4ada-b647-527b92cd0c91",
-    "9d6ec6ea-6414-468f-99bc-ac815f9e3d03",
+    "f531ce73-1796-4b43-9793-b402ee552e63",
     "9d8bbec5-a04e-47bb-a000-ebeca828cdab",
+    "d3ff38b4-86f2-406c-b6b0-ccf08d1ba558",
     "e5133219-4c22-4c2a-9bab-8356a75c225a"
   ]
 }

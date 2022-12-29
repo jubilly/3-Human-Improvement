@@ -76,9 +76,6 @@ body .header__item__anchor {
 body .header__list.list--parent {
   padding-bottom: 18px;
 }
-body .homepage-style-1 .btn-v {
-  border-radius: 32px;
-}
 body .banner_custom_text {
   position: absolute;
   color: var(--custom-text-color);
@@ -102,7 +99,8 @@ body .uvp-text-container {
   margin-top: 6px;
 }
 body .grid__item-subtitle {
-  display: inline-block;
+  display: block;
+  margin-top: 10px;
   width: 100%;
 }
 body .site-footer .wrapper {
@@ -236,8 +234,42 @@ body .site-footer .credits p {
   }
 }
 @media screen and (max-width: 1019px) {
+  body .featured-collection .grid__item-title {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  body .grid__item-subtitle {
+    margin-top: 7px;
+  }
+  body .spr-header-title {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  body .spr-container a {
+    padding: 5.5px 16px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  body .spr-review-header-title {
+    font-size: 16px;
+    line-height: 16px;
+    left: 32%;
+  }
+  body .review-date.accent {
+    font-size: 10px;
+    line-height: 10px;
+  }
+}
+@media screen and (max-width: 1019px) {
   body .header__search__form__wrapper {
     margin-bottom: 33px;
+  }
+}
+@media screen and (max-width: 1019px) {
+  body .featured-collection .grid__item-title {
+    font-size: 16px;
+    line-height: 16px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -258,6 +290,11 @@ body .site-footer .credits p {
   }
   .header__cart__text {
     margin-top: 6px;
+  }
+}
+@media screen and (max-width: 767px) {
+  body .uvp-text-container {
+    margin-top: 0;
   }
 }
 @media screen and (max-width: 1019px) {
@@ -341,9 +378,6 @@ body .site-footer .credits p {
   body .custom__info {
     margin-top: 66px;
   }
-  body .custom__info-social-medias {
-    width: 100%;
-  }
   body .custom-icon__minus {
     display: none;
   }
@@ -422,5 +456,8 @@ body .site-footer .credits p {
   }
   body .site-footer .wrapper .no-bullets .footer-menu-item {
     margin-bottom: 7px;
+  }
+  body .custom__info-social-medias {
+    width: 100%;
   }
 }

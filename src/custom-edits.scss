@@ -81,9 +81,6 @@ body {
         padding-bottom: 18px;
     } 
     // Banner 
-    .homepage-style-1 .btn-v {
-        border-radius: 32px;
-    }
     .banner_custom_text {
         position: absolute;
         color: var(--custom-text-color);
@@ -109,7 +106,8 @@ body {
     }
     //Feauted Collection
     .grid__item-subtitle {
-        display: inline-block;
+        display: block;
+        margin-top: 10px;
         width: 100%;
     }
     //Footer
@@ -247,13 +245,56 @@ body {
     }
 }
 
+@media screen and (max-width: 1019px) {
+    body {
+        .featured-collection .grid__item-title {
+            font-size: 32px;
+            line-height: 32px;
+        }
+        .grid__item-subtitle {
+            margin-top: 7px;
+        }
+        .spr-header-title {
+            font-size: 32px;
+            line-height: 32px;
+        }
+        .spr-container a {
+            padding: 5.5px 16px;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 20px;
+        }
+        .spr-review-header-title {
+            font-size: 16px;
+            line-height: 16px;
+            left: 32%;
+        }
+        .review-date.accent {
+            font-size: 10px;
+            line-height: 10px;
+        }
+    }
+}
+
 // Header Tablet and Mobile
 @media screen and (max-width: 1019px) {
     body .header__search__form__wrapper {
         margin-bottom: 33px;
     }
 }
-// Header Mobile
+
+
+@media screen and (max-width: 1019px) {
+
+    body {
+        .featured-collection .grid__item-title {
+            font-size: 16px;
+            line-height: 16px;
+        }
+    }
+}
+
+// Header
 @media screen and (max-width: 767px) {
     body .header__search__form__wrapper {
         margin-bottom: 15px;
@@ -272,6 +313,15 @@ body {
     }
     .header__cart__text {
         margin-top: 6px;
+    }
+}
+
+// UVP
+@media screen and (max-width: 767px) {
+    body {
+        .uvp-text-container {
+            margin-top: 0;
+        }
     }
 }
 
@@ -358,9 +408,6 @@ body {
         .custom__info {
             margin-top: 66px;
         }
-        .custom__info-social-medias {
-            width: 100%;
-        }
         .custom-icon__minus {
             display: none;
         }
@@ -409,7 +456,7 @@ body {
             text-align: center;
         } 
         .site-footer .wrapper>.half-content:first-child .popular-collection-links .popular_collections_title {
-            text-align: left;
+            text-align: left;  
         }
         .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
             margin-bottom: 9px;
@@ -442,6 +489,9 @@ body {
         }
         .site-footer .wrapper .no-bullets .footer-menu-item {
             margin-bottom: 7px;
+        }
+        .custom__info-social-medias {
+            width: 100%;
         }
     }
 }

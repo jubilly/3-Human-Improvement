@@ -57,8 +57,7 @@
             show_price: section.settings.show_price,
             enable_lazy: enable_lazy
             show_swatch: section.settings.show_swatch,
-            custom_metafield: section.settings.custom_metafield,
-            dynamic_metafield: section.settings.dynamic_metafield
+            custom_metafield: section.settings.custom_metafield
           -%}
         {%- endif -%}
       {%- endfor -%}
@@ -278,12 +277,6 @@
     "id": "custom_metafield",
     "label": "Enable Custom Metafield",
     "default": false
-  },
-  {
-     "type": "text",
-     "id": "dynamic_metafield",
-     "label": "Metafield",
-     "info": "Click on insert dynamic source and select the desired text metafield"
   },
   {
     "type": "header",

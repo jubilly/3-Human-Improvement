@@ -36,7 +36,7 @@
         text-decoration: underline;
     }
     .review-author {
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-style: normal;
         font-size: 16px;
         line-height: 16px;
@@ -172,6 +172,56 @@
         .custom-reviews__wrapper {
             width: 85.73%;
         }
+    }
+    @media screen and (max-width: 767px) {
+        .spr-header {
+            width: 100%;
+        }
+        .spr-review-header-title {
+            font-size: 20px;
+            line-height: 20px;
+            left: 32%;
+            width: 210px;
+            font-weight: 400;
+            
+        }
+        .spr-summary.rte {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        .spr-summary.rte span {
+            margin-right: 6px;
+        }
+
+        .spr-summary.rte span:last-child {
+            margin-right: 0;
+        }
+        .spr-icon.spr-icon-star {
+            width: 12px;
+            height: 12px;
+            font-size: 77%;
+        }
+        .spr-review-header-byline {
+            width: 90px;
+        }
+        .spr-review-content {
+            position: absolute;
+            width: 210px;
+            height: 54px;
+            top: 60px;
+            left: 34px;
+            overflow-y: auto;
+        }
+        .spr-review-content-body {
+            font-size: 10px;
+            line-height: 175%;
+        }
+        
+        .spr-review-footer {
+            margin-top: 30px;
+        }  
     }
 </style>
 
