@@ -1,0 +1,46 @@
+{% assign product_title = productTarget.title %}
+{% assign product_description = productTarget.description %}
+{% assign product_metafield = productTarget.metafields.custom.custom_subtitle %}
+{%- assign product_image = productTarget.selected_or_first_available_variant.image | default: productTarget.featured_image -%}
+{% assign productURL = productTarget.url %}
+
+<div class="products-highlights__item products_highlights__{{ source }}">
+    {% if productTarget != blank %}
+        <div class="products-highlights__hero-image products-highlights__hero-image--desktop">
+            {{ background_icon }}
+        </div>
+        <div class="products-highlights__hero-image products-highlights__hero-image--tablet-up">
+            {{ background_icon_mobile_tablet }}
+        </div>
+    {% endif %}
+    <div class="products-highlights__hero-product"> 
+        <div class="products-highlights__hero-product-content">
+            {% if product_title != blank %}
+                <div class="products-highlights__product-title customHeadline3">
+                    {{ product_title }}
+                </div>
+            {% endif %}
+            {% if product_metafield != blank %}
+                <div class="products-highlights__metafield customHeadline4">
+                    {{ product_metafield }}
+                </div>
+            {% endif %}
+            {% if toggle_content != blank and toggle_content_label != blank %}
+                <button source="{{ source }}" class="products-highlights__more-details customHeadline4" type="button" name="products-highlights__cta-open" title="open">
+                    {{ toggle_content_label }}
+                </button>
+            {% endif %}
+            {% if product_image != blank %}
+                <div class="products-highlights__product-image-content">
+                    {%- render 'responsive-image' with
+                        max_width: 268,
+                        image_height: 408,
+                        image: product_image,
+                        image_class: 'products-highlights__product-image',
+                        active_lazy: lazy_load
+                    -%}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

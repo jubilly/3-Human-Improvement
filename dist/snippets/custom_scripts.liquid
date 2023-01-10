@@ -1,0 +1,51 @@
+<script>
+
+console.log('products-highlights loaded');
+
+(function(w, d) {
+
+    function addButtonListener(buttons) {
+        buttons.forEach((button) => {
+            console.log('button', button)
+            button.addEventListener('click', handleButton.open);
+        });
+    }
+
+    console.log('teste')
+
+    function handleOpen(event) {
+        const element = event.target;
+        const source = element.getAttribute('source');
+        const drawer = document.querySelectorAll('[name="product-highlights-drawer"]');
+        console.log(`source: ${source}`); 
+        console.log(`source: ${source}`);
+    }
+
+    function handleClose (event) {
+
+    }
+
+    const handleButton = {
+        open: handleOpen,
+        close: handleClose
+    }
+
+    const handleDrawer = {
+
+    }
+
+    const productsHighLights = {
+        button: handleButton,
+        drawer: handleDrawer
+    }
+
+    //Bind on functions 
+
+    const targetButtons = d.querySelectorAll('[name="button_more-details"]');
+    addButtonListener(targetButtons);
+
+    window.productsHighLights = productsHighLights
+
+}(window, document));
+
+</script>

@@ -799,21 +799,21 @@ function update_shipping_bar(cart) {
         const discountValue = shipping_bar.shipping_value;
         const quantityValue = shipping_bar.shipping_quantity;
         let typeDiscountClass = 'shipping-bar__discount-value--price';
-        let remainValue = discountValue - cart.total_price;
-
+        let rawRemainValue = discountValue - cart.total_price;
+        let remainValue = null;
         if (shipping_bar.price_enable == 'shipping_bar_free_qtd') {
             typeDiscountClass = 'shipping-bar__discount-value--quantity';
-            remainValue = quantityValue - cart.item_count;
+            rawRemainValue = quantityValue - cart.item_count;
         }
-        console.log('remainValue', remainValue)
 
         if (shippingbarMessage && shippingbarMessage.length > 0) {
             shippingbarMessage.forEach(function(shippingBar){
-                console.log('remainValue forEach', remainValue)
+
                 if (cart.item_count > 0) {
-                    if (remainValue > 0) {
+                    if (rawRemainValue > 0) {
                       if(shipping_bar.price_enable == 'shipping_bar_free_price' ){
-                          remainValue = VastaShop.formatMoney(remainValue);
+                          rawRemainValue = VastaShop.formatMoney(rawRemainValue);
+                          remainValue = format_money_withoud_zeros(rawRemainValue);
                         }
 
                         shippingBar.innerHTML = 'Only <span class="shipping-bar__discount-value ' + typeDiscountClass + '">' + remainValue + '</span> away from free shipping!';
@@ -822,7 +822,8 @@ function update_shipping_bar(cart) {
                     }
                 } else {
                     if(shipping_bar.price_enable == 'shipping_bar_free_price' ){
-                        remainValue = VastaShop.formatMoney(remainValue);
+                        rawRemainValue = VastaShop.formatMoney(rawRemainValue);
+                        remainValue = format_money_withoud_zeros(rawRemainValue);
                     }
 
                     shippingBar.innerHTML = ((beforeMessage != '') ? '<span class="shipping-bar__message--before">' + beforeMessage + '</span>': '') +
@@ -888,6 +889,27 @@ function update_discount_cart(current_total_price, quantity_cart) {
         }
     }
 }
+
+/**
+* Custom Function - Format Money Without Trailing Zeros
+* @function[<format_money_withoud_zeros>]
+* Dependencies: none
+* @param{money} money_value
+*
+*/
+
+const format_money_withoud_zeros = (rawMoney) => {
+    if (!rawMoney) {
+        return;
+    }
+    let money = rawMoney.toString();
+    if (money.includes('.00')) {
+        const formatedMoney = money.replace('.00', '');
+        return formatedMoney;
+    }
+    return rawMoney;
+}
+
 /**
 * Update Text Copy Message
 * @function[<update_discount_cart>]

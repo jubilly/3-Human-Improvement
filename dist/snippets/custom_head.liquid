@@ -3,6 +3,18 @@
   	Font Sharp Grotesk Book Setup
   {% endcomment %}
 
+
+  	@font-face {
+		font-family: "SharpGroteskMedium";
+		src: url('{{ 'SharpGrotesk-SemiBold20.otf' | asset_url }}') format("opentype");
+		font-weight: 600;
+	}
+	@font-face {
+		font-family: "SharpGroteskBook";
+		src: url('{{ 'SharpGroteskMedium20.woff' | asset_url }}'),
+		url('{{ 'SharpGrotesk-Medium20.otf' | asset_url }}') format("opentype");
+		font-weight: 500;
+	}
    @font-face {
 		font-family: "SharpGroteskBook";
 		src: url('{{ 'SharpGroteskBook20.woff' | asset_url }}'),
@@ -15,12 +27,6 @@
 		url('{{ 'SharpGrotesk-Light20.otf' | asset_url }}') format("opentype");
 		font-weight: 500;
 		font-style: italic;
-   }
-   @font-face {
-		font-family: "SharpGroteskMedium";
-		src: url('{{ 'SharpGroteskMedium20.woff' | asset_url }}'),
-		url('{{ 'SharpGrotesk-Medium20.otf' | asset_url }}') format("opentype");
-		font-weight: 600;
    }
    @font-face {
 		font-family: "SharpGroteskMediumItalic";
@@ -66,11 +72,15 @@
    }
    @media screen and (min-width: 741px) {
 		.customHeadline1 {
-
+			font-size: 48px;
+			line-height: 48px;
+			letter-spacing: 0em;
 		}
 	
 		.customHeadline2 {
-			
+			font-size: 40px;
+			line-height: 40px;
+			letter-spacing: 0em;
 		}
 	
 		.customHeadline3 {
@@ -88,6 +98,15 @@
 			line-height: 10px;
 			letter-spacing: 0em;
 		}
+		.customBody4,
+		.customBody4 * {
+			font-family: 'Helvetica Neue', sans-serif;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 120%;
+		}
+
    }
 	.customHeadline6 {
 		
@@ -101,7 +120,8 @@
 	}
 	.shipping-body-text {
 		font-family: var(--headerFont) !important;
-		font-weight: 600;
+		font-weight: 500;
+		line-height: 87.8%;
 	}
 
 </style>

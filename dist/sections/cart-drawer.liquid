@@ -664,6 +664,17 @@
           },
           formatMoney(price, amount = null) {
               return VastaShop.formatMoney(price, amount);
+          },
+          format_money_withoud_zeros(rawMoney){
+            if (!rawMoney) {
+                return;
+            }
+            let money = rawMoney.toString();
+            if (money.includes('.00')) {
+                const formatedMoney = money.replace('.00', '');
+                return formatedMoney;
+            }
+            return rawMoney;
           }
       }, opt);
 
@@ -753,7 +764,7 @@
                   this.renderCartItems(cart);
                   this.renderTotalPriceItems(cart);
                   this.updateShippingBar(cart);
-                  this.updateBtnAdd(cart.item_count)
+                  this.updateBtnAdd(cart.item_count);
               },
 
               /**
@@ -770,15 +781,18 @@
                   const shippingBar = settings.shipping_bar;
                   const cartDrawerFreeShippingMsg = document.querySelector('#cart-drawer-freeshipping-msg') || {};
                   const cartDrawerCouponMsg = document.querySelector('#cart-drawer-coupon-msg') || {};
-                  let remain = '';
                   let progress = 0;
-
+                  let rawRemain = '';
+                  let remain = '';
+ 
                   if (shippingBar.price_enable === 'shipping_bar_free_price') {
                       progress = Math.min(cart.total_price, shippingBar.shipping_value) / shippingBar.shipping_value * 100;
-                      remain = settings.formatMoney(shippingBar.shipping_value - cart.total_price);
+                      rawRemain = settings.formatMoney(shippingBar.shipping_value - cart.total_price);
+                      remain = settings.format_money_withoud_zeros(rawRemain);
                   } else {
                       progress = Math.min(cart.item_count, shippingBar.shipping_quantity) / shippingBar.shipping_quantity * 100;
-                      remain = shippingBar.shipping_quantity - cart.item_count;
+                      rawRemain = shippingBar.shipping_quantity - cart.item_count;
+                      remain = settings.format_money_withoud_zeros(rawRemain);
                   }
 
                   if (cartDrawerFreeShippingMsg && drawer_texts.free_shipping_msg.enabled) {

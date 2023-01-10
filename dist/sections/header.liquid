@@ -108,10 +108,22 @@
 
   {%- endunless -%}
 
+  @media(max-width: 1019px) {
+    .header__logo svg, .header__logo img {
+      {%- if section.settings.choose_custom_dimensions contains "width" -%}
+        width: {{ section.settings.tablet_logo_max_width }}px;
+        height: auto;
+      {%- else -%}
+        width: auto;
+        height: {{ section.settings.tablet_logo_max_height }}px;
+      {%- endif -%}
+    }
+  }
+
   @media(max-width: 767px) {
     .header__logo svg, .header__logo img {
       {%- if section.settings.choose_custom_dimensions contains "width" -%}
-        width: {{ section.settings.mobile_logo_max_width }}px;
+        width: calc({{ section.settings.mobile_logo_max_width }}px + 2px);
         height: auto;
       {%- else -%}
         width: auto;
@@ -119,8 +131,7 @@
       {%- endif -%}
     }
   }
-
-  @media(min-width: 768px) {
+  @media(min-width: 1020px) {
     .header__logo svg, .header__logo img {
       {%- if section.settings.choose_custom_dimensions contains "width" -%}
         width: {{ section.settings.logo_max_width }}px;
@@ -440,11 +451,6 @@
       min-height: unset;
     }
 
-    .header__icon__wrap {
-      width: unset;
-      min-height: unset;
-    }
-
     .header__cart__count {
       position: absolute;
       padding: 0px;
@@ -594,6 +600,30 @@
       "unit": "px",
       "label": "Custom Logo Max-Height",
       "default": 50
+    },
+    {
+      "type": "header",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "tablet_logo_max_width",
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Custom Logo Max-Width tablet",
+      "default": 140
+    },
+    {
+      "type": "range",
+      "id": "tablet_logo_max_height",
+      "min": 30,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Custom Logo Max-Height tablet",
+      "default": 90
     },
     {
       "type": "header",

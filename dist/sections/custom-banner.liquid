@@ -4,7 +4,7 @@
 {% capture block_reviews %}
     {% for block in section.blocks %}
         {% if block.settings.review_content != blank and block.type == 'reviews' %}
-    <div class="block-reviews custom-review-{{ forloop.index }}-{{ section.id }} {% if block.settings.block_review_mobile == false %}no-mobile{% endif %}">
+            <div class="block-reviews custom-review-{{ forloop.index }}-{{ section.id }} {% if block.settings.block_review_mobile == false %}no-mobile{% endif %}">
                 <div class="block-reviews__head">
                     {% if block.settings.review_image != blank %}
                         <div class="block-reviews__author-img">
@@ -134,6 +134,12 @@
         <div class="slider-buttons" id="CallToAction-{{ section.id }}">
             {%- for block in section.blocks -%}
             {%- if "select" == block.type -%}
+              <style>
+              .banner__button--{{ forloop.index }}-{{ section.id }} {
+                {{ block.settings.custom_html }}
+              }
+              </style>
+
               {%- assign count = count | plus: 1 -%}
               {% if block.settings.enable_helper_text %}<div class="helper-text__content helper-text__content-{{ forloop.index }}-{{ section.id }}">{% endif %}
                 <a {% if block.settings.enable_helper_text == false %}id="Banner1Btn-{{ forloop.index }}-{{ section.id }}"{% else %} style="position: static;transform: unset;"{% endif %}
@@ -353,149 +359,7 @@
     },
     {
       "type": "header",
-      "content": "Custom text"
-    },
-    {
-      "type": "color",
-      "id": "custom_text_color",
-      "label": "Custom Text Color",
-      "default": "#000000"
-    },
-    {
-      "type": "header",
-      "content": "Custom Text color"
-    },
-    {
-      "type": "textarea",
-      "id": "custom_text",
-      "label": "Custom Text",
-      "placeholder": "Custom Text"
-    },
-    {
-      "type": "header",
-      "content": "Custom Text Font Size"
-    },
-    {
-      "type": "paragraph",
-      "content": "Destkop"
-    },
-    {
-      "type": "range",
-      "id": "custom_text_desktop",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Custom text on Desktop",
-      "default": 26
-    },
-    {
-      "type": "paragraph",
-      "content": "Tablet"
-    },
-    {
-      "type": "range",
-      "id": "custom_text_tablet",
-      "min": 10,
-      "max": 100,
-      "step": 1,
-      "unit": "px",
-      "label": "Custom text on Tablet",
-      "default": 20
-    },
-    {
-      "type": "paragraph",
-      "content": "Mobile"
-    },
-    {
-      "type": "range",
-      "id": "custom_text_mobile",
-      "min": 10,
-      "max": 60,
-      "step": 1,
-      "unit": "px",
-      "label": "Custom text on Mobile",
-      "default": 26
-    },
-    {
-      "type": "header",
-      "content": "Custom Text Position"
-    },
-    {
-      "type": "paragraph",
-      "content": "Desktop"
-    },
-    { 
-      "type": "range",
-      "id": "custom_text_desktop_x",
-      "min": 2,
-      "max": 100,
-      "step": 2,
-      "unit": "%", 
-      "label": "Custom Text Hoziontal",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "custom_text_desktop_y",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Custom Text Vertical",
-      "default": 100
-    },
-    {
-      "type": "paragraph",
-      "content": "Tablet"
-    },
-    {
-      "type": "range",
-      "id": "custom_text_tablet_x",
-      "min": 2,
-      "max": 100,
-      "step": 2,
-      "unit": "%",
-      "label": "Custom Text Hoziontal",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "custom_text_tablet_y",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Custom Text Vertical",
-      "default": 100
-    },
-    {
-      "type": "paragraph",
-      "content": "Mobile"
-    },
-    {
-      "type": "range",
-      "id": "custom_text_mobile_x",
-      "min": 2,
-      "max": 100,
-      "step": 2,
-      "unit": "%",
-      "label": "Custom Text Hoziontal",
-      "default": 100
-    },
-    {
-      "type": "range",
-      "id": "custom_text_mobile_y",
-      "min": 50,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Custom Text Vertical",
-      "default": 100
-    },
-    {
-      "type": "header",
-      "content": "Font Size"
+      "content": "Headline Font Size"
     },
     {
       "type": "header",
@@ -647,6 +511,149 @@
     },
     {
       "type": "header",
+      "content": "Custom text"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_text",
+      "label": "Custom Text",
+      "placeholder": "Custom Text"
+    },
+    {
+      "type": "header",
+      "content": "Custom Text color"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "label": "Custom Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Custom Text Font Size"
+    },
+    {
+      "type": "paragraph",
+      "content": "Destkop"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Desktop",
+      "default": 26
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Tablet",
+      "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Custom text on Mobile",
+      "default": 26
+    },
+    {
+      "type": "header",
+      "content": "Custom Text Position"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    { 
+      "type": "range",
+      "id": "custom_text_desktop_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%", 
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_desktop_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_tablet_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile_x",
+      "min": 2,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "Custom Text Hoziontal",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "custom_text_mobile_y",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Custom Text Vertical",
+      "default": 100
+    },
+    
+    {
+      "type": "header",
       "content": "Text Box Size"
     },
     {
@@ -684,7 +691,7 @@
     },
     {
       "type": "header",
-      "content": "Block Review Size"
+      "content": "Block Review Width"
     },
     {
       "type": "range",
@@ -718,6 +725,52 @@
       "label": "Block Review Width For Mobile",
       "info": "Only works on mobile resolution",
       "default": 200 
+    },
+    {
+      "type": "header",
+      "content": "Block Review Font Size"
+    },
+    {
+      "type": "paragraph",
+      "content": "Destkop"
+    },
+    {
+      "type": "range",
+      "id": "block_review_font_size_desktop",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Review Font size Desktop",
+      "default": 26
+    },
+    {
+      "type": "paragraph",
+      "content": "Tablet"
+    },
+    {
+      "type": "range",
+      "id": "block_review_font_size_tablet",
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Review Font size Tablet",
+      "default": 20
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "block_review_font_size_mobile",
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Review Font size Mobile",
+      "default": 26
     },
     {
       "type": "header",
@@ -863,6 +916,12 @@
         {
           "type": "header",
           "content": "General Settings"
+        },
+        {
+          "id": "custom_html",
+          "type": "html",
+          "label": "Custom css",
+          "info": "Write CSS attributes with !important. Ex: background-color:#f00!important"
         },
         {
           "id": "linktext",
@@ -1251,6 +1310,69 @@
 
 
 <style scoped>
+#shopify-section-{{ section.id }} .block-reviews__head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__infos {
+    text-align: center;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__content {
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 120%;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__head + .block-reviews__content {
+    margin-top: 12px;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__author-img img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__author-img {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__stars svg {
+    width: 12px;
+    height: 12px;
+}
+
+#shopify-section-{{ section.id }} .custom__help-text {
+    margin: 6px;
+}
+
+#shopify-section-{{ section.id }} .block-reviews__content {
+  font-size: {{ section.settings.block_review_font_size_desktop }}px;
+  line-height: 120%;
+}
+
+@media screen and (max-width: 1019px) {
+  #shopify-section-{{ section.id }} .block-reviews__content {
+    font-size: {{ section.settings.block_review_font_size_tablet }}px;
+    line-height: 120%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} .block-reviews__content {
+    font-size: {{ section.settings.block_review_font_size_mobile }}px;
+    line-height: 120%;
+  }
+}
 
 {% for block in section.blocks %}
     #shopify-section-{{ section.id }} .custom-review-{{ forloop.index }}-{{ section.id }} {
@@ -1271,7 +1393,7 @@
       color: var(--color-review-content);
     }
     #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }},
-    .helper-text__content-{{ forloop.index }}-{{ section.id }} {
+    #shopify-section-{{ section.id }} .helper-text__content-{{ forloop.index }}-{{ section.id }} {
       left:{{ block.settings.vasta_button_horizontal_position }}%;
       top:{{ block.settings.vasta_button_vertical_position }}%;
     }
@@ -1280,20 +1402,25 @@
       text-transform: {{ block.settings.button_text_transform }};
       max-width: {{ block.settings.vasta_button_max_width_desktop }}px;
       line-height:{{ section.settings.banner_font_size_button }}px;
+      padding: 10px;
       font-weight: 500;
     }
-    .helper-text__content {
+    #shopify-section-{{ section.id }} .helper-text__content {
       display: flex;
       position: absolute;
       align-items: center;
     }
-    .helper-text__content-{{ forloop.index }}-{{ section.id }} {
+    #shopify-section-{{ section.id }} .helper-text__content-{{ forloop.index }}-{{ section.id }} {
       flex-direction: {{ block.settings.helper_text_direction }};
     }
 {% endfor %}
 
+#shopify-section-{{ section.id }} .block-reviews {
+    width: {{ section.settings.block_review_desktop_width }}px;
+}
+
 @media screen and (max-width: 1019px) {
-  .block-reviews {
+  #shopify-section-{{ section.id }} .block-reviews {
     width: {{ section.settings.block_review_tablet_width }}px;
   }
   {% for block in section.blocks %}
@@ -1306,7 +1433,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .block-reviews {
+  #shopify-section-{{ section.id }} .block-reviews {
       width: {{ section.settings.block_review_mobile_width }}px;
     }
     {% for block in section.blocks %}
@@ -1318,53 +1445,6 @@
     {% endfor %} 
 }
 
-.block-reviews {
-    width: {{ section.settings.block_review_desktop_width }}px;
-}
-
-.block-reviews__head {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.block-reviews__infos {
-    text-align: center;
-}
-
-.block-reviews__content {
-    text-align: center;
-    font-family: 'Helvetica Neue', sans-serif;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 120%;
-}
-
-.block-reviews__head + .block-reviews__content {
-    margin-top: 12px;
-}
-
-.block-reviews__author-img img {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-}
-
-.block-reviews__author-img {
-    width: 50px;
-    height: 50px;
-    position: relative;
-}
-
-.block-reviews__stars svg {
-    width: 12px;
-    height: 12px;
-}
-
-.custom__help-text {
-    margin: 6px;
-}
 
 #shopify-section-{{ section.id }} .homepage-style-1 {
   display: block;
@@ -1426,9 +1506,9 @@
   text-align: {{ section.settings.vasta_headline_align }};
 }
 #shopify-section-{{ section.id }} .btn-v,
-.custom__help-text {
+#shopify-section-{{ section.id }} .custom__help-text {
   font-size:{{ section.settings.banner_font_size_button }}px;
-  line-height:{{ section.settings.banner_font_size_button }}px;
+  line-height:87.8%;
 }
 #shopify-section-{{ section.id }} .homepage-style-1 .banner-img.banner-padding-top-desktop{
   padding-top: {{ paddingTopDesktop }}%;
@@ -1468,63 +1548,48 @@
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
       font-size: {{ section.settings.main_banner_sub_headline_size_tablet | divided_by: 16.0 }}rem;
     }
-    #shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v + .custom__help-text{
-      padding-right: 10px;
-    }
     #shopify-section-{{ section.id }} .btn-v,
-    .custom__help-text  {
+    #shopify-section-{{ section.id }} .custom__help-text  {
       font-size:{{ section.settings.banner_font_size_button_tablet }}px;
-      line-height:{{ section.settings.banner_font_size_button_tablet }}px;
+      line-height: 120%;
     }
-    .custom__help-text {
+    #shopify-section-{{ section.id }}.custom__help-text {
       margin: 0;
-      }
+    }
       {% for block in section.blocks %}
         #shopify-section-{{ section.id }} .btn-v {
           background-color: {% if block.settings.enable_helper_text %}unset{% else %}{{ section.settings.vasta_buttons_color_1 }}{% endif %};
         }
-      .helper-text__content-{{ forloop.index }}-{{ section.id }} {
-        background-color: {{ section.settings.vasta_buttons_color_1 }};
-        color: {{ section.settings.vasta_buttons_text_color_1 }};
-        {% if section.settings.enable_button_radius %}
-        border-radius: {{ section.settings.button_radius }}px;
-        {% endif %}
-        max-width: {{ block.settings.vasta_button_max_width_tablet }}px;
-        height:{{ block.settings.vasta_button_height_tablet }}px;
-        padding: 10px;
-      }
+  
       #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }},
-      .helper-text__content-{{ forloop.index }}-{{ section.id }} {
+      #shopify-section-{{ section.id }} .helper-text__content-{{ forloop.index }}-{{ section.id }} {
         left:{{ block.settings.vasta_button_horizontal_position_tablet }}%;
         top:{{ block.settings.vasta_button_vertical_position_tablet }}%
       }
 
       #shopify-section-{{ section.id }} .banner__button--{{ forloop.index }}-{{ section.id }} {
-        {% if block.settings.enable_helper_text == false %}
           max-width: {{ block.settings.vasta_button_max_width_tablet }}px;
           height:{{ block.settings.vasta_button_height_tablet }}px;
-        {% endif %}
       }
     {% endfor %}
   }
 
 @media(max-width: 767px) {
   {% for block in section.blocks %}
-  .helper-text__content-{{ forloop.index }}-{{ section.id }} {
+  #shopify-section-{{ section.id }} .helper-text__content-{{ forloop.index }}-{{ section.id }} {
     height:{{ block.settings.vasta_button_height_mobile }}px;
     max-width: {{ block.settings.vasta_button_max_width }}px;
   }
   #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }},
-  .helper-text__content-{{ forloop.index }}-{{ section.id }} {
+  #shopify-section-{{ section.id }} .helper-text__content-{{ forloop.index }}-{{ section.id }} {
     left:{{ block.settings.vasta_button_horizontal_position_mobile }}%;
     top:{{ block.settings.vasta_button_vertical_position_mobile }}%
   }
 
   #shopify-section-{{ section.id }} .banner__button--{{ forloop.index }}-{{ section.id }} {
-    {% if block.settings.enable_helper_text == false %}
       max-width: {{ block.settings.vasta_button_max_width }}px;
       height:{{ block.settings.vasta_button_height_mobile }}px;
-    {% endif %}
+      padding: 5px; 
   }
   {% endfor %}
   #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
@@ -1547,9 +1612,9 @@
   }
   {% endif %}
   #shopify-section-{{ section.id }} .btn-v,
-  .custom__help-text {
+  #shopify-section-{{ section.id }} .custom__help-text {
     font-size:{{ section.settings.banner_font_size_button_mobile }}px;
-    line-height: {{ section.settings.banner_font_size_button_mobile }}px;
+    line-height: 100%;;
   }
 
   #shopify-section-{{ section.id }} {

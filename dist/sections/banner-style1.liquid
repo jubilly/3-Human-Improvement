@@ -953,6 +953,15 @@
 <!-- end banner-style1.liquid -->
 <style scoped>
 /**section banner-style1**/
+
+#shopify-section-{{ section.id }} .banner_custom_text {
+  position: absolute;
+  color: var(--custom-text-color);
+  font-size: var(--custom-text-font-size);
+  top: var(--custom-text-y);
+  left: var(--custom-text-x);
+  z-index: 1;
+}
 {% for block in section.blocks %}
 #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
   left:{{ block.settings.vasta_button_horizontal_position }}%;

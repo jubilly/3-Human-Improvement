@@ -201,6 +201,17 @@
       "info": "Icon size will be defined by the amount of items per line"
     },
     {
+      "type": "range",
+      "id": "icon_uvp2_size_mobile",
+      "min": 10,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Icon Max Size Mobile",
+      "default": 10,
+      "info": "Icon size will be defined by the amount of items per line"
+    },
+    {
       "type": "select",
       "id": "icon_text_orientation",
       "label": "Icon Text Position",
@@ -451,7 +462,10 @@
 
   {% if section.settings.vasta_badges_size_mobile > 4 %}
     @media (max-width: 479px) {
-      .uvp-text-container h3, .uvp-text-container p  {font-size: 10px;}
+      .uvp-text-container h3, .uvp-text-container p  {
+        font-size: 12px;
+        line-height: 100%;
+      }
     }
   {% endif %}
 
@@ -460,6 +474,28 @@
         flex: 0 0 {{ trustBadgeSizeMobile }}%;
         padding: 10px 5px;
         flex-direction: column-reverse;
+    }
+    #shopify-section-{{ section.id }} .shipping-text .shipping-text-content img {
+      {%- if section.settings.choose_icon_dimensions == "height" -%}
+        height: {{ section.settings.icon_uvp2_size_mobile }}px;
+        max-height: 100%;
+        width: auto;
+      {% else %}
+        width: 100%;
+        max-width: {{ section.settings.icon_uvp2_size_mobile }}px;
+        height: auto;
+      {% endif %}
+    }
+    #shopify-section-{{ section.id }} .shipping-text .shipping-text-content svg{
+      {%- if section.settings.choose_icon_dimensions == "height" -%}
+        height: {{ section.settings.icon_uvp2_size_mobile }}px;
+        max-height: 100%;
+        width: auto;
+      {% else %}
+        max-width: {{ section.settings.icon_uvp2_size_mobile }}px;
+        height: auto;
+        width: 100%;
+      {% endif %}
     }
   }
 

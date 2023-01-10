@@ -1,6 +1,6 @@
 <!-- start shipping-bar-email.liquid (SNIPPET) -->
 {%- assign email = settings.text_email -%}
-<div class="shipping-bar__item shipping-bar__item--small no-mobile">
+<div class="shipping-bar__item shipping-bar__item--small show-desktop">
   {%- unless settings.disable_shippingbar_text_email -%}
     {%- if section.settings.enable_link_shippingbar_text_email and email != blank -%}
       <a href="mailto:{{- email -}}" title="Store Email" class="shipping-bar__link">
@@ -13,3 +13,16 @@
     {%- endif -%}
   {%- endunless -%}
 </div>
+
+<style>
+
+  .show-desktop {
+    display: none!important;
+  }
+
+  @media screen and (min-width: 1020px) {
+      .show-desktop {
+          display: block!important;
+      }    
+  }
+</style>

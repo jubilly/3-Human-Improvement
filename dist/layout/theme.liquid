@@ -10,9 +10,6 @@
 
     {%- render 'style-css' -%}
 
-    {% comment %} Custom edits Vasta {% endcomment %}
-    <link rel="stylesheet" data-href="{{ 'custom-edits.css' | asset_url }}"/>
-
     <link rel="stylesheet" data-href="{{- 'layout.theme.styleLiquid.css' | asset_url -}}"/>
 
     <!-- Meta Tags -->
@@ -44,6 +41,9 @@
     {%- if settings.enable_custom_style -%}
       {%- render 'custom_head' -%}
     {%- endif -%}
+
+    {% comment %} Custom edits Vasta {% endcomment %}
+    <link rel="stylesheet" data-href="{{ 'custom-edits.css' | asset_url }}"/>
 
     {%- if settings.enable_zoom_feature_for_desktop and template contains 'product' -%}
       <link rel="stylesheet" data-href="https://cdnjs.cloudflare.com/ajax/libs/magnify/2.3.3/css/magnify.css" integrity="sha512-JxBFHHd+xyHl++SdVJYCCgxGPJKCTTaqndOl/n12qI73hgj7PuGuYDUcCgtdSHTeXSHCtW4us4Qmv+xwPqKVjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
