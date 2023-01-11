@@ -20,7 +20,8 @@
 {%- assign temp_collection = collections[section.settings.collection] -%}
 {%- assign rows = section.settings.rows | default: 1 -%}
 {%- assign items_per_row = section.settings.products_per_rows | default: 4 -%}
-{%- assign item_count = items_per_row | times: rows -%}
+{%- assign rawItem_count = items_per_row | times: rows -%}
+{%- assign item_count = rawItem_count | plus: 1 -%}
 
 {%- assign enable_lazy = true -%}
 

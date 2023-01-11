@@ -376,9 +376,9 @@
     { 
       "type": "range",
       "id": "custom_text_desktop_x",
-      "min": 2,
+      "min": 0,
       "max": 100,
-      "step": 2,
+      "step": 1,
       "unit": "%", 
       "label": "Custom Text Hoziontal",
       "default": 100
@@ -386,9 +386,9 @@
     {
       "type": "range",
       "id": "custom_text_desktop_y",
-      "min": 50,
+      "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 1,
       "unit": "%",
       "label": "Custom Text Vertical",
       "default": 100
@@ -400,9 +400,9 @@
     {
       "type": "range",
       "id": "custom_text_tablet_x",
-      "min": 2,
+      "min": 0,
       "max": 100,
-      "step": 2,
+      "step": 1,
       "unit": "%",
       "label": "Custom Text Hoziontal",
       "default": 100
@@ -410,9 +410,9 @@
     {
       "type": "range",
       "id": "custom_text_tablet_y",
-      "min": 50,
+      "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 1,
       "unit": "%",
       "label": "Custom Text Vertical",
       "default": 100
@@ -424,9 +424,9 @@
     {
       "type": "range",
       "id": "custom_text_mobile_x",
-      "min": 2,
+      "min": 0,
       "max": 100,
-      "step": 2,
+      "step": 1,
       "unit": "%",
       "label": "Custom Text Hoziontal",
       "default": 100
@@ -434,9 +434,9 @@
     {
       "type": "range",
       "id": "custom_text_mobile_y",
-      "min": 50,
+      "min": 0,
       "max": 100,
-      "step": 5,
+      "step": 1,
       "unit": "%",
       "label": "Custom Text Vertical",
       "default": 100
@@ -954,13 +954,22 @@
 <style scoped>
 /**section banner-style1**/
 
-#shopify-section-{{ section.id }} .banner_custom_text {
+#shopify-section-{{ section.id }} .banner_custom_text p {
   position: absolute;
   color: var(--custom-text-color);
   font-size: var(--custom-text-font-size);
+  line-height: 87.8%;
   top: var(--custom-text-y);
   left: var(--custom-text-x);
   z-index: 1;
+}
+@media screen and (max-width: 767px) {
+  #shopify-section-{{ section.id }} .banner_custom_text p {
+    font-weight: 400;
+  }
+}
+#shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title {
+  font-weight: 400; 
 }
 {% for block in section.blocks %}
 #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
@@ -1017,13 +1026,13 @@
 #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
   color:{{ section.settings.banner_titcolor }};
   font-size: {{ section.settings.main_banner_headline_size | divided_by: 16.0 }}rem;
-  line-height: {{ section.settings.main_banner_headline_size | divided_by: 16.0 }}rem;
+  line-height: 120%;
   text-align: {{ section.settings.vasta_headline_align }};
 }
 #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
 #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
   font-size: {{ section.settings.main_banner_sub_headline_size | divided_by: 16.0 }}rem;
-  line-height: {{ section.settings.main_banner_sub_headline_size | divided_by: 16.0 }}rem;
+  line-height: 87.8%;
   color:{{ section.settings.banner_sub_titcolor }};
   text-align: {{ section.settings.vasta_headline_align }};
 }
@@ -1042,7 +1051,7 @@
   --custom-text-x:{{ section.settings.custom_text_desktop_x }}%;
   --custom-text-y:{{ section.settings.custom_text_desktop_y }}%;
   --custom-text-color: {{ section.settings.custom_text_color }};
-  --custom-text-font-size: {{ section.settings.custom_text_desktop }};
+  --custom-text-font-size: {{ section.settings.custom_text_desktop }}px;
 }
 
 /**@media queries**/
@@ -1058,12 +1067,20 @@
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title *{
       font-size: {{ section.settings.main_banner_headline_size_tablet | divided_by: 16.0 }}rem;
     }
+    .banner-title + .banner-sub-title {
+      margin-top: 5px;
+    }
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
       font-size: {{ section.settings.main_banner_sub_headline_size_tablet | divided_by: 16.0 }}rem;
     }
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title {
+      text-shadow: 0px 4px 14px rgba(0, 0, 0, 0.35);
+    }
     #shopify-section-{{ section.id }} .btn-v {
       font-size:{{ section.settings.banner_font_size_button_tablet }}px;
+      line-height: 100px;
     }
     {% for block in section.blocks %}
       #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
@@ -1077,11 +1094,11 @@
         height:{{ block.settings.vasta_button_height_tablet }}px;
       }
     {% endfor %}
-
+ 
     #shopify-section-{{ section.id }} {
       --custom-text-x:{{ section.settings.custom_text_tablet_x }}%;
       --custom-text-y:{{ section.settings.custom_text_tablet_y }}%;
-      --custom-text-font-size: {{ section.settings.custom_text_tablet }};
+      --custom-text-font-size: {{ section.settings.custom_text_tablet }}px;
     }
   }
 
@@ -1092,7 +1109,7 @@
     top:{{ block.settings.vasta_button_vertical_position_mobile }}%
   }
   #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }}.btn-v {
-    max-width: {{ block.settings.vasta_button_max_width }}px;
+    max-width: {{ block.settings.vasta_button_max_width | plus: 5  }}px;
   }
   #shopify-section-{{ section.id }} #Banner1Btn-{{ forloop.index }}-{{ section.id }} {
     height:{{ block.settings.vasta_button_height_mobile }}px;
@@ -1124,7 +1141,11 @@
   #shopify-section-{{ section.id }} {
     --custom-text-x:{{ section.settings.custom_text_mobile_x }}%;
     --custom-text-y:{{ section.settings.custom_text_mobile_y }}%;
-    --custom-text-font-size: {{ section.settings.custom_text_mobile }};
+    --custom-text-font-size: {{ section.settings.custom_text_mobile }}px;
+  }
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-title,
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title {
+    text-align: center;
   }
 }
 

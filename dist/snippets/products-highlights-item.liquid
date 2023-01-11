@@ -16,9 +16,9 @@
     <div class="products-highlights__hero-product"> 
         <div class="products-highlights__hero-product-content">
             {% if product_title != blank %}
-                <div class="products-highlights__product-title customHeadline3">
+                <h2 class="products-highlights__product-title customHeadline3">
                     {{ product_title }}
-                </div>
+                </h2>
             {% endif %}
             {% if product_metafield != blank %}
                 <div class="products-highlights__metafield customHeadline4">
@@ -26,7 +26,7 @@
                 </div>
             {% endif %}
             {% if toggle_content != blank and toggle_content_label != blank %}
-                <button source="{{ source }}" class="products-highlights__more-details customHeadline4" type="button" name="products-highlights__cta-open" title="open">
+                <button source="{{ source }}" class="products-highlights__more-details" type="button" name="products-highlights__cta-open" title="open">
                     {{ toggle_content_label }}
                 </button>
             {% endif %}

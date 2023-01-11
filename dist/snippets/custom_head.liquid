@@ -3,7 +3,13 @@
   	Font Sharp Grotesk Book Setup
   {% endcomment %}
 
-
+	@font-face {
+		font-family: "SharpGroteskMediumItalic";
+		src: url('{{ 'SharpGroteskMediumItalic20.woff' | asset_url }}'),
+		url('{{ 'SharpGrotesk-MediumItalic20.otf' | asset_url }}') format("opentype");
+		font-weight: 600;
+		font-style: italic;
+	}
   	@font-face {
 		font-family: "SharpGroteskMedium";
 		src: url('{{ 'SharpGrotesk-SemiBold20.otf' | asset_url }}') format("opentype");
@@ -16,12 +22,6 @@
 		font-weight: 500;
 	}
    @font-face {
-		font-family: "SharpGroteskBook";
-		src: url('{{ 'SharpGroteskBook20.woff' | asset_url }}'),
-		url('{{ 'SharpGrotesk-Book20.otf' | asset_url }}') format("opentype");
-		font-weight: 400;
-	}
-   @font-face {
 		font-family: "SharpGroteskBookItalic";
 		src: url('{{ 'SharpGroteskBookItalic20.woff' | asset_url }}'),
 		url('{{ 'SharpGrotesk-Light20.otf' | asset_url }}') format("opentype");
@@ -29,12 +29,16 @@
 		font-style: italic;
    }
    @font-face {
-		font-family: "SharpGroteskMediumItalic";
-		src: url('{{ 'SharpGroteskMediumItalic20.woff' | asset_url }}'),
-		url('{{ 'SharpGrotesk-MediumItalic20.otf' | asset_url }}') format("opentype");
-		font-weight: 600;
-		font-style: italic;
-   }
+		font-family: "SharpGroteskBook";
+		src: url('{{ 'SharpGroteskMedium20.woff' | asset_url }}'),
+		url('{{ 'SharpGrotesk-Medium20.otf' | asset_url }}') format("opentype");
+		font-weight: 400;
+	}
+	@font-face {
+		font-family: "SharpGroteskBook";
+		src: url('{{ 'SharpGrotesk-Light20.otf' | asset_url }}') format("opentype");
+		font-weight: 300;
+	}
    @font-face {
 		font-family: "HelveticaNeueLight";
 		src: url('{{ 'HelveticaNeue-Light.otf' | asset_url }}') format("opentype");
@@ -110,10 +114,6 @@
    }
 	.customHeadline6 {
 		
-	}
-	body .shipping-bar__message,
-	body .shipping-bar__message span {
-		{{ headline4 }}
 	}
    	body .banner-titles {
 		font-family: var(--headerFont) !important;

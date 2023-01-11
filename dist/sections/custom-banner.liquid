@@ -26,7 +26,9 @@
                         <p class="block-reviews__name">{{ block.settings.review_name }}</p>
                         <div class="block-reviews__stars">
                           {%- for i in (1..block.settings.review_stars) -%}
-                              {%- render "icon-star" -%}
+                            <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 0L7.34708 4.1459H11.7063L8.17963 6.7082L9.52671 10.8541L6 8.2918L2.47329 10.8541L3.82037 6.7082L0.293661 4.1459H4.65292L6 0Z" fill="#ECB42E"/>
+                            </svg>
                           {%- endfor -%}
                         </div>
                     </div>
@@ -1318,7 +1320,7 @@
 }
 
 #shopify-section-{{ section.id }} .block-reviews__infos {
-    text-align: center;
+    text-align: left;
 }
 
 #shopify-section-{{ section.id }} .block-reviews__content {
@@ -1360,9 +1362,18 @@
   line-height: 120%;
 }
 
+#shopify-section-{{ section.id }} .block-reviews__name {
+  font-size: 16px;
+  line-height: 87.8%;
+}
+
 @media screen and (max-width: 1019px) {
   #shopify-section-{{ section.id }} .block-reviews__content {
     font-size: {{ section.settings.block_review_font_size_tablet }}px;
+    line-height: 120%;
+  }
+  #shopify-section-{{ section.id }} .block-reviews__name {
+    font-size: 14px;
     line-height: 120%;
   }
 }
@@ -1371,6 +1382,10 @@
   #shopify-section-{{ section.id }} .block-reviews__content {
     font-size: {{ section.settings.block_review_font_size_mobile }}px;
     line-height: 120%;
+  }
+  #shopify-section-{{ section.id }} .block-reviews__name {
+    font-size: 12px;
+    line-height: 100%;
   }
 }
 
@@ -1463,6 +1478,7 @@
   {% if section.settings.vasta_buttons_hover_effect == 'none' %}
   transition: unset;
   {% endif %}
+  letter-spacing: normal;
 }
 
 @media screen and (min-width: 767px) {
@@ -1498,12 +1514,21 @@
   color:{{ section.settings.banner_titcolor }};
   font-size: {{ section.settings.main_banner_headline_size | divided_by: 16.0 }}rem;
   text-align: {{ section.settings.vasta_headline_align }};
+  line-height: 87.8%;
+  font-weight: 500;
 }
 #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
 #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
   font-size: {{ section.settings.main_banner_sub_headline_size | divided_by: 16.0 }}rem;
   color:{{ section.settings.banner_sub_titcolor }};
   text-align: {{ section.settings.vasta_headline_align }};
+  line-height: 120%;
+}
+@media screen and (min-width: 1020px) {
+  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title {
+    font-weight: 300;
+    margin-top: -8px;
+  }
 }
 #shopify-section-{{ section.id }} .btn-v,
 #shopify-section-{{ section.id }} .custom__help-text {
@@ -1547,6 +1572,9 @@
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
       font-size: {{ section.settings.main_banner_sub_headline_size_tablet | divided_by: 16.0 }}rem;
+    }
+    .banner-titles .banner-title + .banner-titles .banner-sub-title {
+      margin-top: 5px;
     }
     #shopify-section-{{ section.id }} .btn-v,
     #shopify-section-{{ section.id }} .custom__help-text  {
