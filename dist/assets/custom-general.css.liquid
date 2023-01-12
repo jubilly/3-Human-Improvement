@@ -130,7 +130,7 @@ body .custom-uvp-section .shipping-body-text {
   line-height: 120%;
 }
 
-/* Feauted Collection */
+/* Featured Collection */
 body .featured-collection .grid__item-title {
   font-size: 16px;
   line-height: 87.8%;
@@ -147,22 +147,52 @@ body .featured-collection .grid__item-subtitle {
   width: 100%;
 }
 
+body .featured-products-custom .featured-collection__wrapper {
+  padding-bottom: 28px;
+}
+
+body .featured-products-custom .featured-collection__title {
+  padding: 54px 0 22px;
+}
+
+body .featured-products-custom .grid__item-title {
+  margin-top: 11px;
+}
+
+.products-highlights__product-image-content .grid_hero-image-shadow,
+body .featured-products-custom .grid_hero-image-shadow {
+  width: 48px;
+  height: 3px;
+  border-radius: 50% !important;
+  background: #dcdcdc !important;
+  box-shadow: -1px 1px 11px 3px #e1e1e1;
+  display: block;
+  background: #c1c1c1;
+  border-radius: 72px;
+  margin: 7.5px auto auto;
+}
+
 /* Footer */
+body .site-footer {
+  padding: 27.21px 0;
+}
 body .site-footer .wrapper {
   flex-direction: row-reverse;
   max-width: 100%;
   width: 100%;
+  gap: 4.5%;
 }
 body .site-footer .wrapper .copyright-class,
 body .site-footer .credits p a {
   text-transform: uppercase;
-  color: #878787;
+  color: #000;
 }
 body .site-footer .wrapper .half-content {
-  width: 27%;
+  width: 279px;
 }
+
 body .custom__info-social-medias a > svg {
-  width: 16px;
+  height: 24px;
 }
 body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group {
   flex: 1 0 50%;
@@ -171,7 +201,10 @@ body .half-content.last-half.direction-last-half {
   width: 60%;
 }
 body .site-footer .wrapper > div.half-content {
+  padding: 0;
   justify-content: flex-start;
+  align-items: flex-start;
+  align-content: baseline;
 }
 body .site-footer .wrapper .last-half .grid__item {
   width: auto;
@@ -197,10 +230,16 @@ body .popular_collections_title {
   width: 100%;
   display: block;
 }
+body .site-footer .wrapper .last-half .grid__item li {
+  line-height: 15px;
+}
+body .site-footer .wrapper a {
+  line-height: 200%;
+}
 body .site-footer .wrapper .popular-collection-links a {
   width: 80px;
   height: 92px;
-  margin: 17px 19px 0 0;
+  margin: 6px 19px 0 0;
   padding-top: 92px;
   overflow: hidden;
   text-align: center;
@@ -209,6 +248,7 @@ body .site-footer .wrapper .popular-collection-links a {
 body .site-footer .wrapper .popular-collection-links a .popular_collections_text {
   line-height: 17px;
   text-transform: capitalize;
+  font-weight: 400;
 }
 body .site-footer .wrapper .popular-collection-links img {
   top: 7px;
@@ -220,19 +260,41 @@ body .site-footer .wrapper .popular-collection-links img {
 body .site-footer .wrapper > .half-content:first-child .popular_collections_title,
 body .site-footer .wrapper > .half-content:first-child .news_letter_title {
   text-transform: capitalize;
+  font-weight: 500;
 }
+
+body .site-footer .wrapper > .half-content:first-child .news_letter_title {
+  line-height: 87.8%;
+}
+
+body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
+  margin-top: 0;
+}
+
+body .site-footer .wrapper .popular-collection-links {
+  padding: 0;
+}
+
+body .newsletter-klaviyo .email-signup-form {
+  margin-bottom: 27px;
+}
+
+body .info__custom-image {
+  max-width: 396.32px;
+}
+
 body .site-footer .wrapper > .half-content:first-child .news_letter_title {
   text-align: center;
   margin-bottom: 19px;
 }
 body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input {
-  height: 28px;
+  height: auto;
   padding: 0 12px;
   background: transparent;
   font-size: 10px;
 }
 body .newsletter-klaviyo .email-signup-form {
-  border: 1px solid #C9C9C9;
+  border: 1px solid #D9D9D9;
   border-radius: 18px;
   border-right: none;
   height: 31px;
@@ -263,7 +325,7 @@ body .custom__info-social-medias {
   align-items: center;
   width: 502px;
   border-top: 1px solid;
-  padding: 15px 0;
+  padding: 20px 0 32px;
   margin-top: 11px;
 }
 body .custom__info-social-medias a > svg {
@@ -274,6 +336,7 @@ body .footer__custom-email {
   display: flex;
   align-items: center;
   color: #000;
+  text-transform: lowercase;
 }
 body .site-footer .credits .wrapper {
   text-align: center;
@@ -283,6 +346,10 @@ body .site-footer .credits p {
   width: 100%;
 }
 
+/* Custom Area */
+.custom-area--desktop {
+  max-height: 122px;
+}
 /*----------
 ############
 ## DESKTOP #
@@ -292,7 +359,14 @@ body .site-footer .credits p {
 /* Featured Collection */
 
 @media screen and (max-width: 1279px) {
-  .featured-products-custom .grid-uniform--s4 .grid__item {}
+  body .featured-products-custom .grid-uniform.grid-uniform--s4 .grid__item-image-wrapper {
+    padding-top: 185px;
+  }
+
+  body .featured-products-custom .grid-uniform--s4 .grid__item {
+    flex-basis: 20%;
+  }
+
 }
 
 /* Shipping bar */
@@ -457,6 +531,10 @@ body .site-footer .credits p {
     font-size: 30px;
     padding: 45px 0 20px;
   }
+  body .featured-products-custom .grid-uniform.grid-uniform--s4 .grid__item-image-wrapper {
+    padding-top: 175px;
+  }
+
   body .featured-collection .grid__item-title {
     font-size: 30px;
     line-height: 120%;
@@ -469,8 +547,6 @@ body .site-footer .credits p {
     color: #000;
   }
 }
-
-
 
 /* Reviews */
 
@@ -546,25 +622,26 @@ body .site-footer .credits p {
   body .site-footer .wrapper > .half-content:first-child .news_letter_title {
     text-align: center;
     margin-bottom: 14px;
+    font-weight: 500;
   }
   body .newsletter-klaviyo.full {
     margin: auto;
     width: 100%;
   }
-  body .newsletter-klaviyo .email-signup-form,
-  body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input {
+  body .newsletter-klaviyo .email-signup-form {
     height: 25px;
+    margin-bottom: 19px;
   }
   body .newsletter-klaviyo .email-signup-form .klaviyo_form_actions button {
     font-weight: 400;
     font-size: 14px;
     line-height: 87.8%;
     padding: 6px 8px;
-    height: auto;
+    height: 24px;
   }
   body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_actions button,
   body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_form_actions {
-    flex: 0 0 50%;
+    flex: 0 0 137px;
   }
   body .site-footer .wrapper .popular-collection-links a {
     width: 75px;
@@ -588,6 +665,9 @@ body .site-footer .credits p {
   body .site-footer .wrapper .last-half .grid__item {
     margin-bottom: 15px;
     width: 100%;
+  }
+  body .site-footer .wrapper .last-half .grid__item:last-child {
+    margin: 0;
   }
   body .site-footer .wrapper .last-half .nav-title {
     display: flex;
@@ -613,9 +693,15 @@ body .site-footer .credits p {
   body .site-footer .wrapper .no-bullets {
     margin-top: 20px;
     text-align: left;
+    margin-top: 10px !important;
+    margin-bottom: 0 !important;
+    height: auto !important;
+  }
+  body .site-footer .wrapper .no-bullets .footer-menu-item:last-child {
+    margin-bottom: 0;
   }
   body .site-footer .wrapper .no-bullets .footer-menu-item {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   body .site-footer .wrapper a {
     font-weight: 500;
@@ -623,8 +709,11 @@ body .site-footer .credits p {
     line-height: 120%;
     color: #6e6e6e;
   }
+  body .custom__info-social-medias a > svg {
+    height: 12px;
+  }
   body .custom__info {
-    margin-top: 66px;
+    margin-top: 39px;
     margin-bottom: 22px;
   }
   body .custom-icon__minus {
@@ -782,6 +871,12 @@ body .site-footer .credits p {
   }
   body .featured-collection .grid__item-subtitle {
     font-size: 12px;
+  }
+  body .featured-products-custom .grid-uniform.grid-uniform--s4 .grid__item-image-wrapper {
+    padding-top: 125px;
+  }
+  body .featured-products-custom .grid_hero-image-shadow {
+    margin-top: 7.5px;
   }
 }
 

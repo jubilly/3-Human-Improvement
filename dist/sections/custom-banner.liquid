@@ -1569,16 +1569,17 @@
 
 /**@media queries**/
 @media (max-width: 1019px) {
-  #shopify-section-{{ section.id }} {
-    --custom-text-x:{{ section.settings.custom_text_tablet_x }}%;
-    --custom-text-y:{{ section.settings.custom_text_tablet_y }}%;
-    --custom-text-font-size: {{ section.settings.custom_text_tablet }};
-  }
+    #shopify-section-{{ section.id }} {
+      --custom-text-x:{{ section.settings.custom_text_tablet_x }}%;
+      --custom-text-y:{{ section.settings.custom_text_tablet_y }}%;
+      --custom-text-font-size: {{ section.settings.custom_text_tablet }};
+    }
 
-  #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
-    top:{{ section.settings.vasta_title_vertical_position_tablet }}%;
-    left:{{ section.settings.vasta_title_horizontal_position_tablet }}%;
-    width: {{ section.settings.banner_tablet_width }}%;
+    #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles{
+      top:{{ section.settings.vasta_title_vertical_position_tablet }}%;
+      left:{{ section.settings.vasta_title_horizontal_position_tablet }}%;
+      width: {{ section.settings.banner_tablet_width }}%;
+      padding: 0;
     }
     #shopify-section-{{ section.id }} .homepage-style-1 .banner-img.banner-padding-top-tablet {
       padding-top: {{ paddingTopTablet }}%;
@@ -1590,6 +1591,9 @@
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title,
     #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title *{
       font-size: {{ section.settings.main_banner_sub_headline_size_tablet | divided_by: 16.0 }}rem;
+    }
+    #shopify-section-{{ section.id }} .custom-banner--dashed .banner-titles .banner-sub-title {
+      font-weight: 500;
     }
     .banner-titles .banner-title + .banner-titles .banner-sub-title {
       margin-top: 5px;
