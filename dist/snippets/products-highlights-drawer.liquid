@@ -1,8 +1,14 @@
+{% assign product_title = custom_title %}
+{% if custom_title == blank %}
 {% assign product_title = productTarget.title %}
+{% endif %}
 {% assign product_link = productTarget.url %}
 {% assign product_description = productTarget.description %}
 {% assign product_metafield = productTarget.metafields.custom.custom_subtitle %}
+{%- assign product_image = custom_image -%}
+{% if custom_image == blank %}
 {%- assign product_image = productTarget.selected_or_first_available_variant.image | default: productTarget.featured_image -%}
+{% endif %}
 {% assign productURL = productTarget.url %}
 
 {% capture drawerUvps %}
@@ -60,7 +66,10 @@
                 {{ background_icon }}
             </div>
             <div class="products-highlights__hero-image products-highlights__hero-image--tablet-up">
-                {{ background_icon_mobile_tablet }}
+                {{ background_icon_tablet }}
+            </div>
+            <div class="products-highlights__hero-image products-highlights__hero-image--mobile-up">
+                {{ background_icon_mobile }}
             </div>
         {% endif %}
         <div class="products-highlights__hero-product">
@@ -84,6 +93,9 @@
                             image_class: 'products-highlights__product-image',
                             active_lazy: lazy_load
                         -%}
+                        <span class="products-highlights__hero-image-shadow">
+                            {{ background_shadow }}
+                        </span>
                     </div>
                 {% endif %}
             </div>
@@ -96,7 +108,9 @@
                 {{ product_description }}
             </div>
         {% elsif enable_custom_description %}
-            {{ custom_description }}
+            <div class="products-highlights__description customBody4">
+                {{ custom_description }}
+            </div>
         {% endif %}
         {% if enable_product_link == true and enable_product_link_label != blank %}
             <div class="products-highlights__link">
@@ -110,6 +124,11 @@
                 {{ drawerUvps }}
             </div>
         {% endif %}
+    </div>
+    <div class="products-highlights__link--mobile">
+        <a href="{{ product_link }}" class="products-highlights__cta-link customHeadline4" target="{{ section.settings.button_link_target }}" aria-hidden="false" title="{{ section.settings.enable_product_link_label }}"> 
+            {{ enable_product_link_label }}
+        </a>
     </div>
     {% if enable_badge and text_badge != blank %}
         <div class="products-highlights__badge products-highlights__badge-{{ source }}">

@@ -16,7 +16,7 @@
         {%- when 5 -%}
             {%- assign iconsPerRowDesktop = 20 -%}
         {%- else -%}
-            {%- assign iconsPerRowDesktop = 16.6 -%}
+            {%- assign iconsPerRowDesktop = 15.9 -%}
     {%- endcase -%}
 
     {%- assign iconsPerRowTablet = 0 -%}
@@ -72,11 +72,15 @@
         --product2-background-badge-background: {{ section.settings.product2_badge_background }};
         --product2-background-badge-label: {{ section.settings.product2_badge_label }};
         --drawer-description-height: {{ section.settings.drawer_description_height }}px;
+        --drawer-description-height-tablet: {{ section.settings.drawer_description_height_tablet }}px;
+        --drawer-description-height-mobile: {{ section.settings.drawer_description_height_mobile }}px;
     }
     #shopify-section-{{ section.id }} .products-highlights__uvps {
         display: flex;
         align-items: baseline;
-        justify-content: space-between;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        width: 100%;
     }
     #shopify-section-{{ section.id }} .products-highlights__uvps-content {
         display: flex;
@@ -85,11 +89,17 @@
         justify-content: center;
     }
     #shopify-section-{{ section.id }} .uvp-text-container { 
-        margin: 6px;
+        margin: 5px 0;
     }
 
     #shopify-section-{{ section.id }} .products-highlights__uvps-title {
         text-align: center;
+        font-weight: 500;
+        line-height: 16px;
+        font-size: 16px;
+        max-width: 80px;
+        width: auto;
+        word-break: break-word;
     }
     #shopify-section-{{ section.id }} .products-highlights__uvps-content svg {
         height: 40px;
@@ -111,7 +121,10 @@
             --button-link-x:{{ section.settings.button_link_tablet_x }}%;
             --button-link-y:{{ section.settings.button_link_tablet_y }}%;
         }
-        
+        #shopify-section-{{ section.id }} .products-highlights__uvps {
+            justify-content: space-evenly;
+            padding: 0 40px;
+        }
         #shopify-section-{{ section.id }} .products-highlights__uvps-content {
             flex: 0 0 {{ iconsPerRowTablet }}%;
         }
@@ -120,11 +133,28 @@
             margin-top: 6px;
             {% endif %}
         }
+        #shopify-section-{{ section.id }} .uvp-text-container { 
+            margin: 4px 0 9px;
+            width: 80%;
+        }
+        #shopify-section-{{ section.id }} .products-highlights__uvps-content svg {
+            height: 30px;
+            width: 30px;
+        }
+
+        #shopify-section-{{ section.id }} .products-highlights__uvps-title {
+            font-weight: 400;
+            font-size: 10px;
+            line-height: 10px;
+        }
     }
     @media (max-width: 767px) {
         #shopify-section-{{ section.id }} {
             --button-link-x:{{ section.settings.button_link_mobile_x }}%;
             --button-link-y:{{ section.settings.button_link_mobile_y }}%;
+        }
+        #shopify-section-{{ section.id }} .products-highlights__uvps {
+            display: none;
         }
         #shopify-section-{{ section.id }} .products-highlights__uvps-content {
             flex: 0 0 {{ iconsPerRowMobile}}%;
@@ -179,24 +209,99 @@
         </svg>
 {% endcapture %}
 
-{% capture background1_mobile_tablet %}
-    <svg width="383" height="590" viewBox="0 0 383 590" fill="none" xmlns="http://www.w3.org/2000/svg">
-       <path d="M0 -63.5468H157.267V472.773H0V-63.5468Z" fill="{{ product1_background_svg_color }}"/>
-       <path d="M233.884 664.149H391.15V127.83H233.884V664.149Z" fill="{{ product1_background_svg_color }}"/>
-       <path d="M157.267 616.97C157.267 660.398 122.061 695.604 78.6333 695.604C35.2053 695.604 0 660.398 0 616.97C0 573.542 35.2053 538.337 78.6333 538.337C122.061 538.337 157.267 573.542 157.267 616.97Z" fill="{{ product1_background_svg_color }}"/>
-       <path d="M391.15 -16.3667C391.15 -59.7947 355.945 -95 312.517 -95C269.089 -95 233.884 -59.7947 233.884 -16.3667C233.884 27.0613 269.089 62.2667 312.517 62.2667C355.945 62.2667 391.15 27.0613 391.15 -16.3667Z" fill="{{ product1_background_svg_color }}"/>
+{% capture background1_tablet %}
+    <svg width="383" height="465" viewBox="0 0 383 465" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 -69.5468H157.267V466.773H0V-69.5468Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M233.884 658.149H391.15V121.83H233.884V658.149Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M157.267 610.97C157.267 654.398 122.061 689.604 78.6333 689.604C35.2053 689.604 0 654.398 0 610.97C0 567.542 35.2053 532.337 78.6333 532.337C122.061 532.337 157.267 567.542 157.267 610.97Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M391.15 -22.3667C391.15 -65.7947 355.945 -101 312.517 -101C269.089 -101 233.884 -65.7947 233.884 -22.3667C233.884 21.0613 269.089 56.2667 312.517 56.2667C355.945 56.2667 391.15 21.0613 391.15 -22.3667Z" fill="{{ product1_background_svg_color }}"/>
     </svg>
 {% endcapture %}
 
-{% capture background2_mobile_tablet %}
-    <svg width="383" height="590" viewBox="0 0 383 590" fill="none" xmlns="http://www.w3.org/2000/svg">
-       <path d="M0 -63.5468H157.267V472.773H0V-63.5468Z" fill="{{ product2_background_svg_color }}"/>
-       <path d="M233.884 664.149H391.15V127.83H233.884V664.149Z" fill="{{ product2_background_svg_color }}"/>
-       <path d="M157.267 616.97C157.267 660.398 122.061 695.604 78.6333 695.604C35.2053 695.604 0 660.398 0 616.97C0 573.542 35.2053 538.337 78.6333 538.337C122.061 538.337 157.267 573.542 157.267 616.97Z" fill="{{ product2_background_svg_color }}"/>
-       <path d="M391.15 -16.3667C391.15 -59.7947 355.945 -95 312.517 -95C269.089 -95 233.884 -59.7947 233.884 -16.3667C233.884 27.0613 269.089 62.2667 312.517 62.2667C355.945 62.2667 391.15 27.0613 391.15 -16.3667Z" fill="{{ product2_background_svg_color }}"/>
+{% capture background2_tablet %}
+    <svg width="383" height="465" viewBox="0 0 383 465" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 -69.5468H157.267V466.773H0V-69.5468Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M233.884 658.149H391.15V121.83H233.884V658.149Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M157.267 610.97C157.267 654.398 122.061 689.604 78.6333 689.604C35.2053 689.604 0 654.398 0 610.97C0 567.542 35.2053 532.337 78.6333 532.337C122.061 532.337 157.267 567.542 157.267 610.97Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M391.15 -22.3667C391.15 -65.7947 355.945 -101 312.517 -101C269.089 -101 233.884 -65.7947 233.884 -22.3667C233.884 21.0613 269.089 56.2667 312.517 56.2667C355.945 56.2667 391.15 21.0613 391.15 -22.3667Z" fill="{{ product2_background_svg_color }}"/>
     </svg>
 {% endcapture %}
 
+{% capture background1_mobile %}
+    <svg width="191" height="355" viewBox="0 0 191 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.000167911 -37.8979H76.8906V284.733H0.000167911V-37.8979Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M191.24 399.859H114.35V77.2276H191.24V399.859Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M76.8904 371.478C76.8904 397.602 59.6779 418.781 38.4452 418.781C17.2125 418.781 0 397.602 0 371.478C0 345.353 17.2125 324.174 38.4452 324.174C59.6779 324.174 76.8904 345.353 76.8904 371.478Z" fill="{{ product1_background_svg_color }}"/>
+        <path d="M114.35 -9.51601C114.35 -35.6408 131.563 -56.8191 152.795 -56.8191C174.028 -56.8191 191.241 -35.6408 191.241 -9.51601C191.241 16.6088 174.028 37.7871 152.795 37.7871C131.563 37.7871 114.35 16.6088 114.35 -9.51601Z" fill="{{ product1_background_svg_color }}"/>
+    </svg>
+{% endcapture %}
+
+
+{% capture background2_mobile %}
+    <svg width="191" height="355" viewBox="0 0 191 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.000167911 -37.8979H76.8906V284.733H0.000167911V-37.8979Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M191.24 399.859H114.35V77.2276H191.24V399.859Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M76.8904 371.478C76.8904 397.602 59.6779 418.781 38.4452 418.781C17.2125 418.781 0 397.602 0 371.478C0 345.353 17.2125 324.174 38.4452 324.174C59.6779 324.174 76.8904 345.353 76.8904 371.478Z" fill="{{ product2_background_svg_color }}"/>
+        <path d="M114.35 -9.51601C114.35 -35.6408 131.563 -56.8191 152.795 -56.8191C174.028 -56.8191 191.241 -35.6408 191.241 -9.51601C191.241 16.6088 174.028 37.7871 152.795 37.7871C131.563 37.7871 114.35 16.6088 114.35 -9.51601Z" fill="{{ product2_background_svg_color }}"/>
+    </svg>
+{% endcapture %}
+
+{% capture drawer_background_tablet %}
+    <svg width="767" height="465" viewBox="0 0 767 465" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_5_2)">
+        <rect x="383" y="-18" width="384" height="483" fill="#F8F8F8"/>
+        <rect y="-18" width="383" height="483" fill="white"/>
+        <mask id="mask0_5_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="236" y="0" width="531" height="465">
+        <path d="M236 0H767V465H236V0Z" fill="#F8F8F8"/>
+        </mask>
+        <g mask="url(#mask0_5_2)">
+        <path d="M376 -49.6526H533.267V373.04H376V-49.6526Z" fill="white"/>
+        <path d="M767.15 523.871H609.884V101.178H767.15V523.871Z" fill="white"/>
+        <path d="M533.267 486.687C533.267 520.914 498.061 548.661 454.633 548.661C411.205 548.661 376 520.914 376 486.687C376 452.46 411.205 424.714 454.633 424.714C498.061 424.714 533.267 452.46 533.267 486.687Z" fill="white"/>
+        <path d="M609.884 -12.4682C609.884 -46.6953 645.089 -74.4419 688.517 -74.4419C731.945 -74.4419 767.15 -46.6953 767.15 -12.4682C767.15 21.759 731.945 49.5055 688.517 49.5055C645.089 49.5055 609.884 21.759 609.884 -12.4682Z" fill="white"/>
+        </g>
+        <mask id="mask1_5_2" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="383" height="465">
+        <path d="M383 0H0V465H383V0Z" fill="white"/>
+        </mask>
+        <g mask="url(#mask1_5_2)">
+        <path d="M0 -50.0835H157.267V372.609H0V-50.0835Z" fill="#F8F8F8"/>
+        <path d="M233.884 523.439H391.15V100.747H233.884V523.439Z" fill="#F8F8F8"/>
+        <path d="M157.267 486.256C157.267 520.483 122.061 548.23 78.6333 548.23C35.2053 548.23 0 520.483 0 486.256C0 452.029 35.2053 424.283 78.6333 424.283C122.061 424.283 157.267 452.029 157.267 486.256Z" fill="#F8F8F8"/>
+        <path d="M391.15 -12.8992C391.15 -47.1263 355.945 -74.8729 312.517 -74.8729C269.089 -74.8729 233.884 -47.1263 233.884 -12.8992C233.884 21.328 269.089 49.0746 312.517 49.0746C355.945 49.0746 391.15 21.328 391.15 -12.8992Z" fill="#F8F8F8"/>
+        </g>
+        </g>
+        <defs>
+        <clipPath id="clip0_5_2">
+        <rect width="767" height="465" fill="white"/>
+        </clipPath>
+        </defs>
+    </svg>
+{% endcapture %}
+
+{% capture drawer_background_mobile %}
+    <svg width="375" height="356" viewBox="0 0 375 356" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="171" y="0.92334" width="204" height="354.854" fill="#F8F8F8"/>
+        <rect y="0.92334" width="187.255" height="354.924" fill="white"/>
+        <mask id="mask0_1191_1613" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="188" height="356">
+        <rect y="0.92334" width="187.5" height="354.924" fill="white"/>
+        </mask>
+        <g mask="url(#mask0_1191_1613)">
+        <path d="M0 -36.9738H76.8904V285.657H0V-36.9738Z" fill="#F8F8F8"/>
+        <path d="M114.349 400.783H191.24V78.1517H114.349V400.783Z" fill="#F8F8F8"/>
+        <path d="M76.8904 372.402C76.8904 398.527 59.6779 419.705 38.4452 419.705C17.2125 419.705 0 398.527 0 372.402C0 346.277 17.2125 325.099 38.4452 325.099C59.6779 325.099 76.8904 346.277 76.8904 372.402Z" fill="#F8F8F8"/>
+        <path d="M191.24 -8.59193C191.24 -34.7167 174.027 -55.895 152.795 -55.895C131.562 -55.895 114.35 -34.7167 114.35 -8.59193C114.35 17.5328 131.562 38.7112 152.795 38.7112C174.027 38.7112 191.24 17.5328 191.24 -8.59193Z" fill="#F8F8F8"/>
+        </g>
+        <mask id="mask1_1191_1613" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="171" y="0" width="204" height="356">
+        <rect x="171" y="0.92334" width="204" height="354.854" fill="#F8F8F8"/>
+        </mask>
+        <g mask="url(#mask1_1191_1613)">
+        <path d="M184 -36.9748H260.891V285.656H184V-36.9748Z" fill="white"/>
+        <path d="M375.24 400.782H298.35V78.1507H375.24V400.782Z" fill="white"/>
+        <path d="M260.89 372.401C260.89 398.525 243.678 419.704 222.445 419.704C201.213 419.704 184 398.525 184 372.401C184 346.276 201.213 325.098 222.445 325.098C243.678 325.098 260.89 346.276 260.89 372.401Z" fill="white"/>
+        <path d="M298.35 -8.59291C298.35 -34.7177 315.563 -55.896 336.795 -55.896C358.028 -55.896 375.241 -34.7177 375.241 -8.59291C375.241 17.5319 358.028 38.7102 336.795 38.7102C315.563 38.7102 298.35 17.5319 298.35 -8.59291Z" fill="white"/>
+        </g>
+    </svg>
+{% endcapture %}
 
 {% capture contentView %}
     {% if section.settings.product1 != blank or section.settings.product2 != blank %}
@@ -207,10 +312,13 @@
                 custom_metafield: section.settings.custom_metafield,
                 background_color: section.settings.product1_background,
                 background_icon: background1,
-                background_icon_mobile_tablet: background1_mobile_tablet,
+                background_icon_tablet: background1_tablet,
+                background_icon_mobile: background1_mobile,
                 lazy_load: section.settings.enable_lazy_load.,
                 toggle_content: section.settings.product1_enable_toggle_content,
                 toggle_content_label: section.settings.product1_toggle_content_label,
+                custom_image: section.settings.product1_image,
+                custom_title: section.settings.product1_custom_title,
             %}
         {% endif %}
         {% if section.settings.product2 != blank %}
@@ -220,10 +328,13 @@
                 custom_metafield: section.settings.custom_metafield,
                 background_color: section.settings.product2_background,
                 background_icon: background2,
-                background_icon_mobile_tablet: background2_mobile_tablet,
+                background_icon_tablet: background2_tablet,
+                background_icon_mobile: background2_mobile,
                 lazy_load: section.settings.enable_lazy_load.,
                 toggle_content: section.settings.product2_enable_toggle_content,
                 toggle_content_label: section.settings.product2_toggle_content_label,
+                custom_image: section.settings.product2_image,
+                custom_title: section.settings.product2_custom_title,
             %}
         {% endif %}
     {% endif %}
@@ -238,7 +349,8 @@
                 custom_metafield: section.settings.custom_metafield,
                 background_color: section.settings.product1_background,
                 background_icon: background1,
-                background_icon_mobile_tablet: background_mobile_tablet,
+                background_icon_tablet: drawer_background_tablet,
+                background_icon_mobile: drawer_background_mobile,
                 lazy_load: section.settings.enable_lazy_load.,
                 toggle_content: section.settings.product1_enable_toggle_content,
                 toggle_content_label: section.settings.product1_toggle_content_label,
@@ -250,7 +362,9 @@
                 this_section_blocks: section.blocks,
                 icons_text_direction: section.settings.icons_text_direction,
                 enable_custom_description: section.settings.product1_enable_custom_description,
-                custom_description: section.settings.product1_custom_description
+                custom_description: section.settings.product1_custom_description,
+                custom_image: section.settings.product1_image,
+                custom_title: section.settings.product1_custom_title,
             %}
         {% endif %}
         {% if section.settings.product2 != blank %}
@@ -260,7 +374,8 @@
                 custom_metafield: section.settings.custom_metafield,
                 background_color: section.settings.product2_background,
                 background_icon: background2,
-                background_icon_mobile_tablet: background_mobile_tablet,
+                background_icon_tablet: drawer_background_tablet,
+                background_icon_mobile: drawer_background_mobile,
                 lazy_load: section.settings.enable_lazy_load.,
                 toggle_content: section.settings.product2_enable_toggle_content,
                 toggle_content_label: section.settings.product2_toggle_content_label,
@@ -272,7 +387,9 @@
                 this_section_blocks: section.blocks,
                 icons_text_direction: section.settings.icons_text_direction,
                 enable_custom_description: section.settings.product2_enable_custom_description,
-                custom_description: section.settings.product2_custom_description
+                custom_description: section.settings.product2_custom_description,
+                custom_image: section.settings.product2_image,
+                custom_title: section.settings.product2_custom_title,
             %}
         {% endif %}
     {% endif %}
@@ -496,6 +613,43 @@
             },
             {
                 "type": "paragraph",
+                "content": "Choose a product"
+            },
+            {
+                "type": "product",
+                "id": "product1",
+                "label": "Product"
+            },
+            {
+                "type": "text",
+                "id": "product1_custom_title",
+                "label": "Custom Title",
+                "info": "if empty, the name of the product will be used"
+            },
+            {
+                "type": "checkbox",
+                "id": "product1_enable_toggle_content",
+                "label": "Enable link to more product details",
+                "info": "When enabled, when the user clicks on the link, the product details will open in a drawer"
+            },
+            {
+                "type": "text",
+                "id": "product1_toggle_content_label",
+                "label": "Link to see more details",
+                "default": "View details"
+            },
+            {
+                "type": "paragraph",
+                "content": "Custom product image"
+            },
+            {
+                "type": "image_picker",
+                "id": "product1_image",
+                "label": "Product Image",
+                "info": "if empty, the image of the product will be used"
+            },
+            {
+                "type": "paragraph",
                 "content": "Badge"
             },
             {
@@ -509,27 +663,6 @@
                 "id": "product1_badge_label",
                 "label": "Label",
                 "default": "#fff"
-            },
-            {
-                "type": "paragraph",
-                "content": "Choose a product"
-            },
-            {
-                "type": "product",
-                "id": "product1",
-                "label": "Product"
-            },
-            {
-                "type": "checkbox",
-                "id": "product1_enable_toggle_content",
-                "label": "Enable link to more product details",
-                "info": "When enabled, when the user clicks on the link, the product details will open in a drawer"
-            },
-            {
-                "type": "text",
-                "id": "product1_toggle_content_label",
-                "label": "Link to see more details",
-                "default": "View details"
             },
             {
                 "type": "header",
@@ -595,6 +728,43 @@
             },
             {
                 "type": "paragraph",
+                "content": "Choose a product"
+            },
+            {
+                "type": "product",
+                "id": "product2",
+                "label": "Product"
+            },
+            {
+                "type": "text",
+                "id": "product2_custom_title",
+                "label": "Custom Title",
+                "info": "if empty, the name of the product will be used"
+            },
+            {
+                "type": "checkbox",
+                "id": "product2_enable_toggle_content",
+                "label": "Enable link to more product details",
+                "info": "When enabled, when the user clicks on the link, the product details will open in a drawer"
+            },
+            {
+                "type": "text",
+                "id": "product2_toggle_content_label",
+                "label": "Link to see more details",
+                "default": "View details"
+            },
+            {
+                "type": "paragraph",
+                "content": "Custom product image"
+            },
+            {
+                "type": "image_picker",
+                "id": "product2_image",
+                "label": "Product Image",
+                "info": "if empty, the image of the product will be used"
+            },
+            {
+                "type": "paragraph",
                 "content": "Badge"
             },
             {
@@ -608,27 +778,6 @@
                 "id": "product2_badge_label",
                 "label": "Label",
                 "default": "#fff"
-            },
-            {
-                "type": "paragraph",
-                "content": "Choose a product"
-            },
-            {
-                "type": "product",
-                "id": "product2",
-                "label": "Product"
-            },
-            {
-                "type": "checkbox",
-                "id": "product2_enable_toggle_content",
-                "label": "Enable link to more product details",
-                "info": "When enabled, when the user clicks on the link, the product details will open in a drawer"
-            },
-            {
-                "type": "text",
-                "id": "product2_toggle_content_label",
-                "label": "Link to see more details",
-                "default": "View details"
             },
             {
                 "type": "header",
@@ -769,7 +918,27 @@
                 "unit": "px",
                 "step": 2,
                 "label": "Description Height",
-                "default": 2
+                "default": 104
+            },
+            {
+                "id": "drawer_description_height_tablet",
+                "type": "range",
+                "min": 0,
+                "max": 200,
+                "unit": "px",
+                "step": 2,
+                "label": "Description Height Tablet",
+                "default": 120
+            },
+            {
+                "id": "drawer_description_height_mobile",
+                "type": "range",
+                "min": 0,
+                "max": 200,
+                "unit": "px",
+                "step": 2,
+                "label": "Description Height Mobile",
+                "default": 100
             }
         ],
         "blocks": [
