@@ -172,6 +172,13 @@ body .featured-products-custom .grid_hero-image-shadow {
   margin: 7.5px auto auto;
 }
 
+/* Product Page */
+
+.template-product .swatch-standard .swatch-value,
+.template-product .swatch-style .swatch-value {
+  background: #fff;
+}
+
 /* Footer */
 body .site-footer {
   padding: 27.21px 0;
@@ -349,6 +356,9 @@ body .site-footer .credits p {
 /* Custom Area */
 .custom-area--desktop {
   max-height: 122px;
+}
+.custom-area--mobile {
+  max-height: 80px;
 }
 /*----------
 ############
@@ -711,6 +721,7 @@ body .site-footer .credits p {
   }
   body .custom__info-social-medias a > svg {
     height: 12px;
+    margin: 0;
   }
   body .custom__info {
     margin-top: 39px;
@@ -909,9 +920,14 @@ body .site-footer .credits p {
   body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input {
     height: 30px;
   }
+  body .site-footer .wrapper .grid__item .newsletter-klaviyo .klaviyo_condensed_styling {
+    margin-bottom: 0;
+  }
   body .site-footer .wrapper > .half-content:first-child .news_letter_title {
     font-size: 12px;
-    line-height: 120%;
+    line-height: 100%;
+    text-align: center;
+    margin-bottom: 6px;
   }
   body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
     font-size: 12px;
@@ -928,15 +944,11 @@ body .site-footer .credits p {
     font-size: 12px;
     line-height: 87.8%;
   }
-  body .site-footer .wrapper > .half-content:first-child .news_letter_title {
-    text-align: center;
-    margin-bottom: 6px;
-  }
   body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
     text-align: left;
   }
   body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
   }
   body .site-footer .wrapper .popular-collection-links {
     justify-content: space-between;
@@ -952,6 +964,9 @@ body .site-footer .credits p {
     margin: 0;
     padding-top: 67px;
   }
+  body .site-footer .wrapper .popular-collection-links a:last-child {
+    margin-right: 0;
+  }
   body .site-footer .wrapper .last-half .nav-title {
     font-size: 12px;
     line-height: 100%;
@@ -961,11 +976,17 @@ body .site-footer .credits p {
     line-height: 120%;
   }
   body .site-footer .wrapper .last-half .grid__item {
-    margin-bottom: 19px;
     padding: 0;
   }
+  body .site-footer .wrapper .last-half .grid__item ul {
+    margin-bottom: 10px;
+  }
+  body .site-footer .menu-footer-grid .footer-menu-item a {
+    font-size: 12px;
+  }
   body .site-footer .wrapper .no-bullets {
-    margin-top: 9px;
+    margin-top: 9px !important;
+    padding: 0;
   }
   body .site-footer .wrapper a {
     font-size: 12px;
@@ -979,14 +1000,14 @@ body .site-footer .credits p {
     width: 100%;
   }
   body .custom__info {
-    margin-top: 0;
+    margin-top: 27px;
   }
   body .info__custom-image {
     max-width: 257px;
   }
   body .footer__custom-telephone p,
   body .footer__custom-email p {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 87.8%;
   }
   body .custom__info-social-medias a > svg {

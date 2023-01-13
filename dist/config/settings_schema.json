@@ -1623,7 +1623,7 @@
         "type": "range",
         "id": "product_price_font_size",
         "min": 16,
-        "max": 32,
+        "max": 60,
         "default": 18,
         "step": 1,
         "unit": "px",
