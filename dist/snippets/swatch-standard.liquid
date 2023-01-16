@@ -13,7 +13,18 @@
                name="swatch_element_standard_option_{{ swatch_index }}"
                {% if swatch_index > 0 and settings.enable_out_of_stock_button == false %} disabled {% endif %}
                required/>
-        <span class="swatch-value" >{{ value }}</span>
+        <span class="swatch-value">
+            {% if value contains "(" %}
+               <span class="swatch-value--large-text">
+                {{ value | split: "(" | first }}
+               </span>
+                <span class="swatch-value--small-text">
+                    ({{ value | split: "(" | last }} 
+                </span>
+            {% else %}
+                {{ value }}
+            {% endif %}    
+        </span>
         <span class="{% if settings.swatch_round_size_product_page %}swatch-value-circle-checked{% else %}swatch-value-checked{% endif %}"></span>
         {%- if settings.enable_tooltip -%}
             <span class="tooltip-standard">{{ val }}</span>

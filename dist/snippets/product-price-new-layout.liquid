@@ -9,7 +9,9 @@
 
 {%- if section.settings.enable_new_layout -%}
     <div class="new-product-price">
-        {%- render 'special-offer-badge' -%}
+        {% if section.settings.enable_special_offer %}
+            {%- render 'special-offer-badge' -%}
+        {% endif %}
 
         <span class="new-current-price" id="product-price" data-product-price="{{ variant.price }}">
             <span class="new-current-price-wrapper">

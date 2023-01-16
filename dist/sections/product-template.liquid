@@ -27,7 +27,23 @@
               <h1 class="product-title no-mobile">
                   {{ product.title }}
               </h1>
-              <a href="#quotes"><div id="scrollToReviews"></div></a>
+              <span class="product-subtitle">
+               {{ product.metafields.custom.custom_subtitle }}
+              </span> 
+              {% if section.settings.enable_custom_review_stars %}
+                <div class="custom-reviews">
+                  <div class="custom-reviews__stars">
+                    {%- for stars in (1..5) -%}
+                      <svg class="rating__star" fill="none" focusable="false" width="{{ width | default: 14 }}" height="{{ height | default: 14 }}" class="{{ icon_class }}" viewBox="0 0 14 13">
+                        <path d="M7 0L8.6458 4.73475L13.6574 4.83688L9.66296 7.86525L11.1145 12.6631L7 9.8L2.8855 12.6631L4.33704 7.86525L0.342604 4.83688L5.3542 4.73475L7 0Z" fill="currentColor"></path>
+                      </svg>
+                    {%- endfor -%}
+                  </div>
+                  <span class="custom-reviews__text">
+                    {{ section.settings.custom_review_text }}
+                  </span>
+                </div>
+              {% endif %}
 
               <div class="no-mobile">
                   {%- if product.metafields.field.short_description != blank and section.settings.select_position_short_description == "before" -%}
@@ -250,6 +266,21 @@ font-size: {{ section.settings.product_per_unit_font_size }}px;
     },
     {
       "type": "header",
+      "content": "Custom Review Stars"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_review_stars",
+      "label": "Enable Custom Review Stars",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_review_text",
+      "label": "Custom Review Text"
+    },
+    {
+      "type": "header",
       "content": "Short Description"
     },
     {
@@ -363,6 +394,11 @@ font-size: {{ section.settings.product_per_unit_font_size }}px;
     {
       "type": "header",
       "content": "Special offer badge"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_special_offer",
+      "label": "Enable Special Offer"
     },
     {
       "type": "text",
@@ -542,7 +578,7 @@ font-size: {{ section.settings.product_per_unit_font_size }}px;
       "type": "range",
       "id": "vasta_copy_badges",
       "min": 8,
-      "max": 15,
+      "max": 18,
       "step": 1,
       "unit": "px",
       "label": "Trust Badge Title Font Size",

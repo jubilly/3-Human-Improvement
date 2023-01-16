@@ -1202,7 +1202,8 @@ i.spr-icon.spr-icon-star-empty,
 }
 .new-current-price-wrapper {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
+	justify-content: center;
 	font-weight: bold;
 	font-size: var(--ProductPriceFontSize);
 	margin: 0 5px;

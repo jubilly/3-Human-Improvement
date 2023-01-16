@@ -47,7 +47,7 @@
               </span>
 
               {%- if title != blank or item.title != blank -%}
-                <h3 class="collection-list__item-title"><a href="{{- item.url -}}" class="collection-list__item-title_link">{{- title | default: item.title -}}</a></h3>
+          <h3 class="collection-list__item-title {% if section.settings.enable_hero_image %}collection-list__item-hero{% endif %}"><a href="{{- item.url -}}" class="collection-list__item-title_link">{{- title | default: item.title -}}</a></h3>
               {%- endif -%}
             </div>
           </div>
@@ -62,10 +62,21 @@
   #shopify-section-{{ section.id }} .collection-list__item {
     border-color: {{ section.settings.border_color_collection_list }};
     width: {{section.settings.products_per_rows_desktop_collection_list}}%;
+    position: relative;
   }
 
   #shopify-section-{{ section.id }} .collection-list__item-title {
     background-color: {{ section.settings.text_bg_color_collection_list }};
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__image-wrapper {
+    padding-top: 327.34px;
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__item-title {
+      position: absolute;
+      left: 0;
+      bottom: 10.17px;
   }
 
   #shopify-section-{{ section.id }} .collection-list__item-title_link {
@@ -83,9 +94,33 @@
       margin-bottom: {{ section.settings.top_margin_featured | times: -1 }}px;
     }
   }
+  @media (max-width: 1019px) {
+  #shopify-section-{{ section.id }} .collection-list__item {
+    width: {{ section.settings.products_per_rows_collection_list_tablet }}%;
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__list {
+    gap: 34px 38px;
+  }
+
+  #shopify-section-{{ section.id }} .collection-list__item-title {
+    position: absolute;
+    left: 0;
+    bottom: 10.17px;
+  }
+}
   @media (max-width: 767px){
     #shopify-section-{{ section.id }}  .collection-list__item {
-      width: {{section.settings.products_per_rows_collection_list}}%;
+      width: {{section.settings.products_per_rows_collection_list }}%;
+    }
+    #shopify-section-{{ section.id }} .collection-list__image-wrapper {
+      padding-top: 204.83px;
+    }
+  
+    #shopify-section-{{ section.id }} .collection-list__list {
+      padding: 0;
+      margin-top: 32px;
+      gap: 21px 24px;
     }
   }
 </style>
@@ -102,7 +137,7 @@
 
   .collection-list__wrapper {
     background-color: #fff;
-    padding-bottom: 25px;
+    padding-bottom: 51px;
   }
 
   .collection-list__list {
@@ -144,9 +179,19 @@
     padding: 10px 0;
   }
 
+  @media (max-width: 1019px) {
+    .collection-list__wrapper {
+      padding-bottom: 50px;
+    }
+  }
+
   @media (max-width: 767px) {
     .collection-list__item {
       width: 49%;
+    }
+    .collection-list__item-title_link {
+      font-size: 16px;
+      line-height: 16px;
     }
   }
 </style>
@@ -223,6 +268,30 @@
       "default": "23.5"
     },
     {
+      "id": "products_per_rows_collection_list_tablet",
+      "label": "Products Per Row Tablet",
+      "type": "select",
+      "options": [
+        {
+          "label": "1 product",
+          "value": "94"
+        },
+        { 
+          "label": "2 products",
+          "value": "34.7"
+        },
+        {
+          "label": "3 products",
+          "value": "29.7"
+        }, 
+        { 
+          "label": "4 products",
+          "value": "20.7"
+        }
+      ],
+      "default": "34.7"
+    },
+    {
       "id": "products_per_rows_collection_list",
       "label": "Products Per Row Mobile",
       "type": "select",
@@ -233,10 +302,10 @@
         },
         {
           "label": "2 products",
-          "value": "49"
-        }
+          "value": "46"
+        } 
       ],
-      "default": "49"
+      "default": "46"
     },
     {
       "type": "select",
@@ -277,6 +346,16 @@
           "label": "Lowercase"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Hero Image"
+    },
+    {
+      "type": "checkbox",
+      "label": "Enable Hero Image",
+      "id": "enable_hero_image",
+      "default": false
     }
   ],
   "blocks": [

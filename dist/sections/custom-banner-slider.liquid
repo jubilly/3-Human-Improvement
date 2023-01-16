@@ -1,0 +1,214 @@
+<style>
+
+.sliders-banner__content {
+    position: relative;
+    max-width: 40rem;
+    height: 26.625rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.sliders-banner__item {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 26.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 1s;
+}
+
+.sliders-banner__actions {
+    position: relative;
+    width: 30%;
+    margin: auto;
+}
+
+.sliders-banner__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.sliders-banner__dot.sliders-banner__active {
+    background: #272727;
+}
+
+.sliders-banner__dot {
+    margin: 0 5px;
+    border-radius: 0.5rem;
+    background: rgba(39,39,39, .5);
+    cursor: pointer;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #D9D9D9;
+}
+
+.sliders-banner__button {
+    width: 8px;
+    height: 16px;
+    cursor: pointer
+    top: 0;
+}
+
+.sliders-banner__button path {
+    stroke: #C9C9C9;
+}
+
+.sliders-banner__prev {
+    position: absolute;
+    left: 0;
+}
+
+.sliders-banner__next {
+    position: absolute;
+    right: 0;
+}
+
+</style>
+<div class="sliders-banner">
+    <div class="sliders-banner__content">
+        {% for block in section.blocks %}
+            <div class="sliders-banner__item">
+                <div class="sliders-banner__image-content">
+                    {%- render 'responsive-image',
+                        id_prefix: 'sliders-banner__image',
+                        image: block.settings.image,
+                        active_lazy: true,
+                        max_width: 400,
+                        no_wrap: true
+                    -%}
+                </div>
+                <div class="sliders-banner__message-text">
+                    {{ block.settings.message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="sliders-banner__actions">
+        {% if section.blocks.size > 0 %}
+            <div class="sliders-banner__dots">
+                {% for block in section.blocks %}
+                    <span class="sliders-banner__dot {% if forloop.index0 == 0 %} sliders-banner__active {% endif %}" data-slide="{{ forloop.index0 }}"></span>
+                {% endfor %}
+            </div>
+            <button class="sliders-banner__button sliders-banner__prev">
+                <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 1L2 9L10 17" stroke="#C9C9C9" stroke-width="2"/>
+                </svg>
+            </button>
+            <button class="sliders-banner__button sliders-banner__next">
+                <svg width="11" height="18" viewBox="0 0 11 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L9 9L1 17" stroke="#C9C9C9" stroke-width="2"/>
+                </svg>
+            </button>
+        {% endif %}
+    </div>
+
+</div>
+{% schema %}
+    {
+        "name": "Sliders Banner Carousel",
+        "class": "sliders-banner",
+        "settings": [
+            {
+                "type": "header",
+                "content": "General Settings"
+            },
+            {
+                "type": "text",
+                "id": "headline",
+                "label": "Headline"
+            },
+            {
+                "type": "range",
+                "id": "slider_speed",
+                "label": "Slider Speed",
+                "max": 40,
+                "min": 1,
+                "unit": "s",
+                "step": 1,
+                "default": 10
+            }
+        ],
+        "blocks": [
+            {
+                "name": "Banner",
+                "type": "Banner",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "image",
+                        "label": "Banner Image"
+                    },
+                    {
+                        "type": "html",
+                        "id": "message",
+                        "label": "Message"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Sliders Banner Carousel",
+                "blocks": [
+                    
+                ]
+            }
+        ]
+    }
+{% endschema %}
+
+<script>
+    const bannerSlider = () => {
+        const carouselSlides = document.querySelectorAll('.sliders-banner__item');
+        const btnPrev = document.querySelector('.sliders-banner__prev');
+        const btnNext = document.querySelector('.sliders-banner__next');
+        const dotsSlide = document.querySelector('.sliders-banner__dots');
+        let currentSlide = 0;
+  
+        const activeDot = function (slide) {
+            document.querySelectorAll('.sliders-banner__dot').forEach(dot => dot.classList.remove('sliders-banner__active'));
+            document.querySelector(`.sliders-banner__dot[data-slide="${slide}"]`).classList.add('sliders-banner__active');
+        };
+
+        activeDot(currentSlide);
+
+        const changeSlide = function (slides) {
+            carouselSlides.forEach((slide, index) => (slide.style.transform = `translateX(${100 * (index - slides)}%)`));
+        };
+
+        changeSlide(currentSlide);
+
+        btnNext.addEventListener('click', function () {
+            currentSlide++; 
+            if (carouselSlides.length - 1 < currentSlide) {
+                currentSlide = 0;
+            };
+            changeSlide(currentSlide);
+            activeDot(currentSlide);
+        });
+
+        btnPrev.addEventListener('click', function () {
+            currentSlide--;
+            if (0 >= currentSlide) {
+                currentSlide = 0;
+            }; 
+            changeSlide(currentSlide);
+            activeDot(currentSlide);
+        });
+
+        dotsSlide.addEventListener('click', function (e) {
+            if (e.target.classList.contains('sliders-banner__dot')) {
+                const slide = e.target.dataset.slide;
+                changeSlide(slide);
+                activeDot(slide);
+            }
+        });
+    };
+    bannerSlider();
+</script>

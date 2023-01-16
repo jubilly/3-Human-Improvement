@@ -3,6 +3,18 @@
     "main": {
       "type": "product-template",
       "blocks": {
+        "29781f98-ca44-4db8-967c-943c3c8b7536": {
+          "type": "tab",
+          "settings": {
+            "title": "INGREDIENTS",
+            "tab_title": "INGREDIENTS",
+            "tab_content": "Organic cricket powder\nOrganic pumpkin protein powder\nOrganic brown rice powder\nOrganic fermented yellow pea protein powder\nNatural vanilla flavor\nPsyllium husk powder\nDairy free coconut\nOrganic flaxseed\nPink Himalayan sea salt\nOrganic stevia\nMonk fruit extract\nMCT powder",
+            "enable_metafield_content": true,
+            "tab_metafield_content": "",
+            "enable_tab_by_tag": false,
+            "tag_name": ""
+          }
+        },
         "7702b0ba-598d-4a48-8524-de80bd4e2b34": {
           "type": "tab",
           "settings": {
@@ -18,10 +30,10 @@
         "3c9528b1-45ad-45c7-86fd-cd9ff25a989b": {
           "type": "trust-badge",
           "settings": {
-            "title": "",
+            "title": "Organic protein",
             "svg_trust_badge_cart": "natural-product",
-            "enable_custom_trust_badge_svg": false,
-            "custom_trust_badge_svg_html": "",
+            "enable_custom_trust_badge_svg": true,
+            "custom_trust_badge_svg_html": "<svg width=\"30\" height=\"55\" viewbox=\"0 0 30 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M16.3748 16.3126V54.5987H13.6677V16.3126H16.3748Z\" fill=\"black\"><\/path>\n<path d=\"M14.741 45.8117C9.80006 44.6563 6.30688 42.7584 3.96188 40.3527C2.02411 38.3649 0.873347 36.0425 0.344403 33.5094C-0.171786 31.0368 -0.0835378 28.3906 0.447722 25.6822C2.18092 16.8469 8.69924 7.18516 14.0458 0.970035L14.8804 0L15.8488 0.808355C22.2551 6.1576 27.563 14.8443 29.1967 23.1718C29.7482 25.9827 29.8873 28.7624 29.5192 31.3745C29.1427 34.048 28.239 36.5463 26.711 38.7288C24.408 42.0171 20.7148 44.5457 15.3017 45.8117L15.0213 45.8771L14.741 45.8117ZM5.81219 38.2048C7.76588 40.2092 10.7465 41.8205 15.0203 42.8581C19.5929 41.7347 22.6784 39.6321 24.5645 36.939C25.801 35.173 26.535 33.1324 26.8443 30.936C27.1625 28.678 27.0376 26.2531 26.5535 23.784C25.1318 16.5372 20.6654 8.97773 15.1695 3.98909C10.2475 9.91733 4.61517 18.5241 3.09098 26.2944C2.6372 28.6088 2.5541 30.834 2.97741 32.8626C3.38843 34.8312 4.2898 36.6433 5.81219 38.2048Z\" fill=\"black\"><\/path>\n<\/svg>",
             "enable_img_trust_badge_cart": false,
             "filter_by_tags": ""
           }
@@ -29,10 +41,10 @@
         "3aff45aa-57f1-4a37-92df-f7477665cb2a": {
           "type": "trust-badge",
           "settings": {
-            "title": "",
+            "title": "Keto+ Paleo",
             "svg_trust_badge_cart": "free-shipping",
-            "enable_custom_trust_badge_svg": false,
-            "custom_trust_badge_svg_html": "",
+            "enable_custom_trust_badge_svg": true,
+            "custom_trust_badge_svg_html": "<svg width=\"38\" height=\"55\" viewbox=\"0 0 38 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M18.4972 21.3913C21.7583 21.3913 24.7108 22.8359 26.848 25.1717C28.9854 27.5076 30.3075 30.7343 30.3075 34.2982C30.3075 37.862 28.9854 41.0889 26.848 43.4247C24.7108 45.7604 21.7583 47.2051 18.4972 47.2051C15.2364 47.2051 12.2834 45.7604 10.1461 43.4247C8.00883 41.0889 6.6869 37.8618 6.6869 34.2982C6.6869 30.7343 8.00883 27.5076 10.1461 25.1717C12.2834 22.8359 15.2364 21.3913 18.4972 21.3913ZM24.9598 27.2351C23.3064 25.4282 21.0214 24.3104 18.4972 24.3104C15.9731 24.3104 13.6878 25.4282 12.0343 27.2351C10.3808 29.0425 9.35799 31.5396 9.35799 34.2982C9.35799 37.0567 10.3808 39.5541 12.0343 41.3612C13.6878 43.1682 15.9731 44.286 18.4972 44.286C21.0214 44.286 23.3064 43.1682 24.9598 41.3612C26.6133 39.5541 27.6364 37.0567 27.6364 34.2982C27.6364 31.5399 26.6133 29.0425 24.9598 27.2351Z\" fill=\"black\"><\/path>\n<path d=\"M5.04629 22.5825C1.00257 33.6365 2.54104 41.4979 6.52692 46.2208C9.60276 49.8652 14.1444 51.6896 18.6956 51.6912C23.2466 51.6929 27.7866 49.8726 30.8589 46.229C34.8387 41.509 36.3709 33.6453 32.3242 22.5767L32.2899 22.4823L32.2772 22.4341C30.1099 14.021 27.2009 8.36438 24.0329 5.36423C22.2858 3.70943 20.4773 2.8958 18.7009 2.90767C16.9242 2.91953 15.1168 3.75963 13.3734 5.41081C10.157 8.45703 7.22521 14.1575 5.09322 22.4341L5.07579 22.5019L5.04629 22.5825ZM4.56549 48.1933C-0.0510783 42.723 -1.9138 33.8315 2.54354 21.583C4.82168 12.7706 8.04362 6.60836 11.631 3.21051C13.8658 1.09373 16.2613 0.0161732 18.6903 0.000180371C21.1196 -0.0158125 23.5239 1.03166 25.7752 3.16386C29.3162 6.51735 32.518 12.6396 34.8325 21.6042C39.2832 33.853 37.427 42.7379 32.8203 48.2015C29.2221 52.469 23.9532 54.6007 18.6956 54.5987C13.4378 54.5968 8.16679 52.4604 4.56549 48.1933Z\" fill=\"black\"><\/path>\n<\/svg>",
             "enable_img_trust_badge_cart": false,
             "filter_by_tags": ""
           }
@@ -40,10 +52,10 @@
         "c38a881c-5dd9-4775-96b9-fe46ca5b7757": {
           "type": "trust-badge",
           "settings": {
-            "title": "",
+            "title": "Dairy free",
             "svg_trust_badge_cart": "made-usa",
-            "enable_custom_trust_badge_svg": false,
-            "custom_trust_badge_svg_html": "",
+            "enable_custom_trust_badge_svg": true,
+            "custom_trust_badge_svg_html": "<svg width=\"55\" height=\"55\" viewbox=\"0 0 55 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M27.2999 0C34.8379 0 41.6631 3.05579 46.6036 7.9962C51.5438 12.936 54.6 19.7616 54.6 27.2994C54.6 34.8372 51.5441 41.6622 46.6036 46.6026C41.6631 51.543 34.8379 54.5987 27.2999 54.5987C19.762 54.5987 12.9363 51.5427 7.99632 46.6026C3.0558 41.6622 0 34.8372 0 27.2994C0 19.7616 3.05611 12.936 7.99632 7.9962C12.9363 3.0561 19.762 0 27.2999 0ZM44.5201 10.0796C40.1135 5.67303 34.0248 2.9472 27.2999 2.9472C20.5748 2.9472 14.4862 5.67303 10.0798 10.0796C5.6731 14.4859 2.94721 20.5744 2.94721 27.2994C2.94721 34.0241 5.6731 40.1126 10.0798 44.5191C14.4862 48.9258 20.5748 51.6516 27.2999 51.6516C34.0248 51.6516 40.1135 48.9258 44.5201 44.5191C48.9268 40.1126 51.6527 34.0241 51.6527 27.2994C51.6527 20.5744 48.9268 14.4859 44.5201 10.0796Z\" fill=\"black\"><\/path>\n<path d=\"M6.9546 45.5609L45.5619 6.95452L47.6453 9.0379L9.03804 47.6443L6.9546 45.5609Z\" fill=\"black\"><\/path>\n<path d=\"M19.3922 18.3603L19.4686 43.6707H29.1825L29.2262 43.6518V18.2885L19.3922 18.3603ZM30.3183 43.1818L35.0526 41.1444L35.2082 18.8961L32.3294 15.4818L30.3183 17.9326V43.1818ZM29.405 44.7627H18.3841L18.3825 44.2167L18.6081 17.2782L21.2513 14.4206V10.3822C21.2513 10.0806 21.4958 9.83614 21.7973 9.83614H32.3242C32.6257 9.83614 32.8702 10.0806 32.8702 10.3822V14.433L36.2987 18.4991L36.1353 41.8662C33.9146 42.822 31.5622 43.8345 29.405 44.7627ZM31.7782 10.9282H22.3434V14.0845H31.7782V10.9282ZM31.1725 15.1765H22.0324L20.0984 17.2673L29.5133 17.1986L31.1725 15.1765Z\" fill=\"black\"><\/path>\n<path d=\"M19.4831 18.4502L19.559 43.5797H29.1352V18.3798L19.4831 18.4502ZM19.3012 18.2702C22.6399 18.2474 25.9786 18.2216 29.3172 18.1971V43.7116L29.201 43.7617H19.3782L19.3012 18.2702ZM30.4093 43.0437L34.9623 41.0842L35.1172 18.9291L32.3302 15.6237L30.4093 17.9646V43.0437ZM30.2273 43.32V17.9007L32.3285 15.3399L35.299 18.863C35.253 26.3099 35.2006 33.7576 35.1427 41.2045L30.2273 43.32ZM18.2937 44.8537C18.2677 35.6659 18.4499 26.4352 18.5177 17.2425L21.1603 14.3857V10.3822C21.1603 10.2063 21.2317 10.0469 21.3469 9.93174C21.4625 9.81654 21.6217 9.74514 21.7973 9.74514H32.3242C32.5 9.74514 32.6594 9.81654 32.7746 9.93174C32.8898 10.0469 32.9612 10.2063 32.9612 10.3822V14.4001L36.3895 18.466C36.3412 26.2858 36.2862 34.1065 36.2254 41.9263C33.9591 42.9044 31.6908 43.8781 29.4235 44.8537H18.2937ZM18.4745 44.6717H29.3864L36.045 41.8061L36.2078 18.5322L32.7792 14.4659V10.3822C32.7792 10.2565 32.7282 10.1427 32.646 10.0604C32.5637 9.97812 32.4498 9.92715 32.3242 9.92715H21.7973C21.6715 9.92715 21.5577 9.97807 21.4754 10.0603C21.3933 10.1427 21.3423 10.2565 21.3423 10.3822V14.4556L18.6984 17.3139L18.4731 44.2172L18.4745 44.6717ZM31.6871 11.0192H22.4344V13.9935H31.6871V11.0192ZM31.8691 10.8372V14.1755H22.2524V10.8372H31.8691ZM30.9806 15.2675H22.0715L20.307 17.1752L29.4702 17.1083L30.9806 15.2675ZM31.3644 15.0855C30.7618 15.82 30.1596 16.5549 29.5564 17.2889C26.3343 17.3161 23.1119 17.3364 19.8897 17.3595L21.9932 15.0855H31.3644Z\" fill=\"black\"><\/path>\n<\/svg>",
             "enable_img_trust_badge_cart": false,
             "filter_by_tags": ""
           }
@@ -51,10 +63,10 @@
         "e5cc1966-6803-4f1f-ac71-afdb6089ea54": {
           "type": "trust-badge",
           "settings": {
-            "title": "",
+            "title": "No added sugar",
             "svg_trust_badge_cart": "money-back",
-            "enable_custom_trust_badge_svg": false,
-            "custom_trust_badge_svg_html": "",
+            "enable_custom_trust_badge_svg": true,
+            "custom_trust_badge_svg_html": "<svg width=\"55\" height=\"55\" viewbox=\"0 0 55 55\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M27.3 0C34.838 0 41.6631 3.0558 46.6036 7.99621C51.5438 12.9361 54.6 19.7616 54.6 27.2994C54.6 34.8372 51.5441 41.6622 46.6036 46.6026C41.6631 51.543 34.838 54.5987 27.3 54.5987C19.762 54.5987 12.9363 51.5427 7.99634 46.6026C3.05581 41.6622 0 34.8372 0 27.2994C0 19.7616 3.05612 12.9361 7.99634 7.99621C12.9363 3.05611 19.762 0 27.3 0ZM44.5201 10.0796C40.1135 5.67303 34.0248 2.94721 27.3 2.94721C20.5748 2.94721 14.4862 5.67303 10.0798 10.0796C5.6731 14.4859 2.94722 20.5744 2.94722 27.2994C2.94722 34.0241 5.6731 40.1126 10.0798 44.5192C14.4862 48.9258 20.5748 51.6516 27.3 51.6516C34.0248 51.6516 40.1135 48.9258 44.5201 44.5192C48.9268 40.1126 51.6527 34.0241 51.6527 27.2994C51.6527 20.5744 48.9268 14.4859 44.5201 10.0796Z\" fill=\"black\"><\/path>\n<path d=\"M6.95461 45.5609L45.5619 6.95452L47.6453 9.0379L9.03805 47.6443L6.95461 45.5609Z\" fill=\"black\"><\/path>\n<path d=\"M16.676 13.1137H36.3959C37.3887 13.1137 38.2909 13.5194 38.9439 14.1724C39.5969 14.8254 40.0027 15.7276 40.0027 16.7203V36.0725C40.0027 37.0651 39.5969 37.9674 38.9439 38.6203C38.2909 39.2733 37.3887 39.679 36.3959 39.679H16.676C15.6833 39.679 14.7811 39.2733 14.1281 38.6203C13.4751 37.9674 13.0694 37.0651 13.0694 36.0725V16.7203C13.0694 15.7276 13.4751 14.8254 14.1281 14.1724C14.7811 13.5194 15.6833 13.1137 16.676 13.1137ZM36.3959 15.0785H16.676C16.2255 15.0785 15.8147 15.2637 15.5171 15.5613C15.2194 15.859 15.0342 16.2697 15.0342 16.7203V36.0725C15.0342 36.523 15.2194 36.9337 15.5171 37.2314C15.8147 37.529 16.2255 37.7142 16.676 37.7142H36.3959C36.8465 37.7142 37.2572 37.529 37.5549 37.2314C37.8526 36.9337 38.0378 36.523 38.0378 36.0725V16.7203C38.0378 16.2697 37.8526 15.859 37.5549 15.5613C37.2572 15.2637 36.8465 15.0785 36.3959 15.0785Z\" fill=\"black\"><\/path>\n<path d=\"M18.2463 19.5928C19.064 19.5928 19.7269 18.93 19.7269 18.1123C19.7269 17.2946 19.064 16.6317 18.2463 16.6317C17.4286 16.6317 16.7657 17.2946 16.7657 18.1123C16.7657 18.93 17.4286 19.5928 18.2463 19.5928Z\" fill=\"black\"><\/path>\n<path d=\"M22.2261 19.5928C23.0438 19.5928 23.7067 18.93 23.7067 18.1123C23.7067 17.2946 23.0438 16.6317 22.2261 16.6317C21.4084 16.6317 20.7455 17.2946 20.7455 18.1123C20.7455 18.93 21.4084 19.5928 22.2261 19.5928Z\" fill=\"black\"><\/path>\n<path d=\"M19.7274 22.0918C19.7274 21.2741 19.0645 20.6112 18.2468 20.6112C17.4291 20.6112 16.7662 21.2741 16.7662 22.0918C16.7662 22.9095 17.4291 23.5723 18.2468 23.5723C19.0645 23.5723 19.7274 22.9095 19.7274 22.0918Z\" fill=\"black\"><\/path>\n<\/svg>",
             "enable_img_trust_badge_cart": false,
             "filter_by_tags": ""
           }
@@ -66,22 +78,35 @@
             "upsell_tags": "",
             "upsell_product": "2-pcs-mommy-baby-headband",
             "enable_upsell_image": false,
-            "upsell_text": "<p><a href=\"\/products\/2-pcs-mommy-baby-headband\" title=\"2 PCS Mommy & Baby Headband\">Lorem Ipsum<\/a><strong> <\/strong>is simply dummy text of the printing and typesetting industry.<\/p>",
+            "upsell_text": "<p>Check Box To Add Priority Processing For $4.99!<br\/><\/p>",
             "show_description": true,
             "popup_description": "<p><strong>Lorem Ipsum<\/strong>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and <\/p>"
+          }
+        },
+        "834e91f2-3a0c-4041-90a8-40c5719410be": {
+          "type": "product_videos",
+          "settings": {
+            "title": "",
+            "url": "https:\/\/youtu.be\/UFF6Z1COAOk",
+            "enable_video_by_tag": false,
+            "tag_name": ""
           }
         }
       },
       "block_order": [
+        "29781f98-ca44-4db8-967c-943c3c8b7536",
         "7702b0ba-598d-4a48-8524-de80bd4e2b34",
         "3c9528b1-45ad-45c7-86fd-cd9ff25a989b",
         "3aff45aa-57f1-4a37-92df-f7477665cb2a",
         "c38a881c-5dd9-4775-96b9-fe46ca5b7757",
         "e5cc1966-6803-4f1f-ac71-afdb6089ea54",
-        "640d9a99-1e2e-41d3-b639-e15ecc1c39e2"
+        "640d9a99-1e2e-41d3-b639-e15ecc1c39e2",
+        "834e91f2-3a0c-4041-90a8-40c5719410be"
       ],
       "settings": {
         "enable_new_layout": true,
+        "enable_custom_review_stars": true,
+        "custom_review_text": "(1.231 reviews)",
         "enable_short_description": true,
         "select_position_short_description": "after",
         "font_size_short_description": 20,
@@ -92,13 +117,14 @@
         "product_per_unit_text_color": "#000000",
         "product_per_unit_font_size": 14,
         "font_weight_product_per_unit": "normal",
+        "enable_special_offer": false,
         "filter_by_tags": "",
         "svg_special_offer_badge_size": 50,
         "svg_special_offer_badge_cart": "special-offer-badge-3",
         "enable_custom_special_offer_badge_svg": false,
         "custom_special_offer_badge_svg_html": "",
         "enable_img_special_offer_badge_cart": false,
-        "enable_shipping_calculate": true,
+        "enable_shipping_calculate": false,
         "shipping_calculator_label": "Delivery",
         "shipping_calculator_text_color": "#838383",
         "shipping_calculator_font_size": 18,
@@ -108,89 +134,106 @@
         "delivery_align": "center",
         "trust_badges_text": "",
         "vasta_title_section_badges": 16,
-        "announcement_show_title_badges": false,
-        "vasta_copy_badges": 10,
+        "announcement_show_title_badges": true,
+        "vasta_copy_badges": 16,
         "vasta_badges_size": 4,
         "trust_badges_text_weight": "normal",
-        "trust_badges_text_transform": "uppercase",
-        "color_text_trust_badges": "#696969",
+        "trust_badges_text_transform": "capitalize",
+        "color_text_trust_badges": "#000000",
         "enabled_tabs": true,
-        "enabled_tabs_accordion": false,
+        "enabled_tabs_accordion": true,
         "enabled_descp": true,
         "enabled_bullet_points": false,
         "enabled_tabs_max_height": false,
         "enable_tabs_border_radius": false,
         "enable_tabs_shadow": false,
-        "tabs_max_height": 500,
-        "product_tab_text_transform": "capitalize",
+        "tabs_max_height": 450,
+        "product_tab_text_transform": "uppercase",
         "product_description_title": "Description",
         "custom_class": "",
         "enabled_videos": true,
-        "active_tab_color": "#313131",
+        "active_tab_color": "rgba(0,0,0,0)",
         "active_tab_bullet_color": "#f40808",
-        "active_tab_text_color": "#ffffff",
-        "inactive_tab_color": "#e2e2e2",
+        "active_tab_text_color": "#000000",
+        "inactive_tab_color": "rgba(0,0,0,0)",
         "inactive_tab_bullet_color": "#555555",
         "inactive_tab_text_color": "#000000",
-        "active_tab_border_color": "#c2c2c2",
-        "active_arrow_tab_color": "#ffffff",
+        "active_tab_border_color": "rgba(0,0,0,0)",
+        "active_arrow_tab_color": "#000000",
         "inactive_arrow_tab_color": "#000000"
       }
     },
-    "reviews": {
-      "type": "reviews",
-      "blocks": {
-        "d336a447-301d-4c5d-9042-b38e39648153": {
-          "type": "select",
-          "settings": {
-            "stars_review": "4",
-            "title_review": "Review Title",
-            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
-            "author_review": "Author Name",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        },
-        "8c45361e-8005-47c1-90d0-19b8ed972a96": {
-          "type": "select",
-          "settings": {
-            "stars_review": "5",
-            "title_review": "Review Title",
-            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
-            "author_review": "Author Name",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        },
-        "2243defd-90e4-420f-8384-71ea4960d3e5": {
-          "type": "select",
-          "settings": {
-            "stars_review": "3",
-            "title_review": "Review Title",
-            "content_review": "<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, vitae! Sunt facere dolores et, quod cum, fugiat eos repellendus dignissimos unde magnam veniam reprehenderit perspiciatis quia dolor eligendi vero deserunt.<\/p>",
-            "author_review": "Author Name",
-            "date_review": "",
-            "product_review": "",
-            "link_product_review": "",
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "d336a447-301d-4c5d-9042-b38e39648153",
-        "8c45361e-8005-47c1-90d0-19b8ed972a96",
-        "2243defd-90e4-420f-8384-71ea4960d3e5"
-      ],
+    "8b0a175e-9940-4b4c-bd4f-1bfd2599e905": {
+      "type": "custom-banner",
       "settings": {
         "custom_class": "",
-        "enable_reviews": true,
-        "title": "OUR REVIEWS",
-        "slider_autoplay": false,
-        "slider_speed": 800
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Copo_produto_1.png",
+        "tablet_banner_style_1": "shopify:\/\/shop_images\/COPO_PRODUTO_1.png",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/COPO_PRODUTO_1_2.png",
+        "enable_custom_banner_height": false,
+        "banner_max_height": 500,
+        "banner_max_height_tablet": 430,
+        "banner_max_height_mobile": 210,
+        "full_with_banne1": false,
+        "enable_lazy_load": false,
+        "enable_h1": false,
+        "main_banner_title": "Headline Example",
+        "main_banner_sub_title": "Sub Headline Example",
+        "vasta_headline_align": "center",
+        "text_transform": "initial",
+        "banner_titcolor": "#000000",
+        "banner_sub_titcolor": "#000000",
+        "banner_titles_background_color": "none",
+        "enable_max_width": false,
+        "banner_headline_width": 1000,
+        "main_banner_headline_size": 26,
+        "main_banner_sub_headline_size": 20,
+        "main_banner_headline_size_tablet": 26,
+        "main_banner_sub_headline_size_tablet": 20,
+        "main_banner_headline_size_mobile": 26,
+        "main_banner_sub_headline_size_mobile": 20,
+        "vasta_title_horizontal_position": 50,
+        "vasta_title_vertical_position": 30,
+        "vasta_title_horizontal_position_tablet": 50,
+        "vasta_title_vertical_position_tablet": 30,
+        "vasta_title_horizontal_position_mobile": 50,
+        "vasta_title_vertical_position_mobile": 30,
+        "custom_text": "",
+        "custom_text_color": "#000000",
+        "custom_text_desktop": 26,
+        "custom_text_tablet": 20,
+        "custom_text_mobile": 26,
+        "custom_text_desktop_x": 100,
+        "custom_text_desktop_y": 100,
+        "custom_text_tablet_x": 100,
+        "custom_text_tablet_y": 100,
+        "custom_text_mobile_x": 100,
+        "custom_text_mobile_y": 100,
+        "banner_desktop_width": 100,
+        "banner_tablet_width": 100,
+        "banner_mobile_width": 100,
+        "banner_mobile_height": 200,
+        "block_review_desktop_width": 200,
+        "block_review_tablet_width": 200,
+        "block_review_mobile_width": 200,
+        "block_review_font_size_desktop": 26,
+        "block_review_font_size_tablet": 20,
+        "block_review_font_size_mobile": 26,
+        "banner_font_size_button": 46,
+        "banner_font_size_button_tablet": 10,
+        "banner_font_size_button_mobile": 10,
+        "vasta_buttons_hover_effect": "none",
+        "enable_button_radius": false,
+        "button_radius": 10,
+        "vasta_buttons_color_1": "#000000",
+        "vasta_buttons_text_color_1": "#ffffff",
+        "vasta_border_color_1": "#ffffff",
+        "vasta_border_color_1_hover": "#ffffff",
+        "vasta_buttons_hover_color_1": "#ffffff",
+        "vasta_buttons_hover_text_color_1": "#000000",
+        "color_author_name": "#ffffff",
+        "color_review_stars": "#ecb42e",
+        "color_review_content": "#ffffff"
       }
     },
     "related-products": {
@@ -204,14 +247,302 @@
     },
     "loox-product-reviews-app-section": {
       "type": "apps",
+      "blocks": {
+        "88bf4836-4643-4d86-a029-0a454226a7ba": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "88bf4836-4643-4d86-a029-0a454226a7ba"
+      ],
       "settings": {
+      }
+    },
+    "0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3": {
+      "type": "collection-list",
+      "blocks": {
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection",
+            "collection_image": "shopify:\/\/shop_images\/IMAGEM_l_In_training.png",
+            "collection_title": "in training"
+          }
+        },
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection",
+            "collection_image": "shopify:\/\/shop_images\/IMAGEM_l_Pre_workout.png",
+            "collection_title": "Pre workout"
+          }
+        },
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection",
+            "collection_image": "shopify:\/\/shop_images\/IMAGEM_l_After_training.png",
+            "collection_title": "After training"
+          }
+        },
+        "82022a38-422a-4afb-9842-d99d5927ff65": {
+          "type": "collection",
+          "settings": {
+            "collection": "test-collection",
+            "collection_image": "shopify:\/\/shop_images\/IMAGEM_l_At_home.png",
+            "collection_title": "At home"
+          }
+        }
+      },
+      "block_order": [
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-0",
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-1",
+        "template--17485705445695__0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3-1673826459e556c6a7-2",
+        "82022a38-422a-4afb-9842-d99d5927ff65"
+      ],
+      "settings": {
+        "custom_class": "",
+        "border_color_collection_list": "rgba(0,0,0,0)",
+        "text_bg_color_collection_list": "rgba(0,0,0,0)",
+        "text_color_collection_list": "#fbfbfb",
+        "title": "",
+        "top_margin_featured": 0,
+        "products_per_rows_desktop_collection_list": "23.5",
+        "products_per_rows_collection_list_tablet": "34.7",
+        "products_per_rows_collection_list": "46",
+        "text_transform_title": "none",
+        "collection_product_title_text_transform": "capitalize",
+        "enable_hero_image": true
+      }
+    },
+    "3d40ebac-3cb6-4b54-bcdf-f6d610f08ecd": {
+      "type": "custom-call-to-action",
+      "settings": {
+        "custom_class": "custom-cta-vertical-breath",
+        "buy_now_background_color": "#ffffff",
+        "buy_nowbackgroung_height": 75,
+        "buy_now_background_top_position": 50,
+        "buy_now_line_direction": "row-reverse",
+        "box_limit": 332,
+        "headline": "Lorem impsun",
+        "text_above_button": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "text_above_button_tablet": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to usin.",
+        "text_above_button_mobile": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "block_text_align": "left",
+        "headline_transform_button": "capitalize",
+        "headline_font_size": 40,
+        "headline_font_size_tablet": 32,
+        "headline_font_size_mobile": 16,
+        "text_above_font_size": 14,
+        "text_above_font_size_tablet": 14,
+        "text_above_font_size_mobile": 10,
+        "headline_color": "#ff8835",
+        "text_above_color": "#6e6e6e",
+        "buy_now_text_button": "",
+        "text_transform_button": "capitalize",
+        "text_button_font_size": 14,
+        "width_cta_botton": 100,
+        "button_background_color": "#ffffff",
+        "button_hover_background_color": "#9c2135",
+        "button_text_color": "#9c2135",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_hover_border_color": "#ffffff",
+        "id_product_block": "",
+        "use_add_to_cart": false,
+        "use_external_link": false,
+        "url_product": "",
+        "url_call_to_action": "shopify:\/\/shop_images\/IMAGEM_l_Pre_workout_1.png",
+        "width_cta_image": 370
+      }
+    },
+    "928e9928-8d85-4afc-a603-1326b01347b4": {
+      "type": "custom-call-to-action",
+      "settings": {
+        "custom_class": "custom-cta-vertical-breath",
+        "buy_now_background_color": "#ffffff",
+        "buy_nowbackgroung_height": 75,
+        "buy_now_background_top_position": 50,
+        "buy_now_line_direction": "row",
+        "box_limit": 332,
+        "headline": "Lorem impsun",
+        "text_above_button": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "text_above_button_tablet": "Text Example",
+        "text_above_button_mobile": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "block_text_align": "right",
+        "headline_transform_button": "capitalize",
+        "headline_font_size": 40,
+        "headline_font_size_tablet": 32,
+        "headline_font_size_mobile": 16,
+        "text_above_font_size": 14,
+        "text_above_font_size_tablet": 14,
+        "text_above_font_size_mobile": 10,
+        "headline_color": "#ff8835",
+        "text_above_color": "#6e6e6e",
+        "buy_now_text_button": "",
+        "text_transform_button": "capitalize",
+        "text_button_font_size": 14,
+        "width_cta_botton": 100,
+        "button_background_color": "#ffffff",
+        "button_hover_background_color": "#9c2135",
+        "button_text_color": "#9c2135",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_hover_border_color": "#ffffff",
+        "id_product_block": "",
+        "use_add_to_cart": false,
+        "use_external_link": false,
+        "url_product": "",
+        "url_call_to_action": "shopify:\/\/shop_images\/IMAGEM_l_After_training_1.png",
+        "width_cta_image": 370
+      }
+    },
+    "b0f186b8-690f-42ee-88e9-ec198a4063a8": {
+      "type": "custom-call-to-action",
+      "settings": {
+        "custom_class": "custom-cta-vertical-breath",
+        "buy_now_background_color": "#ffffff",
+        "buy_nowbackgroung_height": 75,
+        "buy_now_background_top_position": 50,
+        "buy_now_line_direction": "row-reverse",
+        "box_limit": 332,
+        "headline": "Lorem impsun",
+        "text_above_button": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+        "text_above_button_tablet": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to usin.",
+        "text_above_button_mobile": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+        "block_text_align": "left",
+        "headline_transform_button": "capitalize",
+        "headline_font_size": 40,
+        "headline_font_size_tablet": 32,
+        "headline_font_size_mobile": 16,
+        "text_above_font_size": 14,
+        "text_above_font_size_tablet": 14,
+        "text_above_font_size_mobile": 10,
+        "headline_color": "#ff8835",
+        "text_above_color": "#6e6e6e",
+        "buy_now_text_button": "",
+        "text_transform_button": "capitalize",
+        "text_button_font_size": 14,
+        "width_cta_botton": 100,
+        "button_background_color": "#ffffff",
+        "button_hover_background_color": "#9c2135",
+        "button_text_color": "#9c2135",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_hover_border_color": "#ffffff",
+        "id_product_block": "",
+        "use_add_to_cart": false,
+        "use_external_link": false,
+        "url_product": "",
+        "url_call_to_action": "shopify:\/\/shop_images\/IMAGEM_l_At_home_1.png",
+        "width_cta_image": 370
+      }
+    },
+    "59d5d688-d611-4407-93fa-68d2074d091a": {
+      "type": "custom-call-to-action",
+      "settings": {
+        "custom_class": "custom-cta-section",
+        "buy_now_background_color": "#ffffff",
+        "buy_nowbackgroung_height": 75,
+        "buy_now_background_top_position": 50,
+        "buy_now_line_direction": "row-reverse",
+        "box_limit": 304,
+        "headline": "A new sustainable way to protein",
+        "text_above_button": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+        "text_above_button_tablet": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+        "text_above_button_mobile": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+        "block_text_align": "left",
+        "headline_transform_button": "capitalize",
+        "headline_font_size": 32,
+        "headline_font_size_tablet": 32,
+        "headline_font_size_mobile": 20,
+        "text_above_font_size": 14,
+        "text_above_font_size_tablet": 20,
+        "text_above_font_size_mobile": 20,
+        "headline_color": "#000000",
+        "text_above_color": "#c9c9c9",
+        "buy_now_text_button": "",
+        "text_transform_button": "capitalize",
+        "text_button_font_size": 14,
+        "width_cta_botton": 100,
+        "button_background_color": "#ffffff",
+        "button_hover_background_color": "#9c2135",
+        "button_text_color": "#9c2135",
+        "button_hover_text_color": "#ffffff",
+        "button_border_color": "#ffffff",
+        "button_hover_border_color": "#ffffff",
+        "id_product_block": "",
+        "use_add_to_cart": false,
+        "use_external_link": false,
+        "url_product": "",
+        "url_call_to_action": "shopify:\/\/shop_images\/IMAGEM.png",
+        "width_cta_image": 355
+      }
+    },
+    "642fca3a-41a6-4667-9a60-253d646bb14c": {
+      "type": "custom-banner-slider",
+      "blocks": {
+        "5af32b32-cf0d-42c6-918d-387906423c81": {
+          "type": "Banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMAGEM.png",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+          }
+        },
+        "0b56cbc1-f756-4d49-93a0-1772a6ed2587": {
+          "type": "Banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMAGEM_l_At_home_1.png",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+          }
+        },
+        "fd3961d7-ecc4-4683-bb69-3a5c64ce0ea2": {
+          "type": "Banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMAGEM_l_After_training_1.png",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+          }
+        },
+        "1f2e3c89-9cbb-48bc-8a83-f01b7e08eded": {
+          "type": "Banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMAGEM_l_Pre_workout_1.png",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+          }
+        },
+        "cc9f8941-f877-493b-b27b-a4cdfe93568c": {
+          "type": "Banner",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/IMAGEM_l_In_training.png",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+          }
+        }
+      },
+      "block_order": [
+        "5af32b32-cf0d-42c6-918d-387906423c81",
+        "0b56cbc1-f756-4d49-93a0-1772a6ed2587",
+        "fd3961d7-ecc4-4683-bb69-3a5c64ce0ea2",
+        "1f2e3c89-9cbb-48bc-8a83-f01b7e08eded",
+        "cc9f8941-f877-493b-b27b-a4cdfe93568c"
+      ],
+      "settings": {
+        "headline": "",
+        "slider_speed": 10
       }
     }
   },
   "order": [
     "main",
-    "reviews",
+    "8b0a175e-9940-4b4c-bd4f-1bfd2599e905",
     "related-products",
-    "loox-product-reviews-app-section"
+    "loox-product-reviews-app-section",
+    "0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3",
+    "3d40ebac-3cb6-4b54-bcdf-f6d610f08ecd",
+    "928e9928-8d85-4afc-a603-1326b01347b4",
+    "b0f186b8-690f-42ee-88e9-ec198a4063a8",
+    "59d5d688-d611-4407-93fa-68d2074d091a",
+    "642fca3a-41a6-4667-9a60-253d646bb14c"
   ]
 }

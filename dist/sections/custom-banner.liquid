@@ -1,5 +1,7 @@
 
 <!-- start custom-banner.liquid (SECTION) -->
+<link rel="stylesheet" data-href="{{ 'section-banner-1.css' | asset_url }}"/>
+
 {%- assign enable_lazy = section.settings.enable_lazy_load | default: false -%}
 {% capture block_reviews %}
     {% for block in section.blocks %}

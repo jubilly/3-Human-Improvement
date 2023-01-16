@@ -74,7 +74,7 @@
     <button type="submit" class="cart-icon btn btn-add-tocart AddToCartFixed no-show" id="AddToCart3">
       {%- if settings.enable_price_atc -%}
         <span class="btn-money">{{ product.price | money }}</span>
-        <span class="divisor">-</span>
+        <span class="divisor">|</span>
       {%- endif -%}
       <span class="btn-label">{{ settings.add_to_cart_label }}</span>
       <span class="btn-svg">{%- render 'icon-cart' -%}</span>
