@@ -3,6 +3,14 @@
   font-weight: 500;
 }
 
+body .spr-container {
+  padding-top: 45px !important;
+}
+
+.main-banner .banner_custom_text p {
+  font-weight: 300;
+}
+
 /* Shipping Bar */
 body .shipping-bar__wrapper {
   height: 50px;
@@ -50,12 +58,12 @@ body .header__search__form {
 }
 body .header__search__form .header__search__input {
   border: none;
-  font-size: 16px;
+  font-size: 15px;
   font-family: var(--auxiliarFont);
   line-height: 120%;
   text-transform: capitalize;
   border-radius: 18px;
-  padding: 0 26px 0 12px;
+  padding: 4px 26px 0 12px;
   height: 100%;
   text-overflow: ellipsis;
 }
@@ -70,13 +78,12 @@ body .header__search__form .button {
   border: 1px solid #000000;
   border-radius: 18px;
   font-weight: 400;
-  height: 100%;
+  height: 30px;
   line-height: 14px;
   min-width: 104px;
 }
 body .header__search__form .button:hover {
   border: 1px solid #000000;
-  color: #d9d9d9;
 }
 body .header__search__input::placeholder {
   font-weight: 500;
@@ -113,9 +120,17 @@ body .header__list.list--parent {
   padding-bottom: 18px;
 }
 
+/* CUSTOM BANNER */
+.your-protein .block-reviews__stars {
+  line-height: 0;
+}
+
 /* UVP */
 body .shipping-text {
   padding: 21px 0 28px;
+}
+body .custom-uvp-section {
+  padding: 21px 0 36px;
 }
 body .shipping-text .shipping-text-content {
   margin-bottom: 0 !important;
@@ -128,23 +143,48 @@ body .shipping-text .shipping-text-content svg {
 body .custom-uvp-section .shipping-body-text {
   font-weight: 400;
   line-height: 120%;
+  text-transform: capitalize;
+}
+body .custom-uvp-section .wrapper {
+  max-width: 1000px;
+}
+
+body .spr-header-title {
+  font-size: 35px;
+  font-weight: 500;
+}
+
+body a.spr-summary-actions-newreview {
+  font-weight: 400;
+  padding: 3px 20px;
+  font-size: 15px;
+}
+
+body .spr-review-header-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 87.8%;
 }
 
 /* Featured Collection */
 body .featured-collection .grid__item-title {
   font-size: 16px;
   line-height: 87.8%;
+  font-weight: normal;
 }
 body .featured-collection .featured-collection__title {
-  font-weight: 500;
-  font-size: 36px;
+  font-weight: 400;
+  font-size: 35px;
   line-height: 120%;
   padding: 54px 0 20px;
 }
+
 body .featured-collection .grid__item-subtitle {
   display: block;
   line-height: 200%;
   width: 100%;
+  font-weight: 100;
 }
 
 body .featured-products-custom .featured-collection__wrapper {
@@ -196,6 +236,29 @@ body .call-to-action.custom-cta-section .call-to-action__content-button {
 
 .custom-cta-section .call-to-action__wrappper {
   gap: 28px;
+}
+
+/* Reviews */
+.spr-summary-actions-togglereviews {
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.homepage-style-1.banner .slider-buttons .btn-v {
+  font-weight: normal !important;
+}
+
+body .site-footer .wrapper a {
+  font-weight: normal;
+}
+
+.uvp-info > .wrapper {
+  justify-content: space-between;
+  max-width: 920px;
+}
+
+.products-highlights__metafield {
+  text-transform: capitalize;
 }
 
 /* Product Page */
@@ -629,6 +692,15 @@ body .product-page #rc_container {
   height: 63px;
 }
 
+/* Featured Products Custom */
+body .featured-products-custom .grid-uniform {
+  justify-content: space-around;
+}
+.featured-products-custom .grid-uniform--s4 .grid__item {
+  flex-basis: 16.5%;
+}
+/* Featured Products Custom */
+
 /* Footer */
 body .site-footer {
   padding: 27.21px 0;
@@ -703,6 +775,7 @@ body .site-footer .wrapper .popular-collection-links a {
   border: 1px solid var(--popular-collection-background, #333);
 }
 body .site-footer .wrapper .popular-collection-links a .popular_collections_text {
+  font-size: 10px;
   line-height: 17px;
   text-transform: capitalize;
   font-weight: 400;
@@ -717,11 +790,10 @@ body .site-footer .wrapper .popular-collection-links img {
 body .site-footer .wrapper > .half-content:first-child .popular_collections_title,
 body .site-footer .wrapper > .half-content:first-child .news_letter_title {
   text-transform: capitalize;
-  font-weight: 500;
 }
 
 body .site-footer .wrapper > .half-content:first-child .news_letter_title {
-  line-height: 87.8%;
+  line-height: 1;
 }
 
 body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
@@ -746,9 +818,14 @@ body .site-footer .wrapper > .half-content:first-child .news_letter_title {
 }
 body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input {
   height: auto;
-  padding: 0 12px;
+  padding: 0 3px 0 9px;
   background: transparent;
   font-size: 10px;
+  line-height: 3;
+  font-weight: 400;
+}
+body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input::placeholder {
+  color: #ddd;
 }
 body .newsletter-klaviyo .email-signup-form {
   border: 1px solid #D9D9D9;
@@ -813,6 +890,12 @@ body .site-footer .credits p {
     max-height: 80px;
   }
 }
+
+body .spr-summary-actions-newreview:hover,
+body .spr-review-reportreview:hover {
+  background-color: #ff8835 !important;
+}
+
 /*----------
 ############
 ## DESKTOP #
@@ -878,7 +961,7 @@ body .site-footer .credits p {
 
 @media screen and (max-width: 1019px) {
   body .header__wrapper {
-    padding: 17px 2px 0;
+    padding: 12px 2px 0;
   }
   body .header__sitewide__wrapper.header__wrapper {
     align-items: baseline;
@@ -899,8 +982,8 @@ body .site-footer .credits p {
     justify-content: flex-end;
   }
   body .header__icon__wrap.icon--menu svg {
-    width: 30px;
-    height: 15px;
+    width: 36px;
+    height: 18px;
   }
   body .header__icon__wrap.icon--menu span {
     margin-top: 7px;
@@ -919,6 +1002,7 @@ body .site-footer .credits p {
     min-width: 82px;
     font-size: 14px;
     line-height: 87.8%;
+    height: 25px;
   }
   body .header__search__form {
     width: 244.67px;
@@ -980,8 +1064,50 @@ body .site-footer .credits p {
   }
 }
 
-/* Featured Collections */
+/* banner */
+@media(max-width: 1019px) {
+  .main-banner .banner_custom_text p {
+    font-size: 13.5px !important;
+  }
 
+  body .spr-container {
+    padding-top: 25px !important;
+  }
+
+  body #shopify-product-reviews .spr-header-title {
+    font-size: 30px;
+  }
+
+  .homepage-style-1.banner.main-banner .banner-img {
+    padding-top: 85% !important;
+  }
+
+  .homepage-style-1.banner.your-protein .banner-img {
+    padding-top: 103.2% !important;
+  }
+
+  .homepage-style-1.banner.custom-banner--dashed .banner-img {
+    padding-top: 85.4% !important;
+  }
+}
+
+/* UVP - uvp-info */
+@media screen and (max-width: 1019px) {
+  .uvp-info .shipping-text-content svg {
+    height: 30px !important;
+  }
+
+  body .products-highlights__product-image-content {
+    height: 170px;
+    width: 104px;
+  }
+  body .custom-uvp-section .shipping-text-content {
+    flex: 0 0 73px !important;
+    margin: 0 4px !important;
+  }
+}
+
+/* Featured Collections */
 
 @media screen and (max-width: 1019px) {
   body .featured-collection .grid-uniform--s2 .grid__item,
@@ -992,7 +1118,7 @@ body .site-footer .credits p {
   }
   body .featured-collection .featured-collection__title {
     font-size: 30px;
-    padding: 45px 0 20px;
+    padding: 40px 0 20px;
   }
   body .featured-products-custom .grid-uniform.grid-uniform--s4 .grid__item-image-wrapper {
     padding-top: 175px;
@@ -1002,12 +1128,29 @@ body .site-footer .credits p {
     font-size: 30px;
     line-height: 120%;
     color: #000;
+    margin-top: 22px;
   }
   body .featured-collection .grid__item-subtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 87.8%;
     color: #000;
+  }
+  body .products-highlights__cta-link {
+    padding: 8px 36px;
+    left: 50%;
+  }
+  body .products-highlights__cta-link span {
+    font-weight: normal;
+  }
+  body .products-highlights {
+    margin-bottom: 0;
+  }
+  body .featured-products-custom .featured-collection__wrapper {
+    padding-bottom: 0;
+  }
+  body .custom-uvp-section {
+    padding: 18px 0 41px;
   }
 }
 
@@ -1034,6 +1177,22 @@ body .site-footer .credits p {
   body .review-date.accent {
     font-size: 10px;
     line-height: 10px;
+  }
+}
+
+
+/* CUSTOM BANNER - YOUR PROTAIN */
+@media screen and (max-width: 1019px) {
+
+  body .homepage-style-1.banner .banner-img img {
+    height: 100%;
+  }
+
+  .homepage-style-1.banner .slider-buttons .btn-v {
+    font-size: 0.9rem !important;
+    padding: 11px !important;
+    height: auto !important;
+    font-weight: normal !important;
   }
 }
 
@@ -1067,8 +1226,9 @@ body .site-footer .credits p {
   }
   body .footer__custom-telephone p,
   body .footer__custom-email p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 87.8%;
+    font-weight: normal;
   }
   body .site-footer .wrapper .popular-collection-links {
     padding: 0;
@@ -1084,8 +1244,8 @@ body .site-footer .credits p {
   }
   body .site-footer .wrapper > .half-content:first-child .news_letter_title {
     text-align: center;
-    margin-bottom: 14px;
-    font-weight: 500;
+    margin-bottom: 7px;
+    font-weight: 400;
   }
   body .newsletter-klaviyo.full {
     margin: auto;
@@ -1111,6 +1271,7 @@ body .site-footer .credits p {
     height: 92px;
     margin-top: 4px;
     padding-top: 92px;
+    margin-right: 0;
   }
   body .site-footer .wrapper .popular-collection-links img {
     width: 38px;
@@ -1122,7 +1283,7 @@ body .site-footer .credits p {
     font-size: var(--font-size-pop-itens-footer-mobile);
     line-height: 120%;
     font-weight: 300;
-    padding: 2px 0;
+    padding: 3px 0 0;
     font-family: "HelveticaNeueLight";
   }
   body .site-footer .wrapper .last-half .grid__item {
@@ -1167,17 +1328,18 @@ body .site-footer .credits p {
     margin-bottom: 10px;
   }
   body .site-footer .wrapper a {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 14px;
-    line-height: 120%;
+    line-height: 110%;
     color: #6e6e6e;
   }
   body .custom__info-social-medias a > svg {
+    width: 15px;
     height: 12px;
-    margin: 0;
+    margin: 0 5px 0 0;
   }
   body .custom__info {
-    margin-top: 39px;
+    margin-top: 20px;
     margin-bottom: 22px;
   }
   body .custom-icon__minus {
@@ -1192,7 +1354,11 @@ body .site-footer .credits p {
   body .site-footer .wrapper .copyright-class,
   body .site-footer .wrapper .copyright-class a {
     font-size: 10px;
-    line-height: 87.8%;
+    line-height: 1;
+    color: #878787;
+  }
+  body .site-footer .wrapper .grid__item .newsletter-klaviyo form .klaviyo_field_group input {
+    line-height: 2;
   }
 }
 
@@ -1223,6 +1389,9 @@ body .site-footer .credits p {
   body .header__wrapper {
     padding: 0 24px;
     min-height: unset;
+  }
+  body .header__search__form .header__search__input {
+    padding: 0 26px 0 12px;
   }
   body .header__sitewide__wrapper.header__wrapper {
     align-items: center;
@@ -1300,11 +1469,51 @@ body .site-footer .credits p {
   }
 }
 
+/* BANNER */
+@media(max-width: 767px) {
+  .main-banner .banner_custom_text p {
+    font-weight: 300 !important;
+    font-size: 12px !important;
+  }
+
+  .homepage-style-1.banner.your-protein .banner-padding-top-mobile {
+    padding-top: 179% !important;
+  }
+
+  body .spr-container {
+    padding-top: 15px !important;
+  }
+
+  .homepage-style-1.banner.main-banner .banner-img {
+    padding-top: 138% !important;
+  }
+
+  .homepage-style-1.banner.custom-banner--dashed .banner-img {
+    padding-top: 137% !important;
+  }
+
+  .homepage-style-1.banner.your-protein .slider-buttons .btn-v {
+    padding: 7px !important;
+  }
+
+  .homepage-style-1.banner.main-banner .slider-buttons .btn-v {
+    padding: 4px !important;
+  }
+
+  #Banner1Btn-5-template--17305569755455__d3ff38b4-86f2-406c-b6b0-ccf08d1ba558 {
+    padding: 7px !important;
+    max-width: 125px;
+  }
+}
+
 /* UVPs */
 
 @media screen and (max-width: 767px) {
   body .shipping-text {
     padding: 18px 0 17px;
+  }
+  body .custom-uvp-section {
+    padding-bottom: 30px;
   }
   body .uvp-text-container {
     margin-top: 0;
@@ -1313,9 +1522,19 @@ body .site-footer .credits p {
     line-height: 100%;
   }
   body .custom-uvp-section .shipping-body-text {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 12px;
     line-height: 87.8%;
+  }
+  body .custom-uvp-section .shipping-text-content {
+    flex: 0 0 55px !important;
+    margin: 0 !important;
+  }
+  body .uvp-info {
+    padding: 15px 0;
+  }
+  .uvp-info .shipping-text-content svg {
+    height: 20px !important;
   }
 }
 
@@ -1325,13 +1544,14 @@ body .site-footer .credits p {
 @media screen and (max-width: 767px) {
   body .featured-collection .featured-collection__title {
     font-size: 20px;
-    padding: 33.15px 0 30px;
+    padding: 33.15px 0 20px;
     width: 50%;
     margin: auto;
   }
   body .featured-collection .grid__item-title {
     font-size: 20px;
     color: #000;
+    margin-top: 12px;
   }
   body .featured-collection .grid__item-subtitle {
     font-size: 12px;
@@ -1341,6 +1561,48 @@ body .site-footer .credits p {
   }
   body .featured-products-custom .grid_hero-image-shadow {
     margin-top: 7.5px;
+  }
+  .products-highlights__more-details {
+    margin-top: 8px;
+  }
+  .products-highlights__product-title {
+    margin-top: 3px;
+    text-align: center;
+    width: 100%;
+  }
+  body .products-highlights__product-image-content {
+    height: 125px;
+    width: 81px;
+  }
+  body .products-highlights__cta-link {
+    padding: 3px 36px;
+    height: auto;
+    font-weight: normal;
+    transform: unset;
+  }
+  .products-highlights__product-title + .products-highlights__metafield {
+    font-weight: 100;
+  }
+  .products-highlights__more-details {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+}
+
+/* Reviews */
+@media(max-width: 767px) {
+  body .spr-header-title {
+    text-align: left;
+  }
+}
+
+/* CUSTOM BANNER - YOUR PROTAIN */
+@media screen and (max-width: 1019px) {
+  .homepage-style-1 .your-protein.banner-padding-top-tablet {
+    padding-top: 103% !important;
+  }
+  .homepage-style-1.banner .slider-buttons .btn-v {
+    font-size: 0.75rem !important;
   }
 }
 
@@ -1356,7 +1618,7 @@ body .site-footer .credits p {
     flex-direction: column;
   }
   body .site-footer .wrapper > div.half-content {
-    margin-top: 23px;
+    margin-top: 17px;
     padding: 0;
   }
   body .site-footer .wrapper .half-content {
@@ -1381,6 +1643,7 @@ body .site-footer .credits p {
     line-height: 100%;
     text-align: center;
     margin-bottom: 6px;
+    font-weight: bold;
   }
   body .site-footer .wrapper > .half-content:first-child .popular-collection-links .popular_collections_title {
     font-size: 12px;
@@ -1421,7 +1684,7 @@ body .site-footer .credits p {
     margin-right: 0;
   }
   body .site-footer .wrapper .last-half .nav-title {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 100%;
   }
   body .site-footer .wrapper .popular-collection-links a .popular_collections_text {
@@ -1462,6 +1725,9 @@ body .site-footer .credits p {
   body .footer__custom-email p {
     font-size: 12px;
     line-height: 87.8%;
+    font-weight: 400;
+    margin-left: 2px;
+    margin-top: 2.5px;
   }
   body .custom__info-social-medias a > svg {
     width: 11.57px;

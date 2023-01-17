@@ -29,10 +29,10 @@
         "5654d7d2-7b7b-4a5c-a118-3302687227b3"
       ],
       "settings": {
-        "custom_class": "",
-        "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Topo.png",
-        "tablet_banner_style_1": "shopify:\/\/shop_images\/IMAGEM-l-Topo_2.png",
-        "mobile_banner_style_1": "shopify:\/\/shop_images\/IMAGEM-l-Topo_2_1.png",
+        "custom_class": "main-banner",
+        "homepage_banner_style_1": "shopify:\/\/shop_images\/banner.jpg",
+        "tablet_banner_style_1": "shopify:\/\/shop_images\/banner-tablet.jpg",
+        "mobile_banner_style_1": "shopify:\/\/shop_images\/banner-mobile.jpg",
         "enable_custom_banner_height": false,
         "banner_max_height": 500,
         "banner_max_height_tablet": 430,
@@ -132,7 +132,7 @@
             "title": "",
             "body_text": "Great taste <br> guaranteed",
             "use_custom_svg": true,
-            "custom_svg_html": "<svg width=\"7\" height=\"27\" viewbox=\"0 0 7 27\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M6.244 0.331998H1.204V6.74C1.204 10.556 1.456 14.084 1.708 16.46C1.852 17.612 1.96 18.368 2.068 18.692C2.392 18.584 3.004 18.548 3.724 18.548C4.444 18.548 4.984 18.584 5.38 18.692C5.56 18.008 5.884 15.56 6.064 12.14C6.208 10.448 6.244 8.684 6.244 6.74V0.331998ZM3.652 26.468C5.776 26.468 6.82 25.568 6.82 23.3C6.82 20.924 5.776 20.168 3.652 20.168C1.564 20.168 0.484 20.924 0.484 23.3C0.484 25.676 1.348 26.468 3.652 26.468Z\" fill=\"black\"><\/path>\n<\/svg>",
+            "custom_svg_html": "<svg width=\"7\" height=\"27\" viewbox=\"0 0 7 27\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" style=\"padding: 3px 0\">\n<path d=\"M6.244 0.331998H1.204V6.74C1.204 10.556 1.456 14.084 1.708 16.46C1.852 17.612 1.96 18.368 2.068 18.692C2.392 18.584 3.004 18.548 3.724 18.548C4.444 18.548 4.984 18.584 5.38 18.692C5.56 18.008 5.884 15.56 6.064 12.14C6.208 10.448 6.244 8.684 6.244 6.74V0.331998ZM3.652 26.468C5.776 26.468 6.82 25.568 6.82 23.3C6.82 20.924 5.776 20.168 3.652 20.168C1.564 20.168 0.484 20.924 0.484 23.3C0.484 25.676 1.348 26.468 3.652 26.468Z\" fill=\"black\"><\/path>\n<\/svg>",
             "use_custom_image": false
           }
         }
@@ -144,7 +144,7 @@
         "ece8ea45-b7f5-4b96-82cd-50e32458bda7"
       ],
       "settings": {
-        "custom_class": "",
+        "custom_class": "uvp-info",
         "enable_icon_text": true,
         "title": "",
         "title_text_transform": "capitalize",
@@ -152,7 +152,7 @@
         "body_text_color": "#000000",
         "icons_color": "#000000",
         "choose_icon_dimensions": "height",
-        "icon_uvp2_size": 32,
+        "icon_uvp2_size": 36,
         "icon_uvp2_size_mobile": 24,
         "icon_text_orientation": "row-reverse",
         "icon_text_alignment": "left",
@@ -251,7 +251,7 @@
         "button_label": "GET MIX PACK  10% OFF",
         "button_link": "shopify:\/\/collections\/all",
         "button_link_target": "_target",
-        "button_link_desktop_x": 46,
+        "button_link_desktop_x": 50,
         "button_link_desktop_y": 69,
         "button_link_tablet_x": 36,
         "button_link_tablet_y": 81,
@@ -429,6 +429,7 @@
           "type": "select",
           "settings": {
             "custom_html": "",
+            "custom_id": "",
             "linktext": "Learn more",
             "button_text_transform": "capitalize",
             "link": "",
@@ -458,9 +459,9 @@
             "review_image": "shopify:\/\/shop_images\/Ellipse_21.png",
             "review_content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.facilisis.",
             "review_stars": "5",
-            "review_position_x": 8,
+            "review_position_x": 6,
             "review_position_y": 14,
-            "tablet_review_position_x": 6,
+            "tablet_review_position_x": 8,
             "tablet_review_position_y": 26,
             "mobile_review_position_x": 14,
             "mobile_review_position_y": 28
@@ -476,7 +477,7 @@
             "review_stars": "5",
             "review_position_x": 72,
             "review_position_y": 14,
-            "tablet_review_position_x": 65,
+            "tablet_review_position_x": 57,
             "tablet_review_position_y": 26,
             "mobile_review_position_x": 10,
             "mobile_review_position_y": 10
@@ -489,7 +490,7 @@
         "51aa0a6b-a80a-495d-a5ac-d81bc7b7a63f"
       ],
       "settings": {
-        "custom_class": "",
+        "custom_class": "your-protein",
         "homepage_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Product_nas_monstanhas_1.png",
         "tablet_banner_style_1": "shopify:\/\/shop_images\/Frame_1_4.png",
         "mobile_banner_style_1": "shopify:\/\/shop_images\/BAKCGROUND-l-Expo-product---Mobile.png",
@@ -572,6 +573,7 @@
           "type": "select",
           "settings": {
             "custom_html": "",
+            "custom_id": "",
             "linktext": "Energy+Mood",
             "button_text_transform": "capitalize",
             "link": "",
@@ -597,6 +599,7 @@
           "type": "select",
           "settings": {
             "custom_html": "",
+            "custom_id": "",
             "linktext": "gut health",
             "button_text_transform": "capitalize",
             "link": "",
@@ -622,6 +625,7 @@
           "type": "select",
           "settings": {
             "custom_html": "",
+            "custom_id": "",
             "linktext": "lean muscle",
             "button_text_transform": "capitalize",
             "link": "shopify:\/\/collections\/all",
@@ -647,6 +651,7 @@
           "type": "select",
           "settings": {
             "custom_html": "",
+            "custom_id": "",
             "linktext": "bloating",
             "button_text_transform": "capitalize",
             "link": "",
@@ -672,6 +677,7 @@
           "type": "select",
           "settings": {
             "custom_html": "background-color: #FF8835!important;\nborder: none!important;\nborder-radius: 32px!important;",
+            "custom_id": "btn-learn-more",
             "linktext": "Learn more",
             "button_text_transform": "capitalize",
             "link": "",
@@ -686,9 +692,9 @@
             "vasta_button_horizontal_position_mobile": 50,
             "vasta_button_vertical_position_mobile": 58,
             "vasta_button_height": 34,
-            "vasta_button_max_width_desktop": 166,
+            "vasta_button_max_width_desktop": 162,
             "vasta_button_height_tablet": 34,
-            "vasta_button_max_width_tablet": 166,
+            "vasta_button_max_width_tablet": 156,
             "vasta_button_height_mobile": 22,
             "vasta_button_max_width": 102
           }
@@ -707,8 +713,8 @@
         "tablet_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Tablet.png",
         "mobile_banner_style_1": "shopify:\/\/shop_images\/IMAGEM_l_Mobile.png",
         "enable_custom_banner_height": false,
-        "banner_max_height": 500,
-        "banner_max_height_tablet": 430,
+        "banner_max_height": 800,
+        "banner_max_height_tablet": 650,
         "banner_max_height_mobile": 210,
         "full_with_banne1": true,
         "enable_lazy_load": false,

@@ -39,13 +39,19 @@
         text-transform: capitalize;
         font-style: normal;
         font-size: 16px;
-        line-height: 16px;
+        line-height: 87.8%;
         color: #000000;
     }
+
+    .spr-review-header-byline {
+        width: 90px;
+        margin: 0;
+    }
+
     .review-date.accent {
         margin-top: 3px;
-        font-size: 8px;
-        line-height: 8px;
+        font-size: 10px;
+        line-height: 200%;;
         text-transform: uppercase;
         color: #000000;
         font-style: normal;
@@ -150,9 +156,14 @@
         line-height: 32px;
     }
     .spr-review-content-body {
-        font-size: 14px;
-        font-family: var(--auxiliarFont);
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
         line-height: 120%;
+        font-family: var(--auxiliarFont);
+    }
+    .spr-review-reportreview {
+        display: none!important;
     }
     .spr-review-footer {
         width: 100%;
@@ -212,9 +223,6 @@
             width: 12px;
             height: 12px;
             font-size: 77%;
-        }
-        .spr-review-header-byline {
-            width: 90px;
         }
         .spr-review-content {
             position: absolute;

@@ -146,14 +146,25 @@
 
               {%- assign count = count | plus: 1 -%}
               {% if block.settings.enable_helper_text %}<div class="helper-text__content helper-text__content-{{ forloop.index }}-{{ section.id }}">{% endif %}
-                <a {% if block.settings.enable_helper_text == false %}id="Banner1Btn-{{ forloop.index }}-{{ section.id }}"{% else %} style="position: static;transform: unset;"{% endif %}
-                  class="banner__button--{{ forloop.index }}-{{ section.id }}
-                  {% if block.settings.show_mobile_buttons == false %} no-mobile {% endif %} 
-                  btn btn-v {{ section.settings.vasta_buttons_hover_effect }}" 
-                  title="{{ block.settings.linktext | strip_html | escape }}" 
-                  href="{{ block.settings.link }}">
-                  {{ block.settings.linktext }}
-                </a>
+                {% if block.settings.enable_button_link %}
+                  <a {% if block.settings.enable_helper_text == false %}id="Banner1Btn-{{ forloop.index }}-{{ section.id }}"{% else %} style="position: static;transform: unset;"{% endif %}
+                    class="banner__button--{{ forloop.index }}-{{ section.id }}
+                    {% if block.settings.show_mobile_buttons == false %} no-mobile {% endif %} 
+                    btn btn-v {{ section.settings.vasta_buttons_hover_effect }}" 
+                    title="{{ block.settings.linktext | strip_html | escape }}" 
+                    href="{{ block.settings.link }}">
+                    {{ block.settings.linktext }}
+                  </a>
+                {% else %}
+                  <span {% if block.settings.enable_helper_text == false %}id="Banner1Btn-{{ forloop.index }}-{{ section.id }}"{% else %} style="position: static;transform: unset;"{% endif %}
+                    class="banner__button--{{ forloop.index }}-{{ section.id }} banner__button--no-link
+                    {% if block.settings.show_mobile_buttons == false %} no-mobile {% endif %} 
+                    btn btn-v {{ section.settings.vasta_buttons_hover_effect }}" 
+                    title="{{ block.settings.linktext | strip_html | escape }}" 
+                    href="{{ block.settings.link }}">
+                    {{ block.settings.linktext }}
+                  </span>
+                {% endif %}
               {% if block.settings.enable_helper_text %}
                 <span class="custom__help-text">
                   {{ block.settings.helper_text }}
@@ -939,6 +950,11 @@
           "info": "Write CSS attributes with !important. Ex: background-color:#f00!important"
         },
         {
+          "id": "custom_id",
+          "type": "text",
+          "label": "Custom ID"
+        },
+        {
           "id": "linktext",
           "type": "text",
           "label": "Button Text",
@@ -967,6 +983,12 @@
               "label": "Lowercase"
             }
           ]
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_button_link",
+          "label": "Button link",
+          "default": false
         },
         { 
           "id": "link",
@@ -1432,6 +1454,11 @@
       line-height:{{ section.settings.banner_font_size_button }}px;
       padding: 10px;
       font-weight: 500;
+      {% if block.settings.enable_button_link %}
+      cursor: pointer;
+      {% else %}
+      cursor: auto;
+      {% endif %}
     }
     #shopify-section-{{ section.id }} .helper-text__content {
       display: flex;
@@ -1498,10 +1525,12 @@
   #shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v {
     padding: 10px;
   }
+  {% unless section.settings.vasta_border_color_1 == section.settings.vasta_buttons_color_1 or section.settings.vasta_border_color_1 == 'rgba(0,0,0,0)' %}
   #shopify-section-{{ section.id }} .btn-v:hover,
   #shopify-section-{{ section.id }} .btn-v:active {
-    border: 3px solid {{ section.settings.vasta_border_color_1_hover }};
+    border: 3px solid {{ section.settings.vasta_border_color_1 }};
     }
+  {% endunless %}
   #shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v.{{ section.settings.vasta_buttons_hover_effect }}:hover,
   #shopify-section-{{ section.id }} .homepage-style-1.banner .slider-buttons .btn-v.{{ section.settings.vasta_buttons_hover_effect }}:active {
     background-color: {{ section.settings.vasta_buttons_hover_color_1 }};
@@ -1543,7 +1572,7 @@
 @media screen and (min-width: 1020px) {
   #shopify-section-{{ section.id }} .homepage-style-1.banner .banner-titles .banner-sub-title {
     font-weight: 300;
-    margin-top: -8px;
+    margin: 2px 0 15px;
   }
   #shopify-section-{{ section.id }} .custom-banner--dashed .banner-titles .banner-sub-title {
     margin-top: 0 !important;

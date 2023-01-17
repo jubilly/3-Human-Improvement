@@ -95,7 +95,6 @@
 
 .products-highlights__metafield {
   color: var(--products-highlights--title);
-  font-weight: 500;
   font-size: 16px;
   line-height: 120%;
 }
@@ -118,19 +117,20 @@
   display: block;
   color: var(--button-link-text);
   border-radius: 32px;
-  padding: 8px;
+  padding: 5px 17px;
   width: 166px;
   font-size: 14px;
   line-height: 14px;
   position: relative;
   text-align: center;
+  transform: translatex(-50%);
 }
 
 .products-highlights__cta-link span {
   font-family: inherit;
 }
 
-.products-highlights__cta-link:before {
+/* .products-highlights__cta-link:before {
   content: "";
   height: 100%;
   width: 100%;
@@ -141,7 +141,7 @@
   z-index: -1;
   transition: all 0.3s;
   transform: scale(1);
-}
+} */
 
 .products-highlights__cta-link:hover {
   background: var(--button-link-background-hover);
@@ -157,9 +157,10 @@
 }
 
 .products-highlights__cta-link-text {
-  line-height: 14px;
+  line-height: 15px;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .products-highlights__hero-product-content {
@@ -299,10 +300,12 @@
 
 .products-highlights-drawer-item__product-1 .products-highlights__info-content--floating {
   right: 168px;
+  padding-left: 16%;
 }
 
 .products-highlights-drawer-item__product-2 .products-highlights__info-content--floating {
   left: 159px;
+  padding-right: 16%;
 }
 
 .products-highlights__description {
@@ -312,6 +315,8 @@
   color: var(--products-highlights--texts);
   font-weight: 400;
   font-family: var(--auxiliarFont);
+  width: 100%;
+  font-size: 0.975rem;
 }
 
 .products-highlights__link + .products-highlights__uvps {
@@ -426,7 +431,8 @@
     right: 120px;
   }
   .products-highlights-drawer-item__product-2 .products-highlights__info-content--floating {
-    left: 78px;
+    left: 90px;
+    padding-right: 0%;
   }
   .products-highlights-drawer-item__product-2 .products-highlights__action {
     right: 48px;
@@ -517,6 +523,13 @@
   }
   .products-highlights-drawer-item .products-highlights__hero-image-shadow {
     left: 25px;
+  }
+  .products-highlights-drawer-item__product-1 .products-highlights__info-content--floating {
+    padding-left: 5%;
+  }
+  .products-highlights__description {
+    font-size: 14px;
+    height: auto;
   }
 }
 @media screen and (max-width: 767px) {

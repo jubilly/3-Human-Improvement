@@ -108,7 +108,24 @@
 
   {%- endunless -%}
 
+  .show-desktop {
+    display: none!important;
+  }
+
+  .show-tablet-and-up {
+      display: none!important;
+  }
+
+  @media screen and (min-width: 1020px) {
+      .show-desktop {
+          display: block!important;
+      }    
+  }
+
   @media(max-width: 1019px) {
+    .show-tablet-and-up {
+      display: block!important;
+    }   
     .header__logo svg, .header__logo img {
       {%- if section.settings.choose_custom_dimensions contains "width" -%}
         width: {{ section.settings.tablet_logo_max_width }}px;
@@ -152,25 +169,7 @@
 </style>
 
 <style scoped type="lazyload2">
-  .show-desktop {
-    display: none!important;
-  }
-
-  .show-tablet-and-up {
-      display: none!important;
-  }
-
-  @media screen and (max-width: 1019px) {
-      .show-tablet-and-up {
-          display: block!important;
-      }    
-  }
-
-  @media screen and (min-width: 1020px) {
-      .show-desktop {
-          display: block!important;
-      }    
-  }
+  
   .header__sitewide__wrapper {
     display: flex;
     align-items: center;
