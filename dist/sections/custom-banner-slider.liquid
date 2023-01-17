@@ -1,78 +1,209 @@
 <style>
 
-.sliders-banner__content {
-    position: relative;
-    max-width: 40rem;
-    height: 26.625rem;
-    margin: 0 auto;
-    overflow: hidden;
-}
+    #shopify-section-{{ section.id }} .sliders-banner {
+        padding: 50px 0 60px;
+    }
 
-.sliders-banner__item {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 26.625rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 1s;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__content {
+        position: relative;
+        max-width: 50rem;
+        height: 471px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
 
-.sliders-banner__actions {
-    position: relative;
-    width: 30%;
-    margin: auto;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__content::-webkit-scrollbar {
+        display: none;
+    }
 
-.sliders-banner__dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__item {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        transition: transform 1s;
+        gap: 28px;
+    }
 
-.sliders-banner__dot.sliders-banner__active {
-    background: #272727;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__headline--tablet-down {
+        display: block;
+    }
 
-.sliders-banner__dot {
-    margin: 0 5px;
-    border-radius: 0.5rem;
-    background: rgba(39,39,39, .5);
-    cursor: pointer;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #D9D9D9;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__headline--mobile {
+        display: none;
+    }
+    {% for block in section.blocks %}
+        #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__image-content {
+            width: {{ block.settings.width_cta_image }}px;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__texts {
+            width: {{ block.settings.width_message_text }}px;
+        }
+    {% endfor %}
 
-.sliders-banner__button {
-    width: 8px;
-    height: 16px;
-    cursor: pointer
-    top: 0;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__image-content {
+        height: auto;
+    }
 
-.sliders-banner__button path {
-    stroke: #C9C9C9;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__image-content img {
+        height: 100%;
+        object-fit: cover;
+    }
 
-.sliders-banner__prev {
-    position: absolute;
-    left: 0;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__actions {
+        position: relative;
+        width: auto;
+        margin: auto;
+        padding-top: 60px;
+        max-width: 104px;
+    }
 
-.sliders-banner__next {
-    position: absolute;
-    right: 0;
-}
+    #shopify-section-{{ section.id }} .sliders-banner__dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        flex-wrap: wrap;
+        gap: 5px 0;
+    }
 
+    #shopify-section-{{ section.id }} .sliders-banner__dot.sliders-banner__active {
+        background: {{ section.settings.dots_active_color }};
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__dot {
+        margin: 0 5px;
+        border-radius: 0.5rem;
+        background: {{ section.settings.dots_color }};
+        cursor: pointer;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__button {
+        width: 8px;
+        height: 16px;
+        cursor: pointer;
+        bottom: -5px;
+        background: transparent;
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__button path {
+        stroke: {{ section.settings.slider_buttons }};
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__prev {
+        position: absolute;
+        left: -20px;
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__next {
+        position: absolute;
+        right: -20px;
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__headline {
+        font-weight: 500;
+        font-size: {{ section.settings.font_size_headline_desk }}px;
+        line-height: 120%;
+        color: {{ section.settings.headline_color }};
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__message-text {
+        color: {{ section.settings.message_color }};
+        font-size: {{ section.settings.font_size_message_desk }}px;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 300;
+    }
+
+    #shopify-section-{{ section.id }} .sliders-banner__headline + .sliders-banner__message-text {
+        margin-top: 10px;
+    }
+    @media (max-width: 1019px) {
+        #shopify-section-{{ section.id }} .sliders-banner__content {
+            height: 320px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__headline {
+            font-size: {{ section.settings.font_size_headline_tablet }}px;
+            line-height: 120%;
+            width: 100%;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__message-text {
+            font-size: {{ section.settings.font_size_message_tablet }}px;
+        }
+
+        #shopify-section-{{ section.id }} .sliders-banner__actions {
+            padding-top: 37px;
+        }
+
+        #shopify-section-{{ section.id }} .sliders-banner__item {
+            gap: 21px;
+        }
+
+        {% for block in section.blocks %}
+            #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__image-content {
+                width: {{ block.settings.width_cta_image_tablet }}px;
+            }
+            #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__texts {
+                width: {{ block.settings.width_message_text_tablet }}px;
+            }
+        {% endfor %}
+    }
+
+    @media (max-width: 767px) {
+
+        #shopify-section-{{ section.id }} .sliders-banner {
+            padding: 40px 0;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__headline {
+            font-size: {{ section.settings.font_size_headline_mobile }}px;
+            line-height: 120%;
+            width: 60%;
+            margin: auto;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__headline--tablet-down {
+            display: none;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__headline--mobile {
+            display: block;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__message-text {
+            font-size: {{ section.settings.font_size_message_mobile }}px;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__actions {
+            padding-top: 10px;
+        }
+        #shopify-section-{{ section.id }} .sliders-banner__item {
+            gap: 0 13px;
+            padding: 0 7px;
+        }
+    
+        {% for block in section.blocks %}
+            #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__image-content {
+                width: {{ block.settings.width_cta_image_mobile }}px;
+            }
+            #shopify-section-{{ section.id }} .sliders-banner__item--{{ forloop.index0 }} .sliders-banner__texts {
+                width: {{ block.settings.width_message_text_mobile }}px;
+            }
+        {% endfor %}
+    }
 </style>
 <div class="sliders-banner">
     <div class="sliders-banner__content">
         {% for block in section.blocks %}
-            <div class="sliders-banner__item">
+            <div class="sliders-banner__item sliders-banner__item--{{ forloop.index0 }}">
+                <div class="sliders-banner__headline--mobile">
+                    <h2 class="sliders-banner__headline">{{ block.settings.headline }}</h2>
+                </div>
                 <div class="sliders-banner__image-content">
                     {%- render 'responsive-image',
                         id_prefix: 'sliders-banner__image',
@@ -82,8 +213,11 @@
                         no_wrap: true
                     -%}
                 </div>
-                <div class="sliders-banner__message-text">
-                    {{ block.settings.message }}
+                <div class="sliders-banner__texts">
+                    <h2 class="sliders-banner__headline sliders-banner__headline--tablet-down">{{ block.settings.headline }}</h2>
+                    <div class="sliders-banner__message-text">
+                        {{ block.settings.message }}
+                    </div>
                 </div>
             </div>
         {% endfor %}
@@ -112,7 +246,7 @@
 {% schema %}
     {
         "name": "Sliders Banner Carousel",
-        "class": "sliders-banner",
+        "class": "section-sliders-banner",
         "settings": [
             {
                 "type": "header",
@@ -124,14 +258,130 @@
                 "label": "Headline"
             },
             {
+                "type": "header",
+                "content": "Headline Font sizes"
+            },
+            {
+                "type": "paragraph",
+                "content": "Desktop"
+            },
+            {
                 "type": "range",
-                "id": "slider_speed",
-                "label": "Slider Speed",
-                "max": 40,
+                "id": "font_size_headline_desk",
+                "label": "Font size",
+                "max": 48,
                 "min": 1,
-                "unit": "s",
+                "unit": "px",
                 "step": 1,
-                "default": 10
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Tablet"
+            },
+            {
+                "type": "range",
+                "id": "font_size_headline_tablet",
+                "label": "Font size",
+                "max": 48,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "font_size_headline_mobile",
+                "label": "Font size",
+                "max": 48,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "header",
+                "content": "Message Font sizes"
+            },
+            {
+                "type": "paragraph",
+                "content": "Desktop"
+            },
+            {
+                "type": "range",
+                "id": "font_size_message_desk",
+                "label": "Font size",
+                "max": 48,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Tablet"
+            },
+            {
+                "type": "range",
+                "id": "font_size_message_tablet",
+                "label": "Font size",
+                "max": 48,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "font_size_message_mobile",
+                "label": "Font size",
+                "max": 48,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Colors"
+            },
+            {
+                "type": "color",
+                "id": "headline_color",
+                "label": "Headline",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "message_color",
+                "label": "Message",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "dots_color",
+                "label": "Dots",
+                "default": "#D9D9D9"
+            },
+            {
+                "type": "color",
+                "id": "dots_active_color",
+                "label": "Actived Dot",
+                "default": "#FF8835"
+            },
+            {
+                "type": "color",
+                "id": "slider_buttons",
+                "label": "Buttons prev and nex",
+                "default": "#C9C9C9"
             }
         ],
         "blocks": [
@@ -145,9 +395,106 @@
                         "label": "Banner Image"
                     },
                     {
+                        "type": "text",
+                        "id": "headline",
+                        "label": "Headline"
+                    },
+                    {
                         "type": "html",
                         "id": "message",
                         "label": "Message"
+                    },
+                    {
+                        "type": "header",
+                        "content": "Image size"
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Desktop"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_cta_image",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Image Size",
+                        "default": 352
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Tablet"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_cta_image_tablet",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Image Size",
+                        "default": 352
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Mobile"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_cta_image_mobile",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Image Size",
+                        "default": 352
+                    },
+                    {
+                        "type": "header",
+                        "content": "Message text"
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Desktop"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_message_text",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Message text Size",
+                        "default": 352
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Tablet"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_message_text_tablet",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Message text Size",
+                        "default": 352
+                    },
+                    {
+                        "type": "paragraph",
+                        "content": "Mobile"
+                    },
+                    {
+                        "type": "range",
+                        "id": "width_message_text_mobile",
+                        "min": 80,
+                        "max": 400,
+                        "step": 8,
+                        "unit": "px",
+                        "label": "Message text Size",
+                        "default": 352
                     }
                 ]
             }
@@ -165,6 +512,7 @@
 
 <script>
     const bannerSlider = () => {
+        const carousel = document.querySelector('.sliders-banner__content');
         const carouselSlides = document.querySelectorAll('.sliders-banner__item');
         const btnPrev = document.querySelector('.sliders-banner__prev');
         const btnNext = document.querySelector('.sliders-banner__next');
@@ -209,6 +557,40 @@
                 activeDot(slide);
             }
         });
+
+        carousel.addEventListener('scroll', (event) => {
+            const wrapperRect = carousel.getBoundingClientRect();
+            const totalWidth = wrapperRect.width;
+            const itemRect = carousel.children[0].getBoundingClientRect();
+            const itemWidth = itemRect.width;
+            const scrollX = event.target.scrollLeft + (totalWidth - itemWidth);
+            const result = parseInt(scrollX / itemWidth);
+            currentSlide = result;
+            activeDot(currentSlide);
+        });
     };
-    bannerSlider();
+
+    document.addEventListener('DOMContentLoaded', () => {
+        bannerSlider();
+    });
+
+    document.addEventListener('shopify:section:load', function (event) {
+        bannerSlider();
+    });
+  
+    document.addEventListener('shopify:section:unload', function (event) {
+        bannerSlider();
+    });
+
+    document.addEventListener('shopify:section:select', function (event) {
+        bannerSlider();
+    });
+  
+    document.addEventListener('shopify:section:deselect', function (event) {
+        bannerSlider();
+    });
+
+    document.addEventListener('shopify:section:reorder', function (event) {
+        bannerSlider();
+    });
 </script>

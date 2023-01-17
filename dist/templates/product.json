@@ -440,47 +440,6 @@
         "width_cta_image": 370
       }
     },
-    "59d5d688-d611-4407-93fa-68d2074d091a": {
-      "type": "custom-call-to-action",
-      "settings": {
-        "custom_class": "custom-cta-section",
-        "buy_now_background_color": "#ffffff",
-        "buy_nowbackgroung_height": 75,
-        "buy_now_background_top_position": 50,
-        "buy_now_line_direction": "row-reverse",
-        "box_limit": 304,
-        "headline": "A new sustainable way to protein",
-        "text_above_button": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
-        "text_above_button_tablet": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
-        "text_above_button_mobile": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
-        "block_text_align": "left",
-        "headline_transform_button": "capitalize",
-        "headline_font_size": 32,
-        "headline_font_size_tablet": 32,
-        "headline_font_size_mobile": 20,
-        "text_above_font_size": 14,
-        "text_above_font_size_tablet": 20,
-        "text_above_font_size_mobile": 20,
-        "headline_color": "#000000",
-        "text_above_color": "#c9c9c9",
-        "buy_now_text_button": "",
-        "text_transform_button": "capitalize",
-        "text_button_font_size": 14,
-        "width_cta_botton": 100,
-        "button_background_color": "#ffffff",
-        "button_hover_background_color": "#9c2135",
-        "button_text_color": "#9c2135",
-        "button_hover_text_color": "#ffffff",
-        "button_border_color": "#ffffff",
-        "button_hover_border_color": "#ffffff",
-        "id_product_block": "",
-        "use_add_to_cart": false,
-        "use_external_link": false,
-        "url_product": "",
-        "url_call_to_action": "shopify:\/\/shop_images\/IMAGEM.png",
-        "width_cta_image": 355
-      }
-    },
     "642fca3a-41a6-4667-9a60-253d646bb14c": {
       "type": "custom-banner-slider",
       "blocks": {
@@ -488,35 +447,70 @@
           "type": "Banner",
           "settings": {
             "image": "shopify:\/\/shop_images\/IMAGEM.png",
-            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+            "headline": "A new sustainable way to protein",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+            "width_cta_image": 352,
+            "width_cta_image_tablet": 240,
+            "width_cta_image_mobile": 168,
+            "width_message_text": 344,
+            "width_message_text_tablet": 288,
+            "width_message_text_mobile": 160
           }
         },
         "0b56cbc1-f756-4d49-93a0-1772a6ed2587": {
           "type": "Banner",
           "settings": {
             "image": "shopify:\/\/shop_images\/IMAGEM_l_At_home_1.png",
-            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+            "headline": "A new sustainable way to protein",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+            "width_cta_image": 352,
+            "width_cta_image_tablet": 240,
+            "width_cta_image_mobile": 168,
+            "width_message_text": 344,
+            "width_message_text_tablet": 288,
+            "width_message_text_mobile": 160
           }
         },
         "fd3961d7-ecc4-4683-bb69-3a5c64ce0ea2": {
           "type": "Banner",
           "settings": {
             "image": "shopify:\/\/shop_images\/IMAGEM_l_After_training_1.png",
-            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+            "headline": "A new sustainable way to protein",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+            "width_cta_image": 352,
+            "width_cta_image_tablet": 240,
+            "width_cta_image_mobile": 168,
+            "width_message_text": 344,
+            "width_message_text_tablet": 288,
+            "width_message_text_mobile": 160
           }
         },
         "1f2e3c89-9cbb-48bc-8a83-f01b7e08eded": {
           "type": "Banner",
           "settings": {
             "image": "shopify:\/\/shop_images\/IMAGEM_l_Pre_workout_1.png",
-            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+            "headline": "A new sustainable way to protein",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+            "width_cta_image": 352,
+            "width_cta_image_tablet": 240,
+            "width_cta_image_mobile": 168,
+            "width_message_text": 344,
+            "width_message_text_tablet": 288,
+            "width_message_text_mobile": 160
           }
         },
         "cc9f8941-f877-493b-b27b-a4cdfe93568c": {
           "type": "Banner",
           "settings": {
             "image": "shopify:\/\/shop_images\/IMAGEM_l_In_training.png",
-            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder."
+            "headline": "A new sustainable way to protein",
+            "message": "We discovered a new sustainable protein that's easy to digest while delivering better for your body.\n<br>\n<br>\n+ Builds lean muscle\n<br>\n+ Faster recovery\n<br>\n+ Easier to digest\n<br>\n+ Essential Vitamins\n<br>\n+ Promotes gut health\n<br>\n<br>\nAll of this from one forgotten superfood: cricket protein powder.",
+            "width_cta_image": 352,
+            "width_cta_image_tablet": 240,
+            "width_cta_image_mobile": 168,
+            "width_message_text": 344,
+            "width_message_text_tablet": 288,
+            "width_message_text_mobile": 160
           }
         }
       },
@@ -529,7 +523,17 @@
       ],
       "settings": {
         "headline": "",
-        "slider_speed": 10
+        "font_size_headline_desk": 36,
+        "font_size_headline_tablet": 30,
+        "font_size_headline_mobile": 20,
+        "font_size_message_desk": 16,
+        "font_size_message_tablet": 14,
+        "font_size_message_mobile": 12,
+        "headline_color": "#000000",
+        "message_color": "#c9c9c9",
+        "dots_color": "#d9d9d9",
+        "dots_active_color": "#ff8835",
+        "slider_buttons": "#c9c9c9"
       }
     }
   },
@@ -542,7 +546,6 @@
     "3d40ebac-3cb6-4b54-bcdf-f6d610f08ecd",
     "928e9928-8d85-4afc-a603-1326b01347b4",
     "b0f186b8-690f-42ee-88e9-ec198a4063a8",
-    "59d5d688-d611-4407-93fa-68d2074d091a",
     "642fca3a-41a6-4667-9a60-253d646bb14c"
   ]
 }

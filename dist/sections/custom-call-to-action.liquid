@@ -72,19 +72,20 @@
 </section>
 
 <style scoped type="lazyload2">
-#shopify-section-{{ section.id }} .cta-content-button {
+  #shopify-section-{{ section.id }} .cta-content-button {
     width: {{ section.settings.width_cta_botton }}%;
     max-width:{{ section.settings.box_limit }}px;
     margin: 0 auto;
   }
-  .call-to-action__wrapper--row-reverse{
+  #shopify-section-{{ section.id }} .call-to-action__wrapper--row-reverse{
     flex-direction: row-reverse;
   }
-  .call-to-action__content-button{
+  #shopify-section-{{ section.id }} .call-to-action__content-button{
     flex-direction: column;
     max-width: 100%;
   }
-  .call-to-action__content-button, .call-to-action__wrappper {
+  #shopify-section-{{ section.id }} .call-to-action__content-button, 
+  #shopify-section-{{ section.id }} .call-to-action__wrappper {
     justify-content: center;
     gap: 73px;
   }
@@ -94,8 +95,8 @@
     margin-left: 0;
     width: {{ section.settings.width_cta_image }}px;
   }
-  .call-to-action__button,
-  .call-to-action__button--error {
+  #shopify-section-{{ section.id }} .call-to-action__button,
+  #shopify-section-{{ section.id }} .call-to-action__button--error {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -104,7 +105,7 @@
     text-align: center;
     height: auto;
   }
-  .call-to-action__image-wrapper{
+  #shopify-section-{{ section.id }} .call-to-action__image-wrapper{
     max-width: 400px;
   }
   #shopify-section-{{ section.id }} .call-to-action__headline {
@@ -120,71 +121,71 @@
     align-items: center;
     gap: 7.66px;
     }
-  .call-to-action__text-above-button{
+  #shopify-section-{{ section.id }} .call-to-action__text-above-button{
     margin: 0 0 4px 0;
     font-family: 'HelveticaNeueLight', sans-serif;
     line-height: 120%;
   }
 
-  .call-to-action__desktop {
+  #shopify-section-{{ section.id }} .call-to-action__desktop {
     display: block;
   }
-  .call-to-action__tablet {
+  #shopify-section-{{ section.id }} .call-to-action__tablet {
     display: none;
   }
-  .call-to-action__mobile {
+  #shopify-section-{{ section.id }} .call-to-action__mobile {
     display: none;
   }
   @media (max-width: 767px) {
-    .call-to-action__learn-more-button,
-    .call-to-action__button,
-    .call-to-action__button--error {
+    #shopify-section-{{ section.id }} .call-to-action__learn-more-button,
+    #shopify-section-{{ section.id }} .call-to-action__button,
+    #shopify-section-{{ section.id }} .call-to-action__button--error {
       display: flex;
       height: 100%;
     }
-    .call-to-action__wrappper {
+    #shopify-section-{{ section.id }} .call-to-action__wrappper {
       gap: 30px;
       padding: 30px 0;
     }
-    .call-to-action__wrapper--row {
+    #shopify-section-{{ section.id }} .call-to-action__wrapper--row {
       flex-direction: column-reverse;
     }
-    .call-to-action__image-wrapper{
+    #shopify-section-{{ section.id }} .call-to-action__image-wrapper{
       width: 100%;
       max-width: 400px;
       text-align: center;
     }
-    .call-to-action__button,
-    .call-to-action__button--error{
+    #shopify-section-{{ section.id }} .call-to-action__button,
+    #shopify-section-{{ section.id }} .call-to-action__button--error{
       justify-content: center;
       align-items: center;
       height: 50px;
     }
-    .call-to-action__learn-more-button {
+    #shopify-section-{{ section.id }} .call-to-action__learn-more-button {
       justify-content: center;
     }
-    .call-to-action__content-button {
+    #shopify-section-{{ section.id }} .call-to-action__content-button {
       align-items: center;
       padding: 0;
       max-width: 400px;
     }
-    .call-to-action__image-wrapper + .call-to-action__form-wrapper,
-    .call-to-action__form-wrapper + .call-to-action__image-wrapper {
+    #shopify-section-{{ section.id }} .call-to-action__image-wrapper + .call-to-action__form-wrapper,
+    #shopify-section-{{ section.id }} .call-to-action__form-wrapper + .call-to-action__image-wrapper {
       margin-left: 0;
     }
   }
 
-.call-to-action .buy-now .buy-now-bg-{{ section.id }} {
+  #shopify-section-{{ section.id }} .call-to-action .buy-now .buy-now-bg-{{ section.id }} {
     background-color: {{ section.settings.buy_now_background_color }};
     top: {{ section.settings.buy_now_background_top_position }}%;
     height: {{ section.settings.buy_nowbackgroung_height }}%;
 }
 
-.call-to-action .buy-now .buy-now-wrapper-{{ section.id }} {
+#shopify-section-{{ section.id }} .call-to-action .buy-now .buy-now-wrapper-{{ section.id }} {
     flex-direction:{{ section.settings.buy_now_line_direction }};
 }
 
-.call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }} {
+#shopify-section-{{ section.id }} .call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }} {
     color:{{ section.settings.button_text_color }} ;
     background-color:{{ section.settings.button_background_color }};
     font-size:{{ section.settings.buy_now_size_button }}px;
@@ -192,14 +193,14 @@
     text-transform: {{ section.settings.text_transform_button }};
 }
 
-.call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }}:hover,
-.call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }}:active {
+#shopify-section-{{ section.id }} .call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }}:hover,
+#shopify-section-{{ section.id }} .call-to-action .buy-now .buy-now-wrapper .buy-now-btn-{{ section.id }}:active {
     color: {{ section.settings.button_hover_text_color }};
     background: {{ section.settings.button_hover_background_color }};
     border-color: {{ section.settings.button_hover_border_color }};
 }
 
-.cta-content-rte {
+#shopify-section-{{ section.id }} .cta-content-rte {
   margin-bottom: 10px;
 }
 
@@ -238,38 +239,70 @@
 }
 
 @media (max-width: 1019px) {
-  .call-to-action__desktop {
+  #shopify-section-{{ section.id }} .call-to-action__desktop {
     display: none;
   }
-  .call-to-action__tablet {
+  #shopify-section-{{ section.id }} .call-to-action__tablet {
     display: block;
   }
   #shopify-section-{{ section.id }} .call-to-action__headline {
     font-size: {{ section.settings.headline_font_size_tablet }}px;
-    line-height: 32px;
+    line-height: 120%;
+  }
+
+  #shopify-section-{{ section.id }} .call-to-action__content-button, 
+  #shopify-section-{{ section.id }} .call-to-action__wrappper {
+    justify-content: center;
+    gap: 28.41px;
   }
   #shopify-section-{{ section.id }} .call-to-action__text-above-button {
-    font-size: {{ section.settings.text_above_button_tablet }}px;
+    font-size: {{ section.settings.text_above_font_size_tablet }}px;
     line-height: 120%;
+    max-width: {{ section.settings.box_limit_tablet }}px;
+  }
+  #shopify-section-{{ section.id }} .call-to-action__image-wrapper + .call-to-action__form-wrapper,
+  #shopify-section-{{ section.id }} .call-to-action__form-wrapper + .call-to-action__image-wrapper {
+    margin-left: 0;
+    width: {{ section.settings.width_cta_image_tablet }}px;
   }
 }
 @media (max-width: 767px) {
-  .call-to-action__desktop {
+  #shopify-section-{{ section.id }} .custom-cta-vertical-breath.call-to-action {
+    margin-top: 0;
+  }
+  #shopify-section-{{ section.id }} .custom-cta-vertical-breath .call-to-action__wrappper{
+    padding: 0;
+  }
+  #shopify-section-{{ section.id }} .call-to-action__block .wrapper {
+    padding: 0 17px 0 23px;
+  }
+  #shopify-section-{{ section.id }} .call-to-action__desktop {
     display: none;
   }
-  .call-to-action__tablet {
+  #shopify-section-{{ section.id }} .call-to-action__tablet {
     display: none;
   }
-  .call-to-action__mobile {
+  #shopify-section-{{ section.id }} .call-to-action__mobile {
     display: block;
   }
   #shopify-section-{{ section.id }} .call-to-action__headline {
     font-size: {{ section.settings.headline_font_size_mobile }}px;
-    line-height: 16px;
+    line-height: 120%;
+  }
+  #shopify-section-{{ section.id }} .call-to-action__content-button, 
+  #shopify-section-{{ section.id }} .call-to-action__wrappper {
+    justify-content: center;
+    gap: 5px 17px;
   }
   #shopify-section-{{ section.id }} .call-to-action__text-above-button {
     font-size: {{ section.settings.text_above_font_size_mobile }}px;
     line-height: 175%;
+    max-width: {{ section.settings.box_limit_mobile }}px;
+  }
+  #shopify-section-{{ section.id }} .call-to-action__image-wrapper + .call-to-action__form-wrapper,
+  #shopify-section-{{ section.id }} .call-to-action__form-wrapper + .call-to-action__image-wrapper {
+    margin-left: 0;
+    width: {{ section.settings.width_cta_image_mobile }}px;
   }
 }
 </style>
@@ -390,13 +423,49 @@ setTimeout(function(){
     ]
   },
   {
+      "type": "header",
+      "content": "Box Text and Button Width"
+  },
+  {
+      "type": "paragraph",
+      "content": "Desktop"
+  },
+  {
     "type": "range",
     "id": "box_limit",
     "min": 100,
     "max": 332,
     "step": 4,
     "unit": "px",
-    "label": "Box Text and Button Width",
+    "label": "Width",
+    "default": 200
+  },
+  {
+      "type": "paragraph",
+      "content": "Tablet"
+  },
+  {
+    "type": "range",
+    "id": "box_limit_tablet",
+    "min": 100,
+    "max": 332,
+    "step": 4,
+    "unit": "px",
+    "label": "Width",
+    "default": 200
+  },
+  {
+      "type": "paragraph",
+      "content": "Mobile"
+  },
+  {
+    "type": "range",
+    "id": "box_limit_mobile",
+    "min": 100,
+    "max": 332,
+    "step": 4,
+    "unit": "px",
+    "label": "Width",
     "default": 200
   },
   {
@@ -680,6 +749,14 @@ setTimeout(function(){
     "info": "800x800"
   },
   {
+    "type": "header",
+    "content": "Image size"
+  },
+  {
+    "type": "paragraph",
+    "content": "Desktop"
+  },
+  {
     "type": "range",
     "id": "width_cta_image",
     "min": 100,
@@ -688,6 +765,34 @@ setTimeout(function(){
     "unit": "px",
     "label": "Image Size",
     "default": 370
+  },
+  { 
+    "type": "paragraph",
+    "content": "Tablet"
+  },
+  {
+    "type": "range",
+    "id": "width_cta_image_tablet",
+    "min": 80,
+    "max": 400,
+    "step": 8,
+    "unit": "px",
+    "label": "Image Size",
+    "default": 352
+  },
+  {
+    "type": "paragraph",
+    "content": "Mobile"
+  },
+  {
+    "type": "range",
+    "id": "width_cta_image_mobile",
+    "min": 80,
+    "max": 400,
+    "step": 8,
+    "unit": "px",
+    "label": "Image Size",
+    "default": 352
   }
 ],
 "presets": [
