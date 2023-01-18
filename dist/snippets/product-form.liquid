@@ -22,9 +22,17 @@
       <div class="product-form-label">{{ 'products.product.quantity' | t }}</div>
       
       <div class="product-quantity-wrapper">
-        <button id="ButtonMinus" aria-label="ButtonMinus" type="button" class="btn btn-minus" {% unless product.variants.size != 1 %}disabled="disabled"{% endunless %}>{% render 'icon-minus' %}</button>
+        <button id="ButtonMinus" aria-label="ButtonMinus" type="button" class="btn btn-minus" {% unless product.variants.size != 1 %}disabled="disabled"{% endunless %}>
+          <svg width="10" height="3" viewBox="0 0 10 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.423828 2.71979V0.779785H9.18383V2.71979H0.423828Z" fill="black"/>
+          </svg>
+        </button>
         <input id="ProductQuantity" aria-label="ProductQuantity" class="quantity" name="quantity" value="1" data-max="{% if product.selected_or_first_available_variant.inventory_policy == 'continue' or product.selected_or_first_available_variant.inventory_management == blank %}-1 {%else%}{{ product.selected_or_first_available_variant.inventory_quantity }}{% endif %}" step="1" type="number" {% unless product.variants.size != 0 %}disabled="disabled"{% endunless %} />
-        <button id="ButtonPlus" aria-label="ButtonPlus" type="button" class="btn btn-plus" {% unless product.variants.size != 0 %}disabled="disabled"{% endunless %}>{% render 'icon-plus' %}</button>
+        <button id="ButtonPlus" aria-label="ButtonPlus" type="button" class="btn btn-plus" {% unless product.variants.size != 0 %}disabled="disabled"{% endunless %}>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.55797 5.76016H9.07797V4.02016H5.55797V0.660156H3.85797V4.02016H0.417969V5.76016H3.85797V9.14016H5.55797V5.76016Z" fill="black"/>
+          </svg>
+        </button>
       </div>
     
       <span id="StockWarning" class="stock-wrn">
@@ -60,10 +68,10 @@
     <button type="submit" class="{% if settings.disable_cartDrawer != true %} cart-icon {% endif %} btn btn-add-tocart " id="AddToCart" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %} {% unless product.selected_or_first_available_variant.available %} style="display: none;" {% endunless %}>
       {%- if settings.enable_price_atc -%}
         <span class="btn-money">{{ product.price | money }}</span>
-        <span class="divisor">-</span>
+        <span class="divisor">|</span>
       {%- endif -%}
       <span class="btn-label">{{ settings.add_to_cart_label }}</span>
-      <span class="btn-svg"> {%- render 'icon-cart' -%} </span>
+      <span class="btn-svg">{%- render 'custom-icon-cart' -%}</span>
       <span class="btn-items">1 {{ 'products.product.item' | t }}</span>
 
      {%- if settings.atc_progress_bar -%}
@@ -77,7 +85,7 @@
         <span class="divisor">|</span>
       {%- endif -%}
       <span class="btn-label">{{ settings.add_to_cart_label }}</span>
-      <span class="btn-svg">{%- render 'icon-cart' -%}</span>
+      <span class="btn-svg">{%- render 'custom-icon-cart' -%}</span>
       <span class="btn-items">1 {{ 'products.product.item' | t }}</span>
 
       {%- if settings.atc_progress_bar -%}

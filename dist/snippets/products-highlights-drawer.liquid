@@ -98,6 +98,9 @@
                         </span>
                     </div>
                 {% endif %}
+                <a href="{{ product_link }}" class="products-highlights__cta-link products-highlights__cta-link--mobile customHeadline4 mobile" aria-hidden="false" title="{{ section.settings.enable_product_link_label }}"> 
+                    {{ enable_product_link_label }}
+                </a>
             </div>
         </div>
     </div>
@@ -114,7 +117,7 @@
         {% endif %}
         {% if enable_product_link == true and enable_product_link_label != blank %}
             <div class="products-highlights__link">
-                <a href="{{ product_link }}" class="products-highlights__cta-link customHeadline4" target="{{ section.settings.button_link_target }}" aria-hidden="false" title="{{ section.settings.enable_product_link_label }}"> 
+                <a href="{{ product_link }}" class="products-highlights__cta-link customHeadline4" aria-hidden="false" title="{{ section.settings.enable_product_link_label }}"> 
                     {{ enable_product_link_label }}
                 </a>
             </div>
@@ -124,11 +127,6 @@
                 {{ drawerUvps }}
             </div>
         {% endif %}
-    </div>
-    <div class="products-highlights__link--mobile">
-        <a href="{{ product_link }}" class="products-highlights__cta-link customHeadline4" target="{{ section.settings.button_link_target }}" aria-hidden="false" title="{{ section.settings.enable_product_link_label }}"> 
-            {{ enable_product_link_label }}
-        </a>
     </div>
     {% if enable_badge and text_badge != blank %}
         <div class="products-highlights__badge products-highlights__badge-{{ source }}">

@@ -34,6 +34,10 @@
   left: var(--button-link-x);
 }
 
+.products-highlights__cta-content:not(.products-highlights__info-content--floating) {
+  transform: translatex(-50%);
+}
+
 .products-highlights__content {
   height: 415px;
 }
@@ -123,7 +127,6 @@
   line-height: 14px;
   position: relative;
   text-align: center;
-  transform: translatex(-50%);
 }
 
 .products-highlights__cta-link span {
@@ -309,9 +312,6 @@
 }
 
 .products-highlights__description {
-  height: var(--drawer-description-height);
-  max-height: 200px;
-  overflow: hidden;
   color: var(--products-highlights--texts);
   font-weight: 400;
   font-family: var(--auxiliarFont);
@@ -319,8 +319,8 @@
   font-size: 0.975rem;
 }
 
-.products-highlights__link + .products-highlights__uvps {
-  margin-top: 35px;
+.products-highlights__info-content--floating .products-highlights__link {
+  margin: 15px 0 20px;
 }
 
 .products-highlights__link--mobile {
@@ -425,7 +425,7 @@
   }
   .products-highlights__info-content--floating {
     top: 55px;
-    max-width: 291px;
+    max-width: 305px;
   }
   .products-highlights-drawer-item__product-1 .products-highlights__info-content--floating {
     right: 120px;
@@ -503,11 +503,6 @@
     margin-top: 15px;
     font-size: 14px;
     line-height: 120%;
-  }
-  .products-highlights__description {
-    height: var(--drawer-description-height-tablet);
-    max-height: 200px;
-    overflow: hidden;
   }
   .products-highlights-drawer-item .products-highlights__product-image-content {
     height: 175px;
@@ -610,9 +605,6 @@
     box-shadow: none;
   }
   .products-highlights__description {
-    height: var(--drawer-description-height-mobile);
-    max-height: 200px;
-    overflow: hidden;
     font-size: 12px;
     line-height: 120%;
     max-width: 169px;
@@ -630,6 +622,7 @@
   }
   .products-highlights__badge-label {
     font-size: 12px;
+    max-width: 130px;
   }
   .products-highlights-drawer-item__product-2[open] .products-highlights__badge-label {
     margin-left: 0;
@@ -653,5 +646,9 @@
     font-size: 12px;
     line-height: 100%;
     width: 125px;
+    position: static;
+  }
+  .products-highlights__cta-link--mobile {
+    margin-top: 48px;
   }
 }

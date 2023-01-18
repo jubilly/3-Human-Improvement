@@ -1,0 +1,280 @@
+<style>
+    .product-comparison__floating-text {
+        text-align: center;
+    }
+
+    .product-comparison__content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 3%;
+        padding: 0 24px;
+    }
+
+    .product-comparison__principal {
+        width: {{ section.settings.width_cta_image }}%;
+        max-width: 500px;
+    }
+    .product-comparison__texts {
+        width: 100%;
+        flex-grow: 1;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .section-product-comparison {
+        padding: 48px 0;
+    }
+</style>
+<div class="product-comparison">
+    <div class="product-comparison__content">
+        <div class="product-comparison__floating-text product-comparison__our-text">
+            <h2>
+                {{ section.settings.headline1 }}
+            </h2>
+            <p>
+                {{ section.settings.subheadline1 }}
+            </p>
+        </div>
+        <div class="product-comparison__principal">
+            <div class="product-comparasion__image-wrapper">
+                {%- render 'responsive-image',
+                    id_prefix: 'product-comparasion__image',
+                    image: section.settings.image,
+                    active_lazy: true,
+                    max_width: 500,
+                    no_wrap: true
+                -%}
+            </div>
+        </div>
+        <div class="product-comparison__floating-text product-comparison__their-text">
+            <h2>
+                {{ section.settings.headline2 }}
+            </h2>
+            <p>
+                {{ section.settings.subheadline2 }}
+            </p>
+        </div>
+        <div class="product-comparison__texts">
+            {% for block in section.blocks %}
+                <p class="product-comparasion__item">
+                    {{ block.settings.message }}
+                </p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "Product Comparison",
+        "class": "section-product-comparison",
+        "settings": [
+            {
+                "type": "header",
+                "content": "General Settings"
+            },
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Image",
+                "info": "Recommended .png (508x648)"
+            },
+            {
+                "type": "text",
+                "id": "headline1",
+                "label": "Headline 1"
+            },
+            {
+                "type": "text",
+                "id": "subheadline1",
+                "label": "Sub Headline 1"
+            },
+            {
+                "type": "text",
+                "id": "headline2",
+                "label": "Headline 2"
+            },
+            {
+                "type": "text",
+                "id": "subheadline2",
+                "label": "Our Sub Text"
+            },
+            {
+                "type": "header",
+                "content": "Headline Font sizes"
+            },
+            {
+                "type": "paragraph",
+                "content": "Desktop"
+            },
+            {
+                "type": "range",
+                "id": "font_size_headline_desk",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Tablet"
+            },
+            {
+                "type": "range",
+                "id": "font_size_headline_tablet",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "font_size_headline_mobile",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "header",
+                "content": "Text Comparison Font sizes"
+            },
+            {
+                "type": "paragraph",
+                "content": "Desktop"
+            },
+            {
+                "type": "range",
+                "id": "font_size_text_comparison_desk",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Tablet"
+            },
+            {
+                "type": "range",
+                "id": "font_size_text_comparison_tablet",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "paragraph",
+                "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "font_size_text_comparison_mobile",
+                "label": "Font size",
+                "max": 41,
+                "min": 1,
+                "unit": "px",
+                "step": 1,
+                "default": 32
+            },
+            {
+                "type": "header",
+                "content": "Image size"
+            },
+            {
+                "type": "paragraph",
+                "content": "Desktop"
+            },
+            {
+                "type": "range",
+                "id": "width_cta_image",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "%",
+                "label": "Image Size",
+                "default": 50
+            },
+            {
+                "type": "paragraph",
+                "content": "Tablet"
+            },
+            {
+                "type": "range",
+                "id": "width_cta_image_tablet",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "%",
+                "label": "Image Size",
+                "default": 50
+            },
+            {
+                "type": "paragraph",
+                "content": "Mobile"
+            },
+            {
+                "type": "range",
+                "id": "width_cta_image_mobile",
+                "min": 0,
+                "max": 100,
+                "step": 1,
+                "unit": "%",
+                "label": "Image Size",
+                "default": 50
+            },
+            {
+                "type": "paragraph",
+                "content": "Colors"
+            },
+            {
+                "type": "color",
+                "id": "headline_color",
+                "label": "Headline",
+                "default": "#000"
+            },
+            {
+                "type": "color",
+                "id": "comparison_color",
+                "label": "Comparison text",
+                "default": "#000"
+            }
+        ],
+        "blocks": [
+            {
+                "name": "comparison",
+                "type": "Comparison",
+                "settings": [
+                    {
+                        "type": "html",
+                        "id": "message",
+                        "label": "Message"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "Product Comparison",
+                "blocks": [
+                    
+                ]
+            }
+        ]
+    }
+{% endschema %}

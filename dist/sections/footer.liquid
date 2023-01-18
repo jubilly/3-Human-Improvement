@@ -903,7 +903,7 @@
       _run: function() {
         if ( window.innerWidth < 1020 ) {
           $('.site-footer .menu-footer-grid').addClass('clickable');
-          $('.site-footer .half-content .clickable:not(:first) ul').slideUp();
+          $('.site-footer .half-content .clickable ul').slideUp();
         } else {
           $('.site-footer .menu-footer-grid').removeClass('clickable');
         }
@@ -927,6 +927,7 @@
               $('.nav-title', this).addClass('row-rotate');
               $('.no-bullets', this).stop().slideDown();
               $(this).siblings().children('.nav-title').removeClass('row-rotate');
+              $(this).siblings().find('.no-bullets').slideUp();
             }
           }
         });

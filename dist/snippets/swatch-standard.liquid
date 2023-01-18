@@ -15,17 +15,20 @@
                required/>
         <span class="swatch-value">
             {% if value contains "(" %}
+               {% assign labelInfo = value | split: "(" | last %}
                <span class="swatch-value--large-text">
                 {{ value | split: "(" | first }}
                </span>
-                <span class="swatch-value--small-text">
-                    ({{ value | split: "(" | last }} 
-                </span>
             {% else %}
                 {{ value }}
             {% endif %}    
         </span>
         <span class="{% if settings.swatch_round_size_product_page %}swatch-value-circle-checked{% else %}swatch-value-checked{% endif %}"></span>
+        {% if labelInfo != blank %}
+            <span class="custom-swatch-element__info">
+                {{ labelInfo | prepend: '(' | downcase }}
+            </span>
+        {% endif %}
         {%- if settings.enable_tooltip -%}
             <span class="tooltip-standard">{{ val }}</span>
         {%- endif -%}

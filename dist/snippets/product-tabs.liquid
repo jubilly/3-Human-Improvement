@@ -83,7 +83,7 @@
             <button class="btn btn-add-tocart" {% if product.selected_or_first_available_variant.available %}  {% else %} style="display: none;" {% endif %} id="AddToCart2">
                 {%- if settings.enable_price_atc -%}
                     <span class="btn-money money">{{ product.price | money }}</span>
-                    <span class="divisor">-</span>
+                    <span class="divisor">|</span>
                 {%- endif -%}
                 <span class="btn-label">{{ settings.add_to_cart_label }}</span>
                 <span class="btn-svg"> {%- render 'icon-cart' -%} </span>

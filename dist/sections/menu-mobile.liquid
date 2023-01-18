@@ -540,76 +540,80 @@
 
 <script type="lazyload2">
   setTimeout(function(){
-    // Open Menu Mobile
-    document.querySelector('.header__icon__wrap.icon--menu').addEventListener("click", function() {
-      if (document.body.classList.contains('js-drawer-open-left')) {
-        document.body.classList.remove('js-drawer-open-left');
-      } else {
-        document.querySelector('.main-content').classList.add('is-moved-by-drawer');
-        document.querySelector('.shopify-section header').classList.add('is-moved-¹by-drawer');
-        document.querySelector('body').classList.add('js-drawer-open-left');
+    try {
+      // Open Menu Mobile
+      document.querySelector('.header__icon__wrap.icon--menu').addEventListener("click", function() {
+        if (document.body.classList.contains('js-drawer-open-left')) {
+          document.body.classList.remove('js-drawer-open-left');
+        } else {
+          document.querySelector('.main-content').classList.add('is-moved-by-drawer');
+          //document.querySelector('.shopify-section header').classList.add('is-moved-by-drawer');
+          document.querySelector('body').classList.add('js-drawer-open-left');
+        }
+      })
+  
+      // Close Nav
+      const closeNav = function(elClass) {
+        document.querySelector(`${elClass}`).addEventListener('click', function() {
+          document.querySelector('body').classList.remove('js-drawer-open-left','cart-open','cart-drawer-open' );
+        })
       }
-    })
-
-    // Close Nav
-    const closeNav = function(elClass) {
-      document.querySelector(`${elClass}`).addEventListener('click', function() {
-        document.querySelector('body').classList.remove('js-drawer-open-left','cart-open','cart-drawer-open' );
+  
+      closeNav('.sidenav__close');
+      closeNav('.DrawerOverlay')
+  
+      // Toggle Plus / Minus 
+      let allSideNavIcon = document.querySelectorAll('.sidenav__icon')
+  
+      document.querySelectorAll('.js-dropdown').forEach(el => {
+        el.addEventListener("click", function(e) {
+          this.nextElementSibling.click()
+        })
       })
-    }
-
-    closeNav('.sidenav__close');
-    closeNav('.DrawerOverlay')
-
-    // Toggle Plus / Minus 
-    let allSideNavIcon = document.querySelectorAll('.sidenav__icon')
-
-    document.querySelectorAll('.js-dropdown').forEach(el => {
-      el.addEventListener("click", function(e) {
-        this.nextElementSibling.click()
-      })
-    })
-    
-    allSideNavIcon.forEach(icon => {
-      icon.addEventListener('click', function(e) {
-        let listType = this.getAttribute('data-toggle');
-
-        if(this.querySelector('.toggle').classList.contains('toggle--plus')) {
-          
-          this.querySelector('.toggle--plus').classList.add('rotateVerticalLine','rotateHorizontalLine')
-          
-          let listEl = this.closest('.sidenav__list__item');
-          
-          if (listType === "grandchild") {
-            this.closest('.list--child').style.height = "auto";
-          }
+      
+      allSideNavIcon.forEach(icon => {
+        icon.addEventListener('click', function(e) {
+          let listType = this.getAttribute('data-toggle');
   
-          size = 0;
-          let allChildEl = listEl.querySelectorAll(`.list--${listType} > .sidenav__list__item`);
-          
-          allChildEl.forEach(item => {
-            size += item.offsetHeight;
-          })
-  
-          document.querySelector(`.sidenav .list--${listType}`).style.height = `${size}px`;
-  
-          this.querySelector('.toggle').classList.remove('toggle--plus');
-          this.querySelector('.toggle').classList.add('toggle--minus');
-        }
-        else {
-          if (listType === "child") {
+          if(this.querySelector('.toggle').classList.contains('toggle--plus')) {
+            
+            this.querySelector('.toggle--plus').classList.add('rotateVerticalLine','rotateHorizontalLine')
+            
             let listEl = this.closest('.sidenav__list__item');
-            const menuHeight = listEl.querySelector('.list--child').offsetHeight;
-            document.querySelector(`.sidenav .list--${listType}`).style.height = `${menuHeight}px`;
+            
+            if (listType === "grandchild") {
+              this.closest('.list--child').style.height = "auto";
+            }
+    
+            size = 0;
+            let allChildEl = listEl.querySelectorAll(`.list--${listType} > .sidenav__list__item`);
+            
+            allChildEl.forEach(item => {
+              size += item.offsetHeight;
+            })
+    
+            document.querySelector(`.sidenav .list--${listType}`).style.height = `${size}px`;
+    
+            this.querySelector('.toggle').classList.remove('toggle--plus');
+            this.querySelector('.toggle').classList.add('toggle--minus');
           }
-
-          this.querySelector('.toggle').classList.remove('rotateVerticalLine','rotateHorizontalLine')
-          this.querySelector('.toggle').classList.remove('toggle--minus');
-          this.querySelector('.toggle').classList.add('toggle--plus');
-
-          setTimeout(function() {document.querySelector(`.sidenav .list--${listType}`).style.height = `0`}, 50);
-        }
-      })  
-    })
-});
+          else {
+            if (listType === "child") {
+              let listEl = this.closest('.sidenav__list__item');
+              const menuHeight = listEl.querySelector('.list--child').offsetHeight;
+              document.querySelector(`.sidenav .list--${listType}`).style.height = `${menuHeight}px`;
+            }
+  
+            this.querySelector('.toggle').classList.remove('rotateVerticalLine','rotateHorizontalLine')
+            this.querySelector('.toggle').classList.remove('toggle--minus');
+            this.querySelector('.toggle').classList.add('toggle--plus');
+  
+            setTimeout(function() {document.querySelector(`.sidenav .list--${listType}`).style.height = `0`}, 50);
+          }
+        })  
+      })
+    } catch(err) {
+      console.error(err);
+    }
+  });
 </script>
