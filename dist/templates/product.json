@@ -236,13 +236,50 @@
         "color_review_content": "#ffffff"
       }
     },
-    "related-products": {
-      "type": "relatedproducts",
+    "218600bf-84f6-4107-b0b7-a39ba1b0f8ce": {
+      "type": "product-comparison",
+      "blocks": {
+        "1d8bccc8-2fbe-4a5d-b750-6d1efdada2b1": {
+          "type": "Comparison",
+          "settings": {
+            "message": "No bloating"
+          }
+        },
+        "70b5904e-27da-4d8c-87bc-affdae2ae877": {
+          "type": "Comparison",
+          "settings": {
+            "message": "No added sugar"
+          }
+        },
+        "90c4987f-5652-4cc8-a778-dd7080442c59": {
+          "type": "Comparison",
+          "settings": {
+            "message": "No dairy, soy, whey"
+          }
+        }
+      },
+      "block_order": [
+        "1d8bccc8-2fbe-4a5d-b750-6d1efdada2b1",
+        "70b5904e-27da-4d8c-87bc-affdae2ae877",
+        "90c4987f-5652-4cc8-a778-dd7080442c59"
+      ],
       "settings": {
-        "section_title": "Other Fine Products",
-        "enable_uppercase": "uppercase",
-        "text_transform_products_title": "uppercase",
-        "show_price": true
+        "image": "shopify:\/\/shop_images\/IMAGEM_l_Produto.png",
+        "headline1": "Our",
+        "subheadline1": "Protein",
+        "headline2": "Their",
+        "subheadline2": "Protein",
+        "font_size_headline_desk": 32,
+        "font_size_headline_tablet": 32,
+        "font_size_headline_mobile": 32,
+        "font_size_text_comparison_desk": 32,
+        "font_size_text_comparison_tablet": 32,
+        "font_size_text_comparison_mobile": 32,
+        "width_cta_image": 18,
+        "width_cta_image_tablet": 50,
+        "width_cta_image_mobile": 50,
+        "headline_color": "#000",
+        "comparison_color": "#000"
       }
     },
     "loox-product-reviews-app-section": {
@@ -547,17 +584,27 @@
         "dots_active_color": "#ff8835",
         "slider_buttons": "#c9c9c9"
       }
+    },
+    "related-products": {
+      "type": "relatedproducts",
+      "settings": {
+        "section_title": "Other Fine Products",
+        "enable_uppercase": "uppercase",
+        "text_transform_products_title": "uppercase",
+        "show_price": true
+      }
     }
   },
   "order": [
     "main",
     "8b0a175e-9940-4b4c-bd4f-1bfd2599e905",
-    "related-products",
+    "218600bf-84f6-4107-b0b7-a39ba1b0f8ce",
     "loox-product-reviews-app-section",
     "0fa7700b-ab53-4f09-bfe7-93dd13d2d6e3",
     "3d40ebac-3cb6-4b54-bcdf-f6d610f08ecd",
     "928e9928-8d85-4afc-a603-1326b01347b4",
     "b0f186b8-690f-42ee-88e9-ec198a4063a8",
-    "642fca3a-41a6-4667-9a60-253d646bb14c"
+    "642fca3a-41a6-4667-9a60-253d646bb14c",
+    "related-products"
   ]
 }

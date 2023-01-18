@@ -32,7 +32,7 @@
     "favicon": "shopify:\/\/shop_images\/favicon.jpg",
     "vasta_wrapper_width": 1200,
     "disable_recently_viewed_on_homepage_page": true,
-    "recently_viewed_section_title_text_transform": "uppercase",
+    "recently_viewed_section_title_text_transform": "capitalize",
     "enable_button_to_the_top": true,
     "general_font": "mono",
     "vasta_copy_body": 16,
